@@ -1,0 +1,16 @@
+:root {
+	--color-common-primary: var(--palette-lime-200);
+	--color-common-base: var(--palette-gray-950);
+	--color-common-secondary: var(--palette-gray-700);
+
+	--color-text-primary: var(--palette-lime-200);
+	--color-text-base: var(--palette-gray-100);
+	--color-text-secondary: var(--palette-gray-400);
+	--color-text-tertiary: var(--palette-gray-600);
+	--color-text-bg: var(--palette-gray-800);
+
+	--color-surface-base: var(--palette-gray-950);
+	--color-surface-secondary: var(--palette-gray-900);
+
+	--color-border-base: var(--palette-gray-800);
+}
