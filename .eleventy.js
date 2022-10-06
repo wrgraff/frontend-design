@@ -3,6 +3,8 @@ const autoprefixer = require('autoprefixer');
 const csso = require('postcss-csso');
 const pimport = require('postcss-import');
 const fs = require('fs');
+const yaml = require('js-yaml');
+const markdown = require('markdown-it')({ html: true });
 
 module.exports = function (config) {
 
@@ -28,6 +30,20 @@ module.exports = function (config) {
 		}
 	});
 
+	// YAML
+
+	config.addDataExtension('yml', (contents) => {
+		return yaml.load(contents);
+	});
+
+    // Markdown
+
+    config.addFilter('markdown', (value) => {
+        return markdown.render(value);
+    });
+
+    config.setLibrary('md', markdown);
+
 	// Passthrough copy
 
 	[
@@ -35,8 +51,6 @@ module.exports = function (config) {
 	].forEach(
 		path => config.addPassthroughCopy(path)
 	);
-
-	config.addShortcode('year', () => `${new Date().getFullYear()}`);
 
 	// Config
 

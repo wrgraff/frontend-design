@@ -4,99 +4,292 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Smol 11ty Starter
+		<title>
+			
 			
 		</title>
 		<link rel="stylesheet" href="/css/index.css">
 	</head>
 
 	<body class="page__body">
-		
+		<header class="page__header header">
+	<a href="/" class="header__logo logo">
+		<span class="logo__word">
+			<span class="logo__letter">A</span>rtur
+		</span>
+		<span class="logo__word">
+			<span class="logo__letter">T</span>rifonov
+		</span>
+		<span class="visually-hidden">site</span>
+	</a>
+</header>
 
-<nav>
-  <ul role="list">
-    <li>
-      <a aria-current="page" href="/">Home</a>
-    </li>
-
-    
-    <li>
-      <a 
-         
-        href="/page-one/">
-          Page One
-      </a>
-    </li>
-    <li>
-      <a 
-         
-        href="/page-two/">
-          Page Two
-      </a>
-    </li>
-  </ul>
-</nav>
 
 		
 <header>
-  <h1>Smol 11ty Starter</h1>
+	<h1></h1>
 </header>
 <main>
-  <article>
-    <h2>Extremely minimal Eleventy starter to kickstart a simple multi-page site / a nearly opinionless foundation to continue building on.</h2>
-<p>Created by Stephanie Eckles - <a href="https://twitter.com/5t3ph">@5t3ph</a> - author of <a href="https://11ty.rocks">11ty.Rocks</a>, <a href="https://moderncss.dev">ModernCSS.dev</a>, and <a href="https://smolcss.dev">SmolCSS.dev</a>.</p>
-<h3>Quick Start</h3>
-<ol>
-<li>
-<p><a href="https://github.com/5t3ph/smol-11ty-starter/generate">Generate a repo from this template</a> which will copy this project into your own new repo. <em>Note: You must be signed in to GitHub for this link to work</em>, else <a href="https://github.com/5t3ph/smol-11ty-starter/">visit the repo directly</a>.</p>
-</li>
-<li>
-<p>Once cloned, run <code>npm install</code> to install 11ty. Then run <code>npm start</code> to run 11ty in <code>serve</code> mode which will create a local server including hot-reload via BrowserSync.</p>
-<ul>
-<li>Use <code>npm run build</code> to run a production version.</li>
-</ul>
-</li>
-<li>
-<p>Open <code>src/_data/meta.js</code> and adjust the values to your details.</p>
-</li>
-<li>
-<p>Edit <code>index.md</code> to change the home page, and then create content within <code>src/pages</code> using any templating format you prefer to add content.</p>
-</li>
-</ol>
-<blockquote>
-<p>Review the resources available at <a href="https://11ty.rocks">11ty Rocks</a> to learn how to apply more customizations, including adding custom data sources and reviewing what template languages are available.</p>
-</blockquote>
-<h2>Learn More About Eleventy</h2>
-<ul>
-<li>Get the highlights in my <a href="https://youtu.be/p81J7G1qFAM">14 minute feature overview</a></li>
-<li>Enjoy written tutorials? Start with my post on <a href="https://11ty.rocks/posts/create-your-first-basic-11ty-website/">creating your first Eleventy website</a></li>
-<li>Enjoy video tutorials? Learn to <a href="https://5t3ph.dev/learn-11ty">build an Eleventy site including Sass</a> in my 20 minute egghead course</li>
-</ul>
-<h2>Resources For Building With Eleventy</h2>
-<ul>
-<li>You may want to swap to <a href="https://github.com/5t3ph/11ty-sass-skeleton">use Sass instead of CSS</a> and include minifying/autoprefixing (you can copy the relevant bits from the config and the package scripts/dependencies)</li>
-<li>Review <a href="https://11ty.rocks/eleventyjs/">additional common config customizations</a></li>
-<li>Check out some <a href="https://11ty.rocks/tips/">quick tips</a> to learn more about using Eleventy's features</li>
-<li>Add automatically generated <a href="https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images">social images with my plugin</a></li>
-</ul>
-<h3>Icing chocolate fruitcake bear claw bonbon</h3>
-<p>Icing chocolate fruitcake bear claw bonbon. Ice cream tiramisu sesame snaps marshmallow carrot cake sesame snaps. Powder jelly-o soufflé powder dragée caramels jelly-o chupa chups. Sweet roll chocolate cake candy canes wafer lollipop caramels chupa chups. Wafer powder donut powder croissant donut ice cream macaroon fruitcake. Donut powder fruitcake bear claw liquorice gingerbread toffee. Powder biscuit marzipan.</p>
-<!-- Provided within _data/catpic.js -->
-<p><img src="https://purr.objects-us-east-1.dream.io/i/3abec.jpg" alt="cat of the day"></p>
-<p>Macaroon cheesecake cupcake cotton candy jujubes cupcake. Chocolate sweet sugar plum candy dessert sesame snaps pie. Chocolate cake carrot cake cake macaroon cotton candy brownie tart sugar plum. Icing chocolate caramels macaroon marzipan cookie candy. Sugar plum pie sweet roll chocolate bar chocolate cake jujubes jelly beans lollipop. Caramels muffin toffee bonbon icing wafer toffee tiramisu lemon drops. Sweet jujubes fruitcake bonbon cake donut. Liquorice sweet roll bonbon chocolate bar candy canes marshmallow biscuit chocolate cake marshmallow.</p>
-<p>Cupcake pudding oat cake. Halvah candy canes gingerbread tiramisu chupa chups lollipop. Toffee toffee cake. Jelly beans jelly beans chupa chups liquorice dessert donut caramels. Cake caramels jelly-o cake. Cake sweet donut soufflé pudding pie fruitcake gummies.</p>
+	<article>
+		<main class="page__main main">
+	<section class="main__section promo">
+		<h1 class="promo__heading">I design interfaces</h1>
+		<p class="promo__text">I create interfaces for analytics systems with a lot of data represented in graphs and tables. Also I create design systems with detailed UI documentation.</p>
+		<div class="promo__buttons">
+			<a href="files/cv-en.pdf" class="button">CV</a>
+			<a href="/#portfolio" class="button">Portfolio</a>
+		</div>
+	</section>
 
-  </article>
+	<section class="main__category category">
+		<heading class="category__header category-header">
+			<h2 class="category-header__heading">I create an ergonomic and usable design</h2>
+			<p class="category-header__lead">I create an ergonomic and usable design</p>
+			
+			<div class="category-header__description">
+				<p>I work in design all my professional life since year 2011. I started as a graphic designer then switched to web.</p>
+<p>Likewise, I worked as a web designer and learned web technologies. Since autumn 2021 I have worked as a product designer.</p>
+
+			</div>
+		</heading>
+
+		<section class="category__section section">
+			<h3 class="section__heading">Skills</h3>
+			
+				<p class="section__comment"></p>
+			
+			<ul class="section__skills skills">
+				
+					<li class="skills__item">Design system, UI ki</li>
+				
+					<li class="skills__item">Atomic design &amp; tokens</li>
+				
+					<li class="skills__item">Figma design + prototypes</li>
+				
+					<li class="skills__item">Documentation (storybook)</li>
+				
+					<li class="skills__item">UX research</li>
+				
+					<li class="skills__item">HTML, CSS, JS / SPA</li>
+				
+					<li class="skills__item">Mentorship</li>
+				
+					<li class="skills__item">Writing texts</li>
+				
+			</ul>
+		</section>
+
+		<section class="category__section section">
+			<h3 class="section__heading">Portfolio</h3>
+			
+				<p class="section__comment"></p>
+			
+		</section>
+	</section>
+
+	<section class="main__category category">
+		<heading class="category__header category-header">
+			<h2 class="category-header__heading">Aacademy</h2>
+			<p class="category-header__lead">I help people to start career in frontend</p>
+			
+			<div class="category-header__description">
+				<p>I have worked in <a href="https://htmlacademy.ru/">.html academy</a> since 2019 as a mentor. I also work with materials, blog and additional courses as author and reviewer.</p>
+<p>I like to work with students: share my experience and look how they growing up. And it’s very nice to have a good feedback from them.</p>
+
+			</div>
+		</heading>
+
+		<section class="category__section section">
+			<h3 class="section__heading">Courses</h3>
+			
+				<p class="section__comment"></p>
+			
+			<h4 class="visually-hidden">Courses where I&#39;m working</h4>
+			<ul class="section__courses courses">
+				
+					<li class="courses__item">
+						<span class="label">Mentor in</span>
+						<a href="https://htmlacademy.ru/profession/frontender" class="courses__title">Profession Frontend developer</a>
+						
+							<span class="courses__comment">Ask me about discount ;-)</span>
+						
+					</li>
+				
+					<li class="courses__item">
+						<span class="label">Review author in</span>
+						<a href="https://htmlacademy.ru/profession/frontender-solo" class="courses__title">Profession Frontend developer (light version)</a>
+						
+					</li>
+				
+					<li class="courses__item">
+						<span class="label">Co-author of</span>
+						<a href="https://levelup.htmlacademy.ru/design" class="courses__title">Course Design for frontend developers</a>
+						
+					</li>
+				
+			</ul>
+
+			<h4 class="visually-hidden">My achievements</h4>
+			<ul class="section__achievements achievements">
+				
+					<li class="achievements__item">
+						<span class="achievements__amount">
+							15</span>
+						сourses I mentored in 3 years
+					</li>
+				
+					<li class="achievements__item">
+						<span class="achievements__amount">
+							50</span>
+						students I mentored during one or two courses of the profession
+					</li>
+				
+					<li class="achievements__item">
+						<span class="achievements__amount">
+							66<sup>%</sup></span>
+						of students passed the exam, which is above the average for the course
+					</li>
+				
+					<li class="achievements__item">
+						<span class="achievements__amount">
+							30<sup>%</sup></span>
+						of students leaved thanks with ratings 10 out of 10
+					</li>
+				
+					<li class="achievements__item">
+						<span class="achievements__amount">
+							10</span>
+						articles written for learning materials
+					</li>
+				
+					<li class="achievements__item">
+						<span class="achievements__amount">
+							23</span>
+						review articles with task examples for light course
+					</li>
+				
+			</ul>
+		</section>
+
+		<section class="category__section section">
+			<h3 class="section__heading">Links</h3>
+			
+				<p class="section__comment">* All materials are in russian language</p>
+			
+
+			<ul class="section__links links">
+				
+					<li class="links__item">
+						<h3 class="links__heading">Figma basics for frontenders</h3>
+						<p class="links__text">Open online lesson on academy’s YouTube channel about base Figma instruments which can help developers to work with layouts</p>
+						<a href="https://youtu.be/mnoWBLMD0zw" class="links__link links__link--video">Video on YouTube</a>
+						
+					</li>
+				
+					<li class="links__item">
+						<h3 class="links__heading">Modern technologies in IT</h3>
+						<p class="links__text">Review of changes and actual technologies in web and application development</p>
+						<a href="https://youtu.be/pQNoBoh_Ngg?t=16023" class="links__link links__link--video">Video on YouTube</a>
+						
+							<a href="https://youtu.be/pQNoBoh_Ngg?t=16023" class="links__link links__link--slides">Slides</a>
+						
+					</li>
+				
+					<li class="links__item">
+						<h3 class="links__heading">Modern web page layout</h3>
+						<p class="links__text">Lecture how to create modern page layout with accesibility, adaptive and optimized loading speed</p>
+						<a href="https://youtu.be/PxGzo5Utde8?t=19331" class="links__link links__link--video">Video on YouTube</a>
+						
+							<a href="https://youtu.be/pQNoBoh_Ngg?t=16023" class="links__link links__link--slides">Slides</a>
+						
+					</li>
+				
+					<li class="links__item">
+						<h3 class="links__heading">Content Management System</h3>
+						<p class="links__text">A lecture history of CMS and modern working methods with web sites content</p>
+						<a href="https://youtu.be/-gN7KLYaRSo?t=13475" class="links__link links__link--video">Video on YouTube</a>
+						
+							<a href="https://youtu.be/pQNoBoh_Ngg?t=16023" class="links__link links__link--slides">Slides</a>
+						
+					</li>
+				
+					<li class="links__item">
+						<h3 class="links__heading">Common design mistakes and how to fix them</h3>
+						<p class="links__text">Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?</p>
+						<a href="https://htmlacademy.ru/blog/articles/bad-design" class="links__link links__link--article">Article on .html academy blog</a>
+						
+					</li>
+				
+					<li class="links__item">
+						<h3 class="links__heading">Help for students learning HTML and CSS</h3>
+						<p class="links__text">Articles about some specific difficulties faced by students who learning how to create web page layouts with HTML and CSS</p>
+						<a href="https://mentorium.frontend-design.ru/" class="links__link links__link--">mentorium.frontend-design.ru</a>
+						
+					</li>
+				
+			</ul>
+		</section>
+	</section>
+
+	<section class="main__category category">
+		<heading class="category__header category-header">
+			<h2 class="category-header__heading">Contacts</h2>
+			<p class="category-header__lead">Contact me if you interested in work together</p>
+			
+				<p class="category-header__comment">Or just to talk =)</p>
+			
+
+			<ul class="category-header__links contact-links">
+				
+					<li class="contact-links__item">
+						<a href="mailto:hello@frontend-design.ru" class="contact-links__link">hello@frontend-design.ru</a>
+					</li>
+				
+					<li class="contact-links__item">
+						<a href="https://t.me/wrgraff" class="contact-links__link">Telegram</a>
+					</li>
+				
+					<li class="contact-links__item">
+						<a href="https://www.linkedin.com/in/arturtrifonov/" class="contact-links__link">LinkedIn</a>
+					</li>
+				
+					<li class="contact-links__item">
+						<a href="https://github.com/wrgraff/" class="contact-links__link">GitHub</a>
+					</li>
+				
+			</ul>
+		</heading>
+	</section>
 </main>
 
-		<footer class="page__footer">
-			<div>
-				<p>&copy; 2022
-					Smol 11ty Starter
-					 • Stephanie Eckles
-					
-				</p>
-			</div>
-		</footer>
+	</article>
+</main>
+
+
+		<nav class="page__aside aside">
+	<div class="aside__me me">
+		<img src="./img/me.png" class="me__img" alt="" aria-hidden="true">
+		<p class="me__name">Artur Trifonov</p>
+		<a href="mailto:info@fron" class="me__email">hello@frontend-design.ru</a>
+	</div>
+
+	<ul class="aside__list site-list">
+		<li class="site-list__item">
+			<a href="/#about" class="site-list__link">About</a>
+		</li>
+		<li class="site-list__item">
+			<a href="/#design" class="site-list__link">Design</a>
+		</li>
+		<li class="site-list__item">
+			<a href="/#academy" class="site-list__link">Academy</a>
+		</li>
+		<li class="site-list__item">
+			<a href="/#contacts" class="site-list__link">Contacts</a>
+		</li>
+	</ul>
+
+	<p class="aside__copy">© Artur Trifonov</p>
+</nav>
+
 	</body>
 </html>

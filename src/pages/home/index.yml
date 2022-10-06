@@ -1,0 +1,119 @@
+layout: page.njk
+permalink: index.html
+promo:
+  heading: I design interfaces
+  lead: I create interfaces for analytics systems with a lot of data represented in graphs and tables. Also I create design systems with detailed UI documentation.
+design:
+  heading: I create an ergonomic and usable design
+  lead: I create an ergonomic and usable design
+  text: |
+    I work in design all my professional life since year 2011. I started as a graphic designer then switched to web.
+
+    Likewise, I worked as a web designer and learned web technologies. Since autumn 2021 I have worked as a product designer.
+  skills:
+    heading: Skills
+    list:
+      - Design system, UI ki
+      - Atomic design & tokens
+      - Figma design + prototypes
+      - Documentation (storybook)
+      - UX research
+      - HTML, CSS, JS / SPA
+      - Mentorship
+      - Writing texts
+  portfolio:
+    heading: Portfolio
+academy:
+  heading: Aacademy
+  lead: I help people to start career in frontend
+  text: |
+    I have worked in [.html academy](https://htmlacademy.ru/) since 2019 as a mentor. I also work with materials, blog and additional courses as author and reviewer.
+
+    I like to work with students: share my experience and look how they growing up. And it’s very nice to have a good feedback from them.
+  courses:
+    heading: Courses
+    scope:
+      heading: Courses where I'm working
+      list:
+        - label: Mentor in
+          name: Profession Frontend developer
+          url: https://htmlacademy.ru/profession/frontender
+          comment: Ask me about discount ;-)
+        - label: Review author in
+          name: Profession Frontend developer (light version)
+          url: https://htmlacademy.ru/profession/frontender-solo
+        - label: Co-author of
+          name: Course Design for frontend developers
+          url: https://levelup.htmlacademy.ru/design
+    achievements:
+      heading: My achievements
+      list:
+        - amount: 15
+          text: сourses I mentored in 3 years
+        - amount: 50
+          text: students I mentored during one or two courses of the profession
+        - amount: 66
+          unit: '%'
+          text: of students passed the exam, which is above the average for the course
+        - amount: 30
+          unit: '%'
+          text: of students leaved thanks with ratings 10 out of 10
+        - amount: 10
+          text: articles written for learning materials
+        - amount: 23
+          text: review articles with task examples for light course
+  links:
+    heading: Links
+    comment: '* All materials are in russian language'
+    list:
+      - heading: Figma basics for frontenders
+        text: Open online lesson on academy’s YouTube channel about base Figma instruments which can help developers to work with layouts
+        link:
+          title: Video on YouTube
+          type: video
+          url: https://youtu.be/mnoWBLMD0zw
+      - heading: Modern technologies in IT
+        text: Review of changes and actual technologies in web and application development
+        link:
+          title: Video on YouTube
+          type: video
+          url: https://youtu.be/pQNoBoh_Ngg?t=16023
+        slides: https://youtu.be/pQNoBoh_Ngg?t=16023
+      - heading: Modern web page layout
+        text: Lecture how to create modern page layout with accesibility, adaptive and optimized loading speed
+        link:
+          title: Video on YouTube
+          type: video
+          url: https://youtu.be/PxGzo5Utde8?t=19331
+        slides: https://youtu.be/pQNoBoh_Ngg?t=16023
+      - heading: Content Management System
+        text: A lecture history of CMS and modern working methods with web sites content
+        link:
+          title: Video on YouTube
+          type: video
+          url: https://youtu.be/-gN7KLYaRSo?t=13475
+        slides: https://youtu.be/pQNoBoh_Ngg?t=16023
+      - heading: Common design mistakes and how to fix them
+        text: Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?
+        link:
+          title: Article on .html academy blog
+          type: article
+          url: https://htmlacademy.ru/blog/articles/bad-design
+      - heading: Help for students learning HTML and CSS
+        text: Articles about some specific difficulties faced by students who learning how to create web page layouts with HTML and CSS
+        link:
+          title: mentorium.frontend-design.ru
+          url: https://mentorium.frontend-design.ru/
+contacts:
+  heading: Contacts
+  lead: Contact me if you interested in work together
+  comment: Or just to talk =)
+  list:
+    - title: hello@frontend-design.ru
+      url: mailto:hello@frontend-design.ru
+    - title: Telegram
+      url: https://t.me/wrgraff
+    - title: LinkedIn
+      url: https://www.linkedin.com/in/arturtrifonov/
+    - title: GitHub
+      url: https://github.com/wrgraff/
