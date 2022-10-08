@@ -4,7 +4,7 @@ promo:
   heading: I design interfaces
   lead: I create interfaces for analytics systems with a lot of data represented in graphs and tables. Also I create design systems with detailed UI documentation.
 design:
-  heading: I create an ergonomic and usable design
+  heading: Design
   lead: I create an ergonomic and usable design
   text: |
     I work in design all my professional life since year 2011. I started as a graphic designer then switched to web.
@@ -24,7 +24,7 @@ design:
   portfolio:
     heading: Portfolio
 academy:
-  heading: Aacademy
+  heading: Academy
   lead: I help people to start career in frontend
   text: |
     I have worked in [.html academy](https://htmlacademy.ru/) since 2019 as a mentor. I also work with materials, blog and additional courses as author and reviewer.

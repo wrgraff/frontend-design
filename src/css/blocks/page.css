@@ -1,0 +1,29 @@
+.page {
+	min-width: 320px;
+
+	color: var(--color-text-base);
+	background-color: var(--color-surface-base);
+
+	font-family: 'Ubuntu', sans-serif;
+	font-size: var(--text-size-m);
+	line-height: 1.6;
+}
+
+.page__body {
+	margin: 0;
+}
+
+.page__aside {
+	position: fixed;
+	top: 0;
+	right: -246px;
+	bottom: 0;
+
+	width: 286px;
+}
+
+.page__aside_opened {
+	box-shadow: 0 4px 24px var(--color-common-base);
+
+	transform: translateX(-246px);
+}

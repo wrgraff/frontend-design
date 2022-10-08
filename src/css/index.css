@@ -5,4 +5,20 @@
 
 @import url('./global.css');
 
-@import url('./blocks/page/index.css');
+@import url('./blocks/visually-hidden.css');
+@import url('./blocks/page.css');
+@import url('./blocks/header.css');
+@import url('./blocks/aside.css');
+@import url('./blocks/main.css');
+@import url('./blocks/category.css');
+@import url('./blocks/category-header.css');
+@import url('./blocks/section.css');
+@import url('./blocks/site-list.css');
+@import url('./blocks/logo.css');
+@import url('./blocks/button.css');
+@import url('./blocks/label.css');
+@import url('./blocks/promo.css');
+@import url('./blocks/me.css');
+@import url('./blocks/skills.css');
+@import url('./blocks/courses.css');
+@import url('./blocks/achievements.css');

@@ -1,0 +1,34 @@
+:root {
+	--label-padding-s: 4px 8px;
+	--label-padding-m: 5px 10px;
+	--label-padding-l: 6px 10px;
+
+	--label-text-s: var(--text-size-m);
+	--label-text-m: var(--text-size-l);
+	--label-text-l: var(--text-size-xl);
+}
+
+.label {
+	--label-padding: var(--label-padding-m);
+	--label-text: var(--label-text-m);
+
+	display: inline-block;
+	padding: var(--label-padding);
+
+	color: var(--color-text-inverse);
+	background-color: var(--color-common-primary);
+	border-radius: 2px;
+
+	font-size: var(--label-text);
+	font-weight: 500;
+	line-height: 1;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+@media (width < 880px) {
+	.label_small_s {
+		--label-padding: var(--label-padding-s);
+		--label-text: var(--label-text-s);
+	}
+}

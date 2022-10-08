@@ -9,7 +9,7 @@
 	</section>
 
 	<section class="main__category category">
-		<heading class="category__header category-header">
+		<header class="category__header category-header">
 			<h2 class="category-header__heading">{{ design.heading }}</h2>
 			<p class="category-header__lead">{{ design.lead | safe }}</p>
 			{% if design.comment %}
@@ -18,10 +18,10 @@
 			<div class="category-header__description">
 				{{ design.text | markdown | safe }}
 			</div>
-		</heading>
+		</header>
 
 		<section class="category__section section">
-			<h3 class="section__heading">{{ design.skills.heading }}</h3>
+			<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.skills.heading }}</h3>
 			{% if academy.links.comment %}
 				<p class="section__comment">{{ academy.skills.comment }}</p>
 			{% endif %}
@@ -33,7 +33,7 @@
 		</section>
 
 		<section class="category__section section">
-			<h3 class="section__heading">{{ design.portfolio.heading }}</h3>
+			<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.portfolio.heading }}</h3>
 			{% if academy.links.comment %}
 				<p class="section__comment">{{ academy.portfolio.comment }}</p>
 			{% endif %}
@@ -41,7 +41,7 @@
 	</section>
 
 	<section class="main__category category">
-		<heading class="category__header category-header">
+		<header class="category__header category-header">
 			<h2 class="category-header__heading">{{ academy.heading }}</h2>
 			<p class="category-header__lead">{{ academy.lead | safe }}</p>
 			{% if academy.comment %}
@@ -50,18 +50,18 @@
 			<div class="category-header__description">
 				{{ academy.text | markdown | safe }}
 			</div>
-		</heading>
+		</header>
 
 		<section class="category__section section">
-			<h3 class="section__heading">{{ academy.courses.heading }}</h3>
-			{% if academy.links.comment %}
+			<h3 class="section__heading" data-category="{{ academy.heading }}">{{ academy.courses.heading }}</h3>
+			{% if academy.courses.comment %}
 				<p class="section__comment">{{ academy.courses.comment }}</p>
 			{% endif %}
 			<h4 class="visually-hidden">{{ academy.courses.scope.heading }}</h4>
 			<ul class="section__courses courses">
 				{% for item in academy.courses.scope.list %}
 					<li class="courses__item">
-						<span class="label">{{ item.label }}</span>
+						<span class="courses__label label label_small_s">{{ item.label }}</span>
 						<a href="{{ item.url }}" class="courses__title">{{ item.name }}</a>
 						{% if item.comment %}
 							<span class="courses__comment">{{ item.comment }}</span>
@@ -87,7 +87,7 @@
 		</section>
 
 		<section class="category__section section">
-			<h3 class="section__heading">{{ academy.links.heading }}</h3>
+			<h3 class="section__heading" data-category="{{ academy.heading }}">{{ academy.links.heading }}</h3>
 			{% if academy.links.comment %}
 				<p class="section__comment">{{ academy.links.comment }}</p>
 			{% endif %}
@@ -108,7 +108,7 @@
 	</section>
 
 	<section class="main__category category">
-		<heading class="category__header category-header">
+		<header class="category__header category-header">
 			<h2 class="category-header__heading">{{ contacts.heading }}</h2>
 			<p class="category-header__lead">{{ contacts.lead | safe }}</p>
 			{% if contacts.comment %}
@@ -122,6 +122,6 @@
 					</li>
 				{% endfor %}
 			</ul>
-		</heading>
+		</header>
 	</section>
 </main>

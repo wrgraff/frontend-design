@@ -1,0 +1,30 @@
+.me__img {
+	display: block;
+	margin: 0 0 16px;
+
+	border-radius: 50%;
+}
+
+.me__name {
+	margin: 0;
+
+	font-size: var(--text-size-l);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.me__email {
+	color: var(--color-text-primary);
+
+	text-decoration-color: transparent;
+	text-underline-offset: 4px;
+
+	transition: color 150ms, text-decoration-color 150ms;
+}
+
+.me__email:hover {
+	color: var(--color-text-primary-hover);
+
+	text-decoration-color: var(--color-text-primary-hover);
+}

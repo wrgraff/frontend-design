@@ -1,0 +1,15 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 40px;
+	border-radius: 2px;
+
+	color: var(--color-text-primary);
+	background-color: var(--color-common-base);
+
+	font-weight: 500;
+	font-size: var(--text-size-l);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .08em;
+}

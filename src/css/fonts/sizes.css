@@ -1,14 +1,14 @@
 :root {
-	--text-size-s: .875rem;
-	--text-size-m: 1rem;
-	--text-size-l: 1.125rem;
-	--text-size-xl: 1.25rem;
-	--text-size-promo: 1.75rem;
+	--text-size-s: 14px;
+	--text-size-m: 16px;
+	--text-size-l: 18px;
+	--text-size-xl: 20px;
+	--text-size-shout: 28px;
 
-	--heading-size-h6: 1.75rem;
-	--heading-size-h5: 2rem;
-	--heading-size-h4: 2.25rem;
-	--heading-size-h3: 2.5rem;
-	--heading-size-h2: 3rem;
-	--heading-size-h1: 6rem;
+	--heading-size-xs: 28px;
+	--heading-size-s: 32px;
+	--heading-size-m: 36px;
+	--heading-size-l: 40px;
+	--heading-size-xl: 48px;
+	--heading-size-shout: 96px;
 }

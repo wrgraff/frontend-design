@@ -1,0 +1,36 @@
+.section {
+	padding-right: 32px;
+}
+
+.section__heading {
+	position: relative;
+
+	margin: 0 -40px 24px;
+	padding: 0 40px;
+
+	border-bottom: 1px solid var(--color-border-base);
+
+	font-size: var(--heading-size-xs);
+	font-weight: 700;
+	text-transform: lowercase;
+}
+
+.section__heading::before {
+	content: attr(data-category) ' / ';
+	position: absolute;
+	right: calc(100% - 40px);
+
+	color: var(--color-text-bg);
+}
+
+.section__skills {
+	margin: 0;
+}
+
+.section__courses {
+	margin: 0;
+}
+
+.section__achievements {
+	margin: 40px 0 0;
+}

@@ -1,0 +1,16 @@
+.promo {
+	padding: 32px 0;
+}
+
+.promo__heading {
+	margin: 0 32px 16px 0;
+
+	font-size: var(--heading-size-l);
+	line-height: 1.3;
+}
+
+.promo__text {
+	margin: 0 32px 28px 0;
+
+	font-size: var(--text-size-l);
+}

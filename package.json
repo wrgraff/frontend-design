@@ -31,7 +31,8 @@
     "markdown-it": "^13.0.1",
     "postcss": "^8.4.17",
     "postcss-csso": "^6.0.1",
-    "postcss-import": "^15.0.0"
+    "postcss-import": "^15.0.0",
+    "postcss-media-minmax": "^5.0.0"
   },
   "devDependencies": {
     "axios": "^0.27.2"

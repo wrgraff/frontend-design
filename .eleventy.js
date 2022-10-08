@@ -1,6 +1,7 @@
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const csso = require('postcss-csso');
+const minmax = require('postcss-media-minmax');
 const pimport = require('postcss-import');
 const fs = require('fs');
 const yaml = require('js-yaml');
@@ -21,6 +22,7 @@ module.exports = function (config) {
 			return async () => {
 				let output = await postcss([
 					pimport,
+					minmax,
 					autoprefixer,
 					csso
 				]).process(inputContent, { from: inputPath });
@@ -48,6 +50,7 @@ module.exports = function (config) {
 
 	[
 		'src/fonts',
+		'src/img',
 	].forEach(
 		path => config.addPassthroughCopy(path)
 	);
