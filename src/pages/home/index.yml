@@ -64,7 +64,7 @@ academy:
           text: review articles with task examples for light course
   links:
     heading: Links
-    comment: '* All materials are in russian language'
+    comment: '* All materials are in russian language'
     list:
       - heading: Figma basics for frontenders
         text: Open online lesson on academy’s YouTube channel about base Figma instruments which can help developers to work with layouts

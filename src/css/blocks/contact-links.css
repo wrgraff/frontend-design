@@ -1,0 +1,15 @@
+.contact-links {
+	display: grid;
+	gap: 8px;
+	padding: 0;
+
+	list-style: none;
+
+	font-size: var(--text-size-m);
+}
+
+.contact-links__link {
+	color: var(--color-text-base);
+
+	text-underline-offset: 4px;
+}

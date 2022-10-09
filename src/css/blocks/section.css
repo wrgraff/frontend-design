@@ -1,14 +1,16 @@
-.section {
-	padding-right: 32px;
+.section__header {
+	display: flex;
+	align-items: flex-end;
+	margin: 0 -40px 24px;
+	padding: 0 40px;
+
+	border-bottom: 1px solid var(--color-border-base);
 }
 
 .section__heading {
 	position: relative;
 
-	margin: 0 -40px 24px;
-	padding: 0 40px;
-
-	border-bottom: 1px solid var(--color-border-base);
+	margin: 0 auto 0 0;
 
 	font-size: var(--heading-size-xs);
 	font-weight: 700;
@@ -18,9 +20,19 @@
 .section__heading::before {
 	content: attr(data-category) ' / ';
 	position: absolute;
-	right: calc(100% - 40px);
+	right: 100%;
 
 	color: var(--color-text-bg);
+}
+
+.section__comment {
+	max-width: 60%;
+	margin: 0 0 8px 16px;
+
+	color: var(--color-text-secondary);
+
+	font-size: var(--text-size-s);
+	text-align: right;
 }
 
 .section__skills {
@@ -33,4 +45,8 @@
 
 .section__achievements {
 	margin: 40px 0 0;
+}
+
+.section__links {
+	margin: 0;
 }

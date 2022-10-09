@@ -13,3 +13,7 @@
 	text-transform: uppercase;
 	letter-spacing: .08em;
 }
+
+.button_type_secondary {
+	background-color: var(--color-common-secondary);
+}
