@@ -1,25 +1,12 @@
-:root {
-	--label-padding-s: 4px 8px;
-	--label-padding-m: 5px 10px;
-	--label-padding-l: 6px 10px;
-
-	--label-text-s: var(--text-size-m);
-	--label-text-m: var(--text-size-l);
-	--label-text-l: var(--text-size-xl);
-}
-
 .label {
-	--label-padding: var(--label-padding-m);
-	--label-text: var(--label-text-m);
-
 	display: inline-block;
-	padding: var(--label-padding);
+	padding: 5px 10px;
 
 	color: var(--color-text-inverse);
 	background-color: var(--color-common-primary);
 	border-radius: 2px;
 
-	font-size: var(--label-text);
+	font-size: var(--text-size-l);
 	font-weight: 500;
 	line-height: 1;
 	text-transform: uppercase;
@@ -28,7 +15,36 @@
 
 @media (width < 880px) {
 	.label_small_s {
-		--label-padding: var(--label-padding-s);
-		--label-text: var(--label-text-s);
+		padding: 4px 8px;
+		font-size: var(--text-size-m);
+	}
+
+	.label_small_l {
+		padding: 6px 10px;
+		font-size: var(--text-size-xl);
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.label_medium_s {
+		padding: 4px 8px;
+		font-size: var(--text-size-m);
+	}
+
+	.label_medium_l {
+		padding: 6px 10px;
+		font-size: var(--text-size-xl);
+	}
+}
+
+@media (width >= 1500px) {
+	.label_large_s {
+		padding: 4px 8px;
+		font-size: var(--text-size-m);
+	}
+
+	.label_large_l {
+		padding: 6px 10px;
+		font-size: var(--text-size-xl);
 	}
 }

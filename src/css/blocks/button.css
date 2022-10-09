@@ -1,19 +1,91 @@
 .button {
 	display: inline-flex;
 	align-items: center;
-	padding: 8px 40px;
+	padding: 12px 24px;
 	border-radius: 2px;
 
-	color: var(--color-text-primary);
+	color: var(--color-common-primary);
 	background-color: var(--color-common-base);
 
 	font-weight: 500;
-	font-size: var(--text-size-l);
+	font-size: var(--text-size-m);
+	line-height: 1;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: .08em;
+
+	transition: color 200ms, background-color 200ms;
 }
 
-.button_type_secondary {
+.button:hover {
+	color: var(--color-common-primary-hover);
+	background-color: var(--color-common-base-hover);
+}
+
+.button:active {
+	color: var(--color-common-primary-active);
+	background-color: var(--color-common-base-active);
+}
+
+.button_secondary {
 	background-color: var(--color-common-secondary);
+}
+
+.button_secondary:hover {
+	background-color: var(--color-common-secondary-hover);
+}
+
+.button_secondary:active {
+	background-color: var(--color-common-secondary-active);
+}
+
+@media (width < 880px) {
+	.button_small_s {
+		padding: 9px 16px;
+		font-size: var(--text-size-s);
+	}
+
+	.button_small_l {
+		padding: 15px 32px;
+		font-size: var(--text-size-l);
+	}
+
+	.button_small_xl {
+		padding: 18px 40px;
+		font-size: var(--text-size-xl);
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.button_medium_s {
+		padding: 9px 16px;
+		font-size: var(--text-size-s);
+	}
+
+	.button_medium_l {
+		padding: 15px 32px;
+		font-size: var(--text-size-l);
+	}
+
+	.button_medium_xl {
+		padding: 18px 40px;
+		font-size: var(--text-size-xl);
+	}
+}
+
+@media (width >= 1500px) {
+	.button_large_s {
+		padding: 9px 16px;
+		font-size: var(--text-size-s);
+	}
+
+	.button_large_l {
+		padding: 15px 32px;
+		font-size: var(--text-size-l);
+	}
+
+	.button_large_xl {
+		padding: 18px 40px;
+		font-size: var(--text-size-xl);
+	}
 }

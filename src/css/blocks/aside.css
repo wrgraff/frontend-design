@@ -3,6 +3,7 @@
 	grid-template-rows: min-content 1fr min-content;
 	gap: 48px;
 	padding: 40px;
+	overflow: hidden;
 
 	background-color: var(--color-surface-secondary);
 }

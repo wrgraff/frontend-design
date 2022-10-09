@@ -1,7 +1,13 @@
 :root {
 	--color-common-primary: var(--palette-lime-200);
+	--color-common-primary-hover: var(--palette-lime-100);
+	--color-common-primary-active: var(--palette-lime-50);
 	--color-common-base: var(--palette-gray-950);
+	--color-common-base-hover: var(--palette-gray-800);
+	--color-common-base-active: var(--palette-gray-700);
 	--color-common-secondary: var(--palette-gray-700);
+	--color-common-secondary-hover: var(--palette-gray-600);
+	--color-common-secondary-active: var(--palette-gray-500);
 
 	--color-text-primary: var(--palette-lime-200);
 	--color-text-primary-hover: var(--palette-lime-300);
