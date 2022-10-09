@@ -18,13 +18,14 @@
 	color: var(--color-text-primary);
 
 	text-decoration-color: transparent;
-	text-underline-offset: 4px;
 
 	transition: color 150ms, text-decoration-color 150ms;
 }
 
 .me__email:hover {
-	color: var(--color-text-primary-hover);
-
 	text-decoration-color: var(--color-text-primary-hover);
+}
+
+.me__email:active {
+	text-decoration-color: var(--color-text-primary-active);
 }

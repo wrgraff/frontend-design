@@ -40,18 +40,6 @@
 	margin-top: 8px;
 }
 
-.category-header__description a {
-	color: var(--color-text-primary);
-
-	text-underline-offset: 4px;
-
-	transition: color 150ms;
-}
-
-.category-header__description a:hover {
-	color: var(--color-text-primary-hover);
-}
-
 .category-header__links {
-	margin: 12px 0 0;
+	margin: 16px 0 0;
 }

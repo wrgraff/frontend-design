@@ -4,9 +4,11 @@
 	--color-common-secondary: var(--palette-gray-700);
 
 	--color-text-primary: var(--palette-lime-200);
-	--color-text-primary-hover: var(--palette-lime-100);
+	--color-text-primary-hover: var(--palette-lime-300);
+	--color-text-primary-active: var(--palette-lime-500);
 	--color-text-base: var(--palette-gray-100);
-	--color-text-base-hover: var(--palette-gray-50);
+	--color-text-base-hover: var(--palette-gray-300);
+	--color-text-base-active: var(--palette-gray-500);
 	--color-text-secondary: var(--palette-gray-400);
 	--color-text-tertiary: var(--palette-gray-600);
 	--color-text-bg: var(--palette-gray-800);

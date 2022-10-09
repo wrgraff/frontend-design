@@ -14,15 +14,19 @@
 }
 
 .page__aside {
-	position: fixed;
-	top: 0;
-	right: -246px;
-	bottom: 0;
-
-	width: 286px;
+	position: relative;
 }
 
-.page__aside_opened {
+html:not(.no-js) .page__aside {
+	position: fixed;
+	top: 0;
+	left: calc(100% - 40px);
+	bottom: 0;
+
+	width: calc(100vw - 80px);
+}
+
+html:not(.no-js) .page__aside_opened {
 	box-shadow: 0 4px 24px var(--color-common-base);
 
 	transform: translateX(-246px);

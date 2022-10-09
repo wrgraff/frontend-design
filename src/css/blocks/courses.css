@@ -14,10 +14,7 @@
 	display: block;
 	margin: 0 0 4px;
 
-	color: var(--color-text-base);
-
 	font-size: var(--text-size-xl);
-	text-underline-offset: 6px;
 }
 
 .courses__comment {

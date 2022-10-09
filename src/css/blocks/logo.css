@@ -29,6 +29,18 @@
 		background-color 150ms;
 }
 
+.logo:hover {
+	--logo-color: var(--color-text-primary-hover);
+}
+
+.logo:hover::before {
+	width: 16px;
+}
+
+.logo:active {
+	--logo-color: var(--color-text-primary-active);
+}
+
 .logo__word {
 	display: flex;
 	justify-content: center;
@@ -43,28 +55,20 @@
 	order: -1;
 }
 
-.logo__hidden {
-	width: 0;
-	flex-grow: 0;
-	overflow: hidden;
-
-	transition: width 200ms ease-out;
-}
-
-.logo:hover {
-	--logo-color: var(--color-text-primary-hover);
-}
-
-.logo:hover::before {
-	width: 16px;
-}
-
 .logo:hover .logo__word_name {
 	width: 85px;
 }
 
 .logo:hover .logo__word_surname {
 	width: 136px;
+}
+
+.logo__hidden {
+	width: 0;
+	flex-grow: 0;
+	overflow: hidden;
+
+	transition: width 200ms ease-out;
 }
 
 .logo:hover .logo__hidden {

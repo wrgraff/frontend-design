@@ -22,10 +22,6 @@
 
 .links__link {
 	display: inline-block;
-
-	color: var(--color-text-base);
-
-	text-underline-offset: 4px;
 }
 
 .links__link + .links__link {

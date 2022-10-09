@@ -19,13 +19,11 @@
 	display: inline-block;
 
 	color: var(--color-text-base);
-	border-bottom: 3px solid var(--color-common-primary);
+	border-bottom: 3px solid var(--color-text-primary);
 
 	font-size: var(--text-size-shout);
 	text-decoration: none;
 	text-transform: lowercase;
-
-	transition: color 150ms;
 }
 
 .site-list__link::before {
@@ -48,7 +46,7 @@
 	width: 100%;
 
 	height: 3px;
-	background-color: var(--color-common-primary);
+	background-color: var(--color-text-primary);
 
 	transform-origin: 80px 0;
 	transform: scaleX(0);
@@ -56,9 +54,18 @@
 }
 
 .site-list__link:hover {
-	color: var(--color-text-base-hover);
+	border-color: var(--color-text-primary-hover);
 }
 
 .site-list__link:hover::after {
+	background-color: var(--color-text-primary-hover);
 	transform: scaleX(1);
+}
+
+.site-list__link:active {
+	border-color: var(--color-text-primary-active);
+}
+
+.site-list__link:active::after {
+	background-color: var(--color-text-primary-active);
 }

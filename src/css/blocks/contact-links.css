@@ -7,9 +7,3 @@
 
 	font-size: var(--text-size-m);
 }
-
-.contact-links__link {
-	color: var(--color-text-base);
-
-	text-underline-offset: 4px;
-}
