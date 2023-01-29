@@ -1,5 +1,6 @@
 .logo {
 	--logo-color: var(--color-text-primary);
+	--logo-dash-size: 48px;
 
 	display: flex;
 	align-items: center;
@@ -17,9 +18,15 @@
 	transition: color 150ms;
 }
 
+@media (width >= 880px) {
+	.logo {
+		--logo-dash-size: 84px;
+	}
+}
+
 .logo::before {
 	content: '';
-	width: 80px;
+	width: var(--logo-dash-size);
 	height: 2px;
 
 	background-color: var(--logo-color);
@@ -28,6 +35,7 @@
 		width 200ms ease-out,
 		background-color 150ms;
 }
+
 
 .logo:hover {
 	--logo-color: var(--color-text-primary-hover);

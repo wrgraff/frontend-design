@@ -17,5 +17,5 @@ a:hover {
 }
 
 a:active {
-	color: var(--color-text-primary-active);
+	color: var(--color-text-base-active);
 }

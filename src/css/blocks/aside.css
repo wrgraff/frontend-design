@@ -8,8 +8,10 @@
 	background-color: var(--color-surface-secondary);
 }
 
-.no-js .aside {
-	grid-template-rows: auto;
+@media (width < 880px) {
+	.no-js .aside {
+		grid-template-rows: auto;
+	}
 }
 
 .aside::after {
@@ -47,8 +49,10 @@
 	margin: 0 -40px;
 }
 
-.no-js .aside__list {
-	display: none;
+@media (width < 880px) {
+	.no-js .aside__list {
+		display: none;
+	}
 }
 
 .aside__copy {
@@ -59,6 +63,8 @@
 	font-size: var(--text-size-m);
 }
 
-.no-js .aside__copy {
-	display: none;
+@media (width < 880px) {
+	.no-js .aside__copy {
+		display: none;
+	}
 }
