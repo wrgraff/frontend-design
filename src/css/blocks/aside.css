@@ -1,20 +1,33 @@
 .aside {
+	background-color: var(--color-surface-secondary);
+}
+
+/* Aside container */
+
+.aside__container {
+	position: sticky;
+	top: 0;
+
 	display: grid;
 	grid-template-rows: min-content 1fr min-content;
 	gap: 48px;
 	padding: 40px;
 	overflow: hidden;
-
-	background-color: var(--color-surface-secondary);
 }
 
 @media (width < 880px) {
-	.no-js .aside {
+	.no-js .aside__container {
 		grid-template-rows: auto;
 	}
 }
 
-.aside::after {
+@media (width >= 880px) {
+	.aside__container {
+		min-height: 100vh;
+	}
+}
+
+.aside__container::after {
 	content: '';
 	position: absolute;
 	right: -24px;
@@ -27,6 +40,8 @@
 	background-repeat: no-repeat;
 	background-image: url('../img/lizard.svg');
 }
+
+/* Aside toggler */
 
 .aside__toggler {
 	position: absolute;

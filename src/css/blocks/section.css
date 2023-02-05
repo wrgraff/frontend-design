@@ -16,12 +16,50 @@
 	}
 }
 
+@media (width >= 880px) {
+	.section {
+		display: grid;
+		column-gap: 32px;
+	}
+}
+
+@media (800px <= width < 1500px) {
+	.section {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (width >= 1500px) {
+	.section {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
 .section__header {
+	position: relative;
+
 	display: flex;
 	align-items: flex-end;
 	margin: 0 0 24px;
+}
 
-	border-bottom: 1px solid var(--color-border-base);
+.section__header::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+
+	width: 100vw;
+	height: 1px;
+
+	background-color: var(--color-border-base);
+}
+
+@media (width >= 880px) {
+	.section__header {
+		grid-column: 1 / -1;
+	}
 }
 
 .section__heading {
@@ -55,6 +93,12 @@
 
 .section__skills {
 	margin: 0;
+}
+
+@media (width >= 880px) {
+	.section__skills {
+		grid-column: 1 / -2;
+	}
 }
 
 .section__courses {

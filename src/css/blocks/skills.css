@@ -4,8 +4,26 @@
 	padding: 0;
 
 	list-style: none;
+}
 
-	font-size: var(--text-size-xl);
+@media (width < 1500px) {
+	.skills {
+		font-size: var(--text-size-xl);
+	}
+}
+
+@media (width >= 880px) {
+	.skills {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 32px;
+	}
+}
+
+@media (width >= 1500px) {
+	.skills {
+		font-size: var(--text-size-shout);
+	}
 }
 
 .skills__item {

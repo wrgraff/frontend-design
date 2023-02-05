@@ -6,6 +6,7 @@ const pimport = require('postcss-import');
 const fs = require('fs');
 const yaml = require('js-yaml');
 const markdown = require('markdown-it')({ html: true });
+const esbuild = require('esbuild');
 
 module.exports = function (config) {
 
@@ -31,6 +32,28 @@ module.exports = function (config) {
 			}
 		}
 	});
+
+	// JavaScript
+
+	config.addTemplateFormats('js');
+
+    config.addExtension('js', {
+        outputFileExtension: 'js',
+        compile: async (content, path) => {
+            if (path !== './src/js/index.js') {
+                return;
+            }
+
+            return async () => {
+                return esbuild.buildSync({
+                    entryPoints: [path],
+                    minify: true,
+                    bundle: true,
+                    write: false,
+                }).outputFiles[0].text;
+            }
+        }
+    });
 
 	// YAML
 
