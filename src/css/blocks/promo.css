@@ -24,6 +24,9 @@
 /* Promo */
 
 .promo {
+	position: relative;
+	z-index: 0;
+
 	padding: 0 0 32px;
 }
 
@@ -43,6 +46,72 @@
 @media (width >= 1500px) {
 	.promo {
 		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+/* Circle */
+
+.promo::after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+
+	justify-self: center;
+	align-self: center;
+
+	border-style: solid;
+	border-color: transparent;
+	border-radius: 50%;
+	background-image: linear-gradient(to bottom, #7C9DF8, #00F218);
+	background-origin: border-box;
+	background-clip: border-box;
+	mask-image:
+		linear-gradient(#fff 0 0),
+		linear-gradient(#fff 0 0);
+	mask-clip:
+		padding-box,
+		border-box;
+	mask-composite: exclude;
+	opacity: 0.4;
+
+	animation-name: rotate;
+	animation-duration: 5000ms;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+@media (width < 880px) {
+	.promo::after {
+		top: -66px;
+		right: -116px;
+
+		width: 274px;
+		height: 274px;
+
+		border-width: 14px;
+	}
+}
+
+@media (width >= 1500px) {
+	.promo::after {
+		grid-column: 4 / 5;
+		width: 758px;
+		height: 758px;
+		margin-top: -16px;
+
+		border-width: 20px;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }
 

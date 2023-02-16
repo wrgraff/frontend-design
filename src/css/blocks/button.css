@@ -1,11 +1,14 @@
 .button {
+	--button-color: var(--color-common-primary);
+	--button-bg: var(--color-common-base);
+
 	display: inline-flex;
 	align-items: center;
 	padding: 12px 24px;
 	border-radius: 2px;
 
-	color: var(--color-common-primary);
-	background-color: var(--color-common-base);
+	color: var(--button-color);
+	background-color: var(--button-bg);
 
 	font-weight: 500;
 	font-size: var(--text-size-m);
@@ -14,29 +17,31 @@
 	text-transform: uppercase;
 	letter-spacing: .08em;
 
-	transition: color 200ms, background-color 200ms;
+	transition:
+		color 200ms,
+		background-color 200ms;
 }
 
 .button:hover {
-	color: var(--color-common-primary-hover);
-	background-color: var(--color-common-base-hover);
+	--button-color: var(--color-common-primary-hover);
+	--button-bg: var(--color-common-base-hover);
 }
 
 .button:active {
-	color: var(--color-common-primary-active);
-	background-color: var(--color-common-base-active);
+	--button-color: var(--color-common-primary-active);
+	--button-bg: var(--color-common-base-active);
 }
 
 .button_secondary {
-	background-color: var(--color-common-secondary);
+	--button-bg: var(--color-common-secondary);
 }
 
 .button_secondary:hover {
-	background-color: var(--color-common-secondary-hover);
+	--button-bg: var(--color-common-secondary-hover);
 }
 
 .button_secondary:active {
-	background-color: var(--color-common-secondary-active);
+	--button-bg: var(--color-common-secondary-active);
 }
 
 @media (width < 880px) {
@@ -88,4 +93,17 @@
 		padding: 18px 40px;
 		font-size: var(--text-size-xl);
 	}
+}
+
+[class*='button_ico_']::before {
+	content: '';
+	background-color: var(--button-color);
+	width: 24px;
+	height: 24px;
+	margin-left: -6px;
+	margin-right: 10px;
+}
+
+.button_ico_download::before {
+	mask-image: url('../img/icons.svg#download');
 }
