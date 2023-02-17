@@ -4,7 +4,7 @@
 	}
 }
 
-@media (800px <= width < 1500px) {
+@media (880px <= width < 1500px) {
 	.section {
 		--section-heading-size: var(--heading-size-m);
 	}
@@ -23,7 +23,7 @@
 	}
 }
 
-@media (800px <= width < 1500px) {
+@media (880px <= width < 1500px) {
 	.section {
 		grid-template-columns: repeat(4, 1fr);
 	}

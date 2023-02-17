@@ -7,7 +7,7 @@
 	}
 }
 
-@media (800px <= width < 1500px) {
+@media (880px <= width < 1500px) {
 	.promo {
 		--promo-heading-size: var(--heading-size-xl);
 		--promo-text-size: var(--text-size-xl);
@@ -37,7 +37,7 @@
 	}
 }
 
-@media (800px <= width < 1500px) {
+@media (880px <= width < 1500px) {
 	.promo {
 		grid-template-columns: repeat(4, 1fr);
 	}
@@ -89,6 +89,17 @@
 		height: 274px;
 
 		border-width: 14px;
+	}
+}
+
+@media (880px < width <= 1500px) {
+	.promo::after {
+		grid-column: 3 / 4;
+		width: 536px;
+		height: 536px;
+		margin-top: -16px;
+
+		border-width: 20px;
 	}
 }
 

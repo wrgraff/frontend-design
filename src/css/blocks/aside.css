@@ -10,12 +10,15 @@
 
 	display: grid;
 	grid-template-rows: min-content 1fr min-content;
-	gap: 48px;
 	padding: 40px;
 	overflow: hidden;
 }
 
 @media (width < 880px) {
+	.aside__container {
+		gap: 48px;
+	}
+
 	.no-js .aside__container {
 		grid-template-rows: auto;
 	}
@@ -24,6 +27,18 @@
 @media (width >= 880px) {
 	.aside__container {
 		min-height: 100vh;
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.aside__container {
+		gap: 64px;
+	}
+}
+
+@media (width >= 880px) {
+	.aside__container {
+		gap: 112px;
 	}
 }
 

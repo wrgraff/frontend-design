@@ -1,6 +1,6 @@
 .button {
 	--button-color: var(--color-common-primary);
-	--button-bg: var(--color-common-base);
+	--button-bg: transparent;
 
 	display: inline-flex;
 	align-items: center;
@@ -95,13 +95,68 @@
 	}
 }
 
+/* Icon */
+
 [class*='button_ico_']::before {
 	content: '';
 	background-color: var(--button-color);
-	width: 24px;
-	height: 24px;
+	width: 20px;
+	height: 20px;
 	margin-left: -6px;
 	margin-right: 10px;
+	margin-top: -2px;
+	margin-bottom: -2px;
+}
+
+@media (width < 880px) {
+	.button_small_s[class*='button_ico_']::before {
+		width: 16px;
+		height: 16px;
+	}
+
+	.button_small_l[class*='button_ico_']::before {
+		width: 22px;
+		height: 22px;
+	}
+
+	.button_small_xl[class*='button_ico_']::before {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.button_medium_s[class*='button_ico_']::before {
+		width: 16px;
+		height: 16px;
+	}
+
+	.button_medium_l[class*='button_ico_']::before {
+		width: 22px;
+		height: 22px;
+	}
+
+	.button_medium_xl[class*='button_ico_']::before {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+@media (width >= 1500px) {
+	.button_large_s[class*='button_ico_']::before {
+		width: 16px;
+		height: 16px;
+	}
+
+	.button_large_l[class*='button_ico_']::before {
+		width: 22px;
+		height: 22px;
+	}
+
+	.button_large_xl[class*='button_ico_']::before {
+		width: 24px;
+		height: 24px;
+	}
 }
 
 .button_ico_download::before {
