@@ -1,0 +1,78 @@
+---
+layout: page.njk
+---
+
+<body class="page__case case">
+	<main class="case__main">
+		{% include "header.njk" %}
+
+		<h1 class="visually-hidden">{{ title }}</h1>
+
+		<article class="case__section">
+			<h2 class="visually-hidden">Case description</h2>
+
+			<ul class="case__list">
+				{% for img in imgs %}
+					<li class="case__item">
+						<picture class="case__picture">
+							<img src="./imgs/{{ img }}.png" alt="">
+						</picture>
+					</li>
+				{% endfor %}
+			</ul>
+		</article>
+
+		<section class="case__section details">
+			<h2 class="visually-hidden">Additional details</h2>
+			{% if tags %}
+				<ul class="details__list">
+					{% for tag in tags %}
+						<li class="details__item">
+							<span class="label">{{ tag }}</span>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+
+			{% if behance %}
+				<a href="{{ behance }}" class="button" target="_blank">Comment on Behance</a>
+			{% endif %}
+		</section>
+	</main>
+
+	<aside class="case__aside">
+		<div class="case__me me">
+			<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
+			<p class="me__name">Artur Trifonov</p>
+		</div>
+
+		<ul class="case__contacts aside-contacts">
+			<li class="aside-contacts__item">
+				<a href="mailto:info@fron" class="aside-contacts__link aside-contacts__link_email">
+					<span class="visually-hidden">hello@frontend-design.ru</span>
+				</a>
+			</li>
+			{% if behance %}
+				<li class="aside-contacts__item">
+					<a href="{{ behance }}" class="aside-contacts__link aside-contacts__link_behance">
+						<span class="visually-hidden">Me on Behance</span>
+					</a>
+				</li>
+			{% endif %}
+		</ul>
+	</aside>
+
+	<nav class="case__nav case-nav">
+		<a href="/" class="case-nav__home">
+			<span class="visually-hidden">Home</span>
+		</a>
+
+		<a href="#" class="case-nav__previous">
+			<span class="visually-hidden">Previous case</span>
+		</a>
+
+		<a href="#" class="case-nav__next">
+			<span class="visually-hidden">Next case</span>
+		</a>
+	</nav>
+</body>

@@ -1,4 +1,4 @@
-layout: page.njk
+layout: main.njk
 permalink: index.html
 promo:
   heading: I design interfaces

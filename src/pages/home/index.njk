@@ -1,3 +1,5 @@
+{% from 'portfolio-list.njk' import portfolioList with context %}
+
 <main class="page__main main">
 	{% include "header.njk" %}
 
@@ -44,6 +46,10 @@
 					<p class="section__comment">{{ academy.portfolio.comment }}</p>
 				{% endif %}
 			</div>
+
+			{{ portfolioList(
+				collection = collections.portfolio
+			) }}
 		</section>
 	</section>
 

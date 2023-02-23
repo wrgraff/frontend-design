@@ -12,11 +12,5 @@
 		<link rel="stylesheet" href="{{ '/css/index.css' | url }}">
 	</head>
 
-	<body class="page__body">
-		{{ content | safe }}
-
-		{% include "aside.njk" %}
-	</body>
-
-	<script defer src="/js/index.js"></script>
+	{{ content | safe }}
 </html>

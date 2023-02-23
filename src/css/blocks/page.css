@@ -43,6 +43,32 @@
 	}
 }
 
+/* Page case */
+
+.page__case {
+	display: grid;
+
+	margin: 0 auto;
+}
+
+@media (width < 880px) {
+	.page__case {
+		grid-template-columns: 40px 1fr 40px;
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.page__case {
+		grid-template-columns: 72px 1fr 72px;
+	}
+}
+
+@media (width >= 1500px) {
+	.page__case {
+		grid-template-columns: 1fr 1400px 1fr;
+	}
+}
+
 /* Page header */
 
 @media (width < 880px) {

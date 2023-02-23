@@ -112,3 +112,13 @@
 .section__links {
 	margin: 0;
 }
+
+.section__portfolio {
+	margin: 0;
+}
+
+@media (width >= 880px) {
+	.section__portfolio {
+		grid-column: 1 / -2;
+	}
+}

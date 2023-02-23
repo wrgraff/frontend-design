@@ -12,10 +12,15 @@ a {
 	transition: color 200ms;
 }
 
-a:hover {
+a[href]:hover {
 	--link-color: var(--color-text-base-hover);
 }
 
-a:active {
+a[href]:active {
 	--link-color: var(--color-text-base-active);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }

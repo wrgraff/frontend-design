@@ -1,0 +1,7 @@
+layout: case.njk
+title: 'Analytics and cloud service management interfaces'
+nda: true
+role: 'UI / UX designer'
+tasks:
+  - Use UI Kit
+  - Integration to exist project

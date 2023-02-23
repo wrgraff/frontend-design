@@ -1,0 +1,13 @@
+{% from 'portfolio-item.njk' import portfolioItem %}
+
+{% macro portfolioList(
+    collection
+) %}
+    <ul class="section__portfolio portfolio">
+        {% for case in collection | reverse %}
+			{{ portfolioItem(
+				case = case
+			) }}
+        {% endfor %}
+    </ul>
+{% endmacro %}

@@ -1,0 +1,22 @@
+layout: case.njk
+title: 'Veterinary pharmacy design'
+nda: false
+role: 'UX designer'
+tasks:
+  - Create fresh vision
+  - Improve usability
+  - Save catalog structure
+imgs:
+  - hero
+  - problem
+  - kit
+  - kit-components
+  - structure
+  - page-main
+  - page-catalog
+  - page-about
+tags:
+  - UX
+  - UI kit
+  - WEB
+behance: '#'

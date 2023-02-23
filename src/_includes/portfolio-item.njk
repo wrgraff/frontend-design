@@ -1,0 +1,36 @@
+{% macro portfolioItem(
+    case
+) %}
+    <li class="portfolio__item">
+		<div class="portfolio__header">
+			{% if case.data.nda %}
+				<h4 class="portfolio__heading">
+					<a class="portfolio__link">
+						{{ case.data.title }}
+					</a>
+				</h4>
+				<span class="portfolio__label label label_large_l">NDA project</span>
+			{% else %}
+				<h4 class="portfolio__heading">
+					<a href="{{ case.url }}" class="portfolio__link">
+						{{ case.data.title }}
+					</a>
+				</h4>
+			{% endif %}
+		</div>
+
+		<picture class="portfolio__picture" aria-hidden="true">
+			<img src="{{ case.url }}imgs/cover.png" alt="">
+		</picture>
+
+		<h5 class="portfolio__subheading">Role</h5>
+		<p class="portfolio__text">{{ case.data.role }}</p>
+
+		<h5 class="portfolio__subheading">Tasks</h5>
+		<ul class="portfolio__list">
+			{% for item in case.data.tasks %}
+				<li class="portfolio__item">{{ item }}</li>
+			{% endfor %}
+		</ul>
+    </li>
+{% endmacro %}

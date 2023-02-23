@@ -61,6 +61,18 @@ module.exports = function (config) {
 		return yaml.load(contents);
 	});
 
+    // Collections
+
+    const collections = {
+        'portfolio': 'src/portfolio/*/index.md'
+    };
+
+    config.addCollection('portfolio', (collectionApi) => {
+        return collectionApi.getFilteredByGlob(
+            collections.portfolio
+        );
+    });
+
     // Markdown
 
     config.addFilter('markdown', (value) => {
@@ -74,6 +86,7 @@ module.exports = function (config) {
 	[
 		'src/fonts',
 		'src/img',
+        'src/portfolio/**/*.!(md)',
 	].forEach(
 		path => config.addPassthroughCopy(path)
 	);
@@ -85,6 +98,7 @@ module.exports = function (config) {
 			input: 'src',
 			output: 'dist',
 			includes: '_includes',
+			layouts: '_layouts',
 			data: '_data'
 		},
 		dataTemplateEngine: 'njk',
