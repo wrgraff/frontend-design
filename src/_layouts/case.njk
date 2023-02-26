@@ -35,31 +35,32 @@ layout: page.njk
 			{% endif %}
 
 			{% if behance %}
-				<a href="{{ behance }}" class="button" target="_blank">Comment on Behance</a>
+				<a href="{{ behance }}" class="details__button button button_secondary button_l button_ico_message" target="_blank">Comment on Behance</a>
 			{% endif %}
 		</section>
 	</main>
 
 	<aside class="case__aside">
-		<div class="case__me me">
-			<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
-			<p class="me__name">Artur Trifonov</p>
-		</div>
+		<div class="case__aside-container">
+			<div class="case__me me">
+				<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
+			</div>
 
-		<ul class="case__contacts aside-contacts">
-			<li class="aside-contacts__item">
-				<a href="mailto:info@fron" class="aside-contacts__link aside-contacts__link_email">
-					<span class="visually-hidden">hello@frontend-design.ru</span>
-				</a>
-			</li>
-			{% if behance %}
+			<ul class="case__contacts aside-contacts">
 				<li class="aside-contacts__item">
-					<a href="{{ behance }}" class="aside-contacts__link aside-contacts__link_behance">
-						<span class="visually-hidden">Me on Behance</span>
+					<a href="mailto:info@fron" class="aside-contacts__link aside-contacts__link_email">
+						<span class="visually-hidden">hello@frontend-design.ru</span>
 					</a>
 				</li>
-			{% endif %}
-		</ul>
+				{% if behance %}
+					<li class="aside-contacts__item">
+						<a href="{{ behance }}" class="aside-contacts__link aside-contacts__link_behance">
+							<span class="visually-hidden">Me on Behance</span>
+						</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
 	</aside>
 
 	<nav class="case__nav case-nav">

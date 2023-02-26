@@ -5,10 +5,10 @@
 	display: inline-flex;
 	align-items: center;
 	padding: 12px 24px;
-	border-radius: 2px;
 
 	color: var(--button-color);
 	background-color: var(--button-bg);
+	border-radius: 2px;
 
 	font-weight: 500;
 	font-size: var(--text-size-m);
@@ -42,6 +42,21 @@
 
 .button_secondary:active {
 	--button-bg: var(--color-common-secondary-active);
+}
+
+.button_s {
+	padding: 9px 16px;
+	font-size: var(--text-size-s);
+}
+
+.button_l {
+	padding: 15px 32px;
+	font-size: var(--text-size-l);
+}
+
+.button_xl {
+	padding: 18px 40px;
+	font-size: var(--text-size-xl);
 }
 
 @media (width < 880px) {
@@ -161,4 +176,8 @@
 
 .button_ico_download::before {
 	mask-image: url('../img/icons.svg#download');
+}
+
+.button_ico_message::before {
+	mask-image: url('../img/icons.svg#message');
 }

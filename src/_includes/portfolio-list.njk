@@ -3,11 +3,39 @@
 {% macro portfolioList(
     collection
 ) %}
-    <ul class="section__portfolio portfolio">
-        {% for case in collection | reverse %}
-			{{ portfolioItem(
-				case = case
-			) }}
-        {% endfor %}
-    </ul>
+	<div class="section__portfolio portfolio">
+		<div class="portfolio__nav" hidden>
+			<button type="button" class="portfolio__button ico-button ico-button_xl ico-button_secondary ico-button_rounded ico-button_previous">
+				<span class="visually-hidden">Предыдущая работа</span>
+			</button>
+			<button type="button" class="portfolio__button ico-button ico-button_xl ico-button_secondary ico-button_rounded ico-button_next">
+				<span class="visually-hidden">Следующая работа</span>
+			</button>
+		</div>
+
+		<div class="portfolio__container" role="region" tabindex="0" aria-describedby="instructions" aria-label="Portfolio gallery">
+			<ul class="portfolio__list">
+				{% for case in collection | reverse %}
+					{{ portfolioItem(
+						case = case
+					) }}
+				{% endfor %}
+			</ul>
+
+			<div class="portfolio__instructions">
+				<p id="touch">
+					swipe for more
+				</p>
+				<p id="hover">
+					scroll for more
+				</p>
+				<p id="focus">
+					use your arrow keys for more
+				</p>
+				<p id="hover-and-focus">
+					scroll or use arrow keys for more
+				</p>
+			</div>
+		</div>
+	</div>
 {% endmacro %}

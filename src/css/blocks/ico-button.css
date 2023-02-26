@@ -1,0 +1,127 @@
+.ico-button {
+	--button-size: 40px;
+	--button-ico-size: 20px;
+	--button-color: var(--color-common-primary);
+	--button-bg: transparent;
+
+	display: grid;
+	place-content: center;
+	width: var(--button-size);
+	height: var(--button-size);
+
+	color: var(--button-color);
+	background-color: var(--button-bg);
+	border-radius: 2px;
+	border: none;
+
+	transition:
+		color 200ms,
+		background-color 200ms;
+}
+
+.ico-button:hover {
+	--button-color: var(--color-common-primary-hover);
+	--button-bg: var(--color-common-base-hover);
+}
+
+.ico-button:active {
+	--button-color: var(--color-common-primary-active);
+	--button-bg: var(--color-common-base-active);
+}
+
+.ico-button_secondary {
+	--button-bg: var(--color-common-secondary);
+}
+
+.ico-button_secondary:hover {
+	--button-bg: var(--color-common-secondary-hover);
+}
+
+.ico-button_secondary:active {
+	--button-bg: var(--color-common-secondary-active);
+}
+
+.ico-button_rounded {
+	border-radius: 50%;
+}
+
+.ico-button_s {
+	--button-size: 32px;
+	--button-ico-size: 16px;
+}
+
+.ico-button_l {
+	--button-size: 48px;
+	--button-ico-size: 24px;
+}
+
+.ico-button_xl {
+	--button-size: 56px;
+	--button-ico-size: 24px;
+}
+
+@media (width < 880px) {
+	.ico-button_small_s {
+		--button-size: 32px;
+		--button-ico-size: 16px;
+	}
+
+	.ico-button_small_l {
+		--button-size: 48px;
+		--button-ico-size: 24px;
+	}
+
+	.ico-button_small_xl {
+		--button-size: 56px;
+		--button-ico-size: 24px;
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.ico-button_small_s {
+		--button-size: 32px;
+		--button-ico-size: 16px;
+	}
+
+	.ico-button_small_l {
+		--button-size: 48px;
+		--button-ico-size: 24px;
+	}
+
+	.ico-button_small_xl {
+		--button-size: 56px;
+		--button-ico-size: 24px;
+	}
+}
+
+@media (width >= 1500px) {
+	.ico-button_small_s {
+		--button-size: 32px;
+		--button-ico-size: 16px;
+	}
+
+	.ico-button_small_l {
+		--button-size: 48px;
+		--button-ico-size: 24px;
+	}
+
+	.ico-button_small_xl {
+		--button-size: 56px;
+		--button-ico-size: 24px;
+	}
+}
+
+.ico-button::before {
+	content: '';
+	background-color: var(--button-color);
+	width: var(--button-ico-size);
+	height: var(--button-ico-size);
+}
+
+.ico-button_next::before {
+	mask-image: url('../img/icons.svg#arrow-right');
+}
+
+.ico-button_previous::before {
+	mask-image: url('../img/icons.svg#arrow-left');
+}
