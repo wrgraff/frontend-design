@@ -19,23 +19,26 @@
 					{{ portfolioItem(
 						case = case
 					) }}
+					{{ portfolioItem(
+						case = case
+					) }}
 				{% endfor %}
 			</ul>
+		</div>
 
-			<div class="portfolio__instructions">
-				<p id="touch">
-					swipe for more
-				</p>
-				<p id="hover">
-					scroll for more
-				</p>
-				<p id="focus">
-					use your arrow keys for more
-				</p>
-				<p id="hover-and-focus">
-					scroll or use arrow keys for more
-				</p>
-			</div>
+		<div class="portfolio__instructions" id="instructions">
+			<p class="portfolio__instruction portfolio__instruction_touch">
+				Swipe for more
+			</p>
+			<p class="portfolio__instruction portfolio__instruction_hover">
+				Scroll for more
+			</p>
+			<p class="portfolio__instruction portfolio__instruction_focus">
+				Use your arrow keys for more
+			</p>
+			<p class="portfolio__instruction portfolio__instruction_hover-focus">
+				Scroll or use arrow keys for more
+			</p>
 		</div>
 	</div>
 {% endmacro %}

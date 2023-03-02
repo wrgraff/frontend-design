@@ -3,7 +3,7 @@
 (function () {
   /* touch detection */
   window.addEventListener('touchstart', function touched() {
-    document.body.classList.add('touch');
+    document.body.parentElement.classList.add('touch');
     window.removeEventListener('touchstart', touched, false);
   }, false);
 
@@ -22,8 +22,11 @@
 
   if ('IntersectionObserver' in window) {
     var scrollIt = function scrollIt(slideToShow) {
-      const index = Array.prototype.indexOf.call(slides, slideToShow);
-      var scrollPos = index * (gallery.scrollWidth / slides.length) + (index * 32) - 32;
+      const currentIndex = Array.prototype.indexOf.call(slides, slideToShow);
+	  const gapsWidth = (slides.length - 1) * 32;
+	  const slideWidth = (gallery.scrollWidth  - gapsWidth) / slides.length;
+	  const gapsBeforeCurrentSlide = currentIndex * 32;
+      var scrollPos = currentIndex * slideWidth + gapsBeforeCurrentSlide;
       gallery.scrollTo({
         left: scrollPos,
         behavior: 'smooth',

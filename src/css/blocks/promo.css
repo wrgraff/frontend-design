@@ -4,6 +4,7 @@
 	.promo {
 		--promo-heading-size: var(--heading-size-l);
 		--promo-text-size: var(--text-size-l);
+		display: none;
 	}
 }
 
