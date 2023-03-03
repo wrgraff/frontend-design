@@ -4,7 +4,6 @@
 	.promo {
 		--promo-heading-size: var(--heading-size-l);
 		--promo-text-size: var(--text-size-l);
-		display: none;
 	}
 }
 
@@ -83,6 +82,7 @@
 
 @media (width < 880px) {
 	.promo::after {
+		display: none;
 		top: -66px;
 		right: -116px;
 
