@@ -10,12 +10,12 @@
 	background-color: var(--button-bg);
 	border-radius: 2px;
 
-	font-weight: 500;
 	font-size: var(--text-size-m);
+	font-weight: 500;
 	line-height: 1;
-	text-decoration: none;
 	text-transform: uppercase;
-	letter-spacing: .08em;
+	text-decoration: none;
+	letter-spacing: 0.08em;
 
 	transition:
 		color 200ms,
@@ -113,14 +113,14 @@
 /* Icon */
 
 [class*='button_ico_']::before {
-	content: '';
-	background-color: var(--button-color);
+	margin-top: -2px;
+	margin-right: 10px;
+	margin-bottom: -2px;
+	margin-left: -6px;
 	width: 20px;
 	height: 20px;
-	margin-left: -6px;
-	margin-right: 10px;
-	margin-top: -2px;
-	margin-bottom: -2px;
+	background-color: var(--button-color);
+	content: '';
 }
 
 @media (width < 880px) {

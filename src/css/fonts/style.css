@@ -1,0 +1,35 @@
+:root {
+	--font-family: 'Ubuntu', sans-serif;
+
+	--text-size-s: 14px;
+	--text-size-m: 16px;
+	--text-size-l: 18px;
+	--text-size-xl: 20px;
+	--text-size-shout: 28px;
+
+	--heading-size-xs: 28px;
+	--heading-size-s: 32px;
+	--heading-size-m: 36px;
+	--heading-size-l: 40px;
+	--heading-size-xl: 48px;
+	--heading-size-shout: 96px;
+
+	--font-text-s: 400 14px / 1.6 var(--font-family);
+	--font-text-m: 400 16px / 1.6 var(--font-family);
+	--font-text-l: 400 18px / 1.6 var(--font-family);
+	--font-text-xl: 400 20px / 1.6 var(--font-family);
+	--font-text-shout: 400 28px / 1.6 var(--font-family);
+
+	--font-label-s: 500 14px / 1 var(--font-family);
+	--font-label-m: 500 16px / 1 var(--font-family);
+	--font-label-l: 500 18px / 1 var(--font-family);
+	--font-label-xl: 500 20px / 1 var(--font-family);
+
+	--font-heading-xxs: 700 24px / 1.3 var(--font-family);
+	--font-heading-xs: 700 28px / 1.3 var(--font-family);
+	--font-heading-s: 700 32px / 1.3 var(--font-family);
+	--font-heading-m: 700 36px / 1.3 var(--font-family);
+	--font-heading-l: 700 40px / 1.3 var(--font-family);
+	--font-heading-xl: 700 48px / 1.3 var(--font-family);
+	--font-heading-shout: 700 96px / 1.3 var(--font-family);
+}

@@ -1,18 +1,18 @@
 .ico-button {
 	--button-size: 40px;
-	--button-ico-size: 20px;
+	--button-ico-size: 24px;
 	--button-color: var(--color-common-primary);
 	--button-bg: transparent;
 
 	display: grid;
-	place-content: center;
 	width: var(--button-size);
 	height: var(--button-size);
 
 	color: var(--button-color);
 	background-color: var(--button-bg);
-	border-radius: 2px;
 	border: none;
+	border-radius: 2px;
+	place-content: center;
 
 	transition:
 		color 200ms,
@@ -63,17 +63,17 @@
 @media (width < 880px) {
 	.ico-button_small_s {
 		--button-size: 32px;
-		--button-ico-size: 16px;
+		--button-ico-size: 20px;
 	}
 
 	.ico-button_small_l {
 		--button-size: 48px;
-		--button-ico-size: 24px;
+		--button-ico-size: 28px;
 	}
 
 	.ico-button_small_xl {
 		--button-size: 56px;
-		--button-ico-size: 24px;
+		--button-ico-size: 32px;
 	}
 }
 
@@ -112,10 +112,18 @@
 }
 
 .ico-button::before {
-	content: '';
-	background-color: var(--button-color);
 	width: var(--button-ico-size);
 	height: var(--button-ico-size);
+	background-color: var(--button-color);
+	content: '';
+}
+
+.ico-button_menu::before {
+	mask-image: url('../img/icons.svg#menu');
+}
+
+.ico-button_menu-close::before {
+	mask-image: url('../img/icons.svg#arrow-long-right');
 }
 
 .ico-button_next::before {

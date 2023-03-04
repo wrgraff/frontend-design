@@ -2,18 +2,21 @@
 
 @media (width < 880px) {
 	.portfolio {
-		--portfolio-preview-height: 360px;
+		--portfolio-heading-font: var(--font-heading-xxs);
+		--portfolio-preview-height: 300px;
 	}
 }
 
 @media (880px <= width < 1500px) {
 	.portfolio {
+		--portfolio-heading-font: var(--font-heading-xs);
 		--portfolio-preview-height: 360px;
 	}
 }
 
 @media (width >= 1500px) {
 	.portfolio {
+		--portfolio-heading-font: var(--font-heading-xs);
 		--portfolio-preview-height: 480px;
 	}
 }
@@ -81,29 +84,47 @@ html:not(.no-js) .portfolio__container {
 	display: grid;
 	align-content: start;
 	column-gap: 32px;
-	row-gap: 16px;
+}
+
+@media (width < 880px) {
+	.portfolio__item {
+		row-gap: 8px;
+	}
 }
 
 @media (width >= 880px) {
 	.portfolio__item {
 		grid-template-columns: 1fr 1fr;
+		row-gap: 16px;
 	}
 }
 
 /* Link */
 
 .portfolio__link {
+	position: relative;
 	z-index: 1;
 
 	display: grid;
 	align-content: start;
-	row-gap: 24px;
 	grid-column: 1 / -1;
 	grid-row: 1 / 2;
 
-	padding: 32px;
-
 	text-decoration: none;
+}
+
+@media (width < 880px) {
+	.portfolio__link {
+		padding: 24px;
+		row-gap: 16px;
+	}
+}
+
+@media (width >= 880px) {
+	.portfolio__link {
+		padding: 32px;
+		row-gap: 24px;
+	}
 }
 
 @media (width >= 1500px) {
@@ -161,8 +182,7 @@ html:not(.no-js) .portfolio__container {
 .portfolio__heading {
 	margin: 0;
 
-	font-size: var(--heading-size-xs);
-	font-weight: 700;
+	font: var(--portfolio-heading-font);
 }
 
 /* Label */

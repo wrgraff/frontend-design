@@ -21,7 +21,40 @@
 }
 
 .links__link {
-	display: inline-block;
+	display: inline-flex;
+	column-gap: 6px;
+}
+
+.links__link::before {
+	content: '';
+
+	width: 24px;
+	height: 24px;
+
+	background-color: var(--color-text-primary);
+	mask-image: url('../img/icons.svg#link');
+
+	transition: background-color 200ms;
+}
+
+.links__link_video::before {
+	mask-image: url('../img/icons.svg#video');
+}
+
+.links__link_slides::before {
+	mask-image: url('../img/icons.svg#slide');
+}
+
+.links__link_article::before {
+	mask-image: url('../img/icons.svg#article');
+}
+
+.links__link:hover::before {
+	background-color: var(--color-text-primary-hover);
+}
+
+.links__link:active::before {
+	background-color: var(--color-text-primary-active);
 }
 
 .links__link + .links__link {

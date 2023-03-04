@@ -19,8 +19,28 @@
 		gap: 48px;
 	}
 
-	.no-js .aside__container {
+	html.no-js .aside__container {
 		grid-template-rows: auto;
+	}
+}
+
+@media (width < 880px) {
+	html:not(.no-js) .aside__container {
+		min-height: 100vh;
+
+		opacity: 0;
+		visibility: hidden;
+
+		transition:
+			opacity 150ms 200ms,
+			visibility 350ms 1ms;
+	}
+
+	html:not(.no-js) .aside_opened .aside__container {
+		opacity: 1;
+		visibility: visible;
+
+		transition: opacity 350ms;
 	}
 }
 
@@ -43,17 +63,17 @@
 }
 
 .aside__container::after {
-	content: '';
 	position: absolute;
 	right: -24px;
 	bottom: 0;
 
 	width: 175px;
 	height: 159px;
+	background-image: url('../img/lizard.svg');
+	background-repeat: no-repeat;
+	content: '';
 
 	opacity: .8;
-	background-repeat: no-repeat;
-	background-image: url('../img/lizard.svg');
 }
 
 /* Aside toggler */
@@ -63,13 +83,10 @@
 		position: absolute;
 		bottom: 32px;
 		left: -28px;
+		z-index: 1;
 
 		width: 56px;
 		height: 56px;
-
-		background-color: var(--color-common-secondary);
-		border: none;
-		border-radius: 2px;
 	}
 }
 
