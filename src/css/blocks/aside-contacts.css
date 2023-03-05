@@ -5,11 +5,22 @@
 
 	display: grid;
 	justify-items: center;
-	gap: 12px;
 
 	padding: 0;
 
 	list-style: none;
+}
+
+@media (width < 880px) {
+	.aside-contacts {
+		gap: 6px;
+	}
+}
+
+@media (width >= 880px) {
+	.aside-contacts {
+		gap: 12px;
+	}
 }
 
 .aside-contacts__link {

@@ -1,11 +1,15 @@
-<header class="page__header header">
-	<a href="/" class="header__logo logo">
-		<span class="logo__word logo__word_name">
-			A<span class="logo__hidden">rtur</span>
-		</span>
-		<span class="logo__word logo__word_surname">
-			T<span class="logo__hidden">rifonov</span>
-		</span>
-		<span class="visually-hidden">site</span>
-	</a>
-</header>
+{% macro header(
+    mainBlock = 'main'
+) %}
+	<header class="{{ mainBlock }}__header header">
+		<a href="/" class="header__logo logo">
+			<span class="logo__word logo__word_name">
+				A<span class="logo__hidden">rtur</span>
+			</span>
+			<span class="logo__word logo__word_surname">
+				T<span class="logo__hidden">rifonov</span>
+			</span>
+			<span class="visually-hidden">site</span>
+		</a>
+	</header>
+{% endmacro %}

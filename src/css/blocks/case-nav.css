@@ -1,0 +1,47 @@
+.case-nav {
+	--case-nav-color: var(--color-common-primary);
+	--case-nav-bg: var(--color-common-secondary);
+}
+
+/* Case nav */
+
+.case-nav {
+	padding: 16px 8px;
+}
+
+/* Link */
+
+.case-nav__home {
+	position: sticky;
+	top: 40px;
+
+	display: grid;
+	place-content: center;
+	width: 48px;
+	height: 48px;
+
+	background-color: var(--case-nav-bg);
+	border-radius: 50%;
+}
+
+.case-nav__home::before {
+	content: '';
+
+	width: 20px;
+	height: 20px;
+
+	background-color: var(--case-nav-color);
+	mask-image: url('../img/icons.svg#home');
+}
+
+.case-nav__previous {
+	position: sticky;
+	bottom: 40px;
+
+	display: grid;
+	place-content: center;
+	width: 48px;
+	height: 48px;
+
+	background-color: coral;
+}

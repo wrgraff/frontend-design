@@ -2,9 +2,11 @@
 layout: page.njk
 ---
 
+{% from 'header.njk' import header with context %}
+
 <body class="page__case case">
 	<main class="case__main">
-		{% include "header.njk" %}
+		{{ header( mainBlock = 'case' ) }}
 
 		<h1 class="visually-hidden">{{ title }}</h1>
 
@@ -64,16 +66,17 @@ layout: page.njk
 	</aside>
 
 	<nav class="case__nav case-nav">
-		<a href="/" class="case-nav__home">
+		<a href="/" class="case__home case-nav__home">
 			<span class="visually-hidden">Home</span>
 		</a>
 
-		<a href="#" class="case-nav__previous">
-			<span class="visually-hidden">Previous case</span>
-		</a>
-
-		<a href="#" class="case-nav__next">
-			<span class="visually-hidden">Next case</span>
-		</a>
+		<div class="case__nav">
+			<a href="#" class="case-nav__previous">
+				<span class="visually-hidden">Previous case</span>
+			</a>
+			<a href="#" class="case-nav__next">
+				<span class="visually-hidden">Next case</span>
+			</a>
+		</div>
 	</nav>
 </body>

@@ -1,7 +1,8 @@
+{% from 'header.njk' import header with context %}
 {% from 'portfolio-list.njk' import portfolioList with context %}
 
 <main class="page__main main">
-	{% include "header.njk" %}
+	{{ header( mainBlock = 'page' ) }}
 
 	<section class="main__section promo">
 		<h1 class="promo__heading">{{ promo.heading }}</h1>
