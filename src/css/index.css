@@ -26,7 +26,7 @@
 @import url('./blocks/links.css');
 @import url('./blocks/contact-links.css');
 @import url('./blocks/portfolio.css');
+@import url('./blocks/article.css');
 @import url('./blocks/case.css');
-@import url('./blocks/case-nav.css');
 @import url('./blocks/details.css');
-@import url('./blocks/aside-contacts.css');
+@import url('./blocks/side-contacts.css');

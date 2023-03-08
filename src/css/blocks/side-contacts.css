@@ -1,0 +1,43 @@
+.side-contacts {
+	padding: 0;
+	list-style: none;
+}
+
+@media (width >= 880px) {
+	.side-contacts {
+		display: grid;
+		justify-items: center;
+		gap: 12px;
+	}
+}
+
+/* Me */
+
+@media (width < 1500px) {
+	.side-contacts__me {
+		display: none;
+	}
+}
+
+/* List */
+
+.side-contacts__list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+@media (width < 880px) {
+	.side-contacts__list {
+		display: flex;
+		gap: 6px;
+	}
+}
+
+@media (width >= 880px) {
+	.side-contacts__list {
+		display: grid;
+		gap: 8px;
+	}
+}

@@ -4,19 +4,43 @@ layout: page.njk
 
 {% from 'header.njk' import header with context %}
 
-<body class="page__case case">
-	<main class="case__main">
+{% set collection = collections.portfolio %}
+{% set cleanCollection = [] %}
+{% for item in collection %}
+	{% if item.data.nda !== true %}
+		{% set cleanCollection = (cleanCollection.push(item), cleanCollection) %}
+	{% endif %}
+{% endfor %}
+
+{% for item in cleanCollection %}
+	{% if page.url == item.url %}
+		{% if loop.first %}
+			{% set prevUrl = cleanCollection[loop.length - 1].data.page.url %}
+		{% else %}
+			{% set prevUrl = cleanCollection[loop.index0 - 1].data.page.url %}
+		{% endif %}
+
+		{% if loop.last %}
+			{% set nextUrl = cleanCollection[0].data.page.url %}
+		{% else %}
+			{% set nextUrl = cleanCollection[loop.index0 + 1].data.page.url %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+<body class="page__body page__body_case">
+	<main class="case">
 		{{ header( mainBlock = 'case' ) }}
 
 		<h1 class="visually-hidden">{{ title }}</h1>
 
-		<article class="case__section">
+		<article class="case__article article">
 			<h2 class="visually-hidden">Case description</h2>
 
-			<ul class="case__list">
+			<ul class="article__list">
 				{% for img in imgs %}
-					<li class="case__item">
-						<picture class="case__picture">
+					<li class="article__item">
+						<picture class="article__picture">
 							<img src="./imgs/{{ img }}.png" alt="">
 						</picture>
 					</li>
@@ -24,7 +48,7 @@ layout: page.njk
 			</ul>
 		</article>
 
-		<section class="case__section details">
+		<section class="case__details details">
 			<h2 class="visually-hidden">Additional details</h2>
 			{% if tags %}
 				<ul class="details__list">
@@ -37,46 +61,47 @@ layout: page.njk
 			{% endif %}
 
 			{% if behance %}
-				<a href="{{ behance }}" class="details__button button button_secondary button_l button_ico_message" target="_blank">Comment on Behance</a>
+				<a href="{{ behance }}" class="details__button button button_secondary button_small_m button_l button_ico_message" target="_blank">Comment on Behance</a>
 			{% endif %}
 		</section>
-	</main>
 
-	<aside class="case__aside">
-		<div class="case__aside-container">
-			<div class="case__me me">
-				<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
+		<nav class="case__nav">
+			<div class="case__side case__side_left">
+				<a href="/" class="case__home ico-button ico-button_l ico-button_small_xl ico-button_rounded ico-button_secondary ico-button_home">
+					<span class="visually-hidden">Home</span>
+				</a>
+
+				<a href="{{ prevUrl }}" class="case__control case__control_previous ico-button ico-button_xl ico-button_rounded ico-button_secondary ico-button_previous">
+					<span class="visually-hidden">Previous case</span>
+				</a>
 			</div>
 
-			<ul class="case__contacts aside-contacts">
-				<li class="aside-contacts__item">
-					<a href="mailto:info@fron" class="aside-contacts__link aside-contacts__link_email">
-						<span class="visually-hidden">hello@frontend-design.ru</span>
-					</a>
-				</li>
-				{% if behance %}
-					<li class="aside-contacts__item">
-						<a href="{{ behance }}" class="aside-contacts__link aside-contacts__link_behance">
-							<span class="visually-hidden">Me on Behance</span>
-						</a>
-					</li>
-				{% endif %}
-			</ul>
-		</div>
-	</aside>
+			<div class="case__side case__side_right">
+				<a href="{{ nextUrl }}" class="case__control case__control_next ico-button ico-button_xl ico-button_rounded ico-button_secondary ico-button_next">
+					<span class="visually-hidden">Next case</span>
+				</a>
 
-	<nav class="case__nav case-nav">
-		<a href="/" class="case__home case-nav__home">
-			<span class="visually-hidden">Home</span>
-		</a>
+				<div class="case__side-contacts side-contacts">
+					<div class="side-contacts__me me me_small">
+						<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
+					</div>
 
-		<div class="case__nav">
-			<a href="#" class="case-nav__previous">
-				<span class="visually-hidden">Previous case</span>
-			</a>
-			<a href="#" class="case-nav__next">
-				<span class="visually-hidden">Next case</span>
-			</a>
-		</div>
-	</nav>
+					<ul class="side-contacts__list">
+						<li class="side-contacts__item">
+							<a href="mailto:hello@frontend-design.ru" class="ico-button ico-button_l ico-button_rounded ico-button_secondary ico-button_email">
+								<span class="visually-hidden">hello@frontend-design.ru</span>
+							</a>
+						</li>
+						{% if behance %}
+							<li class="side-contacts__item">
+								<a href="{{ behance }}" class="ico-button ico-button_l ico-button_rounded ico-button_secondary ico-button_behance">
+									<span class="visually-hidden">Me on Behance</span>
+								</a>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</main>
 </body>

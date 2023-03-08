@@ -52,7 +52,7 @@
 
 .ico-button_l {
 	--button-size: 48px;
-	--button-ico-size: 24px;
+	--button-ico-size: 20px;
 }
 
 .ico-button_xl {
@@ -63,17 +63,17 @@
 @media (width < 880px) {
 	.ico-button_small_s {
 		--button-size: 32px;
-		--button-ico-size: 20px;
+		--button-ico-size: 16px;
 	}
 
 	.ico-button_small_l {
 		--button-size: 48px;
-		--button-ico-size: 28px;
+		--button-ico-size: 20px;
 	}
 
 	.ico-button_small_xl {
 		--button-size: 56px;
-		--button-ico-size: 32px;
+		--button-ico-size: 24px;
 	}
 }
 
@@ -85,7 +85,7 @@
 
 	.ico-button_small_l {
 		--button-size: 48px;
-		--button-ico-size: 24px;
+		--button-ico-size: 20px;
 	}
 
 	.ico-button_small_xl {
@@ -102,7 +102,7 @@
 
 	.ico-button_small_l {
 		--button-size: 48px;
-		--button-ico-size: 24px;
+		--button-ico-size: 20px;
 	}
 
 	.ico-button_small_xl {
@@ -132,4 +132,20 @@
 
 .ico-button_previous::before {
 	mask-image: url('../img/icons.svg#arrow-left');
+}
+
+.ico-button_home::before {
+	mask-image: url('../img/icons.svg#home');
+}
+
+.ico-button_email::before {
+	mask-image: url('../img/icons.svg#email');
+}
+
+.ico-button_behance::before {
+	mask-image: url('../img/icons.svg#behance');
+}
+
+.ico-button_dribbble::before {
+	mask-image: url('../img/icons.svg#dribbble');
 }

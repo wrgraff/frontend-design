@@ -9,6 +9,9 @@
 	.details {
 		justify-items: center;
 		row-gap: 24px;
+
+		padding-right: 16px;
+		padding-left: 16px;
 	}
 }
 

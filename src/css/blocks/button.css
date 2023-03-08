@@ -65,6 +65,11 @@
 		font-size: var(--text-size-s);
 	}
 
+	.button_small_m {
+		padding: 12px 24px;
+		font-size: var(--text-size-m);
+	}
+
 	.button_small_l {
 		padding: 15px 32px;
 		font-size: var(--text-size-l);
@@ -82,6 +87,11 @@
 		font-size: var(--text-size-s);
 	}
 
+	.button_medium_m {
+		padding: 12px 24px;
+		font-size: var(--text-size-m);
+	}
+
 	.button_medium_l {
 		padding: 15px 32px;
 		font-size: var(--text-size-l);
@@ -97,6 +107,11 @@
 	.button_large_s {
 		padding: 9px 16px;
 		font-size: var(--text-size-s);
+	}
+
+	.button_large_m {
+		padding: 12px 24px;
+		font-size: var(--text-size-m);
 	}
 
 	.button_large_l {

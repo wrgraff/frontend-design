@@ -21,14 +21,14 @@
 }
 
 @media (width < 880px) {
-	.page__body {
+	.page__body:not(.page__body_case) {
 		grid-template-columns: 40px 1fr 40px;
 		row-gap: 32px;
 	}
 }
 
 @media (880px <= width < 1500px) {
-	.page__body {
+	.page__body:not(.page__body_case) {
 		grid-template-columns: 72px repeat(4, 1fr) 156px;
 		row-gap: 128px;
 		column-gap: 32px;
@@ -36,17 +36,11 @@
 }
 
 @media (width >= 1500px) {
-	.page__body {
+	.page__body:not(.page__body_case) {
 		grid-template-columns: 1fr repeat(5, 206px) 1.4fr;
 		row-gap: 144px;
 		column-gap: 32px;
 	}
-}
-
-/* Page case */
-
-.page__case {
-	margin: 0;
 }
 
 /* Page header */

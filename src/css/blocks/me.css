@@ -1,5 +1,5 @@
 @media (width >= 1500px) {
-	.me {
+	.me:not(.me_small) {
 		display: grid;
 		grid-template-columns: 64px 1fr;
 		column-gap: 16px;

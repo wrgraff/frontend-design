@@ -1,0 +1,18 @@
+
+/* List */
+
+.article__list {
+	margin: 0;
+	padding: 0;
+
+	border-radius: 4px;
+	overflow: hidden;
+	list-style: none;
+}
+
+/* Picture */
+
+.article__picture,
+.article__picture img {
+	display: block;
+}
