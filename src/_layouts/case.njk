@@ -41,7 +41,7 @@ layout: page.njk
 				{% for img in imgs %}
 					<li class="article__item">
 						<picture class="article__picture">
-							<img src="./imgs/{{ img }}.png" alt="">
+							<img src="{{ page.url }}imgs/{{ img }}.png" alt="">
 						</picture>
 					</li>
 				{% endfor %}

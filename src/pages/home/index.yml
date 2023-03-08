@@ -106,7 +106,7 @@ academy:
           url: https://mentorium.frontend-design.ru/
 contacts:
   heading: Contacts
-  lead: Contact me if you interested in work together
+  lead: Contact me if you interested in working together
   comment: Or just to talk =)
   list:
     - title: hello@frontend-design.ru
