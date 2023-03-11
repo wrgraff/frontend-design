@@ -20,6 +20,15 @@
 	margin: 0;
 }
 
+.page__body_lock {
+	overflow: hidden;
+}
+
+.page__body_lock-ios {
+	position: fixed;
+	overflow: hidden;
+}
+
 @media (width < 880px) {
 	.page__body:not(.page__body_case) {
 		grid-template-columns: 40px 1fr 40px;

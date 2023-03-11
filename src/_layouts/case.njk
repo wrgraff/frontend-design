@@ -15,9 +15,9 @@ layout: page.njk
 {% for item in cleanCollection %}
 	{% if page.url == item.url %}
 		{% if loop.first %}
-			{% set prevUrl = cleanCollection[loop.length - 1].data.page.url %}
+			{% set previousUrl = cleanCollection[loop.length - 1].data.page.url %}
 		{% else %}
-			{% set prevUrl = cleanCollection[loop.index0 - 1].data.page.url %}
+			{% set previousUrl = cleanCollection[loop.index0 - 1].data.page.url %}
 		{% endif %}
 
 		{% if loop.last %}
@@ -71,7 +71,7 @@ layout: page.njk
 					<span class="visually-hidden">Home</span>
 				</a>
 
-				<a href="{{ prevUrl }}" class="case__control case__control_previous ico-button ico-button_xl ico-button_rounded ico-button_secondary ico-button_previous">
+				<a href="{{ previousUrl }}" class="case__control case__control_previous ico-button ico-button_xl ico-button_rounded ico-button_secondary ico-button_previous">
 					<span class="visually-hidden">Previous case</span>
 				</a>
 			</div>

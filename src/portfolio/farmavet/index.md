@@ -1,3 +1,4 @@
-sqwsqws
-
-sws
+---
+permalink: '{{ page.filePathStem }}.html'
+layout: 'case.njk'
+---

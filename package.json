@@ -28,6 +28,7 @@
     "@11ty/eleventy": "^2.0.0-canary.16",
     "autoprefixer": "^10.4.12",
     "esbuild": "^0.17.5",
+    "eslint": "^8.36.0",
     "js-yaml": "^4.1.0",
     "markdown-it": "^13.0.1",
     "micromodal": "^0.4.10",

@@ -138,6 +138,10 @@
 	mask-image: url('../img/icons.svg#home');
 }
 
+.ico-button_close::before {
+	mask-image: url('../img/icons.svg#close');
+}
+
 .ico-button_email::before {
 	mask-image: url('../img/icons.svg#email');
 }

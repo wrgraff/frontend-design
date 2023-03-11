@@ -1,0 +1,48 @@
+{%- set collection = collections.portfolio -%}
+{%- set cleanCollection = [] -%}
+{%- set previousUrl = "" -%}
+{%- set nextUrl = "" -%}
+{%- for item in collection -%}
+	{%- if item.data.nda !== true -%}
+		{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
+	{%- endif -%}
+{%- endfor -%}
+{%- for item in cleanCollection -%}
+	{%- if page.fileSlug == item.fileSlug -%}
+		{%- if loop.first -%}
+			{%- set previousUrl = cleanCollection[loop.length - 1].data.page.url -%}
+		{%- else -%}
+			{%- set previousUrl = cleanCollection[loop.index0 - 1].data.page.url -%}
+		{%- endif -%}
+
+		{%- if loop.last -%}
+			{%- set nextUrl = cleanCollection[0].data.page.url -%}
+		{%- else -%}
+			{%- set nextUrl = cleanCollection[loop.index0 + 1].data.page.url -%}
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor -%}
+{
+	"title": "{{ title }}",
+	{%- if imgs -%}
+		"imgs": [
+			{%- for img in imgs -%}
+				"/portfolio/{{ page.fileSlug }}/imgs/{{ img }}.png"{% if not loop.last %},{% endif %}
+			{%- endfor -%}
+		],
+	{%- endif -%}
+	{%- if tags -%}
+		"tags": [
+			{%- for tag in tags -%}
+				"{{ tag }}"{% if not loop.last %},{% endif %}
+			{%- endfor -%}
+		],
+	{%- endif -%}
+	{%- if behance -%}
+		"behance": "{{ behance }}",
+	{%- endif -%}
+	"nav": {
+		"previousUrl": "{{ previousUrl }}",
+		"nextUrl": "{{ nextUrl }}"
+	}
+}
