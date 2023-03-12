@@ -195,7 +195,7 @@ class PortfolioLoader {
 	_renderArticle( imgs ) {
 		this._articleElement = createElement( templates.article() );
 		imgs.forEach( ( imgUrl ) => this._articleElement.querySelector( '.article__list' ).append( createElement( templates.articleImg( imgUrl ) ) ) );
-		this._caseElement.append( this._articleElement );
+		this._caseElement.prepend( this._articleElement );
 	}
 
 	_renderDetails( tags, behance ) {
