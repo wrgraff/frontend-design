@@ -148,7 +148,6 @@ class PortfolioLoader {
 		this._nextUrl = null;
 
 		this._linkElementClickHandler = this._linkElementClickHandler.bind( this );
-		this._closeButtonElementHandler = this._closeButtonElementHandler.bind( this );
 		this._previousButtonElementHandler = this._previousButtonElementHandler.bind( this );
 		this._nextButtonElementHandler = this._nextButtonElementHandler.bind( this );
 	}
@@ -241,7 +240,6 @@ class PortfolioLoader {
 			this._previousButtonElement = createElement( templates.previousButton() );
 			this._navElement.querySelector( '.case__side_left' ).append( this._previousButtonElement );
 
-			this._closeButtonElement.addEventListener( 'click', this._closeButtonElementHandler );
 			this._previousButtonElement.addEventListener( 'click', this._previousButtonElementHandler );
 			this._nextButtonElement.addEventListener( 'click', this._nextButtonElementHandler );
 		}
@@ -304,15 +302,13 @@ class PortfolioLoader {
 
 		this._renderLoadingState();
 		this._scrollLock.disableScrolling();
-		this._micromodal.show( 'modal' );
+		this._micromodal.show( 'modal', {
+			onClose: () => {
+				this._remove();
+			},
+		} );
 
 		this._loadData( `${evt.target.href}index.json` );
-	}
-
-	_closeButtonElementHandler( evt ) {
-		evt.preventDefault();
-
-		this._remove();
 	}
 
 	_previousButtonElementHandler( evt ) {
