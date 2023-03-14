@@ -2,7 +2,6 @@
 <html lang="en" class="page no-js">
 	<head>
 		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
 			{{ title }}
@@ -10,6 +9,14 @@
 			{% endif %}
 		</title>
 		<link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+
+		<link rel="icon" href="/img/favicons/favicon.ico" sizes="any">
+		<link rel="icon" href="/img/favicons/any.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon" href="/img/favicons/180.png">
+		<link rel="manifest" href="/manifest.json">
+
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F1F5F9">
+    	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F172A">
 	</head>
 
 	{{ content | safe }}
