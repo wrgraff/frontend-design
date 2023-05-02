@@ -7,16 +7,16 @@ tasks:
   - Improve usability
   - Save catalog structure
 imgs:
-  - hero
-  - problem
-  - kit
-  - kit-components
-  - structure
-  - page-main
-  - page-catalog
-  - page-about
+  - 00-hero
+  - 01-problem
+  - 02-ui-kit
+  - 03-ui-kit
+  - 04-structure
+  - 05-pages
+  - 06-purchase
+  - 07-recap
 tags:
   - UX
   - UI kit
   - WEB
-behance: '#'
+behance: 'https://www.behance.net/gallery/167972237/Veterinary-pharmacy-design'
