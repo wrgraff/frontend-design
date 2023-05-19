@@ -189,7 +189,7 @@
 @media (width >= 880px) {
 	.case__side-contacts {
 		position: sticky;
-		top: 32px;
+		top: 40px;
 	}
 }
 
@@ -207,7 +207,7 @@
 @media (width >= 880px) {
 	.case__close {
 		position: sticky;
-		top: 36px;
+		top: 40px;
 	}
 }
 

@@ -4,7 +4,7 @@
 <main class="page__main main">
 	{{ header( mainBlock = 'page' ) }}
 
-	<section class="main__section promo">
+	<section class="main__section promo" id="about">
 		<h1 class="promo__heading">{{ promo.heading }}</h1>
 		<p class="promo__text">{{ promo.lead | safe }}</p>
 		<div class="promo__buttons">
@@ -13,7 +13,7 @@
 		</div>
 	</section>
 
-	<section class="main__category category">
+	<section class="main__category category" id="design">
 		<header class="category__header category-header">
 			<h2 class="category-header__heading">{{ design.heading }}</h2>
 			<p class="category-header__lead">{{ design.lead | safe }}</p>
@@ -40,7 +40,7 @@
 			</ul>
 		</section>
 
-		<section class="category__section section">
+		<section class="category__section section" id="portfolio">
 			<div class="section__header">
 				<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.portfolio.heading }}</h3>
 				{% if academy.portfolio.comment %}
@@ -54,7 +54,7 @@
 		</section>
 	</section>
 
-	<section class="main__category category">
+	<section class="main__category category" id="academy">
 		<header class="category__header category-header">
 			<h2 class="category-header__heading">{{ academy.heading }}</h2>
 			<p class="category-header__lead">{{ academy.lead | safe }}</p>
@@ -126,7 +126,7 @@
 		</section>
 	</section>
 
-	<section class="main__category category">
+	<section class="main__category category" id="contacts">
 		<header class="category__header category-header">
 			<h2 class="category-header__heading">{{ contacts.heading }}</h2>
 			<p class="category-header__lead">{{ contacts.lead | safe }}</p>

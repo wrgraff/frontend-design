@@ -1,5 +1,6 @@
 layout: case.njk
 title: 'Veterinary pharmacy design'
+external: false
 nda: false
 role: 'UX designer'
 tasks:

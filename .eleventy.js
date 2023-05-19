@@ -87,6 +87,7 @@ module.exports = function (config) {
 		'src/fonts',
 		'src/img',
         'src/portfolio/**/*.!(md)',
+		'src/files'
 	].forEach(
 		path => config.addPassthroughCopy(path)
 	);

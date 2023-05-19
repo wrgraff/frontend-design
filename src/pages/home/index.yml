@@ -99,6 +99,12 @@ academy:
           title: Article on .html academy blog
           type: article
           url: https://htmlacademy.ru/blog/articles/bad-design
+      - heading: Why should a developer know design?
+        text: Article about what things in design can be really useful for frontend developers and how to better the connection with designers
+        link:
+          title: Article on .html academy blog
+          type: article
+          url: https://htmlacademy.ru/blog/middle/frontend-in-design
       - heading: Help for students learning HTML and CSS
         text: Articles about some specific difficulties faced by students who learning how to create web page layouts with HTML and CSS
         link:

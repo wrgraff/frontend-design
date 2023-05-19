@@ -107,6 +107,7 @@ html:not(.no-js) .portfolio__container {
 
 	display: grid;
 	align-content: start;
+	grid-template-rows: auto 1fr;
 	grid-column: 1 / -1;
 	grid-row: 1 / 2;
 
@@ -188,7 +189,8 @@ html:not(.no-js) .portfolio__container {
 /* Label */
 
 .portfolio__label {
-	grid-column-start: 1;
+	grid-row-start: 2;
+	align-self: start;
 	justify-self: start;
 }
 
@@ -392,4 +394,64 @@ html.touch .portfolio__instruction_touch {
 	transition:
 		opacity 250ms ease-in-out,
 		transform 250ms ease-in-out;
+}
+
+/* Chain */
+
+.portfolio__url {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	grid-row-start: 2;
+	align-self: end;
+
+	color: var(--color-text-base);
+	fill: currentColor;
+
+	font: var(--font-text-l);
+}
+
+.portfolio__url-text {
+    transform: translateX(-28px);
+    transition: transform 200ms ease-out 150ms;
+}
+
+.portfolio__chain {
+    margin-top: 1px;
+    margin-left: -8px;
+
+	color: transparent;
+    transition: color 200ms ease 100ms;
+}
+
+.portfolio__link:hover .portfolio__chain,
+.portfolio__link:focus .portfolio__chain {
+	color: inherit;
+}
+
+.portfolio__link:hover .portfolio__url-text,
+.portfolio__link:focus .portfolio__url-text {
+	transform: translateX(0);
+	transition: transform 200ms ease-out;
+}
+
+.portfolio__chain-left,
+.portfolio__chain-right {
+    transition: transform 200ms ease-out 200ms;
+}
+
+.portfolio__chain-left {
+	transform: translateX(-8px);
+}
+
+.portfolio__chain-right {
+	transform: translateX(8px);
+}
+
+.portfolio__link:hover .portfolio__chain-left,
+.portfolio__link:focus .portfolio__chain-left,
+.portfolio__link:hover .portfolio__chain-right,
+.portfolio__link:focus .portfolio__chain-right {
+	transform: translateX(0);
+	transition: transform 200ms ease-out 150ms;
 }
