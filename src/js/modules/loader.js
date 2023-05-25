@@ -127,7 +127,7 @@ class PortfolioLoader {
 	constructor() {
 		this._micromodal = MicroModal;
 		this._scrollLock = new ScrollLock();
-		this._linkElements = document.querySelectorAll( '.portfolio__link[href]' );
+		this._linkElements = document.querySelectorAll( '.portfolio__link[href]:not([target="_blank"])' );
 
 		this._modalElement = createElement( templates.modal() );
 		this._caseElement = createElement( templates.case() );
