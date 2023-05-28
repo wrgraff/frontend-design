@@ -1,19 +1,19 @@
 layout: main.njk
 permalink: index.html
 promo:
-  heading: I design interfaces
-  lead: I create interfaces for analytics systems with a lot of data represented in graphs and tables. Also I create design systems with detailed UI documentation.
+  heading: Product UI designer
+  lead: I'm passionate about design systems and love accuracy and persistence. Also, I code, mentoring, and write articles
 design:
   heading: Design
-  lead: I create an ergonomic and usable design
+  lead: I create complicated interfaces
   text: |
-    I work in design all my professional life since year 2011. I started as a graphic designer then switched to web.
+    Since autumn 2021 I have worked in a product created for managing and analyzing cloud systems.
 
-    Likewise, I worked as a web designer and learned web technologies. Since autumn 2021 I have worked as a product designer.
+    I create and sustain design systems for UI and charts, make detailed descriptions with flowcharts for designs.
   skills:
     heading: Skills
     list:
-      - Design system, UI ki
+      - Design system, UI kit
       - Atomic design & tokens
       - Figma design + prototypes
       - Documentation (storybook)
