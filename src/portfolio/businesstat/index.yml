@@ -3,5 +3,5 @@ nda: false
 external: 'businesstat.ru'
 role: 'UI designer'
 tasks:
-  - Use UI Kit
-  - Integration to exist project
+  - Add new features
+  - Redesign website catalog
