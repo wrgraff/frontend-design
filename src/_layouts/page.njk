@@ -4,9 +4,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>
-			{{ title }}
-			{% if page.url != '/' %} | {{ meta.siteName }}
-			{% endif %}
+			{%- if page.url != '/' -%}
+				{{ title }} |
+			{%- endif -%}
+			{{ meta.siteName }}
 		</title>
 		<link rel="stylesheet" href="{{ '/css/index.css' | url }}">
 
@@ -14,6 +15,17 @@
 		<link rel="icon" href="/img/favicons/any.svg" type="image/svg+xml">
 		<link rel="apple-touch-icon" href="/img/favicons/180.png">
 		<link rel="manifest" href="/manifest.json">
+
+		<meta property="og:title" content="{{ title if (page.url != '/') }}{{ ' | ' if (page.url != '/') }}{{ meta.siteName }}" />
+		<meta property="og:image" content="/img/favicons/og.jpg" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Artur Trifonov's website" />
+		{% if page.url != '/' %}
+			<meta property="og:url" content="https://frontend-design.ru/" />
+		{% else %}
+			<meta property="og:url" content="https://frontend-design.ru/{{ activePage }}/" />
+		{% endif %}
+		<meta property="og:locale" content="en_EN" />
 	</head>
 
 	{{ content | safe }}
