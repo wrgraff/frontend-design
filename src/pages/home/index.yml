@@ -78,21 +78,21 @@ academy:
           title: Video on YouTube
           type: video
           url: https://youtu.be/pQNoBoh_Ngg?t=16023
-        slides: https://youtu.be/pQNoBoh_Ngg?t=16023
+        slides: https://it2021.frontend-design.ru/
       - heading: Modern web page layout
         text: Lecture how to create modern page layout with accesibility, adaptive and optimized loading speed
         link:
           title: Video on YouTube
           type: video
           url: https://youtu.be/PxGzo5Utde8?t=19331
-        slides: https://youtu.be/pQNoBoh_Ngg?t=16023
+        slides: https://layout2021.frontend-design.ru/
       - heading: Content Management System
         text: A lecture history of CMS and modern working methods with web sites content
         link:
           title: Video on YouTube
           type: video
           url: https://youtu.be/-gN7KLYaRSo?t=13475
-        slides: https://youtu.be/pQNoBoh_Ngg?t=16023
+        slides: https://cms.frontend-design.ru/
       - heading: Common design mistakes and how to fix them
         text: Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?
         link:

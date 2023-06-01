@@ -116,9 +116,9 @@
 					<li class="links__item">
 						<h3 class="links__heading">{{ item.heading }}</h3>
 						<p class="links__text">{{ item.text }}</p>
-						<a href="{{ item.link.url }}" class="links__link links__link_{{ item.link.type }}">{{ item.link.title }}</a>
+						<a href="{{ item.link.url }}" class="links__link links__link_{{ item.link.type }}" target="_blank">{{ item.link.title }}</a>
 						{% if item.slides %}
-							<a href="{{ item.slides }}" class="links__link links__link_slides">Slides</a>
+							<a href="{{ item.slides }}" class="links__link links__link_slides" target="_blank">Slides</a>
 						{% endif %}
 					</li>
 				{% endfor %}
