@@ -4,7 +4,9 @@
 {%- set nextUrl = "" -%}
 {%- for item in collection -%}
 	{%- if item.data.nda !== true -%}
-		{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
+		{%- if item.data.external === false -%}
+			{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
+		{%- endif -%}
 	{%- endif -%}
 {%- endfor -%}
 {%- for item in cleanCollection -%}

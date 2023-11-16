@@ -4,29 +4,32 @@ layout: page.njk
 
 {% from 'header.njk' import header with context %}
 
-{% set collection = collections.portfolio %}
-{% set cleanCollection = [] %}
-{% for item in collection %}
-	{% if item.data.nda !== true %}
-		{% set cleanCollection = (cleanCollection.push(item), cleanCollection) %}
-	{% endif %}
-{% endfor %}
+{%- set collection = collections.portfolio -%}
+{%- set cleanCollection = [] -%}
+{%- set previousUrl = "" -%}
+{%- set nextUrl = "" -%}
+{%- for item in collection -%}
+	{%- if item.data.nda !== true -%}
+		{%- if item.data.external === false -%}
+			{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor -%}
+{%- for item in cleanCollection -%}
+	{%- if page.fileSlug == item.fileSlug -%}
+		{%- if loop.first -%}
+			{%- set previousUrl = cleanCollection[loop.length - 1].data.page.url -%}
+		{%- else -%}
+			{%- set previousUrl = cleanCollection[loop.index0 - 1].data.page.url -%}
+		{%- endif -%}
 
-{% for item in cleanCollection %}
-	{% if page.url == item.url %}
-		{% if loop.first %}
-			{% set previousUrl = cleanCollection[loop.length - 1].data.page.url %}
-		{% else %}
-			{% set previousUrl = cleanCollection[loop.index0 - 1].data.page.url %}
-		{% endif %}
-
-		{% if loop.last %}
-			{% set nextUrl = cleanCollection[0].data.page.url %}
-		{% else %}
-			{% set nextUrl = cleanCollection[loop.index0 + 1].data.page.url %}
-		{% endif %}
-	{% endif %}
-{% endfor %}
+		{%- if loop.last -%}
+			{%- set nextUrl = cleanCollection[0].data.page.url -%}
+		{%- else -%}
+			{%- set nextUrl = cleanCollection[loop.index0 + 1].data.page.url -%}
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor -%}
 
 <body class="page__body page__body_case">
 	<main class="case">
