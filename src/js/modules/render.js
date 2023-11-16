@@ -4,3 +4,10 @@ export const createElement = ( template ) => {
 
 	return element.firstElementChild;
 };
+
+export const removeElement = ( element ) => {
+	if ( element ) {
+		element.remove();
+	}
+	element = null;
+};

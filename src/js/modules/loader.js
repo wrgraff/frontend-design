@@ -1,5 +1,5 @@
 import MicroModal from 'micromodal';
-import { createElement } from './createElement';
+import { createElement, removeElement } from './render';
 import { ScrollLock } from './scroll-lock';
 
 const templates = {
@@ -199,8 +199,7 @@ class PortfolioLoader {
 
 	_renderDetails( tags, behance ) {
 		if ( !tags.length > 0 && !behance ) {
-			this._detailsElement.remove();
-			this._detailsElement = null;
+			removeElement( this._detailsElement );
 			return;
 		}
 
@@ -211,16 +210,14 @@ class PortfolioLoader {
 			tags.forEach( ( tag ) => this._detailsListElement.append( createElement( templates.detailsItem( tag ) ) ) );
 			this._detailsElement.append( this._detailsListElement );
 		} else {
-			this._detailsListElement.remove();
-			this._detailsListElement = null;
+			removeElement( this._detailsListElement );
 		}
 
 		if ( behance ) {
 			this._detailsButtonElement = createElement( templates.detailsButton( behance ) );
 			this._detailsElement.append( this._detailsButtonElement );
 		} else {
-			this._detailsButtonElement.remove();
-			this._detailsButtonElement = null;
+			removeElement( this._detailsButtonElement );
 		}
 
 		this._caseElement.append( this._detailsElement );
@@ -250,8 +247,7 @@ class PortfolioLoader {
 			this._navBehanceElement = createElement( templates.navBehance( behance ) );
 			this._navElement.querySelector( '.side-contacts__list' ).append( this._navBehanceElement );
 		} else {
-			this._navBehanceElement.remove();
-			this._navBehanceElement = null;
+			removeElement( this._navBehanceElement );
 		}
 	}
 
@@ -260,36 +256,21 @@ class PortfolioLoader {
 	}
 
 	_removeCaseContent() {
-		this._titleElement.remove();
-		this._titleElement = null;
-
-		this._articleElement.remove();
-		this._articleElement = null;
-
-		this._detailsElement.remove();
-		this._detailsElement = null;
-
-		this._detailsListElement.remove();
-		this._detailsListElement = null;
-
-		this._detailsButtonElement.remove();
-		this._detailsButtonElement = null;
-
-		this._navBehanceElement.remove();
-		this._navBehanceElement = null;
+		removeElement( this._titleElement );
+		removeElement( this._articleElement );
+		removeElement( this._detailsElement );
+		removeElement( this._detailsListElement );
+		removeElement( this._detailsButtonElement );
+		removeElement( this._navBehanceElement );
 	}
 
 	_remove() {
 		this._removeCaseContent();
 
-		this._navElement.remove();
-		this._navElement = null;
-		this._previousButtonElement.remove();
-		this._previousButtonElement = null;
-		this._nextButtonElement.remove();
-		this._nextButtonElement = null;
-		this._closeButtonElement.remove();
-		this._closeButtonElement = null;
+		removeElement( this._navElement );
+		removeElement( this._previousButtonElement );
+		removeElement( this._nextButtonElement );
+		removeElement( this._closeButtonElement );
 
 		this._previousUrl = null;
 		this._nextUrl = null;
