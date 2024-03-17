@@ -70,7 +70,7 @@ module.exports = function (config) {
     config.addCollection('portfolio', (collectionApi) => {
         return collectionApi.getFilteredByGlob(
             collections.portfolio
-        );
+        ).sort((a, b) => Math.sign(a.data.order - b.data.order));
     });
 
     // Markdown

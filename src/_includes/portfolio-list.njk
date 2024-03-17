@@ -15,7 +15,7 @@
 
 		<div class="portfolio__container" role="region" tabindex="0" aria-describedby="instructions" aria-label="Portfolio gallery">
 			<ul class="portfolio__list">
-				{% for case in collection | reverse %}
+				{% for case in collection %}
 					{{ portfolioItem(
 						case = case
 					) }}

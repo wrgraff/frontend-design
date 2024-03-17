@@ -1,5 +1,5 @@
-layout: case.njk
 title: 'Product list for a CRM'
+order: 1
 external: false
 nda: false
 role: 'UI designer'
@@ -25,3 +25,4 @@ tags:
   - UI
   - Product
   - CRM
+behance: 'https://www.behance.net/gallery/191009911/Product-list-for-a-CRM'
