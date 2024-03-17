@@ -267,10 +267,10 @@ class PortfolioLoader {
 	_remove() {
 		this._removeCaseContent();
 
-		removeElement( this._navElement );
-		removeElement( this._previousButtonElement );
-		removeElement( this._nextButtonElement );
-		removeElement( this._closeButtonElement );
+		// removeElement( this._navElement );
+		// removeElement( this._previousButtonElement );
+		// removeElement( this._nextButtonElement );
+		// removeElement( this._closeButtonElement );
 
 		this._previousUrl = null;
 		this._nextUrl = null;

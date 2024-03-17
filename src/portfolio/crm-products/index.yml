@@ -1,0 +1,27 @@
+layout: case.njk
+title: 'Product list for a CRM'
+external: false
+nda: false
+role: 'UI designer'
+tasks:
+  - Product list optimization
+  - Hierarchy implementation
+  - Tag system integration
+imgs:
+  - 00-hero
+  - 01-task
+  - 02-product-list
+  - 02-full-item
+  - 02-adjusment-features
+  - 02-poduct-filters
+  - 02-search
+  - 03-products-hierarchy
+  - 03-hierarchy-settings
+  - 03-multi-edit
+  - 04-tag-system
+  - 04-full-setup
+  - 05-final-conclusion
+tags:
+  - UI
+  - Product
+  - CRM
