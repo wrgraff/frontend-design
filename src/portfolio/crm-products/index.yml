@@ -13,8 +13,9 @@ imgs:
   - 02-product-list
   - 02-full-item
   - 02-adjusment-features
-  - 02-poduct-filters
   - 02-search
+  - type: mp4
+    name: 02-product-filters
   - 03-products-hierarchy
   - 03-hierarchy-settings
   - 03-multi-edit

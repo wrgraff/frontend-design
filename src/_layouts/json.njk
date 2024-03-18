@@ -29,7 +29,11 @@
 	{%- if imgs -%}
 		"imgs": [
 			{%- for img in imgs -%}
-				"/portfolio/{{ page.fileSlug }}/imgs/{{ img }}.png"{% if not loop.last %},{% endif %}
+				{%- if img.type == 'mp4' -%}
+					"/portfolio/{{ page.fileSlug }}/imgs/{{ img.name }}.mp4"{% if not loop.last %},{% endif %}
+				{%- else -%}
+					"/portfolio/{{ page.fileSlug }}/imgs/{{ img }}.png"{% if not loop.last %},{% endif %}
+				{%- endif -%}
 			{%- endfor -%}
 		],
 	{%- endif -%}

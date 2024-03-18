@@ -44,6 +44,18 @@ const templates = {
 			</li>
 		`;
 	},
+	articleVideo( url ) {
+		return `
+			<li class="article__item">
+				<picture class="article__picture">
+					<video width="1400" controls autoplay muted loop>
+						<source src="${url}" type="video/mp4">
+						Your browser does not support the video tag
+					</video>
+				</picture>
+			</li>
+		`;
+	},
 	details() {
 		return `
 			<section class="case__details details">
@@ -163,6 +175,7 @@ class PortfolioLoader {
 		fetch( url )
 				.then( ( response ) => response.json() )
 				.then( ( data ) => {
+					console.log( data.imgs );
 					this._previousUrl = data.nav.previousUrl;
 					this._nextUrl = data.nav.nextUrl;
 					this._renderCase( data );
@@ -193,7 +206,13 @@ class PortfolioLoader {
 
 	_renderArticle( imgs ) {
 		this._articleElement = createElement( templates.article() );
-		imgs.forEach( ( imgUrl ) => this._articleElement.querySelector( '.article__list' ).append( createElement( templates.articleImg( imgUrl ) ) ) );
+		imgs.forEach( ( imgUrl ) => {
+			if ( imgUrl.endsWith( '.mp4' ) ) {
+				this._articleElement.querySelector( '.article__list' ).append( createElement( templates.articleVideo( imgUrl ) ) );
+			} else {
+				this._articleElement.querySelector( '.article__list' ).append( createElement( templates.articleImg( imgUrl ) ) );
+			}
+		} );
 		this._caseElement.prepend( this._articleElement );
 	}
 

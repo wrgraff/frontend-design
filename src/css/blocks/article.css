@@ -16,3 +16,7 @@
 .article__picture img {
 	display: block;
 }
+
+.article__picture video {
+	max-width: 100%;
+}
