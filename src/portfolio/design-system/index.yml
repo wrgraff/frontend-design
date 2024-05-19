@@ -1,0 +1,23 @@
+title: 'Design system for a product interface'
+order: 3
+nda: true
+external: false
+role: 'UI designer'
+tasks:
+  - Optimize development process
+  - Increase design consistency
+imgs:
+  - 00-hero
+  - 01-challenges
+  - 02-styles-fonts
+  - 02-styles-colors
+  - 03-components
+  - 03-components-guides
+  - 03-components-color-modes
+  - 04-challenges
+  - 05-impact
+tags:
+  - Design system
+  - UI Kit
+  - UI
+behance: 'https://www.behance.net/gallery/198986611/Design-system'
