@@ -9,7 +9,7 @@ tasks:
 imgs:
   - 00-hero
   - 01-challenges
-  - 02-styles-fonts
+  - 02-styles-font
   - 02-styles-colors
   - 03-components
   - 03-components-guides
