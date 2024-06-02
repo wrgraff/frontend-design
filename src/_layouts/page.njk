@@ -17,13 +17,13 @@
 		<link rel="manifest" href="/manifest.json">
 
 		<meta property="og:title" content="{{ title if (page.url != '/') }}{{ ' | ' if (page.url != '/') }}{{ meta.siteName }}" />
-		<meta property="og:image" content="/img/favicons/og.jpg" />
+		<meta property="og:image" content="/img/favicons/og.png" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Artur Trifonov's website" />
 		{% if page.url != '/' %}
-			<meta property="og:url" content="https://frontend-design.ru/" />
+			<meta property="og:url" content="https://arturtrifonov.com/" />
 		{% else %}
-			<meta property="og:url" content="https://frontend-design.ru/{{ activePage }}/" />
+			<meta property="og:url" content="https://arturtrifonov.com/{{ activePage }}/" />
 		{% endif %}
 		<meta property="og:locale" content="en_EN" />
 	</head>
