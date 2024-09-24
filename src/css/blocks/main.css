@@ -8,17 +8,29 @@
 	.main {
 		row-gap: 40px;
 	}
+
+	.main_cv {
+		row-gap: 20px;
+	}
 }
 
 @media (880px <= width < 1500px) {
 	.main {
 		row-gap: 80px;
 	}
+
+	.main_cv {
+		row-gap: 40px;
+	}
 }
 
 @media (width >= 1500px) {
 	.main {
 		row-gap: 114px;
+	}
+
+	.main_cv {
+		row-gap: 64px;
 	}
 }
 

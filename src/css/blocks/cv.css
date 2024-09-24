@@ -1,0 +1,6 @@
+@media (width >= 906px) {
+	.cv__header {
+		grid-column: 2 / -2;
+		margin-top: 64px;
+	}
+}
