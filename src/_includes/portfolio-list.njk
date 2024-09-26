@@ -4,38 +4,12 @@
     collection
 ) %}
 	<div class="section__portfolio portfolio">
-		<div class="portfolio__nav" hidden>
-			<button type="button" class="portfolio__button ico-button ico-button_xl ico-button_secondary ico-button_rounded ico-button_previous">
-				<span class="visually-hidden">Предыдущая работа</span>
-			</button>
-			<button type="button" class="portfolio__button ico-button ico-button_xl ico-button_secondary ico-button_rounded ico-button_next">
-				<span class="visually-hidden">Следующая работа</span>
-			</button>
-		</div>
-
-		<div class="portfolio__container" role="region" tabindex="0" aria-describedby="instructions" aria-label="Portfolio gallery">
-			<ul class="portfolio__list">
-				{% for case in collection %}
-					{{ portfolioItem(
-						case = case
-					) }}
-				{% endfor %}
-			</ul>
-		</div>
-
-		<div class="portfolio__instructions" id="instructions">
-			<p class="portfolio__instruction portfolio__instruction_touch">
-				Swipe for more
-			</p>
-			<p class="portfolio__instruction portfolio__instruction_hover">
-				Scroll for more
-			</p>
-			<p class="portfolio__instruction portfolio__instruction_focus">
-				Use your arrow keys for more
-			</p>
-			<p class="portfolio__instruction portfolio__instruction_hover-focus">
-				Scroll or use arrow keys for more
-			</p>
-		</div>
+		<ul class="portfolio__list">
+			{% for case in collection %}
+				{{ portfolioItem(
+					case = case
+				) }}
+			{% endfor %}
+		</ul>
 	</div>
 {% endmacro %}

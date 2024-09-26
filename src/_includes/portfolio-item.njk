@@ -2,14 +2,7 @@
     case
 ) %}
     <li class="portfolio__item">
-		{% if case.data.nda %}
-			<a href="{{ case.url }}" class="portfolio__link">
-				<h4 class="portfolio__heading">
-					{{ case.data.title }}
-				</h4>
-				<span class="portfolio__label label label_small_s label_large_l">NDA project</span>
-			</a>
-		{% elif case.data.external %}
+		{% if case.data.external %}
 			<a href="https://{{ case.data.external }}/" class="portfolio__link" target="_blank">
 				<h4 class="portfolio__heading">
 					{{ case.data.title }}
@@ -30,21 +23,14 @@
 				<h4 class="portfolio__heading">
 					{{ case.data.title }}
 				</h4>
+				{% if case.data.nda %}
+					<span class="portfolio__label label">NDA project</span>
+				{% endif %}
 			</a>
 		{% endif %}
 
 		<picture class="portfolio__picture" aria-hidden="true">
 			<img src="{{ case.url }}imgs/cover.png" alt="">
 		</picture>
-
-		<h5 class="portfolio__subheading">Role</h5>
-		<p class="portfolio__text">{{ case.data.role }}</p>
-
-		<h5 class="portfolio__subheading">Tasks</h5>
-		<ul class="portfolio__tasks">
-			{% for item in case.data.tasks %}
-				<li class="portfolio__task">{{ item }}</li>
-			{% endfor %}
-		</ul>
     </li>
 {% endmacro %}

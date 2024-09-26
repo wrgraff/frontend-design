@@ -73,6 +73,19 @@ module.exports = function (config) {
         ).sort((a, b) => Math.sign(a.data.order - b.data.order));
     });
 
+    config.addCollection('portfolioTop', (collectionApi) => {
+		const collection = collectionApi.getFilteredByGlob(
+            collections.portfolio
+        );
+		const elementsToDelete = collection.length - 6;
+
+		collection
+			.sort((a, b) => Math.sign(a.data.order - b.data.order))
+			.splice(collection.length - elementsToDelete, elementsToDelete);
+
+		return collection;
+    });
+
     // Markdown
 
     config.addFilter('markdown', (value) => {
