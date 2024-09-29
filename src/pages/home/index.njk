@@ -1,5 +1,6 @@
 {% from 'header.njk' import header with context %}
 {% from 'portfolio-list.njk' import portfolioList with context %}
+{% from 'videos-list.njk' import videosList with context %}
 
 <main class="page__main main">
 	{{ header( mainBlock = 'page' ) }}
@@ -89,18 +90,9 @@
 				{% endif %}
 			</div>
 
-			<ul class="section__links links">
-				{% for item in performance.videos.list %}
-					<li class="links__item">
-						<h3 class="links__heading">{{ item.heading }}</h3>
-						<p class="links__text">{{ item.description }}</p>
-						<a href="{{ item.url }}" class="links__link" target="_blank">{{ item.heading }}</a>
-						{% if item.slides %}
-							<a href="{{ item.slides }}" class="links__link links__link_slides" target="_blank">Slides</a>
-						{% endif %}
-					</li>
-				{% endfor %}
-			</ul>
+			{{ videosList(
+				collection = collections.videos
+			) }}
 		</section>
 
 		<section class="category__section section">

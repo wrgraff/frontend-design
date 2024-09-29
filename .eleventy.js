@@ -64,7 +64,8 @@ module.exports = function (config) {
     // Collections
 
     const collections = {
-        'portfolio': 'src/portfolio/*/index.md'
+        'portfolio': 'src/portfolio/*/index.md',
+		'videos': 'src/videos/*/index.md'
     };
 
     config.addCollection('portfolio', (collectionApi) => {
@@ -86,6 +87,12 @@ module.exports = function (config) {
 		return collection;
     });
 
+    config.addCollection('videos', (collectionApi) => {
+        return collectionApi.getFilteredByGlob(
+            collections.videos
+        ).sort((a, b) => Math.sign(a.data.order - b.data.order));
+    });
+
     // Markdown
 
     config.addFilter('markdown', (value) => {
@@ -100,6 +107,7 @@ module.exports = function (config) {
 		'src/fonts',
 		'src/img',
         'src/portfolio/**/*.!(md)',
+        'src/videos/**/*.!(md)',
 		'src/files'
 	].forEach(
 		path => config.addPassthroughCopy(path)

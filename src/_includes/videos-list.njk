@@ -1,0 +1,13 @@
+{% from 'videos-item.njk' import videosItem %}
+
+{% macro videosList(
+    collection
+) %}
+	<ul class="section__videos videos">
+		{% for item in collection %}
+			{{ videosItem(
+				item = item
+			) }}
+		{% endfor %}
+	</ul>
+{% endmacro %}

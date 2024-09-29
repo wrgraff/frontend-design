@@ -1,0 +1,18 @@
+{% macro videosItem(
+    item
+) %}
+	<li class="videos__item">
+		<h3 class="videos__heading">
+			{{ item.data.title }}
+		</h3>
+		<p class="videos__text">{{ item.data.description }}</p>
+		<a href="{{ item.data.url }}" class="videos__link links__link links__link_video" target="_blank">Watch on YouTube</a>
+		{% if item.data.slides %}
+			<a href="{{ item.data.slides }}" class="videos__link videos__link_slides links__link_slides" target="_blank">Slides</a>
+		{% endif %}
+
+		<picture class="videos__picture" aria-hidden="true">
+			<img src="{{ item.url }}{{ item.data.cover }}" alt="">
+		</picture>
+	</li>
+{% endmacro %}

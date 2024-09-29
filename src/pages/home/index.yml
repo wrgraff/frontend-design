@@ -44,26 +44,6 @@ performance:
   videos:
     heading: Speaking
     comment: '* All materials are in russian language'
-    list:
-      - heading: Basics of Figma for Frontend Developers
-        description: Open online lesson on academy’s YouTube channel about base Figma instruments which can help developers to work with layouts
-        url: https://www.youtube.com/live/mnoWBLMD0zw?si=odS07UxmQznp7Gro
-        img:
-      - heading: Modern IT Technologies
-        description: Review of changes and actual technologies in web and application development
-        url: https://www.youtube.com/live/pQNoBoh_Ngg?si=F71uDxAAx5tigTJQ&t=16023
-        img:
-        slides: https://it2021.frontend-design.ru/
-      - heading: Modern Layout Techniques
-        description: Lecture how to create modern page layout with accesibility, adaptive and optimized loading speed
-        url: https://www.youtube.com/live/PxGzo5Utde8?si=V7b2yMGV6wec2DY_&t=19320
-        img:
-        slides: https://layout2021.frontend-design.ru/
-      - heading: Content Management Systems
-        description: A lecture history of CMS and modern working methods with web sites content
-        url: https://www.youtube.com/live/-gN7KLYaRSo?si=VZSQg_1uLC39pGrv&t=13475
-        img:
-        slides: https://cms.frontend-design.ru/
   articles:
     heading: Articles
     comment: '* All materials are in russian language'
