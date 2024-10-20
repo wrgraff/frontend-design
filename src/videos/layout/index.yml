@@ -2,6 +2,8 @@ title: 'Modern Layout Techniques'
 description: |
   Lecture how to create modern page layout with accesibility, adaptive and optimized loading speed
 order: 2
-url: 'https://www.youtube.com/live/PxGzo5Utde8?si=V7b2yMGV6wec2DY_&t=19320'
+url: 'https://www.youtube.com/live/PxGzo5Utde8?t=19320'
+id: 'PxGzo5Utde8'
+start: '19320'
 cover: 'cover.png'
 slides: 'https://layout2021.frontend-design.ru/'

@@ -1,0 +1,71 @@
+---
+layout: page.njk
+---
+
+{% from 'header.njk' import header with context %}
+{% from 'videos-list.njk' import videosList with context %}
+
+<body class="page__body page__body_case">
+	<main class="case">
+		{{ header( mainBlock = 'case' ) }}
+
+		<article class="case__article video">
+			<div class="video__content">
+				<a class="video__main-link" href="{{ url }}" target="_blank" data-id="{{ id }}" data-start="{{ start }}">
+					<h1 class="video__heading">{{ title }}</h1>
+					<p class="video__text">{{ description }}</p>
+				</a>
+				<button type="button" class="video__button" aria-label="Launch the video"></button>
+				<picture class="video__media">
+					<img class="video__img" src="./{{ cover }}" alt="">
+				</picture>
+			</div>
+
+			<div class="video__links">
+				<a href="{{ url }}" class="video__link link link_video" target="_blank">Watch on YouTube</a>
+				{% if slides %}
+					<a href="{{ slides }}" class="video__link link link_slides" target="_blank">Slides</a>
+				{% endif %}
+			</div>
+		</article>
+
+		<section class="case__videos-section videos-section">
+			<div class="videos-section__header">
+				<h2 class="videos-section__heading">Other Speaking Videos</h2>
+				<p class="videos-section__comment">* All materials are in russian language</p>
+			</div>
+
+			{{ videosList(
+				collection = collections.videos,
+				parentSection = 'videos-section',
+				currentItemId = id
+			) }}
+		</section>
+
+		<nav class="case__nav">
+			<div class="case__side case__side_left">
+				<a href="/" class="case__home ico-button ico-button_l ico-button_small_xl ico-button_rounded ico-button_secondary ico-button_home">
+					<span class="visually-hidden">Home</span>
+				</a>
+			</div>
+
+			<div class="case__side case__side_right">
+				<div class="case__side-contacts side-contacts">
+					<div class="side-contacts__me me me_small">
+						<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
+					</div>
+
+					<ul class="side-contacts__list">
+						<li class="side-contacts__item">
+							<a href="mailto:hi@arturtrifonov.com" class="ico-button ico-button_l ico-button_rounded ico-button_secondary ico-button_email">
+								<span class="visually-hidden">hi@arturtrifonov.com</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</main>
+
+	<script defer src="/js/index.js"></script>
+</body>
