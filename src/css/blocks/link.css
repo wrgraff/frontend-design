@@ -1,7 +1,13 @@
 .link {
 	display: inline-flex;
-	align-items: center;
+	align-items: start;
 	column-gap: .35em;
+
+	color: var(--color-text-base);
+}
+
+.link_secondary {
+	color: var(--color-text-secondary);
 }
 
 [class*='link_']::before {
@@ -9,6 +15,7 @@
 
 	width: 1.2em;
 	height: 1.2em;
+	margin-top: 4px;
 
 	background-color: var(--color-text-primary);
 	mask-image: url('../img/icons.svg#link');

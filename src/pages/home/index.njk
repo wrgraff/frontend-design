@@ -104,15 +104,12 @@
 				{% endif %}
 			</div>
 
-			<ul class="section__links links">
+			<ul class="section__links articles">
 				{% for item in performance.articles.list %}
-					<li class="links__item">
-						<h3 class="links__heading">{{ item.heading }}</h3>
-						<p class="links__text">{{ item.description }}</p>
-						<a href="{{ item.url }}" class="links__link" target="_blank">{{ item.heading }}</a>
-						{% if item.slides %}
-							<a href="{{ item.slides }}" class="links__link links__link_slides" target="_blank">Slides</a>
-						{% endif %}
+					<li class="articles__item">
+						<h3 class="articles__heading">{{ item.heading }}</h3>
+						<p class="articles__text">{{ item.description }}</p>
+						<a href="{{ item.url }}" class="articles__link link link_link" target="_blank">{{ item.cleanUrl }}</a>
 					</li>
 				{% endfor %}
 			</ul>

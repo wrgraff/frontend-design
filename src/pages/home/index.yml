@@ -51,26 +51,32 @@ performance:
       - heading: Common design mistakes and how to fix them
         description: Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?
         url: https://htmlacademy.ru/blog/articles/bad-design
+        cleanUrl: htmlacademy.ru/blog/articles/bad-design
         img:
       - heading: Why should a developer know design?
         description: Article about what things in design can be really useful for frontend developers and how to better the connection with designers
         url: https://htmlacademy.ru/blog/middle/frontend-in-design
+        cleanUrl: htmlacademy.ru/blog/middle/frontend-in-design
         img:
-      - heading: git workflow, ты что такой странный?
-        description: Пояснения почему процесс работы с гитом такой сложный на втором курсе, зачем это делается и почему это важно
+      - heading: Git Workflow, Why Are You So Weird?
+        description: Explanations on why the process of working with Git is so complex in the second year, why it's done this way, and why it's important
         url: https://mentorium.frontend-design.ru/articles/git-workflow/
+        cleanUrl: mentorium.frontend-design.ru/articles/git-workflow
         img:
-      - heading: Когда в верстке нужна высота?
-        description: Когда и почему можно жестко зафиксировать высоту, а когда этого делать не стоит
+      - heading: When Is Fixed Height Needed in Layout?
+        description: When and why you can set a fixed height, and when you shouldn't do it
         url: https://mentorium.frontend-design.ru/articles/height-in-css/
+        cleanUrl: mentorium.frontend-design.ru/articles/height-in-css
         img:
-      - heading: Как подключать шрифты
-        description: Как назвать шрифт, почему важен порядок файлов, какие свойства указывать и как оптимизировать загрузку
+      - heading: How to Load Fonts
+        description: How to name fonts, why the order of files is important, which properties to specify, and how to optimize loading
         url: https://mentorium.frontend-design.ru/articles/include-fonts/
+        cleanUrl: mentorium.frontend-design.ru/articles/include-fonts
         img:
-      - heading: Как отличить margin от padding
-        description: И то и другое отступы, результат одинаковый. Так что же использовать?
+      - heading: How to Distinguish Margin from Padding
+        description: Both are used for spacing, and the result looks the same. So which one should you use?
         url: https://mentorium.frontend-design.ru/articles/margin-vs-padding/
+        cleanUrl: mentorium.frontend-design.ru/articles/margin-vs-padding
         img:
 contacts:
   heading: Contacts
