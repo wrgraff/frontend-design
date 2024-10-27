@@ -195,3 +195,15 @@
 		grid-column: 1 / -2;
 	}
 }
+
+/* Videos */
+
+.section__videos {
+	margin: 0;
+}
+
+@media (width >= 880px) {
+	.section__videos {
+		grid-column: 1 / -2;
+	}
+}

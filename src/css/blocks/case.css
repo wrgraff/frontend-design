@@ -272,3 +272,31 @@
 		margin-bottom: 64px;
 	}
 }
+
+/* Section */
+
+@media (width < 880px) {
+	.case__videos-section {
+		margin-top: 24px;
+		margin-bottom: 32px;
+	}
+}
+
+@media (width >= 880px) {
+	.case__videos-section {
+		grid-column: 2 / -2;
+		grid-row: 3 / 4;
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.case__videos-section {
+		margin-bottom: 40px;
+	}
+}
+
+@media (width >= 1500px) {
+	.case__videos-section {
+		margin-bottom: 64px;
+	}
+}

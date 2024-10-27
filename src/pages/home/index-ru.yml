@@ -1,0 +1,107 @@
+layout: main.njk
+permalink: index.html
+promo:
+  heading: Продуктовый UI дизайнер
+  lead: С воодушевлением работаю с дизайн-системами, люблю точность и детальные макеты. Говорю с программистами на одном языке, умею писать статьи
+design:
+  heading: Design
+  lead: Создаю сложные интерфейсы
+  text: |
+    В веб-разработке с 2011, в продуктовом дизайне с 2021. Разрабатываю и поддерживаю дизайн-систему, готовлю макеты с детальной документацией.
+
+    Работаю над продуктом для аналитики затрат и управления ресурсами облачных систем для финтеха.
+  portfolio:
+    heading: Портфолио
+  skills:
+    heading: Навыки
+    list:
+      - Дизайн-системы, UI kit
+      - Прототипирование
+      - Маппинг (blueprint, swimlane)
+      - Проработка техничесого задания
+      - Документация дизайна
+      - Написание статьей, проведение лекций
+      - Наставничество
+      - Анализ рынка и аудитории
+      - Коммуникация с клиентом
+      - Ведение проектов
+  instruments:
+    heading: Инструменты
+    list:
+      - Figma, Sketch
+      - FigJam
+      - HTML, CSS, JavaScript
+      - Git, GitHub, Bitbucket
+      - ChatGPT
+      - DALL-E, Midjourney
+performance:
+  heading: Performance
+  lead: Статьи и выступления о разработке
+  text: |
+    Работая наставником в [.html academy](https://htmlacademy.ru/) на протяжении 15 интенсивов я принимал участие в подготовке материалов и написал 9 глав учебника.
+
+    Помимо этого, я писал статьи, записывал скринкасты и участвовал в партнерских мероприятиях с лекциями.
+  videos:
+    heading: Выступления
+    comment: '* All materials are in russian language'
+    list:
+      - heading: Основы Figma для верстальщика
+        description: Open online lesson on academy’s YouTube channel about base Figma instruments which can help developers to work with layouts
+        url: https://www.youtube.com/live/mnoWBLMD0zw?si=odS07UxmQznp7Gro
+        img:
+      - heading: Современные технологии в ИТ-индустрии
+        description: Review of changes and actual technologies in web and application development
+        url: https://www.youtube.com/live/pQNoBoh_Ngg?si=F71uDxAAx5tigTJQ&t=16023
+        img:
+        slides: https://it2021.frontend-design.ru/
+      - heading: Современные подходы к верстке веб-страниц
+        description: Lecture how to create modern page layout with accesibility, adaptive and optimized loading speed
+        url: https://www.youtube.com/live/PxGzo5Utde8?si=V7b2yMGV6wec2DY_&t=19320
+        img:
+        slides: https://layout2021.frontend-design.ru/
+      - heading: Система управления контентом
+        description: A lecture history of CMS and modern working methods with web sites content
+        url: https://www.youtube.com/live/-gN7KLYaRSo?si=VZSQg_1uLC39pGrv&t=13475
+        img:
+        slides: https://cms.frontend-design.ru/
+  articles:
+    heading: Статьи
+    comment: '* All materials are in russian language'
+    list:
+      - heading: Common design mistakes and how to fix them
+        description: Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?
+        url: https://htmlacademy.ru/blog/articles/bad-design
+        img:
+      - heading: Why should a developer know design?
+        description: Article about what things in design can be really useful for frontend developers and how to better the connection with designers
+        url: https://htmlacademy.ru/blog/middle/frontend-in-design
+        img:
+      - heading: git workflow, ты что такой странный?
+        description: Пояснения почему процесс работы с гитом такой сложный на втором курсе, зачем это делается и почему это важно
+        url: https://mentorium.frontend-design.ru/articles/git-workflow/
+        img:
+      - heading: Когда в верстке нужна высота?
+        description: Когда и почему можно жестко зафиксировать высоту, а когда этого делать не стоит
+        url: https://mentorium.frontend-design.ru/articles/height-in-css/
+        img:
+      - heading: Как подключать шрифты
+        description: Как назвать шрифт, почему важен порядок файлов, какие свойства указывать и как оптимизировать загрузку
+        url: https://mentorium.frontend-design.ru/articles/include-fonts/
+        img:
+      - heading: Как отличить margin от padding
+        description: И то и другое отступы, результат одинаковый. Так что же использовать?
+        url: https://mentorium.frontend-design.ru/articles/margin-vs-padding/
+        img:
+contacts:
+  heading: Contacts
+  lead: Contact me if you interested in working together
+  comment: Or just to talk =)
+  list:
+    - title: hi@arturtrifonov.com
+      url: mailto:hi@arturtrifonov.com
+    - title: Telegram
+      url: https://t.me/wrgraff
+    - title: LinkedIn
+      url: https://www.linkedin.com/in/arturtrifonov/
+    - title: GitHub
+      url: https://github.com/wrgraff/

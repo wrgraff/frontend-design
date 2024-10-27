@@ -7,6 +7,7 @@
 
 @import url('./blocks/visually-hidden.css');
 @import url('./blocks/button.css');
+@import url('./blocks/link.css');
 @import url('./blocks/ico-button.css');
 @import url('./blocks/label.css');
 @import url('./blocks/page.css');
@@ -23,9 +24,12 @@
 @import url('./blocks/skills.css');
 @import url('./blocks/courses.css');
 @import url('./blocks/achievements.css');
-@import url('./blocks/links.css');
+@import url('./blocks/articles.css');
 @import url('./blocks/contact-links.css');
 @import url('./blocks/portfolio.css');
+@import url('./blocks/videos.css');
+@import url('./blocks/video.css');
+@import url('./blocks/videos-section.css');
 @import url('./blocks/article.css');
 @import url('./blocks/case.css');
 @import url('./blocks/details.css');

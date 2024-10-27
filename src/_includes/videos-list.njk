@@ -1,0 +1,17 @@
+{% from 'videos-item.njk' import videosItem %}
+
+{% macro videosList(
+    collection,
+	parentSection,
+	currentItemId
+) %}
+	<ul class="{{ parentSection }}__videos videos">
+		{% for item in collection %}
+			{% if currentItemId != item.data.id %}
+				{{ videosItem(
+					item = item
+				) }}
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endmacro %}

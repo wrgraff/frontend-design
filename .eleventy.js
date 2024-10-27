@@ -64,12 +64,32 @@ module.exports = function (config) {
     // Collections
 
     const collections = {
-        'portfolio': 'src/portfolio/*/index.md'
+        'portfolio': 'src/portfolio/*/index.md',
+		'videos': 'src/videos/*/index.md'
     };
 
     config.addCollection('portfolio', (collectionApi) => {
         return collectionApi.getFilteredByGlob(
             collections.portfolio
+        ).sort((a, b) => Math.sign(a.data.order - b.data.order));
+    });
+
+    config.addCollection('portfolioTop', (collectionApi) => {
+		const collection = collectionApi.getFilteredByGlob(
+            collections.portfolio
+        );
+		const elementsToDelete = collection.length - 6;
+
+		collection
+			.sort((a, b) => Math.sign(a.data.order - b.data.order))
+			.splice(collection.length - elementsToDelete, elementsToDelete);
+
+		return collection;
+    });
+
+    config.addCollection('videos', (collectionApi) => {
+        return collectionApi.getFilteredByGlob(
+            collections.videos
         ).sort((a, b) => Math.sign(a.data.order - b.data.order));
     });
 
@@ -87,6 +107,7 @@ module.exports = function (config) {
 		'src/fonts',
 		'src/img',
         'src/portfolio/**/*.!(md)',
+        'src/videos/**/*.!(md)',
 		'src/files'
 	].forEach(
 		path => config.addPassthroughCopy(path)

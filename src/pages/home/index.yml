@@ -10,106 +10,74 @@ design:
     Since autumn 2021 I have worked in a product created for managing and analyzing cloud systems.
 
     I create and sustain design systems for UI and charts, make designs with detailed descriptions and flowcharts.
+  portfolio:
+    heading: Portfolio
   skills:
     heading: Skills
     list:
-      - Design system, UI kit
-      - Atomic design & tokens
-      - Figma design + prototypes
-      - Documentation (storybook)
-      - UX research
-      - HTML, CSS, JS / SPA
-      - Mentorship
-      - Writing texts
-  portfolio:
-    heading: Portfolio
-academy:
-  heading: Academy
+      - Design systems, UI kit
+      - Prototypes
+      - Mapping (blueprint, swimlane)
+      - Technical specification writing
+      - Design documentation
+      - Market and audience analysis
+      - Project management
+      - Client communication
+      - Training and mentoring
+      - Article writing and lecturing
+  instruments:
+    heading: Instruments
+    list:
+      - Figma, Sketch
+      - FigJam
+      - HTML, CSS, JavaScript
+      - Git, GitHub, Bitbucket
+      - ChatGPT
+      - DALL-E, Midjourney
+performance:
+  heading: Performance
   lead: I help people to start career in frontend
   text: |
     I have worked in [.html academy](https://htmlacademy.ru/) since 2019 as a mentor. I also work with materials, blog and additional courses as author and reviewer.
 
     I like to work with students: share my experience and look how they growing up. And it’s very nice to have a good feedback from them.
-  courses:
-    heading: Courses
-    scope:
-      heading: Courses where I'm working
-      list:
-        - label: Mentor in
-          name: Profession Frontend developer
-          url: https://htmlacademy.ru/profession/frontender
-          comment: Ask me about discount ;-)
-        - label: Review author in
-          name: Profession Frontend developer (light version)
-          url: https://htmlacademy.ru/profession/frontender-solo
-        - label: Co-author of
-          name: Course Design for frontend developers
-          url: https://levelup.htmlacademy.ru/design
-    achievements:
-      heading: My achievements
-      list:
-        - amount: 15
-          text: сourses I mentored in 3 years
-        - amount: 50
-          text: students I mentored during one or two courses of the profession
-        - amount: 66
-          unit: '%'
-          text: of students passed the exam, which is above the average for the course
-        - amount: 30
-          unit: '%'
-          text: of students leaved thanks with ratings 10 out of 10
-        - amount: 10
-          text: articles written for learning materials
-        - amount: 23
-          text: review articles with task examples for light course
-  links:
-    heading: Links
+  videos:
+    heading: Speaking
+    comment: '* All materials are in russian language'
+  articles:
+    heading: Articles
     comment: '* All materials are in russian language'
     list:
-      - heading: Figma basics for frontenders
-        text: Open online lesson on academy’s YouTube channel about base Figma instruments which can help developers to work with layouts
-        link:
-          title: Video on YouTube
-          type: video
-          url: https://youtu.be/mnoWBLMD0zw
-      - heading: Modern technologies in IT
-        text: Review of changes and actual technologies in web and application development
-        link:
-          title: Video on YouTube
-          type: video
-          url: https://youtu.be/pQNoBoh_Ngg?t=16023
-        slides: https://it2021.frontend-design.ru/
-      - heading: Modern web page layout
-        text: Lecture how to create modern page layout with accesibility, adaptive and optimized loading speed
-        link:
-          title: Video on YouTube
-          type: video
-          url: https://youtu.be/PxGzo5Utde8?t=19331
-        slides: https://layout2021.frontend-design.ru/
-      - heading: Content Management System
-        text: A lecture history of CMS and modern working methods with web sites content
-        link:
-          title: Video on YouTube
-          type: video
-          url: https://youtu.be/-gN7KLYaRSo?t=13475
-        slides: https://cms.frontend-design.ru/
-      - heading: Common design mistakes and how to fix them
-        text: Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?
-        link:
-          title: Article on .html academy blog
-          type: article
-          url: https://htmlacademy.ru/blog/articles/bad-design
+      - heading: Common design mistakes and how to fix them
+        description: Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?
+        url: https://htmlacademy.ru/blog/articles/bad-design
+        cleanUrl: htmlacademy.ru/blog/articles/bad-design
+        img:
       - heading: Why should a developer know design?
-        text: Article about what things in design can be really useful for frontend developers and how to better the connection with designers
-        link:
-          title: Article on .html academy blog
-          type: article
-          url: https://htmlacademy.ru/blog/middle/frontend-in-design
-      - heading: Help for students learning HTML and CSS
-        text: Articles about some specific difficulties faced by students who learning how to create web page layouts with HTML and CSS
-        link:
-          title: mentorium.frontend-design.ru
-          url: https://mentorium.frontend-design.ru/
+        description: Article about what things in design can be really useful for frontend developers and how to better the connection with designers
+        url: https://htmlacademy.ru/blog/middle/frontend-in-design
+        cleanUrl: htmlacademy.ru/blog/middle/frontend-in-design
+        img:
+      - heading: Git Workflow, Why Are You So Weird?
+        description: Explanations on why the process of working with Git is so complex in the second year, why it's done this way, and why it's important
+        url: https://mentorium.frontend-design.ru/articles/git-workflow/
+        cleanUrl: mentorium.frontend-design.ru/articles/git-workflow
+        img:
+      - heading: When Is Fixed Height Needed in Layout?
+        description: When and why you can set a fixed height, and when you shouldn't do it
+        url: https://mentorium.frontend-design.ru/articles/height-in-css/
+        cleanUrl: mentorium.frontend-design.ru/articles/height-in-css
+        img:
+      - heading: How to Load Fonts
+        description: How to name fonts, why the order of files is important, which properties to specify, and how to optimize loading
+        url: https://mentorium.frontend-design.ru/articles/include-fonts/
+        cleanUrl: mentorium.frontend-design.ru/articles/include-fonts
+        img:
+      - heading: How to Distinguish Margin from Padding
+        description: Both are used for spacing, and the result looks the same. So which one should you use?
+        url: https://mentorium.frontend-design.ru/articles/margin-vs-padding/
+        cleanUrl: mentorium.frontend-design.ru/articles/margin-vs-padding
+        img:
 contacts:
   heading: Contacts
   lead: Contact me if you interested in working together
