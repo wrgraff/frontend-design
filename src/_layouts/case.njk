@@ -9,10 +9,8 @@ layout: page.njk
 {%- set previousUrl = "" -%}
 {%- set nextUrl = "" -%}
 {%- for item in collection -%}
-	{%- if item.data.nda !== true -%}
-		{%- if item.data.external === false -%}
-			{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
-		{%- endif -%}
+	{%- if item.data.external === false -%}
+		{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
 	{%- endif -%}
 {%- endfor -%}
 {%- for item in cleanCollection -%}

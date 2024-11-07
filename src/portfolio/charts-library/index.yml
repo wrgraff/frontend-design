@@ -1,0 +1,21 @@
+title: 'UI Chart Figma Library'
+order: 4
+external: false
+nda: false
+imgs:
+  - 00-hero
+  - 01-challenges
+  - 02-color-palettes
+  - 02-color-modes
+  - 03-chart-types-area
+  - 03-chart-types-line
+  - 03-chart-types-column-bar
+  - 03-chart-types-other
+  - 04-scaling
+  - 05-outcomes
+tags:
+  - Design system
+  - UI Kit
+  - Chart
+  - Figma
+behance: 'https://www.behance.net/gallery/211933049/UI-Chart-FigmaLibrary'
