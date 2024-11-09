@@ -1,0 +1,39 @@
+.paper-heading {
+	display: flex;
+	align-items: baseline;
+	gap: .3em;
+
+	font-size: 34px;
+	line-height: 1;
+	font-weight: 700;
+	letter-spacing: .04em;
+
+	color: var(--color-text-base);
+}
+
+.paper-heading_size_s {
+	font-size: 24px;
+}
+
+.paper-heading_weight_m {
+	font-weight: 500;
+}
+
+.paper-heading::after {
+	content: '';
+	position: relative;
+	top: .15em;
+
+	width: .65em;
+	height: .15em;
+
+	background-color: var(--color-text-tertiary);
+}
+
+.paper-heading__small {
+	order: 1;
+
+	font-size: .7em;
+
+	color: var(--color-text-secondary);
+}

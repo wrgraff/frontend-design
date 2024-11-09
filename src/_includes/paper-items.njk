@@ -1,0 +1,35 @@
+{% macro paperItems(
+    list
+) %}
+	{% for item in list %}
+		{% set typeClass = ' paper-list__item_' + item.type %}
+
+		<li class="paper-list__item{{ typeClass if item.type }}">
+			{% if item.link %}
+				<a href="{{ item.link }}" class="paper-list__link">
+					<p class="paper-list__text">{{ item.heading }}</p>
+					{% if item.site %}
+						<span class="paper-list__site">{{ item.site }}</span>
+					{% endif %}
+					{% if item.organisation %}
+						<span class="paper-list__organisation">{{ item.organisation }}</span>
+					{% endif %}
+					{% if item.date %}
+						<span class="paper-list__date">{{ item.date }}</span>
+					{% endif %}
+				</a>
+			{% else %}
+				<p class="paper-list__text">{{ item.heading }}</p>
+				{% if item.site %}
+					<span class="paper-list__site">{{ item.site }}</span>
+				{% endif %}
+				{% if item.organisation %}
+					<span class="paper-list__organisation">{{ item.organisation }}</span>
+				{% endif %}
+				{% if item.date %}
+					<span class="paper-list__date">{{ item.date }}</span>
+				{% endif %}
+			{% endif %}
+		</li>
+	{% endfor %}
+{% endmacro %}

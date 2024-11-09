@@ -1,0 +1,22 @@
+.paper-header {
+	padding: 40px 48px 28px;
+}
+
+.paper-header__heading {
+	margin: 0 0 28px;
+}
+
+.paper-header__about {
+	display: grid;
+	grid-template-columns: 440px 1fr;
+	gap: 24px;
+	margin: 0 0 24px;
+
+	color: var(--color-text-secondary);
+
+	font-size: 14px;
+}
+
+.paper-header__about p {
+	margin: 0;
+}
