@@ -1,7 +1,7 @@
 .experience {
 	padding: 0;
 
-	font-size: 14px;
+	font: var(--font-text-m);
 
 	list-style: none;
 }

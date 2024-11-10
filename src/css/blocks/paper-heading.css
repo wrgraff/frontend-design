@@ -3,19 +3,13 @@
 	align-items: baseline;
 	gap: .3em;
 
-	font-size: 34px;
-	line-height: 1;
-	font-weight: 700;
-	letter-spacing: .04em;
+	font: var(--font-heading-l);
 
 	color: var(--color-text-base);
 }
 
 .paper-heading_size_s {
-	font-size: 24px;
-}
-
-.paper-heading_weight_m {
+	font: var(--font-heading-xxs);
 	font-weight: 500;
 }
 
@@ -32,8 +26,12 @@
 
 .paper-heading__small {
 	order: 1;
-
-	font-size: .7em;
-
 	color: var(--color-text-secondary);
+	font: var(--font-heading-xs);
+}
+
+.paper-heading_size_s .paper-heading__small {
+	color: var(--color-text-base);
+	font: var(--font-heading-xxs);
+	font-weight: 500;
 }

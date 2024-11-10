@@ -1,10 +1,10 @@
 {% from 'header.njk' import header with context %}
 {% from 'paper-items.njk' import paperItems with context %}
 
-<main class="page__main main main_cv">
-	{{ header( mainBlock = 'page' ) }}
+<main class="page__main cv">
+	{{ header( mainBlock = 'cv' ) }}
 
-	<article class="paper">
+	<article class="cv__paper paper">
 		<div class="paper__main">
 			<header class="paper__header paper-header">
 				<h1 class="paper-header__heading paper-heading">
@@ -16,10 +16,10 @@
 					{{ paperHeader.about | markdown | safe }}
 				</div>
 
-				<ul class="paper-header__main-links main-links">
+				<ul class="paper-header__paper-links paper-links">
 					{% for item in paperHeader.mainLinks %}
-						<li class="main-links__item main-links__item_{{ item.type }}">
-							<a href="item.link" class="main-links__link" target="_blank">
+						<li class="paper-links__item paper-links__item_{{ item.type }}">
+							<a href="item.link" class="paper-links__link" target="_blank">
 								{{ item.heading }}
 							</a>
 						</li>
@@ -34,7 +34,7 @@
 					{% for item in experience.list %}
 						<li class="experience__item">
 							<div class="experience__header">
-								<h3 class="experience__heading paper-heading paper-heading_size_s paper-heading_weight_m">
+								<h3 class="experience__heading paper-heading paper-heading_size_s">
 									{{ item.companyName }}
 									<small class="paper-heading__small">{{ item.position }}</small>
 								</h3>
@@ -117,4 +117,28 @@
 			</section>
 		</div>
 	</article>
+
+	<nav class="cv__nav">
+		<div class="case__side case__side_left">
+			<a href="/" class="case__home ico-button ico-button_l ico-button_small_xl ico-button_rounded ico-button_secondary ico-button_home">
+				<span class="visually-hidden">Home</span>
+			</a>
+		</div>
+
+		<div class="case__side case__side_right">
+			<div class="case__side-contacts side-contacts">
+				<div class="side-contacts__me me me_small">
+					<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
+				</div>
+
+				<ul class="side-contacts__list">
+					<li class="side-contacts__item">
+						<a href="mailto:hi@arturtrifonov.com" class="ico-button ico-button_l ico-button_rounded ico-button_secondary ico-button_email">
+							<span class="visually-hidden">hi@arturtrifonov.com</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </main>

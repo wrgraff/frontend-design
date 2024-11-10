@@ -1,5 +1,5 @@
 .paper-header {
-	padding: 40px 48px 28px;
+	padding: 48px 56px 32px;
 }
 
 .paper-header__heading {
@@ -8,13 +8,13 @@
 
 .paper-header__about {
 	display: grid;
-	grid-template-columns: 440px 1fr;
-	gap: 24px;
+	grid-template-columns: 1fr 36%;
+	gap: 40px;
 	margin: 0 0 24px;
 
 	color: var(--color-text-secondary);
 
-	font-size: 14px;
+	font: var(--font-text-m);
 }
 
 .paper-header__about p {
