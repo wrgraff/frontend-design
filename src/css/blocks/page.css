@@ -29,6 +29,10 @@
 	overflow: hidden;
 }
 
+.page__body_cv {
+	/* background-color: var(--color-surface-tertiary); */
+}
+
 @media (width < 880px) {
 	.page__body:not(.page__body_case):not(.page__body_cv) {
 		grid-template-columns: 40px 1fr 40px;
