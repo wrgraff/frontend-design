@@ -22,6 +22,7 @@
 
 	--color-surface-base: var(--palette-gray-950);
 	--color-surface-secondary: var(--palette-gray-900);
+	--color-surface-tertiary: var(--palette-gray-800);
 
 	--color-border-base: var(--palette-gray-800);
 	--color-border-light: var(--palette-gray-50);
