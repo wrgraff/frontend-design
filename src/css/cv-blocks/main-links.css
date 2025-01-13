@@ -11,7 +11,7 @@
 }
 
 .main-links__link {
-	--link-color: var(--color-text-base);
+	--link-color: var(--palette-gray-800);
 
 	display: flex;
 	gap: 6px;

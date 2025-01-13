@@ -1,0 +1,174 @@
+paperHeader:
+  name: Артур Трифонов
+  position: Продуктовый UI Дизайнер
+  about: |
+    Работаю в веб-разработке и дизайне с 2011 года. Специализируюсь на создании интерфейсов и дизайн-систем с тщательной документацией. В последние 3 года разрабатываю сервисы для аналитики и управления облачными системами для финтех-компаний, входящих в топ-3 по стране.
+
+    Также работал наставником, писал статьи и обучающие материалы для курсов по веб-разработке и дизайну, являюсь соавтором курса по дизайну.<br />Вел оффлайн и онлайн лекции.
+  mainLinks:
+    - heading: linkedin.com/in/arturtrifonov
+      type: linkedin
+      link: https://www.linkedin.com/in/arturtrifonov
+    - heading: behance.net/arturtrifonov
+      type: behance
+      link: https://www.behance.net/arturtrifonov
+    - heading: dribbble.com/arturtrifonov
+      type: dribbble
+      link: https://dribbble.com/arturtrifonov
+photo:
+  heading: Мое фото
+  img: me_cv_mono.jpg
+contacts:
+  heading: Контакты
+  list:
+    - heading: Братислава, Словакия
+      type: place
+    - heading: +421 944 616 289
+      type: phone
+      link: tel:+421944616289
+    - heading: hi@arturtrifonov.com
+      type: email
+      link: mailto:hi@arturtrifonov.com
+    - heading: arturtrifonov.com
+      type: link
+      link: https://arturtrifonov.com/
+languages:
+  heading: Языки
+  list:
+    - heading: Русский, родной
+    - heading: Английский, B2
+skills:
+  heading: Навыки
+  list:
+    - heading: Дизайн-системы, UI kit
+    - heading: Прототипирование
+    - heading: Маппинг (blueprint, swimlane)
+    - heading: Составление ТЗ
+    - heading: Документирование дизайнов
+    - heading: Анализ рынка и аудитории
+    - heading: Управление проектами
+    - heading: Коммуникация с клиентами
+    - heading: Обучение и наставничество
+    - heading: Написание статей, лекции
+instruments:
+  heading: Инструменты
+  list:
+    - heading: Figma, Sketch
+    - heading: FigJam
+    - heading: HTML, CSS, JavaScript
+    - heading: Git, GitHub, Bitbucket
+    - heading: ChatGPT
+    - heading: DALL-E, Midjourney
+education:
+  heading: Обучение
+  list:
+    - heading: Проектирование, описание поведения пользователей в интерфейсах
+      organisation: Design Line PRO
+      date: 2022
+    - heading: JavaScript. Архитектура клиентских приложений
+      organisation: .html academy
+      date: 2021
+    - heading: Основы User Centered Design
+      organisation: IMPRO
+      date: 2013
+    - heading: Digital-стратег '13/1
+      organisation: ИКРА
+      date: 2013
+    - heading: Дизайн среды, специалитет
+      organisation: ЛГУ им. А. С. Пушкина
+      date: 2011
+experience:
+  heading: Опыт
+  dutiesHeading: Обязанности
+  achievementHeading: Достижения
+  projectsHeading: Примеры проектов
+  list:
+    - companyName: CloudTech
+      position: UI / UX дизайнер
+      dates: Август 2021 – Данный момент
+      shortDescription: CloudTech создает сервисы управления и планирования ресурсов для облачных систем, а также гибко настраиваемые отчеты о затратах и рекомендации по оптимизации.
+      fullDescription: Участвовал в разработке сервисов управления и планирования облачных ресурсов, включая отчеты о затратах и рекомендации по оптимизации. Исследовал конкурентный рынок, проектировал пользовательские сценарии, создавал макеты и гайдлайны. Взаимодействовал с командой разработки.
+      achievements:
+        - heading: Разработал инструмент аналитики расходов бюджета и ресурсов, аналогичный Azure Cost Management, AWS Cost Explorer и Harness;
+        - heading: Создал дизайн-систему с широкими возможностями для темизации, убедил в необходимости ее внедрения, что ускорило разработку и повысило консистентность;
+        - heading: Создал несколько интерфейсов с нуля, используя свою и внешнюю дизайн-систему;
+        - heading: Участвовал в процессе найма и отбора персонала.
+    - companyName: .html academy
+      position: Автор, Наставник
+      dates: Октябрь 2019 – Июль 2023
+      shortDescription: HTML Academy – школа с глубокой специализацией во фронтенде, занимающаяся обучением студентов с нуля.
+      fullDescription: Преподавал фронтенд с нуля, помогал новичкам разобраться в верстке и базовом JavaScript, проверял домашние задания, проводил консультации, писал статьи, а также создавал скринкасты и обзоры.
+      achievements:
+        - heading: Провел 15 интенсивов, обучив 50 студентов. 30% студентов оставили оценку 10 из 10, 66% успешно защитили проекты, что выше среднего значения;
+        - heading: Написал 9 статей для учебника, одну статью в блог. Реализовал эталонный проект и его обзор;
+        - heading: Провел открытый урок на YouTube по Figma;
+        - heading: Стал соавтором курса «Дизайн для фронтендера».
+    - companyName: Фриланс
+      position: Дизайнер, Фронтенд-разработчик
+      dates: Июнь 2019 – Август 2021
+      shortDescription: Работал с заказчиками попроектно и по контрактам поддержки. Разрабатывал дизайн и фронтенд для сайтов компаний из сфер промышленного оборудования, автоматизации, безопасности, консалтинга и интернет-магазинов.
+      fullDescription: Работал с заказчиками попроектно и на поддержке. Занимался дизайном и фронтендом для компаний из сфер промышленного оборудования, автоматизации, безопасности, консалтинга и интернет-магазинов. Взаимодействовал с клиентами для сбора требований и согласования решений.
+      achievements:
+        - heading: Успешно завершил 15+ проектов (корпоративные сайты, интернет-магазины и лендинги);
+        - heading: Сайты соответствовали требованиям для людей с ограниченными возможностями (a11y);
+        - heading: Оптимизировал производительность сайтов, с оценками 85-95 по Google PageSpeed Insights.
+      projects:
+        - heading: Sensormatica
+          site: sensormatica.ru
+          link: https://sensormatica.ru/
+        - heading: Peach Bear
+          site: peach-bear.ru
+          link: https://peach-bear.ru/
+        - heading: NSE Russia
+          site: nserussia.org
+          link: https://nserussia.org/
+        - heading: Koike
+          site: koike-russia.ru
+          link: https://koike-russia.ru/
+        - heading: Farmavet
+          site: arturtrifonov.com/portfolio/farmavet
+          link: https://arturtrifonov.com/portfolio/farmavet/
+    - companyName: United Design Studio
+      position: Разработчик, Сооснователь
+      dates: Июнь 2011 – Июнь 2019
+      shortDescription: Небольшая дизайн-студия, специализирующаяся на веб-разработке и брендинге. Конкурировала с крупными агентствами, активно участвовала в развитии дизайн-сообщества Санкт-Петербурга.
+      fullDescription: Соосновал небольшую дизайн-студию, специализирующуюся на веб-разработке и брендинге. Проводил брифинги с заказчиками, составлял технические задания и создавал прототипы.
+      achievements:
+        - heading: Вышли на уровень конкуренции с крупными студиями и стали частью сообщества агентств Specia;
+        - heading: Внедрил UI-библиотеку Zurb Foundation, ускорив процесс разработки;
+        - heading: Разработал шаблон на веб-технологиях для успешных тендерных презентаций.
+performances:
+  heading: Мои статьи и выступления
+  list:
+    - heading: Основы Figma для верстальщика
+      type: video
+      site: arturtrifonov.com/​videos/​figma
+      link: https://arturtrifonov.com/videos/figma/
+    - heading: Современные технологии в ИТ
+      type: video
+      site: arturtrifonov.com/​videos/​it
+      link: https://arturtrifonov.com/videos/it/
+    - heading: Современные подходы к верстке
+      type: video
+      site: arturtrifonov.com/​videos/​layout
+      link: https://arturtrifonov.com/videos/layout/
+    - heading: Система управления контентом
+      type: video
+      site: arturtrifonov.com/​videos/​cms
+      link: https://arturtrifonov.com/videos/cms/
+    - heading: Основы дизайна для верстальщиков
+      type: article
+      site: htmlacademy.ru/blog/​articles/​bad-design
+      link: https://htmlacademy.ru/blog/html/bad-design
+    - heading: Зачем фронтендеру дизайн
+      type: article
+      site: htmlacademy.ru/blog/m​iddle/​frontend-in-design
+      link: https://htmlacademy.ru/blog/middle/frontend-in-design/
+    - heading: Git workflow, ты что такой странный?
+      type: article
+      site: articles.arturtrifonov.com/​articles/​git-workflow
+      link: https://articles.arturtrifonov.com/articles/git-workflow
+    - heading: Когда в верстке нужна высота?
+      type: article
+      site: articles.arturtrifonov.com/​articles/​height-in-css
+      link: https://articles.arturtrifonov.com/articles/height-in-css

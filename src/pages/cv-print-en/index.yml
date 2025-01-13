@@ -1,0 +1,174 @@
+paperHeader:
+  name: Artur Trifonov
+  position: Product UI Designer
+  about: |
+    I have been working in web development and design since 2011. I specialize in creating interfaces and design systems with detailed documentation. For the last 3 years, I have been developing analytics and cloud management services for fintech companies in the top 3 in the country.
+
+    Additionally, I have worked as a mentor, written articles and educational materials for design and web development courses, and co-authored a course on design.<br />I have also delivered offline and online lectures.
+  mainLinks:
+    - heading: linkedin.com/in/arturtrifonov
+      type: linkedin
+      link: https://www.linkedin.com/in/arturtrifonov
+    - heading: behance.net/arturtrifonov
+      type: behance
+      link: https://www.behance.net/arturtrifonov
+    - heading: dribbble.com/arturtrifonov
+      type: dribbble
+      link: https://dribbble.com/arturtrifonov
+photo:
+  img: me_cv_mono.jpg
+  heading: My photo
+contacts:
+  heading: Contacts
+  list:
+    - heading: Bratislava, Slovakia
+      type: place
+    - heading: +421 944 616 289
+      type: phone
+      link: tel:+421944616289
+    - heading: hi@arturtrifonov.com
+      type: email
+      link: mailto:hi@arturtrifonov.com
+    - heading: arturtrifonov.com
+      type: link
+      link: https://arturtrifonov.com/
+languages:
+  heading: Languages
+  list:
+    - heading: Russian, native
+    - heading: English, B2
+skills:
+  heading: Skills
+  list:
+    - heading: Design systems, UI kit
+    - heading: Prototypes
+    - heading: Mapping (blueprint, swimlane)
+    - heading: Technical specification writing
+    - heading: Design documentation
+    - heading: Market and audience analysis
+    - heading: Project management
+    - heading: Client communication
+    - heading: Training and mentoring
+    - heading: Article writing and lecturing
+instruments:
+  heading: Instruments
+  list:
+    - heading: Figma, Sketch
+    - heading: FigJam
+    - heading: HTML, CSS, JavaScript
+    - heading: Git, GitHub, Bitbucket
+    - heading: ChatGPT
+    - heading: DALL-E, Midjourney
+education:
+  heading: Education
+  list:
+    - heading: Designing and Describing User Behavior in Interface
+      organisation: Design Line PRO
+      date: 2022
+    - heading: JavaScript. Architecture of Front-end Applications
+      organisation: .html academy
+      date: 2021
+    - heading: Fundamentals of User Centered Design
+      organisation: IMPRO
+      date: 2013
+    - heading: Digital Strategist '13/1
+      organisation: IKRA
+      date: 2013
+    - heading: Environmental Design, Specialist
+      organisation: Pushkin Leningrad State University, Faculty of Arts
+      date: 2011
+experience:
+  heading: Experience
+  dutiesHeading: Duties
+  achievementHeading: Achievements
+  projectsHeading: Project examples
+  list:
+    - companyName: CloudTech
+      position: UI / UX Designer
+      dates: August 2021 – Present
+      shortDescription: CloudTech creates resource management and planning services for cloud systems, as well as customizable cost reports and optimization recommendations.
+      fullDescription: Participated in the development of resource management and planning services, including cost reports and optimization recommendations. Conducted market research, designed user scenarios, created wireframes and guidelines, and collaborated with the development team.
+      achievements:
+        - heading: Developed a budget and resource expense analytics tool similar to Azure Cost Management, AWS Cost Explorer, and Harness;
+        - heading: Created a design system with extensive theming capabilities, advocated for its implementation, which sped up development and increased consistency;
+        - heading: Designed several interfaces from scratch, using both my own and external design systems;
+        - heading: Participated in the hiring process of personnel.
+    - companyName: .html academy
+      position: Author, Mentor
+      dates: October 2019 – July 2023
+      shortDescription: HTML Academy is a school with a deep specialization in frontend development, focused on teaching students from scratch.
+      fullDescription: Taught frontend development from scratch, helping beginners understand HTML, CSS, and basic JavaScript. Reviewed homework, provided consultations, wrote articles, and created screencasts and tutorials.
+      achievements:
+        - heading: Conducted 15 intensive courses, teaching 50 students. 30% of students rated the courses 10 out of 10, and 66% successfully completed their projects, which is above average;
+        - heading: Wrote 9 articles for the textbook and 2 blog posts. Developed a reference project and its review;
+        - heading: Delivered an open lesson on YouTube about Figma;
+        - heading: Co-authored the course "Design for Frontenders".
+    - companyName: Freelance
+      position: Designer, Frontend developer
+      dates: June 2019 – August 2021
+      shortDescription: I worked with clients on a project basis and on support contracts. I developed design and frontend for websites of companies in industrial equipment, automation, security, consulting, and online stores.
+      fullDescription: Worked with clients on a basis and provided ongoing support. Focused on design and frontend development for companies in industrial equipment, automation, security, consulting, and e-commerce. Collaborated with clients to gather requirements and align on solutions.
+      achievements:
+        - heading: Successfully completed 15+ projects (corporate websites, online stores, and landing pages);
+        - heading: Websites met accessibility requirements (a11y);
+        - heading: Optimized website performance, achieving scores of 85-95 on Google PageSpeed Insights.
+      projects:
+        - heading: Sensormatica
+          site: sensormatica.ru
+          link: https://sensormatica.ru/
+        - heading: Peach Bear
+          site: peach-bear.ru
+          link: https://peach-bear.ru/
+        - heading: NSE Russia
+          site: nserussia.org
+          link: https://nserussia.org/
+        - heading: Koike
+          site: koike-russia.ru
+          link: https://koike-russia.ru/
+        - heading: Farmavet
+          site: arturtrifonov.com/portfolio/farmavet
+          link: https://arturtrifonov.com/portfolio/farmavet/
+    - companyName: United Design Studio
+      position: Developer, Co-founder
+      dates: June 2011 – June 2019
+      shortDescription: A small design studio specializing in web development and branding. Competed with large agencies and actively participated in the development of the design community in Saint-Petersburg.
+      fullDescription: Co-founded a small design studio specializing in web development and branding. Conducted client briefings, prepared technical specifications, and created prototypes.
+      achievements:
+        - heading: Entered the competitive level of major design studios and became part of the Specia agency community;
+        - heading: Implemented the Zurb Foundation UI library, speeding up the development process;
+        - heading: Developed a web-based template for successful tender presentations.
+performances:
+  heading: My Articles and Presentations
+  list:
+    - heading: Basics of Figma for Frontend Devs
+      type: video
+      site: arturtrifonov.com/​videos/​figma
+      link: https://arturtrifonov.com/videos/figma/
+    - heading: Modern IT Technologies   
+      type: video
+      site: arturtrifonov.com/​videos/​it
+      link: https://arturtrifonov.com/videos/it/
+    - heading: Modern Layout Techniques
+      type: video
+      site: arturtrifonov.com/​videos/​layout
+      link: https://arturtrifonov.com/videos/layout/
+    - heading: Content Management Systems
+      type: video
+      site: arturtrifonov.com/​videos/​cms
+      link: https://arturtrifonov.com/videos/cms/
+    - heading: How to fix common design mistakes
+      type: article
+      site: htmlacademy.ru/blog/​articles/​bad-design
+      link: https://htmlacademy.ru/blog/html/bad-design
+    - heading: Why should a dev know design?
+      type: article
+      site: htmlacademy.ru/blog/m​iddle/​frontend-in-design
+      link: https://htmlacademy.ru/blog/middle/frontend-in-design/
+    - heading: Git Workflow, Why Are You So Weird?
+      type: article
+      site: articles.arturtrifonov.com/​articles/​git-workflow
+      link: https://articles.arturtrifonov.com/articles/git-workflow
+    - heading: When Is Fixed Height Needed in Layout?
+      type: article
+      site: articles.arturtrifonov.com/​articles/​height-in-css
+      link: https://articles.arturtrifonov.com/articles/height-in-css

@@ -1,0 +1,47 @@
+.paper-section {
+	position: relative;
+	padding: 3mm 0;
+}
+
+.paper-section:not(:first-child)::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -10mm;
+	right: -10mm;
+
+	height: 1px;
+
+	background-color: var(--palette-gray-200);
+}
+
+.paper-section_photo {
+	height: 46mm;
+	padding: 0 0 5mm;
+}
+
+.paper-section__heading {
+	margin: 1mm 0 3mm;
+
+	color: var(--palette-gray-400);
+
+	font-weight: 500;
+	font-size: 1.3rem;
+	line-height: 1;
+}
+
+.paper-section__content {
+	margin: 0;
+}
+
+.paper-section__content_experience {
+	margin-top: 4mm;
+}
+
+.paper-section__photo {
+	display: flex;
+
+	overflow: hidden;
+	border-radius: 50%;
+	border: 1px solid var(--palette-gray-200);
+}

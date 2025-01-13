@@ -1,0 +1,46 @@
+.paper-heading {
+	display: flex;
+	align-items: baseline;
+	gap: .3em;
+
+	color: var(--palette-gray-800);
+
+	letter-spacing: 2%;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.paper-heading::after {
+	content: '';
+	position: relative;
+	top: .15em;
+
+	width: .65em;
+	height: .15em;
+
+	background-color: var(--palette-gray-300);
+}
+
+.paper-heading__small {
+	order: 1;
+}
+
+/* Types */
+
+.paper-heading_type_main {
+	font-size: 2.6rem;
+}
+
+.paper-heading_type_main .paper-heading__small {
+	color: var(--palette-gray-600);
+	font-size: 1.7rem;
+}
+
+.paper-heading_type_experience {
+	font-size: 1.3rem;
+	font-weight: 500;
+}
+
+.paper-heading_type_experience .paper-heading__small {
+	font-size: 1.3rem;
+}

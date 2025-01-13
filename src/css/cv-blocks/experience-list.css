@@ -1,0 +1,14 @@
+.experience-list {
+	display: grid;
+	gap: 2mm;
+	padding: 1.5mm 2mm;
+
+	background-color: var(--palette-gray-100);
+	border-radius: 4px;
+}
+
+.experience-list__items {
+	margin: 0;
+
+	list-style: none;
+}

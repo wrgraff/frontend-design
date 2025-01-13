@@ -1,0 +1,21 @@
+.paper-header {
+	display: grid;
+	gap: 4mm;
+	padding-bottom: 4mm;
+}
+
+.paper-header__heading {
+	margin: 0;
+}
+
+.paper-header__about {
+	display: grid;
+	grid-template-columns: 1fr 54mm;
+	gap: 5mm;
+
+	color: var(--palette-gray-600);
+}
+
+.paper-header__about p {
+	margin: 0;
+}

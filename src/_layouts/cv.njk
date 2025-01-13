@@ -1,10 +1,142 @@
----
-layout: page.njk
----
+{% from 'paper-items.njk' import paperItems with context %}
 
-<body class="page__body page__body_cv">
-	{{ content | safe }}
+<!DOCTYPE html>
+<html lang="en" class="page no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CV – Artur Trifonov</title>
+		<link rel="stylesheet" href="{{ '/css/cv.css' | url }}">
 
-	{% include "cv-aside.njk" %}
-</body>
+		<link rel="icon" href="/img/favicons/favicon.ico" sizes="any">
+		<link rel="icon" href="/img/favicons/any.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon" href="/img/favicons/180.png">
+		<link rel="manifest" href="/manifest.json">
+	</head>
 
+	<body class="page__body">
+		<main class="page__paper paper">
+			<div class="paper__main">
+				<header class="paper__header paper-header">
+					<h1 class="paper-header__heading paper-heading paper-heading_type_main">
+						{{ paperHeader.name }}
+						<small class="paper-heading__small">{{ paperHeader.position }}</small>
+					</h1>
+
+					<div class="paper-header__about">
+						{{ paperHeader.about | markdown | safe }}
+					</div>
+
+					<ul class="paper-header__paper-links paper-links">
+						{% for item in paperHeader.mainLinks %}
+							<li class="paper-links__item">
+								<a href="item.link" class="paper-links__link" target="_blank">
+									<svg class="paper-links__icon">
+										<use href="/img/icons.svg#{{ item.type if item.type else 'dash' }}" />
+									</svg>
+									{{ item.heading }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</header>
+
+				<section class="paper__section paper-section">
+					<h2 class="paper-section__heading">{{ experience.heading }}</h2>
+
+					<ul class="paper-section__content paper-section__content_experience experience">
+						{% for item in experience.list %}
+							<li class="experience__item">
+								<div class="experience__header">
+									<h3 class="experience__heading paper-heading paper-heading_type_experience">
+										{{ item.companyName }}
+										<small class="paper-heading__small">{{ item.position }}</small>
+									</h3>
+									<p class="experience__dates">{{ item.dates }}</p>
+								</div>
+								<p class="experience__company">
+									{{ item.fullDescription }}
+								</p>
+
+								<section class="experience__list experience-list">
+									<h4 class="visually-hidden">{{ experience.achievementHeading }}</h4>
+
+									<ul class="experience-list__items paper-list">
+										{{ paperItems(item.achievements) }}
+									</ul>
+								</section>
+
+								{% if item.projects %}
+									<section class="experience__projects">
+										<h4 class="experience__projects-heading">{{ experience.projectsHeading }}</h4>
+
+										<ul class="experience__projects-list paper-list paper-list_inline">
+											{{ paperItems(item.projects) }}
+										</ul>
+									</section>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</section>
+
+				<section class="paper__section paper-section">
+					<h2 class="paper-section__heading">{{ performances.heading }}</h2>
+
+					<ul class="paper-section__content paper-list paper-list_performances">
+						{{ paperItems(performances.list) }}
+					</ul>
+				</section>
+			</div>
+
+			<div class="paper__aside">
+				<section class="paper__section paper-section paper-section_photo">
+					<h2 class="visually-hidden">{{ photo.heading }}</h2>
+					<picture class="paper-section__photo">
+						<img src="/img/{{ photo.img }}" alt="{{ photo.heading }}">
+					</picture>
+				</section>
+
+				<section class="paper__section paper-section">
+					<h2 class="visually-hidden">{{ contacts.heading }}</h2>
+
+					<ul class="paper-section__content paper-list">
+						{{ paperItems(contacts.list) }}
+					</ul>
+				</section>
+
+				<section class="paper__section paper-section">
+					<h2 class="paper-section__heading">{{ languages.heading }}</h2>
+
+					<ul class="paper-section__content paper-list">
+						{{ paperItems(languages.list) }}
+					</ul>
+				</section>
+
+				<section class="paper__section paper-section">
+					<h2 class="paper-section__heading">{{ skills.heading }}</h2>
+
+					<ul class="paper-section__content paper-list">
+						{{ paperItems(skills.list) }}
+					</ul>
+				</section>
+
+				<section class="paper__section paper-section">
+					<h2 class="paper-section__heading">{{ instruments.heading }}</h2>
+
+					<ul class="paper-section__content paper-list">
+						{{ paperItems(instruments.list) }}
+					</ul>
+				</section>
+
+				<section class="paper__section paper-section">
+					<h2 class="paper-section__heading">{{ education.heading }}</h2>
+
+					<ul class="paper-section__content paper-list">
+						{{ paperItems(education.list) }}
+					</ul>
+				</section>
+			</div>
+		</main>
+	</body>
+</html>

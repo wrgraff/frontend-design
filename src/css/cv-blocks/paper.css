@@ -1,0 +1,33 @@
+.paper {
+	display: grid;
+	grid-template-columns: 1fr 54mm;
+	width: 210mm;
+	height: 297mm;
+
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 2mm 12mm rgba(0, 0, 0, .2);
+	overflow: hidden;
+}
+
+@media print {
+	.paper {
+		box-shadow: none;
+		border-radius: 0;
+	}
+}
+
+.paper__main {
+	padding: 8mm 10mm;
+}
+
+.paper__aside {
+	padding: 7mm;
+
+	background-color: var(--palette-gray-100);
+	overflow: hidden;
+}
+
+.paper__header {
+	height: 45mm;
+}

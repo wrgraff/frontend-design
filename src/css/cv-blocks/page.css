@@ -1,0 +1,21 @@
+.page {
+	color: var(--palette-gray-800);
+	background-color: var(--palette-white);
+
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 7pt;
+	line-height: 1.6;
+}
+
+.page__body {
+	position: relative;
+	z-index: 0;
+
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+
+	background-color: var(--palette-gray-300);
+}

@@ -1,0 +1,20 @@
+@import url('./colors/palette.css');
+@import url('./colors/light.css');
+
+@import url('./fonts/index.css');
+
+@import url('./global.css');
+
+@import url('./blocks/visually-hidden.css');
+
+@import url('./cv-blocks/page.css');
+@import url('./cv-blocks/paper.css');
+@import url('./cv-blocks/paper-header.css');
+@import url('./cv-blocks/paper-heading.css');
+@import url('./cv-blocks/paper-section.css');
+@import url('./cv-blocks/paper-list.css');
+@import url('./cv-blocks/paper-links.css');
+/* @import url('./cv-blocks/main-links.css'); */
+@import url('./cv-blocks/experience.css');
+@import url('./cv-blocks/experience-list.css');
+/* @import url('./cv-blocks/experience-projects.css'); */

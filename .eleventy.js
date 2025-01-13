@@ -12,11 +12,16 @@ module.exports = function (config) {
 
 	// Styles
 
+	const styles = [
+		'./src/css/index.css',
+		'./src/css/cv.css',
+	];
+
 	config.addTemplateFormats('css');
 	config.addExtension('css', {
 		outputFileExtension: 'css',
 		compile: async (inputContent, inputPath) => {
-			if (inputPath !== './src/css/index.css') {
+			if (!styles.includes(inputPath)) {
 				return;
 			}
 
