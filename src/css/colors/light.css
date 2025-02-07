@@ -5,20 +5,20 @@
 	--color-common-base: var(--palette-gray-200);
 	--color-common-base-hover: var(--palette-gray-300);
 	--color-common-base-active: var(--palette-gray-400);
-	--color-common-secondary: var(--palette-gray-700);
+	--color-common-secondary: var(--palette-gray-500);
 	--color-common-secondary-hover: var(--palette-gray-600);
-	--color-common-secondary-active: var(--palette-gray-500);
+	--color-common-secondary-active: var(--palette-gray-700);
 
 	--color-text-primary: var(--palette-lime-800);
 	--color-text-primary-hover: var(--palette-lime-900);
-	--color-text-primary-active: var(--palette-lime-900);
+	--color-text-primary-active: var(--palette-lime-950);
 	--color-text-base: var(--palette-gray-800);
 	--color-text-base-hover: var(--palette-gray-900);
 	--color-text-base-active: var(--palette-gray-950);
 	--color-text-secondary: var(--palette-gray-600);
 	--color-text-tertiary: var(--palette-gray-400);
 	--color-text-bg: var(--palette-gray-200);
-	--color-text-inverse: var(--palette-gray-300);
+	--color-text-inverse: var(--palette-gray-100);
 
 	--color-surface-base: var(--palette-gray-50);
 	--color-surface-secondary: var(--palette-gray-100);

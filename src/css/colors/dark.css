@@ -13,8 +13,8 @@
 	--color-text-primary-hover: var(--palette-lime-200);
 	--color-text-primary-active: var(--palette-lime-50);
 	--color-text-base: var(--palette-gray-100);
-	--color-text-base-hover: var(--palette-gray-300);
-	--color-text-base-active: var(--palette-gray-500);
+	--color-text-base-hover: var(--palette-gray-200);
+	--color-text-base-active: var(--palette-gray-300);
 	--color-text-secondary: var(--palette-gray-400);
 	--color-text-tertiary: var(--palette-gray-600);
 	--color-text-bg: var(--palette-gray-800);
