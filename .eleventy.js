@@ -92,6 +92,10 @@ module.exports = function (config) {
 		return collection;
     });
 
+	config.addFilter("filterBySlugList", function(collection, slugList) {
+		return collection.filter(item => slugList.includes(item.fileSlug));
+	});
+
     config.addCollection('videos', (collectionApi) => {
         return collectionApi.getFilteredByGlob(
             collections.videos

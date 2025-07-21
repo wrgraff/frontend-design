@@ -28,5 +28,11 @@
 		<meta property="og:locale" content="en_EN" />
 	</head>
 
-	{{ content | safe }}
+	<body class="page__body">
+		{{ content | safe }}
+
+		{% include "aside.njk" %}
+	</body>
+
+	<script defer src="/js/index.js"></script>
 </html>

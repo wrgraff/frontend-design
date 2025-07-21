@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>CV – Artur Trifonov</title>
+		<title>{{ paperHeader.name }} {{ paperHeader.position }} CV</title>
 		<link rel="stylesheet" href="{{ '/css/cv.css' | url }}">
 
 		<link rel="icon" href="/img/favicons/favicon.ico" sizes="any">
@@ -54,9 +54,9 @@
 									</h3>
 									<p class="experience__dates">{{ item.dates }}</p>
 								</div>
-								<p class="experience__company">
-									{{ item.fullDescription }}
-								</p>
+								<div class="experience__company">
+									{{ item.shortDescription | markdown | safe }}
+								</div>
 
 								<section class="experience__list experience-list">
 									<h4 class="visually-hidden">{{ experience.achievementHeading }}</h4>
@@ -90,12 +90,12 @@
 			</div>
 
 			<div class="paper__aside">
-				<section class="paper__section paper-section paper-section_photo">
+				{# <section class="paper__section paper-section paper-section_photo">
 					<h2 class="visually-hidden">{{ photo.heading }}</h2>
 					<picture class="paper-section__photo">
 						<img src="/img/{{ photo.img }}" alt="{{ photo.heading }}">
 					</picture>
-				</section>
+				</section> #}
 
 				<section class="paper__section paper-section">
 					<h2 class="visually-hidden">{{ contacts.heading }}</h2>

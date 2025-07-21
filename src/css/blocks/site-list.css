@@ -69,3 +69,7 @@
 .site-list__link:active::after {
 	background-color: var(--color-text-primary-active);
 }
+
+.site-list__item_current {
+	background-color: var(--color-surface-base);
+}

@@ -8,7 +8,7 @@
 			</svg>
 			{% if item.link %}
 				<a href="{{ item.link }}" class="paper-list__link">
-					<p class="paper-list__text">{{ item.heading }}</p>
+					<div class="paper-list__text">{{ item.heading | markdown | safe }}</div>
 					{% if item.site %}
 						<span class="paper-list__site">{{ item.site }}</span>
 					{% endif %}
@@ -20,7 +20,7 @@
 					{% endif %}
 				</a>
 			{% else %}
-				<p class="paper-list__text">{{ item.heading }}</p>
+				<div class="paper-list__text">{{ item.heading | markdown | safe }}</div>
 				{% if item.site %}
 					<span class="paper-list__site">{{ item.site }}</span>
 				{% endif %}

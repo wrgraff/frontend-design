@@ -22,12 +22,20 @@
 }
 
 .paper__aside {
-	padding: 7mm;
+	padding: 5mm 7mm;
 
 	background-color: var(--palette-gray-100);
 	overflow: hidden;
 }
 
+.paper__aside .paper__section:first-child {
+	height: 27mm;
+}
+
+.paper__aside .paper__section:nth-child(2) {
+	height: 22mm;
+}
+
 .paper__header {
-	height: 45mm;
+	height: 46mm;
 }

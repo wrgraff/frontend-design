@@ -1,0 +1,114 @@
+layout: page.njk
+permalink: about/index.html
+promo:
+  heading: Hi!
+  lead: I’m Artur Trifonov, a product UI designer based in Bratislava
+  video:
+    description: |
+      Introduction
+      2 min
+    url: 'https://youtu.be/mnoWBLMD0zw'
+    id: 'mnoWBLMD0zw'
+    cover: me-video.jpg
+now:
+  heading: Now
+  text: |
+    Work at CloudTech, where we create services for analyzing and managing cloud systems
+
+    Leading fintech companies use our service to build reports, plan budgets, and manage their infrastructure
+  lastWorks:
+    heading: last works
+    works:
+      - lucrum
+      - charts-library
+  designSystems:
+    heading: Design systems
+    text: |
+      My most important and favorite achievement is creating a design system. It made life easier for both me and the frontend team
+
+      If you need to build or develop a design system, we’ll definitely be a great match =)
+    works:
+      - design-system
+education:
+  heading: Education
+  text: |
+    I come from a classical art background: I studied painting, graphics, interiors, and architecture — but eventually moved into IT design
+  list:
+    - heading: Environmental Design, Specialist
+      place: Pushkin Leningrad State University, Faculty of Arts
+      year: 2011
+  additionalCourses:
+    heading: Additional courses
+    list:
+      - heading: Designing and Describing User Behavior in Interface
+        place: Design Line PRO
+        year: 2022
+      - heading: Fundamentals of User Centered Design
+        place: IMPRO
+        year: 2013
+      - heading: Digital Strategist '13/1
+        place: IKRA
+        year: 2013
+frontend:
+  heading: Frontend
+  text: |
+    Spent some time working in frontend, which gave me a solid technical foundation
+  education:
+    heading: 'Took extra training:'
+    course:
+      heading: JavaScript. Architecture of Front-end Applications
+      place: .html academy
+      year: 2021
+  htmlAcademy:
+    heading: .html academy
+    text: |
+      Gained rare experience mentoring at HTML Academy and contributing to educational content
+    list:
+      - Wrote 10 articles for course textbooks
+      - Created 23 reference solutions with detailed reviews
+      - Co-authored the course Design for Frontend Developers
+design:
+  heading: Design
+  text: |
+    In 2021, I returned to a product design role, working with complex interfaces
+  works:
+    heading: Works
+    text: |
+      A fondness for structure and some healthy perfectionism really works in my favor here 🙂
+    list:
+      - crm-products
+  skills:
+    heading: Skills
+    list:
+      - Design systems, UI kit
+      - Prototypes
+      - Mapping (blueprint, swimlane)
+      - Technical specification writing
+      - Design documentation
+      - Market and audience analysis
+      - Project management
+      - Client communication
+      - Training and mentoring
+      - Article writing and lecturing
+  instruments:
+    heading: Instruments
+    list:
+      - Figma, Sketch
+      - FigJam
+      - HTML, CSS, JavaScript
+      - Git, GitHub, Bitbucket
+      - ChatGPT
+      - DALL-E, Midjourney
+contacts:
+  heading: Contacts
+  lead: Contact me if you interested in working together
+  comment: Or just to talk =)
+  list:
+    - title: hi@arturtrifonov.com
+      url: mailto:hi@arturtrifonov.com
+    - title: Telegram
+      url: https://t.me/wrgraff
+    - title: LinkedIn
+      url: https://www.linkedin.com/in/arturtrifonov/
+    - title: GitHub
+      url: https://github.com/wrgraff/

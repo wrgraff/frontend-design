@@ -1,4 +1,4 @@
-layout: main.njk
+layout: page.njk
 permalink: index.html
 promo:
   heading: Product UI designer

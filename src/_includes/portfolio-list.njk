@@ -1,11 +1,20 @@
 {% from 'portfolio-item.njk' import portfolioItem %}
 
 {% macro portfolioList(
-    collection
+    collection, slugList
 ) %}
+
+	{% if slugList and slugList.length %}
+		{# Фильтруем коллекцию, оставляем только элементы с нужными slug #}
+		{% set selectedItems = collection | filterBySlugList(slugList) %}
+	{% else %}
+		{# Если список slug не передан – используем всю коллекцию #}
+		{% set selectedItems = collection %}
+	{% endif %}
+
 	<div class="section__portfolio portfolio">
 		<ul class="portfolio__list">
-			{% for case in collection %}
+			{% for case in selectedItems %}
 				{{ portfolioItem(
 					case = case
 				) }}

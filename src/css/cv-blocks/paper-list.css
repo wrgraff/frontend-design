@@ -41,14 +41,15 @@
 	text-decoration: none;
 }
 
-.paper-list__text {
+.paper-list__text,
+.paper-list__text p {
 	margin: 0;
 }
 
 .paper-list__site {
 	color: var(--palette-gray-500);
 
-	font-size: .8rem;
+	font-size: .75rem;
 	text-decoration: underline;
 	word-wrap: break-word;
 }

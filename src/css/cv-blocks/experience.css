@@ -39,6 +39,10 @@
 	color: var(--palette-gray-500);
 }
 
+.experience__company p {
+	margin: 0;
+}
+
 .experience__projects {
 	grid-column: 1 / -1;
 }
