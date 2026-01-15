@@ -1,13 +1,13 @@
 @media (width < 880px) {
 	.articles {
-		--articles-heading-font: var(--font-heading-xxs);
+		--articles-heading-font: var(--font-heading-h6);
 		--articles-text-font: var(--font-text-m);
 	}
 }
 
 @media (width >= 880px) {
 	.articles {
-		--articles-heading-font: var(--font-heading-xs);
+		--articles-heading-font: var(--font-heading-h6);
 		--articles-text-font: var(--font-text-l);
 	}
 }

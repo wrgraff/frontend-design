@@ -2,8 +2,6 @@
 layout: page.njk
 ---
 
-{% from 'header.njk' import header with context %}
-
 {%- set collection = collections.portfolio -%}
 {%- set cleanCollection = [] -%}
 {%- set previousUrl = "" -%}
@@ -31,7 +29,7 @@ layout: page.njk
 
 <body class="page__body page__body_case">
 	<main class="case">
-		{{ header( mainBlock = 'case' ) }}
+		{% include "header.njk" %}
 
 		<h1 class="visually-hidden">{{ title }}</h1>
 

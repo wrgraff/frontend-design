@@ -1,3 +1,12 @@
+/* Variables */
+
+.aside {
+	--padding: 0;
+	--copy-padding: 40px;
+}
+
+/* Aside */
+
 .aside {
 	background-color: var(--color-surface-secondary);
 }
@@ -10,15 +19,11 @@
 
 	display: grid;
 	grid-template-rows: min-content 1fr min-content;
-	padding: 40px;
+	padding: var(--padding);
 	overflow: hidden;
 }
 
 @media (width < 880px) {
-	.aside__container {
-		gap: 48px;
-	}
-
 	html.no-js .aside__container {
 		grid-template-rows: auto;
 	}
@@ -47,18 +52,6 @@
 @media (width >= 880px) {
 	.aside__container {
 		min-height: 100vh;
-	}
-}
-
-@media (880px <= width < 1500px) {
-	.aside__container {
-		gap: 64px;
-	}
-}
-
-@media (width >= 880px) {
-	.aside__container {
-		gap: 112px;
 	}
 }
 
@@ -100,8 +93,10 @@
 	display: none;
 }
 
+/* Aside list */
+
 .aside__list {
-	margin: 0 -40px;
+	margin: 0;
 }
 
 @media (width < 880px) {
@@ -110,8 +105,11 @@
 	}
 }
 
+/* Aside copy */
+
 .aside__copy {
 	margin: 0;
+	padding: var(--copy-padding);
 
 	color: var(--color-text-secondary);
 

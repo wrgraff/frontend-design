@@ -1,15 +1,18 @@
+/* Variables */
+
+.skills {
+
+}
+
+/* Skills */
+
 .skills {
 	display: grid;
 	gap: 12px;
 	padding: 0;
 
 	list-style: none;
-}
-
-@media (width < 1500px) {
-	.skills {
-		font-size: var(--text-size-xl);
-	}
+	font: var(--font-text-promo);
 }
 
 @media (width >= 880px) {
@@ -17,12 +20,6 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		column-gap: 32px;
-	}
-}
-
-@media (width >= 1500px) {
-	.skills {
-		font-size: var(--text-size-shout);
 	}
 }
 

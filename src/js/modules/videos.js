@@ -1,20 +1,29 @@
 class Videos {
-	constructor() {
-		this._video = document.querySelector( '.video' );
-		this._link = this._video.querySelector( '.video__main-link' );
-		this._media = this._video.querySelector( '.video__media' );
-		this._img = this._video.querySelector( '.video__img' );
-		this._button = this._video.querySelector( '.video__button' );
-
+	constructor( selectors = [] ) {
+		this._selectors = selectors;
 		this._videoElementClickHandler = this._videoElementClickHandler.bind( this );
+		this._selectors.forEach( ( selector ) => {
+			let element = document.querySelector( `.${selector}` );
+			if ( !element ) {
+				return;
+			}
+			this.init( selector, element );
+		} );
 	}
 
-	init() {
+	init( selector, element ) {
+		this._video = element;
+		this._link = this._video.querySelector( `.${selector}__main-link` );
+		this._media = this._video.querySelector( `.${selector}__media` );
+		this._img = this._video.querySelector( `.${selector}__img` );
+		this._button = this._video.querySelector( `.${selector}__button` );
+
+
 		this._id = this._link.dataset.id;
 		this._start = this._link.dataset.start;
 
 		this._link.removeAttribute( 'href' );
-		this._video.classList.add( 'video_enabled' );
+		this._video.classList.add( `${selector}_enabled` );
 
 		this._button.addEventListener( 'click', this._videoElementClickHandler );
 	}
@@ -50,9 +59,9 @@ class Videos {
 		return 'https://www.youtube.com/embed/' + id + query + time;
 	}
 
-	static create() {
-		return new Videos().init();
+	static create( selectors ) {
+		return new Videos( selectors );
 	}
 }
 
-Videos.create();
+Videos.create( ['video', 'promo-video'] );

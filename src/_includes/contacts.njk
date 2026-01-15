@@ -1,0 +1,19 @@
+<section class="main__section section" id="contacts">
+	<header class="section__header section-header">
+		<h2 class="section-header__heading">{{ global.contacts.heading }}</h2>
+		<div class="section-header__text">
+			{{ global.contacts.text | markdown | safe }}
+			{% if global.contacts.comment %}
+				<p class="section-header__comment">{{ global.contacts.comment }}</p>
+			{% endif %}
+		</div>
+
+		<ul class="section-header__links contact-links">
+			{% for item in global.contacts.main %}
+				<li class="contact-links__item">
+					<a href="{{ item.url }}" class="contact-links__link">{{ item.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</header>
+</section>

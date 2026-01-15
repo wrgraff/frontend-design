@@ -1,90 +1,72 @@
 @media (width < 880px) {
 	.section {
-		--section-heading-size: var(--heading-size-xs);
+		--row-gap: 96px;
+		--subheader-margin: 24px;
 	}
 }
 
 @media (880px <= width < 1500px) {
 	.section {
-		--section-heading-size: var(--heading-size-m);
+		--row-gap: 96px;
+		--subheader-margin: 24px;
 	}
 }
 
 @media (width >= 1500px) {
 	.section {
-		--section-heading-size: var(--heading-size-m);
+		--row-gap: 96px;
+		--subheader-margin: 24px;
 	}
 }
 
 /* Section */
 
-@media (width >= 880px) {
-	.section {
-		display: grid;
-		column-gap: 32px;
-	}
+.section {
+	display: grid;
+	grid-template-columns: 1fr var(--content-width) 1fr;
+	row-gap: var(--row-gap);
 }
 
-@media (880px <= width < 1500px) {
-	.section {
-		grid-template-columns: repeat(4, 1fr);
-	}
-}
-
-@media (width >= 1500px) {
-	.section {
-		grid-template-columns: repeat(5, 1fr);
-	}
+.section__content {
+	grid-column: 2 / -2;
 }
 
 /* Header */
 
 .section__header {
-	position: relative;
-
-	display: flex;
-	align-items: flex-end;
-	margin: 0 0 24px;
+	grid-column: 2 / -2;
 }
 
-.section__header::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	z-index: -1;
+/* Subheader */
 
-	width: 100vw;
-	height: 1px;
-
-	background-color: var(--color-border-base);
+.section__subheader {
+	grid-column: 1 / -1;
+	margin-bottom: var(--subheader-margin);
 }
 
-@media (width >= 880px) {
-	.section__header {
-		grid-column: 1 / -1;
-	}
+/* Main */
+
+.section__main {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: 1fr var(--content-width) 1fr;
 }
 
-/* Heading */
+/* Container */
 
-.section__heading {
-	position: relative;
-
-	margin: 0 auto 0 0;
-
-	font-size: var(--section-heading-size);
-	font-weight: 700;
-	text-transform: lowercase;
-	letter-spacing: 0.04em;
+.section__container {
+	grid-column: 2 / -2;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: var(--grid-gap);
 }
 
-.section__heading::before {
-	content: attr(data-category) ' / ';
-	position: absolute;
-	right: 100%;
+/* Content */
 
-	color: var(--color-text-bg);
+.section__content {
+	grid-column: span 2;
+
+	font: var(--font-text-promo);
 }
 
 /* Comment */

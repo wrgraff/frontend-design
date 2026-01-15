@@ -1,0 +1,50 @@
+@media (width < 880px) {
+	.promo-header {
+	}
+}
+
+@media (880px <= width < 1500px) {
+	.promo-header {
+	}
+}
+
+@media (width >= 1500px) {
+	.promo-header {
+	}
+}
+
+/* Section Header */
+
+.promo-header {
+}
+
+/* Heading */
+
+.promo-header__heading {
+	margin: 0;
+
+	font: var(--font-heading-h1);
+	letter-spacing: 4%;
+}
+
+/* Text */
+
+.promo-header__content {
+	max-width: 378px;
+	grid-column: span 2;
+	color: var(--color-text-base);
+
+	font: var(--font-text-promo);
+}
+
+.promo-header__content p {
+	margin: 0;
+}
+
+/* Buttons */
+
+.promo-header__buttons {
+	margin-top: 32px;
+	display: flex;
+	gap: 16px;
+}

@@ -1,0 +1,7 @@
+<ul class="aside__list aside-contacts">
+	{% for item in global.contacts.main %}
+		<li class="aside-contacts__item aside-contacts__item_{{ item.icon }}">
+			<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title }}</a>
+		</li>
+	{% endfor %}
+</ul>

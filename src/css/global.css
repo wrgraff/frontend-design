@@ -1,3 +1,8 @@
+:root {
+	--content-width: 920px;
+	--grid-gap: 32px;
+}
+
 *,
 *::before,
 *::after {
@@ -5,19 +10,19 @@
 }
 
 a {
-	--link-color: var(--color-text-base);
+	--color: var(--color-text-base);
 
-	color: var(--link-color);
+	color: var(--color);
 	text-underline-offset: .3em;
 	transition: color 200ms;
 }
 
 a[href]:hover {
-	--link-color: var(--color-text-base-hover);
+	--color: var(--color-text-base-hover);
 }
 
 a[href]:active {
-	--link-color: var(--color-text-base-active);
+	--color: var(--color-text-base-active);
 }
 
 img {

@@ -2,7 +2,7 @@
 
 @media (width < 1200px) {
 	.video {
-		--video-heading-font: var(--font-heading-l);
+		--video-heading-font: var(--font-heading-h5);
 		--video-description-font: var(--font-text-xl);
 		--video-links-font: var(--font-text-l);
 		--video-preview-height: 400px;
@@ -12,7 +12,7 @@
 @media (1200px <= width < 1500px) {
 	.video {
 		--video-heading-font: var(--font-heading-xl);
-		--video-description-font: var(--font-text-shout);
+		--video-description-font: var(--font-text-promo);
 		--video-links-font: var(--font-text-xl);
 		--video-preview-height: 600px;
 	}
@@ -21,7 +21,7 @@
 @media (width >= 1500px) {
 	.video {
 		--video-heading-font: var(--font-heading-xl);
-		--video-description-font: var(--font-text-shout);
+		--video-description-font: var(--font-text-promo);
 		--video-links-font: var(--font-text-xl);
 		--video-preview-height: 784px;
 	}

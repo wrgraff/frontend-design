@@ -2,12 +2,11 @@
 layout: page.njk
 ---
 
-{% from 'header.njk' import header with context %}
 {% from 'videos-list.njk' import videosList with context %}
 
 <body class="page__body page__body_case">
 	<main class="case">
-		{{ header( mainBlock = 'case' ) }}
+		{% include "header.njk" %}
 
 		<article class="case__article video">
 			<div class="video__content">

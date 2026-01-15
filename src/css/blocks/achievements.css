@@ -1,7 +1,7 @@
 @media (width < 880px) {
 	.achievements {
 		--achievements-font: var(--font-text-l);
-		--achievements-amount-font: var(--font-heading-l);
+		--achievements-amount-font: var(--font-heading-h5);
 	}
 }
 

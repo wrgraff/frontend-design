@@ -7,26 +7,29 @@ promo:
     description: |
       Introduction
       2 min
-    url: 'https://youtu.be/mnoWBLMD0zw'
-    id: 'mnoWBLMD0zw'
+    url: 'https://youtu.be/f4DExml1tIQ'
+    id: 'f4DExml1tIQ'
     cover: me-video.jpg
 now:
   heading: Now
-  text: |
-    Work at CloudTech, where we create services for analyzing and managing cloud systems
-
-    Leading fintech companies use our service to build reports, plan budgets, and manage their infrastructure
+  text:
+    - |
+      Work at CloudTech, where we create services for analyzing and managing cloud systems
+    - |
+      Leading fintech companies use our service to build reports, plan budgets, and manage their infrastructure
   lastWorks:
-    heading: last works
+    heading: Last_works
     works:
       - lucrum
       - charts-library
   designSystems:
-    heading: Design systems
-    text: |
-      My most important and favorite achievement is creating a design system. It made life easier for both me and the frontend team
+    heading: Design_systems
+    text:
+      - |
+        My most important and favorite achievement is creating a design system. It made life easier for both me and the frontend team
 
-      If you need to build or develop a design system, we’ll definitely be a great match =)
+      - |
+        If you need to build or develop a design system, we’ll definitely be a great match =)
     works:
       - design-system
 education:
@@ -80,25 +83,29 @@ design:
   skills:
     heading: Skills
     list:
-      - Design systems, UI kit
-      - Prototypes
-      - Mapping (blueprint, swimlane)
-      - Technical specification writing
-      - Design documentation
-      - Market and audience analysis
-      - Project management
-      - Client communication
-      - Training and mentoring
-      - Article writing and lecturing
+    - Design systems
+    - Visual design craft
+    - Data visualization, Dashboards
+    - Accessibility
+    - Prototyping, Wireframing
+    - Market and User research
+    - Testing
+    - Information Architecture
+    - User Flows
+    - Developer handoff
+    - Engineering collaboration
+    - Cross-functional collaboration
+    - Agile methodologies
+    - Mentoring, Knowledge sharing
   instruments:
     heading: Instruments
     list:
-      - Figma, Sketch
-      - FigJam
-      - HTML, CSS, JavaScript
-      - Git, GitHub, Bitbucket
-      - ChatGPT
-      - DALL-E, Midjourney
+    - Figma, Sketch
+    - Storybook, Tokens Studio
+    - FigJam, Miro
+    - HTML, CSS, JavaScript, Git
+    - ChatGPT, DALL-E, Midjourney
+    - Jira, Confluence, YouTrack
 contacts:
   heading: Contacts
   lead: Contact me if you interested in working together

@@ -1,29 +1,39 @@
 @font-face {
 	font-weight: 400;
-	font-family: 'Ubuntu';
+	font-family: 'Lexend';
 	font-style: normal;
 	font-display: swap;
 	src:
-		url('../fonts/ubuntu-regular.woff2') format('woff2'),
-		url('../fonts/ubuntu-regular.woff') format('woff');
+		url('../fonts/lexend-regular.woff2') format('woff2'),
+		url('../fonts/lexend-regular.woff') format('woff');
 }
 
 @font-face {
 	font-weight: 500;
-	font-family: 'Ubuntu';
+	font-family: 'Lexend';
 	font-style: normal;
 	font-display: swap;
 	src:
-		url('../fonts/ubuntu-medium.woff2') format('woff2'),
-		url('../fonts/ubuntu-medium.woff') format('woff');
+		url('../fonts/lexend-medium.woff2') format('woff2'),
+		url('../fonts/lexend-medium.woff') format('woff');
 }
 
 @font-face {
 	font-weight: 700;
-	font-family: 'Ubuntu';
+	font-family: 'Lexend';
 	font-style: normal;
 	font-display: swap;
 	src:
-		url('../fonts/ubuntu-bold.woff2') format('woff2'),
-		url('../fonts/ubuntu-bold.woff') format('woff');
+		url('../fonts/lexend-bold.woff2') format('woff2'),
+		url('../fonts/lexend-bold.woff') format('woff');
+}
+
+@font-face {
+	font-weight: 400;
+	font-family: 'Pacifico';
+	font-style: normal;
+	font-display: swap;
+	src:
+		url('../fonts/pacifico-regular.woff2') format('woff2'),
+		url('../fonts/pacifico-regular.woff') format('woff');
 }

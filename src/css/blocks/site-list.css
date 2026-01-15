@@ -1,75 +1,80 @@
+/* Variables */
+
+.site-list {
+	--gap: 8px;
+	--padding: 56px 0 56px 40px;
+	--item-padding: 16px 0 0 0;
+	--link-offset: -16px;
+}
+
+.site-list__link {
+	--link-color: var(--color-text-base);
+}
+
+.site-list__link:hover {
+	--link-color: var(--color-text-base-hover);
+}
+
+.site-list__link:active {
+	--link-color: var(--color-text-base-active);
+}
+
+.site-list__item_current .site-list__link {
+	--link-color: var(--color-text-primary);
+}
+
+.site-list__item_current .site-list__link:hover {
+	--link-color: var(--color-text-primary-hover);
+}
+
+.site-list__item_current .site-list__link:active {
+	--link-color: var(--color-text-primary-active);
+}
+
+/* Site List */
+
 .site-list {
 	display: grid;
 	align-content: start;
-	gap: 24px;
-	padding: 0;
+	gap: var(--gap);
+	padding: var(--padding);
 
+	border-bottom: 1px solid var(--color-border-base);
 	list-style: none;
+
+	font: var(--font-text-promo);
 }
 
 .site-list__item {
 	position: relative;
 	z-index: 0;
-
-	padding: 0 40px;
-	border-bottom: 1px solid var(--palette-gray-800);
 }
 
 .site-list__link {
-	display: inline-block;
+	display: block;
+	padding: var(--item-padding);
 
-	color: var(--color-text-base);
-	border-bottom: 3px solid var(--color-text-primary);
+	color: var(--link-color);
+	border-bottom: 3px solid transparent;
 
-	font-size: var(--text-size-shout);
 	text-decoration: none;
 	text-transform: lowercase;
-}
-
-.site-list__link::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: -1;
+	transition: color 200ms, border-color 200ms;
 }
 
 .site-list__link::after {
 	content: '';
 	position: absolute;
-	left: 0;
+	top: 0;
+	right: 0;
 	bottom: 0;
-	z-index: -1;
-
-	width: 100%;
-
-	height: 3px;
-	background-color: var(--color-text-primary);
-
-	transform-origin: 80px 0;
-	transform: scaleX(0);
-	transition: transform 200ms ease-in;
+	left: var(--link-offset);
 }
 
 .site-list__link:hover {
-	border-color: var(--color-text-primary-hover);
+	border-color: var(--link-color);
 }
 
-.site-list__link:hover::after {
-	background-color: var(--color-text-primary-hover);
-	transform: scaleX(1);
-}
-
-.site-list__link:active {
-	border-color: var(--color-text-primary-active);
-}
-
-.site-list__link:active::after {
-	background-color: var(--color-text-primary-active);
-}
-
-.site-list__item_current {
-	background-color: var(--color-surface-base);
+.site-list__item_current .site-list__link {
+	border-color: var(--link-color);
 }

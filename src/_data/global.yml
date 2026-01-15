@@ -1,6 +1,28 @@
 title: Artur Trifonov's personal website
 subtitle: UI designer CV and portfolio
 domain: https://arturtrifonov.com
-author: Artur Trifonov
-email: hi@arturtrifonov.com
+name: Artur Trifonov
 language: en
+
+contacts:
+  heading: Contacts
+  text: Contact me if you interested in working together
+  comment: Or just to talk =)
+  main:
+    - title: hi@arturtrifonov.com
+      url: mailto:hi@arturtrifonov.com
+      icon: email
+    - title: Linked_In
+      url: https://www.linkedin.com/in/arturtrifonov/
+      icon: linkedin
+    - title: Behance
+      url: https://www.behance.net/arturtrifonov
+      icon: behance
+    - title: Dribbble
+      url: https://dribbble.com/arturtrifonov
+      icon: dribbble
+  additional:
+    - title: Telegram
+      url: https://t.me/wrgraff
+    - title: GitHub
+      url: https://github.com/wrgraff/

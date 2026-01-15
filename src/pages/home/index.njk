@@ -1,9 +1,8 @@
-{% from 'header.njk' import header with context %}
 {% from 'portfolio-list.njk' import portfolioList with context %}
 {% from 'videos-list.njk' import videosList with context %}
 
 <main class="page__main main">
-	{{ header( mainBlock = 'page' ) }}
+	{% include "header.njk" %}
 
 	<section class="main__section promo" id="about">
 		<h1 class="promo__heading">{{ promo.heading }}</h1>
@@ -116,21 +115,5 @@
 		</section>
 	</section>
 
-	<section class="main__category category" id="contacts">
-		<header class="category__header category-header">
-			<h2 class="category-header__heading">{{ contacts.heading }}</h2>
-			<p class="category-header__lead">{{ contacts.lead | safe }}</p>
-			{% if contacts.comment %}
-				<p class="category-header__comment">{{ contacts.comment }}</p>
-			{% endif %}
 
-			<ul class="category-header__links contact-links">
-				{% for item in contacts.list %}
-					<li class="contact-links__item">
-						<a href="{{ item.url }}" class="contact-links__link">{{ item.title }}</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</header>
-	</section>
 </main>

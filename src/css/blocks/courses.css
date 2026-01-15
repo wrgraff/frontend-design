@@ -6,7 +6,7 @@
 
 @media (width >= 880px) {
 	.courses {
-		--courses-title-size: var(--text-size-shout);
+		--courses-title-size: var(--text-size-promo);
 	}
 }
 
