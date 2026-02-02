@@ -45,14 +45,14 @@ skills:
     - heading: Responsive, Adaptive
     - heading: Micro-interactions
     - heading: Complex-product (data visualization, dashboards)
-    - heading: Accessibility, Inclusive design (a11y, WCAG)
+    - heading: Accessibility, Inclusive design
     - heading: Prototyping, Wireframing, User flows
     - heading: Developer handoff, Engineering collaboration
     - heading: Design documentation
     - heading: Design systems, Component libraries
     - heading: Market and User research, Usability testing
     - heading: Cross-functional collaboration, Agile methodologies
-    - heading: Training, Mentoring, Knowledge sharing
+    - heading: Training, Mentoring
 instruments:
   heading: Instruments
   list:
@@ -64,6 +64,9 @@ instruments:
 education:
   heading: Education
   list:
+    - heading: UX Training on Smart Interface Design Patterns
+      organisation: Smashing Magazine
+      date: 2025
     - heading: Designing and Describing User Behavior in Interface
       organisation: Design Line PRO
       date: 2022
@@ -77,7 +80,7 @@ education:
       organisation: IKRA
       date: 2013
     - heading: Environmental Design, Specialist
-      organisation: Pushkin Leningrad State University, Faculty of Arts
+      organisation: Pushkin Leningrad State University
       date: 2011
 experience:
   heading: Experience

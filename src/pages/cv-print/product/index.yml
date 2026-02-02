@@ -49,7 +49,7 @@ skills:
     - heading: Visual design craft (typography, color, layout)
     - heading: Cross-functional collaboration, Agile methodologies
     - heading: Design systems, Component libraries
-    - heading: Accessibility, Inclusive design (a11y, WCAG)
+    - heading: Accessibility, Inclusive design
     - heading: Developer handoff, Engineering collaboration
     - heading: Design documentation
     - heading: Training, Mentoring
@@ -81,7 +81,7 @@ education:
       organisation: IKRA
       date: 2013
     - heading: Environmental Design, Specialist
-      organisation: Pushkin Leningrad State University, Faculty of Arts
+      organisation: Pushkin Leningrad State University
       date: 2011
 experience:
   heading: Experience
