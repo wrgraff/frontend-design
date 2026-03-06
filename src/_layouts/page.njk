@@ -19,11 +19,11 @@
 		<meta property="og:title" content="{{ title if (page.url != '/') }}{{ ' | ' if (page.url != '/') }}{{ meta.siteName }}" />
 		<meta property="og:image" content="/img/favicons/og.png" />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Artur Trifonov's website" />
+		<meta property="og:site_name" content="{{ meta.siteName }}" />
 		{% if page.url != '/' %}
-			<meta property="og:url" content="https://arturtrifonov.com/" />
+			<meta property="og:url" content="{{ meta.url }}" />
 		{% else %}
-			<meta property="og:url" content="https://arturtrifonov.com/{{ activePage }}/" />
+			<meta property="og:url" content="{{ meta.url }}{{ activePage }}/" />
 		{% endif %}
 		<meta property="og:locale" content="en_EN" />
 	</head>

@@ -9,22 +9,6 @@
 	box-sizing: border-box;
 }
 
-a {
-	--color: var(--color-text-base);
-
-	color: var(--color);
-	text-underline-offset: .3em;
-	transition: color 200ms;
-}
-
-a[href]:hover {
-	--color: var(--color-text-base-hover);
-}
-
-a[href]:active {
-	--color: var(--color-text-base-active);
-}
-
 img {
 	max-width: 100%;
 	height: auto;
