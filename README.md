@@ -25,6 +25,7 @@ Primary goal: any developer and any AI agent should see technologies, approaches
 - Element: `.block__element`
 - Modifier format: `key_value`  
   `.block_key_value`, `.block__element_key_value`
+- Class order in markup: `block__element block` (element first, then block)
 
 Examples:
 
@@ -32,6 +33,7 @@ Examples:
 - `button_size_l`
 - `link_size_xs`
 - `site-list__item_current`
+- `section__header section-header`
 
 Forbidden:
 
