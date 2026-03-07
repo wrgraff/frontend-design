@@ -11,20 +11,20 @@ contacts:
   messaging:
     - title: hi@arturtrifonov.com
       url: mailto:hi@arturtrifonov.com
-      icon: email
+      icon: email/email
     - title: WhatsApp
       url: https://wa.me/qr/D5O7F7DDAEUHK1
-      icon: whatsapp
+      icon: social-networks/whatsapp
     - title: Telegram
       url: https://t.me/wrgraff
-      icon: telegram
+      icon: social-networks/telegram
   socials:
     - title: LinkedIn
       url: https://www.linkedin.com/in/arturtrifonov/
-      icon: linkedin
+      icon: social-networks/linkedin
     - title: Behance
       url: https://www.behance.net/arturtrifonov
-      icon: behance
+      icon: social-networks/Behance
     - title: Dribbble
       url: https://dribbble.com/arturtrifonov
-      icon: dribbble
+      icon: social-networks/dribble

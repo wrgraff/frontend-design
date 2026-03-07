@@ -1,9 +1,9 @@
 /* Variables */
 
 .aside-contacts {
-	--padding: 25px 15px;
-	--group-gap: 16px;
-	--item-gap: 7px;
+	--aside-contacts-padding: var(--space-gap-m) var(--space-gap-xs);
+	--aside-contacts-gap: var(--space-gap-xs);
+	--aside-contacts-divider-height: var(--space-size-3xs);
 }
 
 /* Aside Contacts */
@@ -12,17 +12,18 @@
 	align-content: end;
 
 	display: grid;
-	gap: var(--item-gap);
+	gap: var(--aside-contacts-gap);
 	list-style: none;
 
 	margin: 0;
 	margin-top: auto;
-	padding: var(--padding);
+	padding: var(--aside-contacts-padding);
 	position: relative;
 	z-index: 1;
 }
 
 .aside-contacts__item {
+	display: flex;
 	margin: 0;
 	padding: 0;
 }
@@ -30,6 +31,5 @@
 .aside-contacts__divider {
 	background-color: var(--color-border-base);
 	height: var(--space-border-light);
-	margin: calc((var(--group-gap) - var(--item-gap)) / 2) 0;
-	opacity: .7;
+	margin: calc(var(--aside-contacts-divider-height) / 2) 0;
 }

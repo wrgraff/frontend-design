@@ -1,8 +1,10 @@
+{% from 'icon.njk' import icon %}
+
 <nav class="page__aside aside">
 	<div class="aside__container">
 		{% include 'menu.njk' %}
 		{% include 'aside-contacts.njk' %}
 
-		<p class="aside__copy">Artur Trifonov</p>
+		<p class="aside__copy">{{ icon('copyright/copyright_circle', 'aside__copy-icon') }} Artur Trifonov</p>
 	</div>
 </nav>

@@ -3,8 +3,9 @@
 	--link-font: var(--font-label-m);
 	--link-gap: var(--space-gap-xxs);
 	--link-underline-color: var(--color-text-alt);
-	--link-underline-offset: .3rem;
+	--link-underline-offset: var(--space-gap-3xs);
 	--link-icon-size: var(--space-size-s);
+	--link-icon-color: currentColor;
 	--link-external-size: var(--space-size-4xs);
 }
 
@@ -27,11 +28,14 @@
 
 .link:hover {
 	--link-underline-color: var(--color-text-primary);
+	--link-icon-color: var(--color-text-primary);
 }
 
 .link:active {
 	--link-text-color: var(--color-text-alt);
 	--link-underline-color: var(--color-text-alt);
+	--link-icon-color: var(--color-text-alt);
+
 }
 
 /* Plain links */
@@ -65,12 +69,14 @@ a:not([class]):active {
 	--link-font: var(--font-text-xs);
 	--link-gap: var(--space-gap-4xs);
 	--link-icon-size: var(--space-size-xxs);
+	--link-underline-offset: var(--space-gap-4xs);
 }
 
 .link_size_s {
 	--link-font: var(--font-text-s);
 	--link-gap: var(--space-gap-3xs);
 	--link-icon-size: var(--space-size-xs);
+	--link-underline-offset: var(--space-gap-4xs);
 }
 
 /* Elements */
@@ -83,6 +89,8 @@ a:not([class]):active {
 .link__icon {
 	height: var(--link-icon-size);
 	width: var(--link-icon-size);
+	color: var(--link-icon-color);
+	transition: color var(--transition-element-duration) var(--transition-element-function);
 }
 
 .link__external {

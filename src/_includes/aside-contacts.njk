@@ -1,10 +1,10 @@
 {% from 'link.njk' import link %}
 
-<ul class="aside__list aside-contacts">
+<ul class="aside__contacts aside-contacts">
 	{% for item in global.contacts.messaging %}
 		<li class="aside-contacts__item">
 			{{ link(
-				text = item.title | replace('_', ' '),
+				text = item.title,
 				href = item.url,
 				size = 'xs',
 				icon = item.icon
@@ -17,7 +17,7 @@
 	{% for item in global.contacts.socials %}
 		<li class="aside-contacts__item">
 			{{ link(
-				text = item.title | replace('_', ' '),
+				text = item.title,
 				href = item.url,
 				size = 'xs',
 				icon = item.icon
