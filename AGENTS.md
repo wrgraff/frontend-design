@@ -20,6 +20,13 @@ This file is the source of truth for implementation rules that AI agents must fo
 - Source of truth for styles: `src/css/blocks/*.css` (one block = one file).
 - Do not duplicate logic or SVG markup in local templates if a shared macro/component already exists.
 
+## Language Policy
+
+- Primary site language is `EN`.
+- Planned additional locales are `DE` and `SK`.
+- Do not introduce `RU` content/UI copy unless explicitly requested for a specific task.
+- The language of user prompts does not change site content language requirements.
+
 ## BEM Naming (Mandatory)
 
 - Block: `.block`
