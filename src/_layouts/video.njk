@@ -3,6 +3,7 @@ layout: page.njk
 ---
 
 {% from 'videos-list.njk' import videosList with context %}
+{% from 'link.njk' import link %}
 
 <body class="page__body page__body_case">
 	<main class="case">
@@ -21,9 +22,23 @@ layout: page.njk
 			</div>
 
 			<div class="video__links">
-				<a href="{{ url }}" class="video__link link link_video" target="_blank">Watch on YouTube</a>
+				{{ link(
+					text = 'Watch on YouTube',
+					href = url,
+					extraClass = 'video__link',
+					icon = 'video',
+					target = '_blank',
+					rel = 'noopener noreferrer'
+				) }}
 				{% if slides %}
-					<a href="{{ slides }}" class="video__link link link_slides" target="_blank">Slides</a>
+					{{ link(
+						text = 'Slides',
+						href = slides,
+						extraClass = 'video__link',
+						icon = 'slides',
+						target = '_blank',
+						rel = 'noopener noreferrer'
+					) }}
 				{% endif %}
 			</div>
 		</article>

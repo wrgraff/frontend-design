@@ -1,3 +1,5 @@
+{% from 'icon.njk' import icon %}
+
 {% macro button(
 	text = 'Button',
 	href = '',
@@ -7,7 +9,8 @@
 	iconLeft = '',
 	iconRight = '',
 	type = 'button',
-	extraClass = ''
+	extraClass = '',
+	download = false
 ) %}
 	{% set classes = [
 		'button',
@@ -16,28 +19,31 @@
 		subtext and 'button_with-subtext' or '',
 		extraClass
 	] | join(' ') | trim %}
+	{% set iconClasses = [
+		'button__icon',
+		mode == 'primary' and 'icon_inverse' or ''
+	] | join(' ') | trim %}
 
 	{% if href %}
-		<a href="{{ href }}" class="{{ classes }}">
+		<a href="{{ href }}" class="{{ classes }}"{% if download %}{% if download == true %} download{% else %} download="{{ download }}"{% endif %}{% endif %}>
 			{% if iconLeft %}
-				<span class="button__icon button__icon_{{ iconLeft }}" aria-hidden="true"></span>
+				{{ icon(iconLeft, iconClasses) }}
 			{% endif %}
 
-			<span class="button__text-wrap">
-				<span class="button__text">{{ text }}</span>
-				{% if subtext %}
-					<span class="button__subtext">{{ subtext }}</span>
-				{% endif %}
-			</span>
+			{{ text }}
+
+			{% if subtext %}
+				<span class="button__subtext">{{ subtext }}</span>
+			{% endif %}
 
 			{% if iconRight %}
-				<span class="button__icon button__icon_{{ iconRight }}" aria-hidden="true"></span>
+				{{ icon(iconRight, iconClasses) }}
 			{% endif %}
 		</a>
 	{% else %}
 		<button type="{{ type }}" class="{{ classes }}">
 			{% if iconLeft %}
-				<span class="button__icon button__icon_{{ iconLeft }}" aria-hidden="true"></span>
+				{{ icon(iconLeft, iconClasses) }}
 			{% endif %}
 
 			<span class="button__text-wrap">
@@ -48,7 +54,7 @@
 			</span>
 
 			{% if iconRight %}
-				<span class="button__icon button__icon_{{ iconRight }}" aria-hidden="true"></span>
+				{{ icon(iconRight, iconClasses) }}
 			{% endif %}
 		</button>
 	{% endif %}

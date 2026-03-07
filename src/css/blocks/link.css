@@ -1,48 +1,73 @@
 .link {
+	--link-text-color: var(--color-text-base);
+	--link-font: var(--font-label-m);
+	--link-gap: var(--space-gap-xxs);
+	--link-underline-color: var(--color-text-alt);
+	--link-underline-offset: .3rem;
+	--link-icon-size: var(--space-size-s);
+	--link-external-size: var(--space-size-4xs);
+}
+
+/* Link */
+
+.link {
 	display: inline-flex;
-	align-items: start;
-	column-gap: .35em;
+	gap: var(--link-gap);
 
-	color: var(--color-text-base);
+	color: var(--link-text-color);
+
+	font: var(--link-font);
+	letter-spacing: var(--font-text-letterspacing);
+	text-transform: var(--font-text-transform);
+	text-decoration: none;
+
+	transition: color var(--transition-element-duration) var(--transition-element-function);
 }
 
-.link_secondary {
-	color: var(--color-text-secondary);
+.link:hover {
+	--link-underline-color: var(--color-text-primary);
 }
 
-[class*='link_']::before {
-	content: '';
-
-	width: 1.2em;
-	height: 1.2em;
-	margin-top: 4px;
-
-	background-color: var(--color-text-primary);
-	mask-image: url('../img/icons.svg#link');
-
-	transition: background-color 200ms;
+.link:active {
+	--link-text-color: var(--color-text-alt);
+	--link-underline-color: var(--color-text-alt);
 }
 
-.link_link::before {
-	mask-image: url('../img/icons.svg#link');
+/* Sizes */
+
+.link_xs {
+	--link-font: var(--font-text-xs);
+	--link-gap: var(--space-gap-4xs);
+	--link-icon-size: var(--space-size-xxs);
 }
 
-.link_video::before {
-	mask-image: url('../img/icons.svg#video');
+.link_s {
+	--link-font: var(--font-text-s);
+	--link-gap: var(--space-gap-3xs);
+	--link-icon-size: var(--space-size-xs);
 }
 
-.link_slides::before {
-	mask-image: url('../img/icons.svg#slide');
+/* Elements */
+
+.link__icon,
+.link__external {
+	flex-shrink: 0;
 }
 
-.link_article::before {
-	mask-image: url('../img/icons.svg#article');
+.link__icon {
+	width: var(--link-icon-size);
+	height: var(--link-icon-size);
 }
 
-.link:hover::before {
-	background-color: var(--color-text-primary-hover);
+.link__external {
+	width: var(--link-external-size);
+	height: var(--link-icon-size);
 }
 
-.link:active::before {
-	background-color: var(--color-text-primary-active);
+.link__text {
+	text-decoration: underline;
+	text-decoration-thickness: var(--space-border-light);
+	text-decoration-color: var(--link-underline-color);
+	text-underline-offset: var(--link-underline-offset);
+	transition: text-decoration-color var(--transition-element-duration) var(--transition-element-function);
 }

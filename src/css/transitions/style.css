@@ -1,0 +1,4 @@
+:root {
+	--transition-element-duration: 150ms;
+	--transition-element-function: linear;
+}

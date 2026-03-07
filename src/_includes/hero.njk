@@ -1,6 +1,6 @@
 {% from 'button.njk' import button %}
 
-{% macro heroSection(hero, cvUrl) %}
+{% macro heroSection(hero) %}
 <section class="main__section hero">
 	{% if hero.image %}
 		<div class="hero__img">
@@ -20,31 +20,22 @@
 		</div>
 	{% endif %}
 
-	{% if hero.cta_primary or (hero.cta_secondary and cvUrl) %}
+	{% if hero.cta and (hero.cta | length) %}
 		<div class="hero__cta">
-			{% if hero.cta_primary %}
-				<div class="hero__cta-primary">
-					{{ button(
-						(hero.cta_primary | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
-						'',
-						'primary',
-						'l'
-					) }}
-				</div>
-			{% endif %}
-
-			{% if hero.cta_secondary and cvUrl %}
-				<div class="hero__cta-secondary">
-					{{ button(
-						(hero.cta_secondary | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
-						cvUrl,
-						'secondary',
-						'l',
-						'',
-						'download'
-					) }}
-				</div>
-			{% endif %}
+			{% for ctaItem in hero.cta %}
+				{{ button(
+					(ctaItem.text | default('Button') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+					ctaItem.href or '',
+					ctaItem.mode or 'secondary',
+					ctaItem.size or 'l',
+					(ctaItem.subtext | default('') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+					ctaItem.icon_left or '',
+					ctaItem.icon_right or '',
+					ctaItem.type or 'button',
+					ctaItem.extra_class or '',
+					ctaItem.download or false
+				) }}
+			{% endfor %}
 		</div>
 	{% endif %}
 </section>

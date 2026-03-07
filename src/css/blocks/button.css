@@ -1,20 +1,28 @@
 .button {
 	--button-text-color: var(--color-text-primary);
-	--button-bg-stati: var(--color-common-base);
-	--button-bg-hover: var(--color-common-base-hover);
-	--button-bg-active: var(--color-common-base-active);
-	--button-shadow-static: var(--shadow-level-2);
-	--button-shadow-hover: var(--shadow-level-3);
-	--button-shadow-active: var(--shadow-level-1);
+	--button-bg: var(--color-common-base);
+	--button-shadow: var(--shadow-level-2);
 	--button-height: var(--space-size-m);
 	--button-padding: 0 var(--space-gap-s);
 	--button-gap: var(--space-gap-4xs);
+	--button-text-gap: var(--space-gap-4xs);
 	--button-font: var(--font-caption-xs);
 	--button-subtext-font: var(--font-text-xs);
+	--button-subtext-color: var(--color-text-secondary);
 	--button-icon-size: var(--space-size-xxs);
 	--button-radius: var(--radius-m);
 	--button-superellipse-radius: var(--superellipse-radius-m);
 	--button-superellipse-level: var(--superellipse-level-m);
+}
+
+.button:hover {
+	--button-bg: var(--color-common-base-hover);
+	--button-shadow: var(--shadow-level-3);
+}
+
+.button:active {
+	--button-bg: var(--color-common-base-active);
+	--button-shadow: var(--shadow-level-2);
 }
 
 /* Button */
@@ -23,7 +31,6 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: var(--button-gap);
 	min-height: var(--button-height);
 	padding: var(--button-padding);
 
@@ -34,8 +41,12 @@
 	box-shadow: var(--button-shadow-static);
 	text-decoration: none;
 	transition:
-		background-color 150ms ease,
-		box-shadow 150ms ease;
+		background-color var(--transition-element-duration) var(--transition-element-function),
+		box-shadow var(--transition-element-duration) var(--transition-element-function);
+
+	font: var(--button-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	text-transform: var(--font-caption-transform);
 }
 
 @supports (corner-shape: superellipse(1)) {
@@ -45,30 +56,32 @@
 	}
 }
 
-.button:hover {
-	background-color: var(--button-bg-hover);
-	box-shadow: var(--button-shadow-hover);
-}
-
-.button:active {
-	background-color: var(--button-bg-active);
-	box-shadow: var(--button-shadow-active);
-}
-
 /* Modes */
 
 .button_secondary {
 	--button-text-color: var(--color-text-primary);
 	--button-bg: var(--color-common-secondary);
-	--button-bg-hover: var(--color-common-secondary-hover);
-	--button-bg-active: var(--color-common-secondary-active);
+}
+
+.button_secondary:hover {
+	--button-bg: var(--color-common-secondary-hover);
+}
+
+.button_secondary:active {
+	--button-bg: var(--color-common-secondary-active);
 }
 
 .button_primary {
 	--button-text-color: var(--color-text-inverse);
 	--button-bg: var(--color-common-primary);
-	--button-bg-hover: var(--color-common-primary-hover);
-	--button-bg-active: var(--color-common-primary-active);
+}
+
+.button_primary:hover {
+	--button-bg: var(--color-common-primary-hover);
+}
+
+.button_primary:active {
+	--button-bg: var(--color-common-primary-active);
 }
 
 /* Sizes */
@@ -97,31 +110,27 @@
 	--button-superellipse-level: var(--superellipse-level-xl);
 }
 
-.button__text-wrap {
-	display: inline-flex;
-	align-items: baseline;
-	gap: var(--space-gap-4xs);
-}
-
-.button__text {
-	font: var(--button-font);
-	letter-spacing: var(--font-caption-letterspacing);
-	text-transform: var(--font-caption-transform);
-}
+/* Elements */
 
 .button__subtext {
+	margin-left: var(--button-text-gap);
+
+	color: var(--button-subtext-color);
+
 	font: var(--button-subtext-font);
 	letter-spacing: var(--font-text-letterspacing);
 	text-transform: var(--font-text-transform);
-	color: var(--color-text-secondary);
 }
 
 .button__icon {
-	display: inline-block;
 	width: var(--button-icon-size);
 	height: var(--button-icon-size);
-	background-color: currentColor;
-	mask-size: contain;
-	mask-repeat: no-repeat;
-	mask-position: center;
+}
+
+.button__icon:first-child {
+	margin-right: var(--button-gap);
+}
+
+.button__icon:last-child {
+	margin-left: var(--button-gap);
 }

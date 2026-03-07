@@ -12,13 +12,13 @@
 	--font-text-transform: none;
 	--font-text-letterspacing: normal;
 
-	--font-label-xs: 500 20px / 1 var(--font-family);
-	--font-label-s: 500 24px / 1 var(--font-family);
-	--font-label-m: 500 28px / 1 var(--font-family);
-	--font-label-l: 500 32px / 1 var(--font-family);
-	--font-label-xl: 500 36px / 1 var(--font-family);
-	--font-label-2xl: 500 40px / 1 var(--font-family);
-	--font-label-3xl: 500 44px / 1 var(--font-family);
+	--font-label-xs: 400 20px / 1 var(--font-family);
+	--font-label-s: 400 24px / 1 var(--font-family);
+	--font-label-m: 400 28px / 1 var(--font-family);
+	--font-label-l: 400 32px / 1 var(--font-family);
+	--font-label-xl: 400 36px / 1 var(--font-family);
+	--font-label-2xl: 400 40px / 1 var(--font-family);
+	--font-label-3xl: 400 44px / 1 var(--font-family);
 	--font-label-transform: none;
 	--font-label-letterspacing: normal;
 

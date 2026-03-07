@@ -5,8 +5,20 @@ hero:
   text: I build data-heavy interfaces, scalable systems, and analytics tools — turning complexity into calm
   image: /img/main/hero.png
   image_alt: Artur Trifonov portrait
-  cta_primary: Watch intro
-  cta_secondary: Download CV (PDF, 500KB)
+  cta:
+    - text: Watch intro
+      mode: primary
+      size: l
+      type: button
+      icon_left: play-circle
+    - text: Download CV
+      href: /files/atrifonov-cv-en.pdf
+      download: true
+      mode: base
+      size: l
+      subtext: PDF, 500KB
+      icon_left: file-profile
+      type: link
   portrait: true
 
 my_design_journey:
@@ -14,6 +26,8 @@ my_design_journey:
   heading: My design journey
   body: "From an early age, I’ve loved creating things from scratch. A blank canvas still excites me: it’s full of possibilities — whether it becomes a system, a story, or a product"
   link_text: More about my background
+  link_href: /about/
+  link_icon: start-journey
 
 portfolio:
   pretitle: My work

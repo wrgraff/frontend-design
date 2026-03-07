@@ -1,12 +1,17 @@
 {% from 'hero.njk' import heroSection %}
+{% from 'link.njk' import link %}
 
-{{ heroSection(hero, meta.cv) }}
+{{ heroSection(hero) }}
 
 <section class="main__section">
 	<p>{{ my_design_journey.pretitle }}</p>
 	<h2>{{ my_design_journey.heading }}</h2>
 	<p>{{ my_design_journey.body }}</p>
-	<p>{{ my_design_journey.link_text }}</p>
+	{{ link(
+		text = my_design_journey.link_text,
+		href = my_design_journey.link_href or '/about/',
+		icon = my_design_journey.link_icon or 'link'
+	) }}
 </section>
 
 <section class="main__section">

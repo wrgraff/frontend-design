@@ -1,3 +1,5 @@
+{% from 'link.njk' import link %}
+
 {% macro videosItem(
     item
 ) %}
@@ -10,9 +12,23 @@
 		</a>
 
 		<div class="videos__links">
-			<a href="{{ item.data.url }}" class="videos__link-video link link_video" target="_blank">Watch on YouTube</a>
+			{{ link(
+				text = 'Watch on YouTube',
+				href = item.data.url,
+				icon = 'video',
+				target = '_blank',
+				rel = 'noopener noreferrer',
+				extraClass = 'videos__link-video'
+			) }}
 			{% if item.data.slides %}
-				<a href="{{ item.data.slides }}" class="videos__link-slides link link_slides" target="_blank">Slides</a>
+				{{ link(
+					text = 'Slides',
+					href = item.data.slides,
+					icon = 'slides',
+					target = '_blank',
+					rel = 'noopener noreferrer',
+					extraClass = 'videos__link-slides'
+				) }}
 			{% endif %}
 		</div>
 

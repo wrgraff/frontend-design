@@ -5,10 +5,12 @@
 @import url('./spaces/index.css');
 @import url('./radius/index.css');
 @import url('./shadows/index.css');
+@import url('./transitions/index.css');
 
 @import url('./global.css');
 
 @import url('./blocks/visually-hidden.css');
+@import url('./blocks/icon.css');
 @import url('./blocks/button.css');
 @import url('./blocks/link.css');
 @import url('./blocks/ico-button.css');

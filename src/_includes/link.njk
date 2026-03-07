@@ -1,0 +1,38 @@
+{% from 'icon.njk' import icon as uiIcon %}
+
+{% macro link(
+	text = 'Link',
+	href = '',
+	mode = 'base',
+	size = 'xs',
+	icon = 'link',
+	external = false,
+	target = '',
+	rel = '',
+	extraClass = ''
+) %}
+	{% set classes = [
+		'link',
+		'link_' + mode,
+		size != 'xs' and 'link_' + size or '',
+		icon and 'link_' + icon or '',
+		extraClass
+	] | join(' ') | trim %}
+
+	<a
+		href="{{ href }}"
+		class="{{ classes }}"
+		{% if target %}target="{{ target }}"{% endif %}
+		{% if rel %}rel="{{ rel }}"{% endif %}
+	>
+		{% if icon %}
+			{{ uiIcon(icon, 'link__icon') }}
+		{% endif %}
+
+		<span class="link__text">{{ text }}</span>
+
+		{% if external %}
+			{{ uiIcon('arrow-right', 'link__external') }}
+		{% endif %}
+	</a>
+{% endmacro %}
