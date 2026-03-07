@@ -7,6 +7,14 @@
     "node_modules/**"
   ],
   "rules": {
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "corner-shape"
+        ]
+      }
+    ],
     "order/order": [
       "custom-properties",
       "declarations"

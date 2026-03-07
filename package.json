@@ -9,7 +9,13 @@
     "lint:css": "stylelint \"src/**/*.css\"",
     "fix:css": "stylelint \"src/**/*.css\" --fix",
     "lint:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json",
-    "fix:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json --fix"
+    "fix:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json --fix",
+    "update:browserslist": "npx update-browserslist-db@latest",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
   },
   "repository": {
     "type": "git",
@@ -29,21 +35,26 @@
     "url": "https://github.com/5t3ph/smol-11ty-starter/issues"
   },
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.16",
+    "@11ty/eleventy": "^3.1.2",
     "autoprefixer": "^10.4.12",
-    "esbuild": "^0.17.5",
+    "esbuild": "^0.27.3",
     "eslint": "^8.36.0",
     "js-yaml": "^4.1.0",
-    "markdown-it": "^13.0.1",
+    "markdown-it": "^14.1.1",
     "micromodal": "^0.4.10",
     "postcss": "^8.4.17",
     "postcss-csso": "^6.0.1",
     "postcss-import": "^15.0.0",
-    "postcss-media-minmax": "^5.0.0",
-    "stylelint-order": "^6.0.2"
+    "postcss-media-minmax": "^5.0.0"
   },
   "devDependencies": {
-    "axios": "^0.27.2",
-    "stylelint": "^15.2.0"
+    "axios": "^1.13.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "stylelint": "^15.2.0",
+    "stylelint-order": "^6.0.2"
+  },
+  "lint-staged": {
+    "src/**/*.css": "stylelint --fix"
   }
 }
