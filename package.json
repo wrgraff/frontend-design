@@ -4,8 +4,8 @@
   "description": "Extremely minimal Eleventy starter to kickstart a simple multi-page site / a nearly opinionless foundation to continue building on",
   "main": "index.html",
   "scripts": {
-    "start": "eleventy --serve --quiet",
-    "build": "rm -rf dist && eleventy"
+    "start": "ELEVENTY_ENV=development eleventy --serve --quiet",
+    "build": "rm -rf dist && ELEVENTY_ENV=production eleventy"
   },
   "repository": {
     "type": "git",

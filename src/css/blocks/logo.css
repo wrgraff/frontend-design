@@ -1,0 +1,62 @@
+/* Logo */
+
+.logo {
+	display: block;
+	width: 100%;
+	height: 100%;
+	transform-origin: center;
+	transition: transform 220ms ease;
+}
+
+.logo__name {
+	transform-box: fill-box;
+	transform-origin: 50% 50%;
+}
+
+.logo__dot path,
+.logo__name path {
+	fill: var(--color-text-primary);
+}
+
+.logo__surname path {
+	fill: var(--color-text-base);
+}
+
+.header__logo:hover .logo,
+.header__logo:focus-visible .logo {
+	transform: scale(1.035);
+}
+
+.header__logo:hover .logo__name,
+.header__logo:focus-visible .logo__name {
+	animation: logo-name-tilt-left 360ms ease-out 1;
+}
+
+@keyframes logo-name-tilt-left {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	42% {
+		transform: rotate(-2.1deg);
+	}
+
+	72% {
+		transform: rotate(-0.6deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.logo {
+		transition: none;
+	}
+
+	.header__logo:hover .logo__name,
+	.header__logo:focus-visible .logo__name {
+		animation: none;
+	}
+}

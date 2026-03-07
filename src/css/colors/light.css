@@ -11,6 +11,7 @@
 	--color-common-alt: var(--palette-indigo-700);
 	--color-common-alt-hover: var(--palette-indigo-800);
 	--color-common-alt-active: var(--palette-indigo-900);
+
 	--color-common-special-success: var(--palette-green-500);
 	--color-common-special-warning: var(--palette-yellow-500);
 	--color-common-special-error: var(--palette-red-500);
@@ -78,4 +79,10 @@
 	--color-border-base: var(--palette-slate-300);
 	--color-border-light: var(--palette-slate-800);
 	--color-shadow-base: #02101E08;
+
+	--color-gradient: linear-gradient(
+		0deg,
+		var(--color-common-alt) 0%,
+		var(--color-common-primary) 100%
+	);
 }

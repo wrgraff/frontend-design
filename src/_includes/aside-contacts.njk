@@ -1,7 +1,45 @@
 <ul class="aside__list aside-contacts">
-	{% for item in global.contacts.main %}
-		<li class="aside-contacts__item aside-contacts__item_{{ item.icon }}">
-			<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title }}</a>
-		</li>
-	{% endfor %}
+	<li class="aside-contacts__group">
+		<ul class="aside-contacts__items">
+			{% for item in global.contacts.main %}
+				{% if item.icon == 'email' or item.icon == 'whatsapp' or item.icon == 'telegram' %}
+					<li class="aside-contacts__item aside-contacts__item_{{ item.icon }}">
+						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+
+			{% for item in global.contacts.additional %}
+				{% set extraIcon = item.icon or (item.title | lower | replace('_', '')) %}
+				{% if extraIcon == 'whatsapp' or extraIcon == 'telegram' %}
+					<li class="aside-contacts__item aside-contacts__item_{{ extraIcon }}">
+						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</li>
+
+	<li class="aside-contacts__divider" aria-hidden="true"></li>
+
+	<li class="aside-contacts__group">
+		<ul class="aside-contacts__items">
+			{% for item in global.contacts.main %}
+				{% if item.icon != 'email' and item.icon != 'whatsapp' and item.icon != 'telegram' %}
+					<li class="aside-contacts__item aside-contacts__item_{{ item.icon }}">
+						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+
+			{% for item in global.contacts.additional %}
+				{% set extraIcon = item.icon or (item.title | lower | replace('_', '')) %}
+				{% if extraIcon != 'whatsapp' and extraIcon != 'telegram' and extraIcon != 'github' %}
+					<li class="aside-contacts__item aside-contacts__item_{{ extraIcon }}">
+						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</li>
 </ul>

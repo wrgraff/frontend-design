@@ -9,6 +9,7 @@ const markdown = require('markdown-it')({ html: true });
 const esbuild = require('esbuild');
 
 module.exports = function (config) {
+	const isProduction = process.env.ELEVENTY_ENV === 'production';
 
 	// Styles
 
@@ -26,12 +27,22 @@ module.exports = function (config) {
 			}
 
 			return async () => {
-				let output = await postcss([
+				const plugins = [
 					pimport,
 					minmax,
-					autoprefixer,
-					csso
-				]).process(inputContent, { from: inputPath });
+					autoprefixer
+				];
+
+				if (isProduction) {
+					plugins.push(csso);
+				}
+
+				let output = await postcss(plugins).process(inputContent, {
+					from: inputPath,
+					map: isProduction
+						? false
+						: { inline: true }
+				});
 
 				return output.css;
 			}

@@ -1,6 +1,6 @@
 .header {
-	--margin-top: 64px;
-	--logo-width: 263px;
+	--padding: 64px 56px 56px;
+	--logo-width: 243px;
 	--logo-height: 64px;
 	--logo-offset: -16px;
 }
@@ -8,13 +8,13 @@
 /* Header */
 
 .header {
-	margin-top: var(--margin-top);
+	padding: var(--padding);
 }
 
 /* Logo */
 
 .header__logo {
+	display: inline-block;
 	width: var(--logo-width);
 	height: var(--logo-height);
-	margin-left: var(--logo-offset);
 }

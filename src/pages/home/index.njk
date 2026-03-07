@@ -1,119 +1,70 @@
-{% from 'portfolio-list.njk' import portfolioList with context %}
-{% from 'videos-list.njk' import videosList with context %}
+{% from 'hero.njk' import heroSection %}
 
-<main class="page__main main">
-	{% include "header.njk" %}
+{{ heroSection(hero, meta.cv) }}
 
-	<section class="main__section promo" id="about">
-		<h1 class="promo__heading">{{ promo.heading }}</h1>
-		<p class="promo__text">{{ promo.lead | safe }}</p>
-		<div class="promo__buttons">
-			<a href="{{ meta.cv }}" class="button button_secondary button_small_l button_medium_l button_large_xl button_ico_download">CV</a>
-			<a href="/#portfolio" class="button button_small_l button_medium_l button_large_xl">Portfolio</a>
-		</div>
-	</section>
+<section class="main__section">
+	<p>{{ my_design_journey.pretitle }}</p>
+	<h2>{{ my_design_journey.heading }}</h2>
+	<p>{{ my_design_journey.body }}</p>
+	<p>{{ my_design_journey.link_text }}</p>
+</section>
 
-	<section class="main__category category" id="design">
-		<header class="category__header category-header">
-			<h2 class="category-header__heading">{{ design.heading }}</h2>
-			<p class="category-header__lead">{{ design.lead | safe }}</p>
-			{% if design.comment %}
-				<p class="category-header__comment">{{ design.comment }}</p>
-			{% endif %}
-			<div class="category-header__description">
-				{{ design.text | markdown | safe }}
-			</div>
-		</header>
+<section class="main__section">
+	<p>{{ portfolio.pretitle }}</p>
+	<h2>{{ portfolio.heading }}</h2>
+	<ul>
+		{% for item in portfolio.items %}
+			<li>
+				<p>{{ item.role }}</p>
+				<h3>{{ item.title }}</h3>
+				<p>{{ item.description }}</p>
+				<ul>
+					{% for tag in item.tags %}
+						<li>{{ tag }}</li>
+					{% endfor %}
+				</ul>
+			</li>
+		{% endfor %}
+	</ul>
+</section>
 
-		<section class="category__section section" id="portfolio">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.portfolio.heading }}</h3>
-				{% if design.portfolio.comment %}
-					<p class="section__comment">{{ design.portfolio.comment }}</p>
-				{% endif %}
-			</div>
+<section class="main__section">
+	<p>{{ approach_to_work.pretitle }}</p>
+	<h2>{{ approach_to_work.heading }}</h2>
+	<p>{{ approach_to_work.intro }}</p>
+	<ol>
+		{% for step in approach_to_work.steps %}
+			<li>
+				<p>{{ step.label }}</p>
+				<p>{{ step.text }}</p>
+			</li>
+		{% endfor %}
+	</ol>
+</section>
 
-			{{ portfolioList(
-				collection = collections.portfolioTop
-			) }}
-		</section>
+<section class="main__section">
+	<p>{{ contacts.pretitle }}</p>
+	<h2>{{ contacts.heading }}</h2>
+	<p>{{ contacts.body }}</p>
 
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.skills.heading }}</h3>
-				{% if design.skills.comment %}
-					<p class="section__comment">{{ design.skills.comment }}</p>
-				{% endif %}
-			</div>
+	<h3>Locations</h3>
+	<ul>
+		{% for location in contacts.locations %}
+			<li>{{ location }}</li>
+		{% endfor %}
+	</ul>
 
-			<ul class="section__skills skills">
-				{% for item in design.skills.list %}
-					<li class="skills__item">{{ item }}</li>
-				{% endfor %}
-			</ul>
-		</section>
+	<h3>Direct contacts</h3>
+	<ul>
+		{% for contact in contacts.direct_contacts %}
+			<li>{{ contact }}</li>
+		{% endfor %}
+	</ul>
 
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.instruments.heading }}</h3>
-				{% if design.instruments.comment %}
-					<p class="section__comment">{{ design.instruments.comment }}</p>
-				{% endif %}
-			</div>
-
-			<ul class="section__skills skills">
-				{% for item in design.instruments.list %}
-					<li class="skills__item">{{ item }}</li>
-				{% endfor %}
-			</ul>
-		</section>
-	</section>
-
-	<section class="main__category category" id="performance">
-		<header class="category__header category-header">
-			<h2 class="category-header__heading">{{ performance.heading }}</h2>
-			<p class="category-header__lead">{{ performance.lead | safe }}</p>
-			{% if performance.comment %}
-				<p class="category-header__comment">{{ performance.comment }}</p>
-			{% endif %}
-			<div class="category-header__description">
-				{{ performance.text | markdown | safe }}
-			</div>
-		</header>
-
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ performance.heading }}">{{ performance.videos.heading }}</h3>
-				{% if performance.videos.comment %}
-					<p class="section__comment">{{ performance.videos.comment }}</p>
-				{% endif %}
-			</div>
-
-			{{ videosList(
-				collection = collections.videos,
-				parentSection = 'section'
-			) }}
-		</section>
-
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ performance.heading }}">{{ performance.articles.heading }}</h3>
-				{% if performance.articles.comment %}
-					<p class="section__comment">{{ performance.articles.comment }}</p>
-				{% endif %}
-			</div>
-
-			<ul class="section__links articles">
-				{% for item in performance.articles.list %}
-					<li class="articles__item">
-						<h3 class="articles__heading">{{ item.heading }}</h3>
-						<p class="articles__text">{{ item.description }}</p>
-						<a href="{{ item.url }}" class="articles__link link link_link" target="_blank">{{ item.cleanUrl }}</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</section>
-	</section>
-
-
-</main>
+	<h3>Social links</h3>
+	<ul>
+		{% for link in contacts.social_links %}
+			<li>{{ link }}</li>
+		{% endfor %}
+	</ul>
+</section>

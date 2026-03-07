@@ -1,0 +1,55 @@
+{% macro button(
+	text = 'Button',
+	href = '',
+	mode = 'base',
+	size = 'm',
+	subtext = '',
+	iconLeft = '',
+	iconRight = '',
+	type = 'button',
+	extraClass = ''
+) %}
+	{% set classes = [
+		'button',
+		'button_' + mode,
+		'button_' + size,
+		subtext and 'button_with-subtext' or '',
+		extraClass
+	] | join(' ') | trim %}
+
+	{% if href %}
+		<a href="{{ href }}" class="{{ classes }}">
+			{% if iconLeft %}
+				<span class="button__icon button__icon_{{ iconLeft }}" aria-hidden="true"></span>
+			{% endif %}
+
+			<span class="button__text-wrap">
+				<span class="button__text">{{ text }}</span>
+				{% if subtext %}
+					<span class="button__subtext">{{ subtext }}</span>
+				{% endif %}
+			</span>
+
+			{% if iconRight %}
+				<span class="button__icon button__icon_{{ iconRight }}" aria-hidden="true"></span>
+			{% endif %}
+		</a>
+	{% else %}
+		<button type="{{ type }}" class="{{ classes }}">
+			{% if iconLeft %}
+				<span class="button__icon button__icon_{{ iconLeft }}" aria-hidden="true"></span>
+			{% endif %}
+
+			<span class="button__text-wrap">
+				<span class="button__text">{{ text }}</span>
+				{% if subtext %}
+					<span class="button__subtext">{{ subtext }}</span>
+				{% endif %}
+			</span>
+
+			{% if iconRight %}
+				<span class="button__icon button__icon_{{ iconRight }}" aria-hidden="true"></span>
+			{% endif %}
+		</button>
+	{% endif %}
+{% endmacro %}

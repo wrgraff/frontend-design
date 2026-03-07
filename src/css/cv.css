@@ -2,6 +2,8 @@
 @import url('./colors/light.css');
 
 @import url('./fonts/index.css');
+@import url('./spaces/index.css');
+@import url('./radius/index.css');
 
 @import url('./global.css');
 

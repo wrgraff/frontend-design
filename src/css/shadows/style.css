@@ -1,0 +1,60 @@
+:root {
+	--shadow-shift-level-1: 2px;
+	--shadow-shift-level-2: 3px;
+	--shadow-shift-level-3: 5px;
+	--shadow-shift-level-4: 8px;
+	--shadow-shift-level-5: 13px;
+	--shadow-shift-level-6: 21px;
+
+	--shadow-blur-level-1: 2px;
+	--shadow-blur-level-2: 3px;
+	--shadow-blur-level-3: 5px;
+	--shadow-blur-level-4: 8px;
+	--shadow-blur-level-5: 13px;
+	--shadow-blur-level-6: 21px;
+
+	--shadow-spread-level-1: -1px;
+	--shadow-spread-level-2: -1.5px;
+	--shadow-spread-level-3: -2.5px;
+	--shadow-spread-level-4: -4px;
+	--shadow-spread-level-5: -6.5px;
+	--shadow-spread-level-6: -10.5px;
+
+	/* Ready-to-use effects */
+	--shadow-level-1:
+		0
+		var(--shadow-shift-level-1)
+		var(--shadow-blur-level-1)
+		var(--shadow-spread-level-1)
+		var(--color-shadow-base);
+	--shadow-level-2:
+		0
+		var(--shadow-shift-level-2)
+		var(--shadow-blur-level-2)
+		var(--shadow-spread-level-2)
+		var(--color-shadow-base);
+	--shadow-level-3:
+		0
+		var(--shadow-shift-level-3)
+		var(--shadow-blur-level-3)
+		var(--shadow-spread-level-3)
+		var(--color-shadow-base);
+	--shadow-level-4:
+		0
+		var(--shadow-shift-level-4)
+		var(--shadow-blur-level-4)
+		var(--shadow-spread-level-4)
+		var(--color-shadow-base);
+	--shadow-level-5:
+		0
+		var(--shadow-shift-level-5)
+		var(--shadow-blur-level-5)
+		var(--shadow-spread-level-5)
+		var(--color-shadow-base);
+	--shadow-level-6:
+		0
+		var(--shadow-shift-level-6)
+		var(--shadow-blur-level-6)
+		var(--shadow-spread-level-6)
+		var(--color-shadow-base);
+}

@@ -1,0 +1,51 @@
+{% from 'button.njk' import button %}
+
+{% macro heroSection(hero, cvUrl) %}
+<section class="main__section hero">
+	{% if hero.image %}
+		<div class="hero__img">
+			<picture class="hero__picture">
+				<img src="{{ hero.image }}" alt="{{ hero.image_alt or '' }}">
+			</picture>
+		</div>
+	{% endif %}
+
+	<h1 class="hero__heading">
+		{{ (hero.heading | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+	</h1>
+
+	{% if hero.text %}
+		<div class="hero__text">
+			{{ hero.text | markdown | safe }}
+		</div>
+	{% endif %}
+
+	{% if hero.cta_primary or (hero.cta_secondary and cvUrl) %}
+		<div class="hero__cta">
+			{% if hero.cta_primary %}
+				<div class="hero__cta-primary">
+					{{ button(
+						(hero.cta_primary | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+						'',
+						'primary',
+						'l'
+					) }}
+				</div>
+			{% endif %}
+
+			{% if hero.cta_secondary and cvUrl %}
+				<div class="hero__cta-secondary">
+					{{ button(
+						(hero.cta_secondary | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+						cvUrl,
+						'secondary',
+						'l',
+						'',
+						'download'
+					) }}
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+</section>
+{% endmacro %}

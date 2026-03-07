@@ -9,6 +9,8 @@
 	--font-text-xl: 400 36px / 1.618 var(--font-family);
 	--font-text-2xl: 400 40px / 1.618 var(--font-family);
 	--font-text-3xl: 400 44px / 1.618 var(--font-family);
+	--font-text-transform: none;
+	--font-text-letterspacing: normal;
 
 	--font-label-xs: 500 20px / 1 var(--font-family);
 	--font-label-s: 500 24px / 1 var(--font-family);
@@ -17,6 +19,18 @@
 	--font-label-xl: 500 36px / 1 var(--font-family);
 	--font-label-2xl: 500 40px / 1 var(--font-family);
 	--font-label-3xl: 500 44px / 1 var(--font-family);
+	--font-label-transform: none;
+	--font-label-letterspacing: normal;
+
+	--font-caption-xs: 500 20px / 1 var(--font-family);
+	--font-caption-s: 500 24px / 1 var(--font-family);
+	--font-caption-m: 500 28px / 1 var(--font-family);
+	--font-caption-l: 500 32px / 1 var(--font-family);
+	--font-caption-xl: 500 36px / 1 var(--font-family);
+	--font-caption-2xl: 500 40px / 1 var(--font-family);
+	--font-caption-3xl: 500 44px / 1 var(--font-family);
+	--font-caption-transform: uppercase;
+	--font-caption-letterspacing: 1px;
 
 	--font-heading-hl1: 700 96px / 1.309 var(--font-family);
 	--font-heading-hl2: 700 88px / 1.309 var(--font-family);
@@ -27,4 +41,6 @@
 	--font-heading-h4: 700 36px / 1.309 var(--font-family);
 	--font-heading-h5: 700 32px / 1.309 var(--font-family);
 	--font-heading-h6: 700 28px / 1.309 var(--font-family);
+	--font-heading-transform: none;
+	--font-heading-letterspacing: normal;
 }

@@ -1,64 +1,87 @@
 /* Variables */
 
 .aside-contacts {
-	--padding: 56px 40px;
-	--gap: 16px;
-
+	--padding: 25px 15px;
+	--group-gap: 16px;
+	--item-gap: 7px;
 	--link-color: var(--color-text-base);
 }
 
 /* Aside Contacts */
 
 .aside-contacts {
+	position: relative;
+	z-index: 1;
+
+	display: grid;
+	align-content: end;
+	gap: var(--group-gap);
+	margin-top: auto;
 	padding: var(--padding);
 
 	list-style: none;
-
 }
 
-/* Item */
+.aside-contacts__group,
+.aside-contacts__items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
-.aside-contacts__item + .aside-contacts__item {
-	margin-top: var(--gap);
+.aside-contacts__items {
+	display: grid;
+	gap: var(--item-gap);
+}
+
+.aside-contacts__divider {
+	height: var(--space-border-light);
+	background-color: var(--color-border-base);
+	opacity: .7;
 }
 
 /* Link */
 
 .aside-contacts__link {
 	display: inline-flex;
-	align-items: start;
+	align-items: center;
 	column-gap: .35em;
 
 	color: var(--link-color);
-
-	font: var(--font-text-l);
-	text-decoration: none;
-	text-transform: lowercase;
+	font: var(--font-text-xs);
+	text-decoration-thickness: 1px;
+	text-underline-offset: .2em;
 }
 
 .aside-contacts__link:hover {
-	--link-color: var(--color-text-primary-hover);
+	--link-color: var(--color-text-base-hover);
 }
 
 .aside-contacts__link:active {
-	--link-color: var(--color-text-primary-active);
+	--link-color: var(--color-text-base-active);
 }
 
 .aside-contacts__link::before {
 	content: '';
-
-	width: 1.2em;
-	height: 1.2em;
-	margin-top: 4px;
+	width: 1em;
+	height: 1em;
+	flex-shrink: 0;
 
 	background-color: var(--link-color);
 	mask-image: url('../img/icons.svg#link');
-
 	transition: background-color 200ms;
 }
 
 .aside-contacts__item_email .aside-contacts__link::before {
 	mask-image: url('../img/icons.svg#email');
+}
+
+.aside-contacts__item_whatsapp .aside-contacts__link::before {
+	mask-image: url('../img/icons.svg#phone');
+}
+
+.aside-contacts__item_telegram .aside-contacts__link::before {
+	mask-image: url('../img/icons.svg#message');
 }
 
 .aside-contacts__item_linkedin .aside-contacts__link::before {

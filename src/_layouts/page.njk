@@ -29,7 +29,10 @@
 	</head>
 
 	<body class="page__body">
-		{{ content | safe }}
+		<main class="page__main main">
+			{% include "header.njk" %}
+			{{ content | safe }}
+		</main>
 
 		{% include "aside.njk" %}
 	</body>
