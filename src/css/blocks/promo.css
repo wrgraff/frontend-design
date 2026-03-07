@@ -24,11 +24,11 @@
 /* Main */
 
 .promo__main {
-	grid-column: 2 / -2;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
 	align-items: center;
 	column-gap: var(--grid-gap);
+	display: grid;
+	grid-column: 2 / -2;
+	grid-template-columns: repeat(4, 1fr);
 }
 
 /* Header */

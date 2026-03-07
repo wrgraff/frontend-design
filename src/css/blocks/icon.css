@@ -1,8 +1,8 @@
 .icon {
 	--icon-color-alt: var(--color-text-alt);
+	color: currentColor;
 
 	display: block;
-	color: currentColor;
 }
 
 .icon_inverse {

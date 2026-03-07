@@ -28,25 +28,25 @@
 /* Button */
 
 .button {
-	display: inline-flex;
 	align-items: center;
-	justify-content: center;
-	min-height: var(--button-height);
-	padding: var(--button-padding);
-
-	color: var(--button-text-color);
 	background-color: var(--button-bg);
 	border: var(--space-border-light) solid var(--color-border-base);
 	border-radius: var(--button-radius);
 	box-shadow: var(--button-shadow-static);
+
+	color: var(--button-text-color);
+	display: inline-flex;
+
+	font: var(--button-font);
+	justify-content: center;
+	letter-spacing: var(--font-caption-letterspacing);
+	min-height: var(--button-height);
+	padding: var(--button-padding);
 	text-decoration: none;
+	text-transform: var(--font-caption-transform);
 	transition:
 		background-color var(--transition-element-duration) var(--transition-element-function),
 		box-shadow var(--transition-element-duration) var(--transition-element-function);
-
-	font: var(--button-font);
-	letter-spacing: var(--font-caption-letterspacing);
-	text-transform: var(--font-caption-transform);
 }
 
 @supports (corner-shape: superellipse(1)) {
@@ -113,18 +113,18 @@
 /* Elements */
 
 .button__subtext {
-	margin-left: var(--button-text-gap);
 
 	color: var(--button-subtext-color);
 
 	font: var(--button-subtext-font);
 	letter-spacing: var(--font-text-letterspacing);
+	margin-left: var(--button-text-gap);
 	text-transform: var(--font-text-transform);
 }
 
 .button__icon {
-	width: var(--button-icon-size);
 	height: var(--button-icon-size);
+	width: var(--button-icon-size);
 }
 
 .button__icon:first-child {

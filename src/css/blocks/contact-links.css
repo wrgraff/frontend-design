@@ -18,12 +18,12 @@
 }
 
 .contact-links {
-	display: grid;
 	align-content: start;
-	gap: 8px;
-	padding: 0;
-
-	list-style: none;
+	display: grid;
 
 	font: var(--contact-links-font);
+	gap: 8px;
+
+	list-style: none;
+	padding: 0;
 }

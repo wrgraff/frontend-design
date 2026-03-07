@@ -1,18 +1,18 @@
 .paper-section {
-	position: relative;
 	padding: 3mm 0;
+	position: relative;
 }
 
 .paper-section:not(:first-child)::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -10mm;
-	right: -10mm;
-
-	height: 1px;
 
 	background-color: var(--palette-gray-200);
+	content: '';
+
+	height: 1px;
+	left: -10mm;
+	position: absolute;
+	right: -10mm;
+	top: 0;
 }
 
 .paper-section_photo {
@@ -21,13 +21,13 @@
 }
 
 .paper-section__heading {
-	margin: 1mm 0 3mm;
 
 	color: var(--palette-gray-400);
+	font-size: 1.3rem;
 
 	font-weight: 500;
-	font-size: 1.3rem;
 	line-height: 1;
+	margin: 1mm 0 3mm;
 }
 
 .paper-section__content {
@@ -39,9 +39,9 @@
 }
 
 .paper-section__photo {
+	border: 1px solid var(--palette-gray-200);
+	border-radius: 50%;
 	display: flex;
 
 	overflow: hidden;
-	border-radius: 50%;
-	border: 1px solid var(--palette-gray-200);
 }

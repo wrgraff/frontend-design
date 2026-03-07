@@ -1,6 +1,6 @@
 .details {
-	display: grid;
 	align-items: center;
+	display: grid;
 
 	padding: 32px 0;
 }
@@ -8,29 +8,29 @@
 @media (width < 880px) {
 	.details {
 		justify-items: center;
-		row-gap: 24px;
+		padding-left: 16px;
 
 		padding-right: 16px;
-		padding-left: 16px;
+		row-gap: 24px;
 	}
 }
 
 @media (width >= 880px) {
 	.details {
-		grid-template-columns: 1fr auto;
 		column-gap: 32px;
-		padding-right: 24px;
+		grid-template-columns: 1fr auto;
 		padding-left: 24px;
+		padding-right: 24px;
 	}
 }
 
 .details__list {
+	column-gap: 8px;
 	display: flex;
 	flex-wrap: wrap;
-	column-gap: 8px;
-	row-gap: 8px;
-	margin: 0;
-	padding: 0;
 
 	list-style: none;
+	margin: 0;
+	padding: 0;
+	row-gap: 8px;
 }

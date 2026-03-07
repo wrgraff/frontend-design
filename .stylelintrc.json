@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "stylelint-order"
+  ],
+  "ignoreFiles": [
+    "dist/**",
+    "node_modules/**"
+  ],
+  "rules": {
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ]
+  }
+}

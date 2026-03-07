@@ -11,16 +11,16 @@
 /* Link */
 
 .link {
-	display: inline-flex;
 	align-items: center;
-	gap: var(--link-gap);
 
 	color: var(--link-text-color);
+	display: inline-flex;
 
 	font: var(--link-font);
+	gap: var(--link-gap);
 	letter-spacing: var(--font-text-letterspacing);
-	text-transform: var(--font-text-transform);
 	text-decoration: none;
+	text-transform: var(--font-text-transform);
 
 	transition: color var(--transition-element-duration) var(--transition-element-function);
 }
@@ -40,10 +40,10 @@ a:not([class]) {
 	color: var(--link-text-color);
 	font: var(--link-font);
 	letter-spacing: var(--font-text-letterspacing);
-	text-transform: var(--font-text-transform);
 	text-decoration: underline;
-	text-decoration-thickness: var(--space-border-light);
 	text-decoration-color: var(--link-underline-color);
+	text-decoration-thickness: var(--space-border-light);
+	text-transform: var(--font-text-transform);
 	text-underline-offset: var(--link-underline-offset);
 	transition:
 		color var(--transition-element-duration) var(--transition-element-function),
@@ -81,19 +81,19 @@ a:not([class]):active {
 }
 
 .link__icon {
-	width: var(--link-icon-size);
 	height: var(--link-icon-size);
+	width: var(--link-icon-size);
 }
 
 .link__external {
-	width: var(--link-external-size);
 	height: var(--link-icon-size);
+	width: var(--link-external-size);
 }
 
 .link__text {
 	text-decoration: underline;
-	text-decoration-thickness: var(--space-border-light);
 	text-decoration-color: var(--link-underline-color);
+	text-decoration-thickness: var(--space-border-light);
 	text-underline-offset: var(--link-underline-offset);
 	transition: text-decoration-color var(--transition-element-duration) var(--transition-element-function);
 }

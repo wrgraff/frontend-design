@@ -28,35 +28,27 @@
 }
 
 .video {
-	display: grid;
-	gap: 32px;
-
-	z-index: 0;
 
 	border-radius: 4px;
+	display: grid;
+	gap: 32px;
 	overflow: hidden;
+
+	z-index: 0;
 }
 
 .video__content {
+	border: 1px solid var(--color-border-base);
+	border-radius: 4px;
 	display: grid;
 
 	overflow: hidden;
-	border: 1px solid var(--color-border-base);
-	border-radius: 4px;
 }
 
 /* Main link */
 
 .video__main-link {
-	grid-column: 1 / -1;
-	grid-row: 1 / 2;
-	display: grid;
 	align-content: end;
-	padding: 48px;
-
-	z-index: 1;
-
-	text-decoration: none;
 
 	background-image: linear-gradient(
 		hsla(0, 0%, 0%, 0) 0%,
@@ -76,6 +68,14 @@
 		hsla(0, 0%, 0%, 0.695) 98.7%,
 		hsla(0, 0%, 0%, 0.73) 100%
 	);
+	display: grid;
+	grid-column: 1 / -1;
+	grid-row: 1 / 2;
+	padding: 48px;
+
+	text-decoration: none;
+
+	z-index: 1;
 }
 
 .video__main-link[href]:hover {
@@ -83,15 +83,15 @@
 }
 
 .video__heading {
-	margin: 0 0 16px;
 
 	font: var(--video-heading-font);
+	margin: 0 0 16px;
 }
 
 .video__text {
-	margin: 0;
 
 	font: var(--video-description-font);
+	margin: 0;
 }
 
 /* Links */
@@ -103,20 +103,20 @@
 /* Media */
 
 .video__media {
+
+	border-radius: 4px;
 	display: flex;
 	grid-column: 1 / -1;
 	grid-row: 1 / 1;
 	height: var(--video-preview-height);
-
-	border-radius: 4px;
 	overflow: hidden;
 }
 
 .video__img {
-	width: 100%;
 	object-fit: cover;
 
 	transition: transform 300ms cubic-bezier(0, 0.55, 0.45, 1);
+	width: 100%;
 }
 
 .video__main-link[href]:hover ~ .video__media img {
@@ -130,28 +130,28 @@
 /* Iframe */
 
 .video__iframe {
-	width: 100%;
-	height: 100%;
 	border: none;
+	height: 100%;
+	width: 100%;
 }
 
 /* Button */
 
 .video__button {
+
+	background-color: var(--color-text-primary);
+	border: none;
+	cursor: pointer;
 	display: none;
 	grid-column: 1 / -1;
 	grid-row: 1 / -1;
-	z-index: 2;
-
-	background-color: var(--color-text-primary);
-	mask-size: 160px 160px;
-	mask-repeat: no-repeat;
-	mask-position: 50% calc(50% - 80px);
 	mask-image: url('../img/icons.svg#video');
-	border: none;
-	cursor: pointer;
+	mask-position: 50% calc(50% - 80px);
+	mask-repeat: no-repeat;
+	mask-size: 160px 160px;
 
 	transition: mask-size 300ms cubic-bezier(0, 0.55, 0.45, 1);
+	z-index: 2;
 }
 
 .video__button:hover {

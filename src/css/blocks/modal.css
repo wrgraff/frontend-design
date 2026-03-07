@@ -1,14 +1,14 @@
 /* Modal */
 
 .modal {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
 	bottom: 0;
-	z-index: 10;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
 
 	visibility: hidden;
+	z-index: 10;
 }
 
 .modal[aria-hidden="false"] {
@@ -18,22 +18,22 @@
 /* Overlay */
 
 .modal__overlay {
+	backdrop-filter: blur(4px);
 	display: flex;
 	min-height: 100%;
-	backdrop-filter: blur(4px);
 	will-change: transform;
 }
 
 .modal__overlay::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
 
 	background-color: var(--color-surface-base);
+	bottom: 0;
+	content: '';
+	left: 0;
 	opacity: .8;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 .modal[aria-hidden="false"] .modal__overlay {

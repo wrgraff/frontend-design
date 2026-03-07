@@ -1,14 +1,14 @@
 @media (width >= 1500px) {
 	.me:not(.me_small) {
+		column-gap: 16px;
 		display: grid;
 		grid-template-columns: 64px 1fr;
-		column-gap: 16px;
 	}
 }
 
 .me__img {
-	display: block;
 	border-radius: 50%;
+	display: block;
 }
 
 @media (width < 1500px) {
@@ -24,12 +24,12 @@
 }
 
 .me__name {
-	margin: 0;
 
 	font-size: var(--text-size-l);
 	font-weight: 500;
-	text-transform: uppercase;
 	letter-spacing: 0.08em;
+	margin: 0;
+	text-transform: uppercase;
 }
 
 @media (width >= 1500px) {

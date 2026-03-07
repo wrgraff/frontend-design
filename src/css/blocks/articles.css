@@ -16,16 +16,16 @@
 
 .articles {
 	display: grid;
-	row-gap: 40px;
-	padding: 16px 0 0;
 
 	list-style: none;
+	padding: 16px 0 0;
+	row-gap: 40px;
 }
 
 @media (width >= 1500px) {
 	.articles {
-		grid-template-columns: repeat(2, 1fr);
 		column-gap: 32px;
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
@@ -38,8 +38,8 @@
 /* Heading */
 
 .articles__heading {
-	margin: 0;
 	font: var(--articles-heading-font);
+	margin: 0;
 
 	transition: color 200ms;
 }
@@ -63,9 +63,9 @@
 /* Text */
 
 .articles__text {
-	margin: 0;
 	color: var(--color-text-secondary);
 	font: var(--articles-text-font);
+	margin: 0;
 }
 
 @media (width < 880px) {
@@ -99,10 +99,10 @@
 }
 
 .articles__link::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
 	bottom: 0;
+	content: '';
 	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
 }

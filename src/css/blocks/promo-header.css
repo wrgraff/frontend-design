@@ -21,20 +21,20 @@
 /* Heading */
 
 .promo-header__heading {
-	margin: 0;
 
 	font: var(--font-heading-h1);
 	letter-spacing: 4%;
+	margin: 0;
 }
 
 /* Text */
 
 .promo-header__content {
-	max-width: 378px;
-	grid-column: span 2;
 	color: var(--color-text-base);
 
 	font: var(--font-text-promo);
+	grid-column: span 2;
+	max-width: 378px;
 }
 
 .promo-header__content p {
@@ -44,7 +44,7 @@
 /* Buttons */
 
 .promo-header__buttons {
-	margin-top: 32px;
 	display: flex;
 	gap: 16px;
+	margin-top: 32px;
 }

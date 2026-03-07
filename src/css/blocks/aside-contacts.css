@@ -9,17 +9,17 @@
 /* Aside Contacts */
 
 .aside-contacts {
-	position: relative;
-	z-index: 1;
+	align-content: end;
 
 	display: grid;
-	align-content: end;
 	gap: var(--item-gap);
-	margin-top: auto;
-	padding: var(--padding);
+	list-style: none;
 
 	margin: 0;
-	list-style: none;
+	margin-top: auto;
+	padding: var(--padding);
+	position: relative;
+	z-index: 1;
 }
 
 .aside-contacts__item {
@@ -28,8 +28,8 @@
 }
 
 .aside-contacts__divider {
+	background-color: var(--color-border-base);
 	height: var(--space-border-light);
 	margin: calc((var(--group-gap) - var(--item-gap)) / 2) 0;
-	background-color: var(--color-border-base);
 	opacity: .7;
 }

@@ -14,9 +14,9 @@
 
 .courses {
 	display: grid;
-	padding: 0;
 
 	list-style: none;
+	padding: 0;
 }
 
 @media (width < 880px) {
@@ -38,18 +38,18 @@
 	}
 
 	.courses::after {
-		content: '';
-
-		order: -1;
-		width: 896px;
-		height: 614px;
-		margin-top: -20px;
-		margin-bottom: -137px;
-		margin-left: -356px;
 
 		background-image: url('../img/academy.svg');
 		background-position: 0 0;
 		background-repeat: no-repeat;
+		content: '';
+		height: 614px;
+		margin-bottom: -137px;
+		margin-left: -356px;
+		margin-top: -20px;
+
+		order: -1;
+		width: 896px;
 	}
 }
 
@@ -71,16 +71,16 @@
 
 .courses__title {
 	display: block;
-	margin: 0;
 
 	font-size: var(--courses-title-size);
+	margin: 0;
 }
 
 /* Comment */
 
 .courses__comment {
-	display: block;
 	color: var(--color-text-secondary);
+	display: block;
 	font-size: var(--text-size-m);
 }
 

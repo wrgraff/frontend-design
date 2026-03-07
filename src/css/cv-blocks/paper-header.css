@@ -9,11 +9,11 @@
 }
 
 .paper-header__about {
-	display: grid;
-	grid-template-columns: 1fr 54mm;
-	gap: 5mm;
 
 	color: var(--palette-gray-600);
+	display: grid;
+	gap: 5mm;
+	grid-template-columns: 1fr 54mm;
 }
 
 .paper-header__about p {

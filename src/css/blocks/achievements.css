@@ -16,11 +16,11 @@
 
 .achievements {
 	display: grid;
-	padding: 0;
-
-	list-style: none;
 
 	font: var(--achievements-font);
+
+	list-style: none;
+	padding: 0;
 }
 
 @media (width < 1500px) {
@@ -30,15 +30,15 @@
 }
 @media (width < 880px) {
 	.achievements {
-		row-gap: 24px;
 		column-gap: 48px;
+		row-gap: 24px;
 	}
 }
 
 @media (880px <= width < 1500px) {
 	.achievements {
-		row-gap: 48px;
 		column-gap: 64px;
+		row-gap: 48px;
 	}
 }
 
@@ -51,21 +51,21 @@
 /* Item */
 
 .achievements__item {
-	position: relative;
-	z-index: 0;
 
 	min-height: 96px;
+	position: relative;
+	z-index: 0;
 }
 
 .achievements__item::before {
+	background-size: contain;
 	content: '';
-	position: absolute;
-	top: -20px;
 	left: -30px;
-	z-index: -1;
 
 	opacity: .4;
-	background-size: contain;
+	position: absolute;
+	top: -20px;
+	z-index: -1;
 }
 
 .achievements__item:nth-child(1)::before {
@@ -94,15 +94,15 @@
 
 @media (width < 880px) {
 	.achievements__item::before {
-		width: 120px;
 		height: 120px;
+		width: 120px;
 	}
 }
 
 @media (width >= 880px) {
 	.achievements__item::before {
-		width: 140px;
 		height: 140px;
+		width: 140px;
 	}
 }
 

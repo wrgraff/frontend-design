@@ -3,20 +3,20 @@
 	--button-ico-size: 24px;
 	--button-color: var(--color-common-primary);
 	--button-bg: transparent;
-
-	display: grid;
-	width: var(--button-size);
-	height: var(--button-size);
-
-	color: var(--button-color);
 	background-color: var(--button-bg);
 	border: none;
 	border-radius: 2px;
+
+	color: var(--button-color);
+
+	display: grid;
+	height: var(--button-size);
 	place-content: center;
 
 	transition:
 		color 200ms,
 		background-color 200ms;
+	width: var(--button-size);
 }
 
 .ico-button:hover {
@@ -112,10 +112,10 @@
 }
 
 .ico-button::before {
-	width: var(--button-ico-size);
-	height: var(--button-ico-size);
 	background-color: var(--button-color);
 	content: '';
+	height: var(--button-ico-size);
+	width: var(--button-ico-size);
 }
 
 .ico-button_menu::before {

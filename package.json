@@ -5,7 +5,11 @@
   "main": "index.html",
   "scripts": {
     "start": "ELEVENTY_ENV=development eleventy --serve --quiet",
-    "build": "rm -rf dist && ELEVENTY_ENV=production eleventy"
+    "build": "rm -rf dist && ELEVENTY_ENV=production eleventy",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "fix:css": "stylelint \"src/**/*.css\" --fix",
+    "lint:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json",
+    "fix:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json --fix"
   },
   "repository": {
     "type": "git",

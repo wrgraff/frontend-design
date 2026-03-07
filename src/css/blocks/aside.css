@@ -30,15 +30,15 @@
 /* Aside container */
 
 .aside__container {
-	position: sticky;
-	top: var(--aside-offset-y);
-	height: var(--aside-height);
-	padding: var(--aside-padding);
 
 	background-color: var(--color-surface-secondary);
 	border: var(--space-border-light) solid var(--color-border-base);
-	border-style: var(--border-style);
 	border-radius: var(--aside-radius);
+	border-style: var(--border-style);
+	height: var(--aside-height);
+	padding: var(--aside-padding);
+	position: sticky;
+	top: var(--aside-offset-y);
 }
 
 @supports (corner-shape: superellipse(1)) {

@@ -15,6 +15,6 @@
 
 .header__logo {
 	display: inline-block;
-	width: var(--logo-width);
 	height: var(--logo-height);
+	width: var(--logo-width);
 }
