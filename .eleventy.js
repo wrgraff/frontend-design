@@ -3,13 +3,13 @@ const autoprefixer = require('autoprefixer');
 const csso = require('postcss-csso');
 const minmax = require('postcss-media-minmax');
 const pimport = require('postcss-import');
-const fs = require('fs');
 const yaml = require('js-yaml');
 const markdown = require('markdown-it')({ html: true });
 const esbuild = require('esbuild');
 
 module.exports = function (config) {
 	const isProduction = process.env.ELEVENTY_ENV === 'production';
+	const byOrder = (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0);
 
 	// Styles
 
@@ -53,23 +53,26 @@ module.exports = function (config) {
 
 	config.addTemplateFormats('js');
 
-    config.addExtension('js', {
-        outputFileExtension: 'js',
-        compile: async (content, path) => {
-            if (path !== './src/js/index.js') {
-                return;
-            }
+	config.addExtension('js', {
+		outputFileExtension: 'js',
+		compile: async (content, path) => {
+			if (path !== './src/js/index.js') {
+				return;
+			}
 
-            return async () => {
-                return esbuild.buildSync({
-                    entryPoints: [path],
-                    minify: true,
-                    bundle: true,
-                    write: false,
-                }).outputFiles[0].text;
-            }
-        }
-    });
+			return async () => {
+				const output = await esbuild.build({
+					entryPoints: [path],
+					bundle: true,
+					minify: isProduction,
+					sourcemap: !isProduction ? 'inline' : false,
+					write: false,
+				});
+
+				return output.outputFiles[0].text;
+			}
+		}
+	});
 
 	// YAML
 
@@ -84,42 +87,39 @@ module.exports = function (config) {
 		'videos': 'src/videos/*/index.md'
     };
 
-    config.addCollection('portfolio', (collectionApi) => {
-        return collectionApi.getFilteredByGlob(
-            collections.portfolio
-        ).sort((a, b) => Math.sign(a.data.order - b.data.order));
-    });
+	config.addCollection('portfolio', (collectionApi) => {
+		return collectionApi
+			.getFilteredByGlob(collections.portfolio)
+			.sort(byOrder);
+	});
 
-    config.addCollection('portfolioTop', (collectionApi) => {
+	config.addCollection('portfolioTop', (collectionApi) => {
 		const collection = collectionApi.getFilteredByGlob(
-            collections.portfolio
-        );
-		const elementsToDelete = collection.length - 6;
+			collections.portfolio
+		);
 
-		collection
-			.sort((a, b) => Math.sign(a.data.order - b.data.order))
-			.splice(collection.length - elementsToDelete, elementsToDelete);
-
-		return collection;
-    });
+		return collection
+			.sort(byOrder)
+			.slice(0, 6);
+	});
 
 	config.addFilter("filterBySlugList", function(collection, slugList) {
 		return collection.filter(item => slugList.includes(item.fileSlug));
 	});
 
-    config.addCollection('videos', (collectionApi) => {
-        return collectionApi.getFilteredByGlob(
-            collections.videos
-        ).sort((a, b) => Math.sign(a.data.order - b.data.order));
-    });
+	config.addCollection('videos', (collectionApi) => {
+		return collectionApi
+			.getFilteredByGlob(collections.videos)
+			.sort(byOrder);
+	});
 
     // Markdown
 
-    config.addFilter('markdown', (value) => {
-        return markdown.render(value);
-    });
+	config.addFilter('markdown', (value) => {
+		return markdown.render(value ?? '');
+	});
 
-    config.setLibrary('md', markdown);
+	config.setLibrary('md', markdown);
 
 	// Passthrough copy
 
