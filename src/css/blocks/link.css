@@ -33,6 +33,31 @@
 	--link-underline-color: var(--color-text-alt);
 }
 
+/* Plain links */
+
+a:not([class]) {
+	color: var(--link-text-color);
+	font: var(--link-font);
+	letter-spacing: var(--font-text-letterspacing);
+	text-transform: var(--font-text-transform);
+	text-decoration: underline;
+	text-decoration-thickness: var(--space-border-light);
+	text-decoration-color: var(--link-underline-color);
+	text-underline-offset: var(--link-underline-offset);
+	transition:
+		color var(--transition-element-duration) var(--transition-element-function),
+		text-decoration-color var(--transition-element-duration) var(--transition-element-function);
+}
+
+a:not([class]):hover {
+	text-decoration-color: var(--color-text-primary);
+}
+
+a:not([class]):active {
+	color: var(--color-text-alt);
+	text-decoration-color: var(--color-text-alt);
+}
+
 /* Sizes */
 
 .link_xs {
