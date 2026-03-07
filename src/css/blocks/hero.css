@@ -1,11 +1,12 @@
 .hero {
 	--img-size: 680px;
+	--hero-padding: 120px 80px;
 }
 
 .hero {
-
 	display: grid;
 	gap: var(--space-gap-l);
+	padding: var(--hero-padding);
 	grid-template-columns: repeat(5, 1fr);
 	position: relative;
 	z-index: 0;

@@ -2,6 +2,7 @@
 
 .section {
 	--section-gap: var(--space-gap-l);
+	--section-padding: 120px 80px;
 	--section-columns: repeat(5, minmax(0, 1fr));
 	--section-header-gap: var(--space-gap-xxs);
 	--section-header-border: var(--space-border-light) solid var(--color-border-base);
@@ -27,6 +28,7 @@
 	display: grid;
 	gap: var(--section-gap);
 	grid-template-columns: var(--section-columns);
+	padding: var(--section-padding);
 }
 
 .section__header {

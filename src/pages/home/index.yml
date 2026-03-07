@@ -28,7 +28,7 @@ my_design_journey:
   cta:
     - kind: link
       text: More about my background
-      href: /about/
+      href: /background/
       icon: maps-navigation/start_journey
 
 portfolio:
