@@ -25,9 +25,11 @@ my_design_journey:
   pretitle: Why I am here
   heading: My design journey
   body: "From an early age, I’ve loved creating things from scratch. A blank canvas still excites me: it’s full of possibilities — whether it becomes a system, a story, or a product"
-  link_text: More about my background
-  link_href: /about/
-  link_icon: maps-navigation/start_journey
+  cta:
+    - kind: link
+      text: More about my background
+      href: /about/
+      icon: maps-navigation/start_journey
 
 portfolio:
   pretitle: My work

@@ -1,22 +1,19 @@
 {% from 'hero.njk' import heroSection %}
-{% from 'link.njk' import link %}
+{% from 'section.njk' import section %}
 
 {{ heroSection(hero) }}
 
-<section class="main__section">
-	<p>{{ my_design_journey.pretitle }}</p>
-	<h2>{{ my_design_journey.heading }}</h2>
-	<p>{{ my_design_journey.body }}</p>
-	{{ link(
-		text = my_design_journey.link_text,
-		href = my_design_journey.link_href or '/about/',
-		icon = my_design_journey.link_icon or 'info-signs/link'
-	) }}
-</section>
+{{ section({
+	pretitle: my_design_journey.pretitle,
+	heading: my_design_journey.heading,
+	lead: my_design_journey.body,
+	cta: my_design_journey.cta
+}) }}
 
-<section class="main__section">
-	<p>{{ portfolio.pretitle }}</p>
-	<h2>{{ portfolio.heading }}</h2>
+{% call section({
+	pretitle: portfolio.pretitle,
+	heading: portfolio.heading
+}) %}
 	<ul>
 		{% for item in portfolio.items %}
 			<li>
@@ -31,12 +28,13 @@
 			</li>
 		{% endfor %}
 	</ul>
-</section>
+{% endcall %}
 
-<section class="main__section">
-	<p>{{ approach_to_work.pretitle }}</p>
-	<h2>{{ approach_to_work.heading }}</h2>
-	<p>{{ approach_to_work.intro }}</p>
+{% call section({
+	pretitle: approach_to_work.pretitle,
+	heading: approach_to_work.heading,
+	lead: approach_to_work.intro
+}) %}
 	<ol>
 		{% for step in approach_to_work.steps %}
 			<li>
@@ -45,12 +43,14 @@
 			</li>
 		{% endfor %}
 	</ol>
-</section>
+{% endcall %}
 
-<section class="main__section">
-	<p>{{ contacts.pretitle }}</p>
-	<h2>{{ contacts.heading }}</h2>
-	<p>{{ contacts.body }}</p>
+{% call section({
+	id: 'contacts',
+	pretitle: contacts.pretitle,
+	heading: contacts.heading,
+	lead: contacts.body
+}) %}
 
 	<h3>Locations</h3>
 	<ul>
@@ -72,4 +72,4 @@
 			<li>{{ link }}</li>
 		{% endfor %}
 	</ul>
-</section>
+{% endcall %}

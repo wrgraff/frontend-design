@@ -72,6 +72,9 @@ Principles:
 - Token layer first (`--color-*`, `--space-*`, `--font-*`, `--shadow-*`), block variables second.
 - Prefer variable overrides for states (`*_bg`, `*_color`, `*_shadow`) over separate state-specific property trees.
 - Use shared transition tokens for consistent interaction behavior.
+- Keep CSS specificity as low as possible.
+- Avoid selector chains and combinators (`.block .block__el`, `.block > .block__el`) when a plain BEM selector is enough (`.block__el`).
+- Do not increase specificity “for safety”; solve collisions via block structure, source order, and variables.
 
 ## What Is Not Allowed
 

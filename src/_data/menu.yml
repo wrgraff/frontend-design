@@ -1,8 +1,8 @@
-- title: About_me
-  link: /about/
 - title: Portfolio
   link: /portfolio/
-- title: Online_CV
-  link: /cv/
+- title: My background
+  link: /background/
+- title: Publications
+  link: /publications/
 - title: Contacts
   link: /contacts/

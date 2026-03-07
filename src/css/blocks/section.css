@@ -1,191 +1,72 @@
-@media (width < 880px) {
-	.section {
-		--row-gap: 96px;
-		--subheader-margin: 24px;
-	}
-}
+/* Variables */
 
-@media (880px <= width < 1500px) {
-	.section {
-		--row-gap: 96px;
-		--subheader-margin: 24px;
-	}
-}
-
-@media (width >= 1500px) {
-	.section {
-		--row-gap: 96px;
-		--subheader-margin: 24px;
-	}
+.section {
+	--section-gap: var(--space-gap-l);
+	--section-columns: repeat(5, minmax(0, 1fr));
+	--section-header-gap: var(--space-gap-xxs);
+	--section-header-border: var(--space-border-light) solid var(--color-border-base);
+	--section-header-padding-bottom: var(--space-gap-xxs);
+	--section-eyebrow-color: var(--color-text-primary);
+	--section-eyebrow-font: var(--font-caption-s);
+	--section-eyebrow-letterspacing: var(--font-caption-letterspacing);
+	--section-eyebrow-transform: var(--font-caption-transform);
+	--section-eyebrow-padding-inline: var(--space-gap-5xs);
+	--section-heading-font: var(--font-heading-hl3);
+	--section-heading-letterspacing: var(--font-caption-letterspacing);
+	--section-lead-font: var(--font-text-m);
+	--section-lead-column: 1 / span 3;
+	--section-content-font: var(--font-text-s);
+	--section-content-column: 1 / span 4;
+	--section-cta-column: 1 / -1;
+	--section-cta-gap: var(--space-gap-xxs);
 }
 
 /* Section */
 
 .section {
 	display: grid;
-	grid-template-columns: 1fr var(--content-width) 1fr;
-	row-gap: var(--row-gap);
+	gap: var(--section-gap);
+	grid-template-columns: var(--section-columns);
 }
-
-.section__content {
-	grid-column: 2 / -2;
-}
-
-/* Header */
 
 .section__header {
-	grid-column: 2 / -2;
-}
-
-/* Subheader */
-
-.section__subheader {
+	border-bottom: var(--section-header-border);
+	display: flex;
+	flex-direction: column;
+	gap: var(--section-header-gap);
 	grid-column: 1 / -1;
-	margin-bottom: var(--subheader-margin);
+	padding-bottom: var(--section-header-padding-bottom);
 }
 
-/* Main */
-
-.section__main {
-	display: grid;
-	grid-column: 1 / -1;
-	grid-template-columns: 1fr var(--content-width) 1fr;
+.section__eyebrow {
+	color: var(--section-eyebrow-color);
+	font: var(--section-eyebrow-font);
+	letter-spacing: var(--section-eyebrow-letterspacing);
+	margin: 0;
+	padding-inline: var(--section-eyebrow-padding-inline);
+	text-transform: var(--section-eyebrow-transform);
 }
 
-/* Container */
-
-.section__container {
-	column-gap: var(--grid-gap);
-	display: grid;
-	grid-column: 2 / -2;
-	grid-template-columns: repeat(4, 1fr);
+.section__heading {
+	font: var(--section-heading-font);
+	letter-spacing: var(--section-heading-letterspacing);
+	margin: 0;
 }
 
-/* Content */
+.section__lead {
+	font: var(--section-lead-font);
+	grid-column: var(--section-lead-column);
+}
 
 .section__content {
-
-	font: var(--font-text-promo);
-	grid-column: span 2;
+	font: var(--section-content-font);
+	grid-column: var(--section-content-column);
 }
 
-/* Comment */
-
-.section__comment {
-
-	color: var(--color-text-secondary);
-
-	font-size: var(--text-size-s);
-	margin: 0 0 8px 16px;
-	max-width: 60%;
-	text-align: right;
-}
-
-@media (880px <= width < 1500px) {
-	.section__comment {
-		font: var(--font-text-m);
-		margin-right: calc(25% + 10px);
-	}
-}
-
-@media (width >= 1500px) {
-	.section__comment {
-		font: var(--font-text-l);
-		margin-right: 238px;
-	}
-}
-
-/* Skills */
-
-.section__skills {
-	margin: 0;
-}
-
-@media (width >= 880px) {
-	.section__skills {
-		grid-column: 1 / -2;
-	}
-}
-
-/* Courses */
-
-.section__courses {
-	margin: 0;
-}
-
-@media (880px <= width < 1500px) {
-	.section__courses {
-		grid-column: 1 / -2;
-	}
-}
-
-@media (width >= 1500px) {
-	.section__courses {
-		grid-column: 1 / 3;
-		margin-top: 56px;
-	}
-}
-
-/* Achievements */
-
-.section__achievements {
-	margin: 0;
-}
-
-@media (width < 880px) {
-	.section__achievements {
-		margin-top: 40px;
-	}
-}
-
-@media (880px <= width < 1500px) {
-	.section__achievements {
-		grid-column: 1 / -2;
-		margin-top: 72px;
-	}
-}
-
-@media (width >= 1500px) {
-	.section__achievements {
-		grid-column: 3 / 5;
-		margin-left: 98px;
-
-		margin-top: 56px;
-	}
-}
-
-/* Links */
-
-.section__links {
-	margin: 0;
-}
-
-@media (width >= 880px) {
-	.section__links {
-		grid-column: 1 / -2;
-	}
-}
-
-/* Portfolio */
-
-.section__portfolio {
-	margin: 0;
-}
-
-@media (width >= 880px) {
-	.section__portfolio {
-		grid-column: 1 / -2;
-	}
-}
-
-/* Videos */
-
-.section__videos {
-	margin: 0;
-}
-
-@media (width >= 880px) {
-	.section__videos {
-		grid-column: 1 / -2;
-	}
+.section__cta {
+	align-content: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--section-cta-gap);
+	grid-column: var(--section-cta-column);
 }

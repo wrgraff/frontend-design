@@ -1,0 +1,76 @@
+{% from 'button.njk' import button %}
+{% from 'link.njk' import link %}
+
+{% macro section(data = {}) %}
+	{% set sectionClasses = [
+		'main__section',
+		'section',
+		data.extra_class or ''
+	] | join(' ') | trim %}
+
+	<section class="{{ sectionClasses }}"{% if data.id %} id="{{ data.id }}"{% endif %}>
+		<header class="section__header">
+			{% if data.pretitle %}
+				<p class="section__eyebrow">
+					{{ (data.pretitle | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+				</p>
+			{% endif %}
+
+			{% if data.heading %}
+				<h2 class="section__heading">
+					{{ (data.heading | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+				</h2>
+			{% endif %}
+		</header>
+
+		{% if data.lead %}
+			<div class="section__lead">
+				{{ data.lead | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if data.content or caller %}
+			<div class="section__content">
+				{% if data.content %}
+					{{ data.content | markdown | safe }}
+				{% endif %}
+				{% if caller %}
+					{{ caller() }}
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if data.cta and (data.cta | length) %}
+			<div class="section__cta">
+				{% for ctaItem in data.cta %}
+					{% if ctaItem.kind == 'link' %}
+						{{ link(
+							text = (ctaItem.text | default('Link') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+							href = ctaItem.href or '',
+							mode = ctaItem.mode or '',
+							size = ctaItem.size or '',
+							icon = ctaItem.icon or 'info-signs/link',
+							external = ctaItem.external or false,
+							target = ctaItem.target or '',
+							rel = ctaItem.rel or '',
+							extraClass = ctaItem.extra_class or ''
+						) }}
+					{% else %}
+						{{ button(
+							(ctaItem.text | default('Button') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+							ctaItem.href or '',
+							ctaItem.mode or 'secondary',
+							ctaItem.size or 'l',
+							(ctaItem.subtext | default('') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+							ctaItem.icon_left or '',
+							ctaItem.icon_right or '',
+							ctaItem.type or 'button',
+							ctaItem.extra_class or '',
+							ctaItem.download or false
+						) }}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</section>
+{% endmacro %}
