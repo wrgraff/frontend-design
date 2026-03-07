@@ -6,6 +6,10 @@ const pimport = require('postcss-import');
 const yaml = require('js-yaml');
 const markdown = require('markdown-it')({ html: true });
 const esbuild = require('esbuild');
+const Typograf = require('typograf');
+const typograf = new Typograf({
+	locale: ['en-GB']
+});
 
 module.exports = function (config) {
 	const isProduction = process.env.ELEVENTY_ENV === 'production';
@@ -120,6 +124,16 @@ module.exports = function (config) {
 	});
 
 	config.setLibrary('md', markdown);
+
+	// Typography
+
+	config.addTransform('typography', (content, outputPath) => {
+		if (!outputPath || !outputPath.endsWith('.html')) {
+			return content;
+		}
+
+		return typograf.execute(content);
+	});
 
 	// Passthrough copy
 
