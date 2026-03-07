@@ -1,5 +1,8 @@
+{% set currentLocale = page.url | localeFromUrl %}
+{% set currentLocaleMeta = i18n.localeMeta[currentLocale] %}
+
 <!DOCTYPE html>
-<html lang="en" class="page no-js">
+<html lang="{{ currentLocaleMeta.htmlLang or currentLocale }}" class="page no-js">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +28,7 @@
 		{% else %}
 			<meta property="og:url" content="{{ meta.url }}{{ activePage }}/" />
 		{% endif %}
-		<meta property="og:locale" content="en_EN" />
+		<meta property="og:locale" content="{{ currentLocaleMeta.ogLocale or 'en_GB' }}" />
 	</head>
 
 	<body class="page__body">

@@ -3,6 +3,8 @@ const autoprefixer = require('autoprefixer');
 const csso = require('postcss-csso');
 const minmax = require('postcss-media-minmax');
 const pimport = require('postcss-import');
+const fs = require('node:fs');
+const path = require('node:path');
 const yaml = require('js-yaml');
 const markdown = require('markdown-it')({ html: true });
 const esbuild = require('esbuild');
@@ -10,6 +12,122 @@ const Typograf = require('typograf');
 const typograf = new Typograf({
 	locale: ['en-GB']
 });
+
+const DEFAULT_I18N_CONFIG = {
+	defaultLocale: 'en',
+	locales: ['en'],
+	urlStrategy: 'prefix_except_default',
+	localeMeta: {
+		en: {
+			htmlLang: 'en',
+			ogLocale: 'en_GB'
+		}
+	}
+};
+
+function loadI18nConfig() {
+	try {
+		const filePath = path.join(__dirname, 'src/_data/i18n.yml');
+		const rawConfig = yaml.load(fs.readFileSync(filePath, 'utf8')) ?? {};
+		const defaultLocale = typeof rawConfig.defaultLocale === 'string' && rawConfig.defaultLocale
+			? rawConfig.defaultLocale
+			: DEFAULT_I18N_CONFIG.defaultLocale;
+		const locales = Array.isArray(rawConfig.locales) && rawConfig.locales.length
+			? rawConfig.locales.filter((locale) => typeof locale === 'string' && locale)
+			: [defaultLocale];
+		const urlStrategy = typeof rawConfig.urlStrategy === 'string'
+			? rawConfig.urlStrategy
+			: DEFAULT_I18N_CONFIG.urlStrategy;
+		const localeMeta = rawConfig.localeMeta && typeof rawConfig.localeMeta === 'object'
+			? rawConfig.localeMeta
+			: {};
+
+		return {
+			defaultLocale,
+			locales,
+			urlStrategy,
+			localeMeta
+		};
+	} catch (error) {
+		return DEFAULT_I18N_CONFIG;
+	}
+}
+
+const i18nConfig = loadI18nConfig();
+
+function isSkippableLink(href) {
+	if (typeof href !== 'string' || href.trim() === '') {
+		return true;
+	}
+
+	return /^(?:[a-z]+:|\/\/|#)/i.test(href);
+}
+
+function normalizePath(pathname) {
+	if (!pathname || pathname === '/') {
+		return '/';
+	}
+
+	const withLeadingSlash = pathname.startsWith('/') ? pathname : `/${pathname}`;
+	const normalized = withLeadingSlash.replace(/\/{2,}/g, '/');
+
+	if (normalized === '/') {
+		return normalized;
+	}
+
+	return normalized.endsWith('/') ? normalized : `${normalized}/`;
+}
+
+function splitPathAndSuffix(href) {
+	const [withoutHash, hash = ''] = href.split('#');
+	const [pathname, search = ''] = withoutHash.split('?');
+	const suffix = `${search ? `?${search}` : ''}${hash ? `#${hash}` : ''}`;
+
+	return { pathname, suffix };
+}
+
+function stripLocalePrefix(pathname, locales) {
+	const normalized = normalizePath(pathname);
+	const segments = normalized.split('/').filter(Boolean);
+
+	if (!segments.length) {
+		return normalized;
+	}
+
+	if (!locales.includes(segments[0])) {
+		return normalized;
+	}
+
+	const nextPath = `/${segments.slice(1).join('/')}`;
+	return normalizePath(nextPath);
+}
+
+function detectLocaleFromUrl(url) {
+	const normalized = normalizePath(url);
+	const firstSegment = normalized.split('/').filter(Boolean)[0];
+	return i18nConfig.locales.includes(firstSegment)
+		? firstSegment
+		: i18nConfig.defaultLocale;
+}
+
+function localizePath(href, localeOrUrl) {
+	if (isSkippableLink(href)) {
+		return href;
+	}
+
+	const locale = i18nConfig.locales.includes(localeOrUrl)
+		? localeOrUrl
+		: detectLocaleFromUrl(localeOrUrl);
+	const { pathname, suffix } = splitPathAndSuffix(href);
+	const cleanPath = stripLocalePrefix(pathname, i18nConfig.locales);
+	const shouldPrefixLocale = i18nConfig.urlStrategy === 'prefix'
+		|| (i18nConfig.urlStrategy === 'prefix_except_default' && locale !== i18nConfig.defaultLocale);
+	const localizedPath = shouldPrefixLocale
+		? normalizePath(`/${locale}${cleanPath}`)
+		: cleanPath;
+
+	return `${localizedPath}${suffix}`;
+}
 
 module.exports = function (config) {
 	const isProduction = process.env.ELEVENTY_ENV === 'production';
@@ -82,6 +200,14 @@ module.exports = function (config) {
 
 	config.addDataExtension('yml', (contents) => {
 		return yaml.load(contents);
+	});
+
+	// Internationalization
+
+	config.addFilter('localeFromUrl', (url) => detectLocaleFromUrl(url));
+
+	config.addFilter('localePath', (href, localeOrUrl) => {
+		return localizePath(href, localeOrUrl);
 	});
 
     // Collections

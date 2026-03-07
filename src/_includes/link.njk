@@ -19,7 +19,7 @@
 	] | join(' ') | trim %}
 
 	<a
-		href="{{ href }}"
+		href="{{ href | localePath(page.url) }}"
 		class="{{ classes }}"
 		{% if target %}target="{{ target }}"{% endif %}
 		{% if rel %}rel="{{ rel }}"{% endif %}

@@ -1,0 +1,9 @@
+defaultLocale: en
+locales:
+  - en
+urlStrategy: prefix_except_default
+
+localeMeta:
+  en:
+    htmlLang: en
+    ogLocale: en_GB

@@ -14,6 +14,7 @@ This file is the source of truth for implementation rules that AI agents must fo
 ## Architecture and Sources of Truth
 
 - Source of truth for content: `src/_data/*.yml` and page-level `*.yml`.
+- Source of truth for i18n strategy/locales: `src/_data/i18n.yml`.
 - Source of truth for UI components: `src/_includes/*.njk` (`button`, `link`, `icon`, etc.).
 - Source of truth for macro API contracts: `docs/components.md`.
 - Source of truth for styles: `src/css/blocks/*.css` (one block = one file).
@@ -52,6 +53,7 @@ Forbidden:
 - Do not add extra classes “just in case”.
 - If existing block/element already solves it, reuse it.
 - Keep list markup as flat and semantic as possible.
+- Internal links in templates/macros must go through locale-aware routing (`localePath` filter). Do not hardcode locale prefixes.
 
 ## Component Usage Rules
 

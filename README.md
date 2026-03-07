@@ -37,5 +37,6 @@ Macro contracts are documented in:
 - `src/_includes` — reusable template macros/components
 - `src/_layouts` — base layouts
 - `src/_data` — shared data
+- `src/_data/i18n.yml` — locale list + URL strategy
 - `src/css` — tokens, utilities, and block styles
 - `docs/components.md` — macro API contracts

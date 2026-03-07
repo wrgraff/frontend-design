@@ -160,7 +160,7 @@ function validateHome(file, data) {
 	}
 }
 
-function validateMenu(file, data) {
+function validateMenu(file, data, locales = []) {
 	const items = reqArray(file, 'root', data);
 	if (!items) return;
 
@@ -172,6 +172,12 @@ function validateMenu(file, data) {
 		const link = reqString(file, `${base}.link`, obj.link);
 		if (link && !link.startsWith('/')) {
 			fail(file, `${base}.link`, 'must start with "/"');
+		}
+		if (link) {
+			const firstSegment = link.replace(/^\/+/, '').split('/')[0];
+			if (locales.includes(firstSegment)) {
+				fail(file, `${base}.link`, 'must be locale-agnostic (no locale prefix in data)');
+			}
 		}
 	});
 }
@@ -203,10 +209,43 @@ function validateGlobal(file, data) {
 	});
 }
 
+function validateI18n(file, data) {
+	const root = reqObject(file, 'root', data);
+	if (!root) return;
+
+	const defaultLocale = reqString(file, 'defaultLocale', root.defaultLocale);
+	const locales = reqArray(file, 'locales', root.locales);
+	if (locales) {
+		locales.forEach((locale, index) => reqString(file, `locales[${index}]`, locale));
+		if (defaultLocale && !locales.includes(defaultLocale)) {
+			fail(file, 'defaultLocale', 'must be listed in locales');
+		}
+	}
+
+	const strategy = reqString(file, 'urlStrategy', root.urlStrategy);
+	if (strategy && !['prefix', 'prefix_except_default'].includes(strategy)) {
+		fail(file, 'urlStrategy', 'must be "prefix" or "prefix_except_default"');
+	}
+
+	const localeMeta = reqObject(file, 'localeMeta', root.localeMeta);
+	if (!localeMeta) return;
+
+	Object.entries(localeMeta).forEach(([localeKey, meta]) => {
+		const base = `localeMeta.${localeKey}`;
+		const obj = reqObject(file, base, meta);
+		if (!obj) return;
+		reqString(file, `${base}.htmlLang`, obj.htmlLang);
+		reqString(file, `${base}.ogLocale`, obj.ogLocale);
+	});
+}
+
 async function main() {
+	const i18n = await loadYaml('src/_data/i18n.yml');
+
 	validateHome('src/pages/home/index.yml', await loadYaml('src/pages/home/index.yml'));
 	validateGlobal('src/_data/global.yml', await loadYaml('src/_data/global.yml'));
-	validateMenu('src/_data/menu.yml', await loadYaml('src/_data/menu.yml'));
+	validateMenu('src/_data/menu.yml', await loadYaml('src/_data/menu.yml'), Array.isArray(i18n?.locales) ? i18n.locales : []);
+	validateI18n('src/_data/i18n.yml', i18n);
 
 	if (!errors.length) {
 		console.log('Content contracts: OK');

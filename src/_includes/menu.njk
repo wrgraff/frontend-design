@@ -1,14 +1,15 @@
 <ul class="aside__list site-list">
-	{% for item in menu %}
-		{% if item.link == page.url %}
+{% for item in menu %}
+		{% set itemLink = item.link | localePath(page.url) %}
+		{% if itemLink == page.url %}
 			<li class="site-list__item site-list__item_current">
-				<a href="{{ item.link }}" class="site-list__link" aria-current="page">
+				<a href="{{ itemLink }}" class="site-list__link" aria-current="page">
 					{{- item.title -}}
 				</a>
 			</li>
 		{% else %}
 			<li class="site-list__item">
-				<a href="{{ item.link }}" class="site-list__link">
+				<a href="{{ itemLink }}" class="site-list__link">
 					{{- item.title -}}
 				</a>
 			</li>
