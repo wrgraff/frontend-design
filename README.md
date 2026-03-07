@@ -1,30 +1,87 @@
-# Smol Eleventy Starter
+# Frontend Design Rules
 
-> Extremely minimal Eleventy starter to kickstart a simple multi-page site / a nearly opinionless foundation to continue building on.
+This document defines mandatory development rules for this project.  
+Primary goal: any developer and any AI agent should see technologies, approaches, and constraints immediately, without relying on chat context.
 
-### Quick Start
+## Technology Stack
 
-1. [Generate a repo from this template](https://github.com/5t3ph/smol-11ty-starter/generate) which will copy this project into your own new repo. _Note: You must be signed in to GitHub for this link to work_, else [visit the repo directly](https://github.com/5t3ph/smol-11ty-starter/).
+- `Eleventy (11ty)` as SSG.
+- `Nunjucks` for templates and UI macros.
+- `YAML` for content and data.
+- `PostCSS` (`postcss-import`, `postcss-media-minmax`, `autoprefixer`, `postcss-csso` in production).
+- `esbuild` for JS bundling.
+- No Tailwind, no CSS-in-JS.
 
-1. Once cloned, run `npm install` to install 11ty. Then run `npm start` to run 11ty in `serve` mode which will create a local server including hot-reload via BrowserSync.
+## Architecture and Sources of Truth
 
-   - Use `npm run build` to run a production version.
+- Source of truth for content: `src/_data/*.yml` and page-level `*.yml`.
+- Source of truth for UI components: `src/_includes/*.njk` (`button`, `link`, `icon`, etc.).
+- Source of truth for styles: `src/css/blocks/*.css` (one block = one file).
+- Do not duplicate logic or SVG markup in local templates if a shared macro/component already exists.
 
-1. Open `src/_data/meta.js` and adjust the values to your details.
+## BEM Naming (Mandatory)
 
-1. Edit `index.md` to change the home page, and then create content within `src/pages` using any templating format you prefer to add content.
+- Block: `.block`
+- Element: `.block__element`
+- Modifier format: `key_value`  
+  `.block_key_value`, `.block__element_key_value`
 
-> Review the resources available at [11ty Rocks](https://11ty.rocks) to learn how to apply more customizations, including adding custom data sources and reviewing what template languages are available.
+Examples:
 
-## Learn More About Eleventy
+- `button_mode_primary`
+- `button_size_l`
+- `link_size_xs`
+- `site-list__item_current`
 
-- Get the highlights in my [14 minute feature overview](https://youtu.be/p81J7G1qFAM)
-- Enjoy written tutorials? Start with my post on [creating your first Eleventy website](https://11ty.rocks/posts/create-your-first-basic-11ty-website/)
-- Enjoy video tutorials? Learn to [build an Eleventy site including Sass](https://5t3ph.dev/learn-11ty) in my 20 minute egghead course
+Forbidden:
 
-## Where to go from here?
+- Legacy modifier format without key: `button_l`, `button_primary`, `link_s`
+- Modifiers that duplicate default behavior
 
-- You may want to swap to [use Sass instead of CSS](https://github.com/5t3ph/11ty-sass-skeleton) and include minifying/autoprefixing (you can copy the relevant bits from the config and the package scripts/dependencies)
-- Review [additional common config customizations](https://11ty.rocks/eleventyjs/)
-- Check out some [quick tips](https://11ty.rocks/tips/) to learn more about using Eleventy's features
-- Add automatically generated [social images with my plugin](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images)
+## Modifier Rules
+
+- Add a modifier only when it is explicitly passed in macro/markup.
+- If parameter is not passed, do not add modifier class.
+- Base state must work without `*_mode_base` and `*_size_m`.
+
+## Markup Rules
+
+- Do not add extra wrappers just for styling.
+- Do not add extra classes “just in case”.
+- If existing block/element already solves it, reuse it.
+- Keep list markup as flat and semantic as possible.
+
+## Component Usage Rules
+
+- Render repeated UI via macros (`link`, `button`, `icon`) instead of hand-written markup per template.
+- Render icons through `icon.njk`.
+- Do not encode content-derived state in classes (example: icon type should come from `icon` argument, not `link_icon_*` classes).
+
+## CSS Approach (Mandatory)
+
+- Foundation: CSS custom properties (tokens + block-level variables).
+- Pattern must match `button` / `link` blocks:
+  - define block variables at block root (`--button-*`, `--link-*`);
+  - in states (`:hover`, `:active`), override variables instead of duplicating full property sets;
+  - modifiers should change variables, not rewrite full block styling.
+
+Principles:
+
+- Token layer first (`--color-*`, `--space-*`, `--font-*`, `--shadow-*`), block variables second.
+- Prefer variable overrides for states (`*_bg`, `*_color`, `*_shadow`) over separate state-specific property trees.
+- Use shared transition tokens for consistent interaction behavior.
+
+## What Is Not Allowed
+
+- No ad-hoc classes for one-off cases when a block already exists.
+- No inline-SVG duplication in local templates when icon belongs in `icon` macro.
+- No dead modifiers (unused or behavior-neutral).
+- No DOM complexity where one element is enough.
+
+## Pre-merge Checklist
+
+- BEM naming follows `key_value` modifiers.
+- No extra classes/wrappers.
+- No duplicated icon or template logic.
+- `button` and `link` macros do not auto-attach default modifiers.
+- Build passes: `npm run build`.
