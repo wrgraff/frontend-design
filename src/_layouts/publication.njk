@@ -1,0 +1,23 @@
+---
+layout: page.njk
+---
+
+{% from 'hero.njk' import heroSection %}
+{% from 'section.njk' import section %}
+
+{% if hero %}
+	{{ heroSection(hero) }}
+{% endif %}
+
+{{ section({
+	pretitle: 'Publication',
+	heading: title,
+	lead: description
+}) }}
+
+{% call section({
+	pretitle: 'Content',
+	heading: 'Article'
+}) %}
+	{{ content | safe }}
+{% endcall %}

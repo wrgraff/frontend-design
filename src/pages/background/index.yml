@@ -1,0 +1,16 @@
+title: My Background
+hero:
+  heading: My background
+  text: I moved from visual and interaction design into product work for complex B2B systems.
+sections:
+  - pretitle: Journey
+    heading: Path to product design
+    content: |
+      I started with branding and web interfaces, then shifted to product design where the challenge is not only visual quality, but also decision support, workflow speed, and system consistency.
+
+  - pretitle: Focus
+    heading: What I care about
+    content: |
+      - Designing for real roles and permissions, not ideal scenarios.
+      - Making data dense screens readable and actionable.
+      - Building patterns that scale across teams and products.

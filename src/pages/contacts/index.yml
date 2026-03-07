@@ -1,0 +1,17 @@
+title: Contacts
+hero:
+  heading: Contacts
+  text: Feel free to reach out for collaboration, product design consulting, or speaking.
+sections:
+  - id: contacts
+    pretitle: Contact details
+    heading: Direct channels
+    content: |
+      - Email: hi@arturtrifonov.com
+      - LinkedIn: linkedin.com/in/arturtrifonov
+      - Telegram: @arturtrifonov
+
+  - pretitle: Location
+    heading: Based in Europe
+    content: |
+      I work from Bratislava and can easily meet in Vienna for workshops, product sessions, and team collaboration.

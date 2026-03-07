@@ -1,0 +1,78 @@
+{% from 'hero.njk' import heroSection %}
+{% from 'section.njk' import section %}
+
+{{ heroSection(hero) }}
+
+{% set publicationsCollection = collections.publications or [] %}
+{% set articleItems = [] %}
+{% set videoItems = [] %}
+
+{% for publication in publicationsCollection %}
+	{% if publication.data.kind == 'video' %}
+		{% set videoItems = (videoItems.push(publication), videoItems) %}
+	{% else %}
+		{% set articleItems = (articleItems.push(publication), articleItems) %}
+	{% endif %}
+{% endfor %}
+
+{% call section({
+	pretitle: articles_section.pretitle,
+	heading: articles_section.heading,
+	lead: articles_section.lead
+}) %}
+	{% if articleItems.length %}
+		<ul>
+			{% for publication in articleItems %}
+				{% set articleHref = publication.data.external and publication.data.external_url or publication.url %}
+				<li>
+					<h3>
+						<a href="{{ articleHref | localePath(page.url) }}"{% if publication.data.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+							{{ publication.data.title }}
+						</a>
+					</h3>
+					{% if publication.data.description %}
+						<p>{{ publication.data.description }}</p>
+					{% endif %}
+					{% if publication.data.external and publication.data.source_label %}
+						<p>{{ publication.data.source_label }}</p>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>{{ articles_section.empty_message }}</p>
+	{% endif %}
+{% endcall %}
+
+{% call section({
+	pretitle: videos_section.pretitle,
+	heading: videos_section.heading,
+	lead: videos_section.lead
+}) %}
+	{% if videoItems.length %}
+		<ul>
+			{% for publication in videoItems %}
+				<li>
+					<h3>{{ publication.data.title }}</h3>
+					{% if publication.data.description %}
+						<p>{{ publication.data.description }}</p>
+					{% endif %}
+					<ul>
+						{% if publication.data.youtube_url %}
+							<li>
+								<a href="{{ publication.data.youtube_url }}" target="_blank" rel="noopener noreferrer">Video on YouTube</a>
+							</li>
+						{% endif %}
+						{% if publication.data.slides_url %}
+							<li>
+								<a href="{{ publication.data.slides_url }}" target="_blank" rel="noopener noreferrer">Slides</a>
+							</li>
+						{% endif %}
+					</ul>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>{{ videos_section.empty_message }}</p>
+	{% endif %}
+{% endcall %}

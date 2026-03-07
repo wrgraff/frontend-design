@@ -1,0 +1,15 @@
+{% from 'hero.njk' import heroSection %}
+{% from 'section.njk' import section %}
+
+{{ heroSection(hero) }}
+
+{% for sectionItem in sections %}
+	{{ section({
+		id: sectionItem.id,
+		pretitle: sectionItem.pretitle,
+		heading: sectionItem.heading,
+		lead: sectionItem.lead,
+		content: sectionItem.content,
+		cta: sectionItem.cta
+	}) }}
+{% endfor %}

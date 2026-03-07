@@ -1,0 +1,16 @@
+title: Publications
+hero:
+  heading: Publications
+  text: Articles and speaking materials.
+
+articles_section:
+  pretitle: Articles
+  heading: Written publications
+  lead: Internal articles and selected external publications.
+  empty_message: No articles yet.
+
+videos_section:
+  pretitle: Videos
+  heading: Speaking videos
+  lead: Talks and lectures with optional slide decks.
+  empty_message: No videos yet.

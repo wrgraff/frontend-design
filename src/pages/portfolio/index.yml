@@ -1,0 +1,9 @@
+title: Portfolio
+hero:
+  heading: Portfolio
+  text: Selected product and system design work with focus on clarity, scale, and measurable outcomes.
+portfolio_list_section:
+  pretitle: Work
+  heading: Featured projects
+  lead: Cases are rendered from the Eleventy `portfolio` collection.
+  empty_message: Portfolio entries are not added yet.

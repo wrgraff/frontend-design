@@ -1,0 +1,24 @@
+{% from 'hero.njk' import heroSection %}
+{% from 'section.njk' import section %}
+{% from 'portfolio-list.njk' import portfolioList %}
+
+{{ heroSection(hero) }}
+
+{% set portfolioCollection = collections.portfolio %}
+
+{% if portfolioCollection and (portfolioCollection | length) %}
+	{% call section({
+		pretitle: portfolio_list_section.pretitle,
+		heading: portfolio_list_section.heading,
+		lead: portfolio_list_section.lead
+	}) %}
+		{{ portfolioList(collection = portfolioCollection) }}
+	{% endcall %}
+{% else %}
+	{{ section({
+		pretitle: portfolio_list_section.pretitle,
+		heading: portfolio_list_section.heading,
+		lead: portfolio_list_section.lead,
+		content: portfolio_list_section.empty_message
+	}) }}
+{% endif %}

@@ -214,7 +214,7 @@ module.exports = function (config) {
 
     const collections = {
         'portfolio': 'src/portfolio/*/index.md',
-		'videos': 'src/videos/*/index.md'
+		'publications': 'src/publications/*/index.md'
     };
 
 	config.addCollection('portfolio', (collectionApi) => {
@@ -237,9 +237,9 @@ module.exports = function (config) {
 		return collection.filter(item => slugList.includes(item.fileSlug));
 	});
 
-	config.addCollection('videos', (collectionApi) => {
+	config.addCollection('publications', (collectionApi) => {
 		return collectionApi
-			.getFilteredByGlob(collections.videos)
+			.getFilteredByGlob(collections.publications)
 			.sort(byOrder);
 	});
 
@@ -267,7 +267,7 @@ module.exports = function (config) {
 		'src/fonts',
 		'src/img',
         'src/portfolio/**/*.!(md)',
-        'src/videos/**/*.!(md)',
+        'src/publications/**/*.!(md)',
 		'src/files'
 	].forEach(
 		path => config.addPassthroughCopy(path)
