@@ -58,35 +58,35 @@
 
 /* Modes */
 
-.button_secondary {
+.button_mode_secondary {
 	--button-text-color: var(--color-text-primary);
 	--button-bg: var(--color-common-secondary);
 }
 
-.button_secondary:hover {
+.button_mode_secondary:hover {
 	--button-bg: var(--color-common-secondary-hover);
 }
 
-.button_secondary:active {
+.button_mode_secondary:active {
 	--button-bg: var(--color-common-secondary-active);
 }
 
-.button_primary {
+.button_mode_primary {
 	--button-text-color: var(--color-text-inverse);
 	--button-bg: var(--color-common-primary);
 }
 
-.button_primary:hover {
+.button_mode_primary:hover {
 	--button-bg: var(--color-common-primary-hover);
 }
 
-.button_primary:active {
+.button_mode_primary:active {
 	--button-bg: var(--color-common-primary-active);
 }
 
 /* Sizes */
 
-.button_l {
+.button_size_l {
 	--button-height: var(--space-size-l);
 	--button-padding: 0 var(--space-gap-m);
 	--button-gap: var(--space-gap-3xs);
@@ -98,7 +98,7 @@
 	--button-superellipse-level: var(--superellipse-level-l);
 }
 
-.button_xl {
+.button_size_xl {
 	--button-height: var(--space-size-xl);
 	--button-padding: 0 var(--space-gap-l);
 	--button-gap: var(--space-gap-xxs);

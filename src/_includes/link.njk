@@ -3,8 +3,8 @@
 {% macro link(
 	text = 'Link',
 	href = '',
-	mode = 'base',
-	size = 'xs',
+	mode = '',
+	size = '',
 	icon = 'link',
 	external = false,
 	target = '',
@@ -13,9 +13,8 @@
 ) %}
 	{% set classes = [
 		'link',
-		'link_' + mode,
-		size != 'xs' and 'link_' + size or '',
-		icon and 'link_' + icon or '',
+		mode and 'link_mode_' + mode or '',
+		size and 'link_size_' + size or '',
 		extraClass
 	] | join(' ') | trim %}
 

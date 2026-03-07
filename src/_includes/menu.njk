@@ -1,16 +1,15 @@
 <ul class="aside__list site-list">
 	{% for item in menu %}
-		{% set menuItemTitle = item.title | replace('_', ' ') %}
 		{% if item.link == page.url %}
 			<li class="site-list__item site-list__item_current">
 				<a href="{{ item.link }}" class="site-list__link" aria-current="page">
-					{{- menuItemTitle -}}
+					{{- item.title -}}
 				</a>
 			</li>
 		{% else %}
 			<li class="site-list__item">
 				<a href="{{ item.link }}" class="site-list__link">
-					{{- menuItemTitle -}}
+					{{- item.title -}}
 				</a>
 			</li>
 		{% endif %}

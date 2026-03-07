@@ -1,45 +1,27 @@
-<ul class="aside__list aside-contacts">
-	<li class="aside-contacts__group">
-		<ul class="aside-contacts__items">
-			{% for item in global.contacts.main %}
-				{% if item.icon == 'email' or item.icon == 'whatsapp' or item.icon == 'telegram' %}
-					<li class="aside-contacts__item aside-contacts__item_{{ item.icon }}">
-						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
-					</li>
-				{% endif %}
-			{% endfor %}
+{% from 'link.njk' import link %}
 
-			{% for item in global.contacts.additional %}
-				{% set extraIcon = item.icon or (item.title | lower | replace('_', '')) %}
-				{% if extraIcon == 'whatsapp' or extraIcon == 'telegram' %}
-					<li class="aside-contacts__item aside-contacts__item_{{ extraIcon }}">
-						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	</li>
+<ul class="aside__list aside-contacts">
+	{% for item in global.contacts.messaging %}
+		<li class="aside-contacts__item">
+			{{ link(
+				text = item.title | replace('_', ' '),
+				href = item.url,
+				size = 'xs',
+				icon = item.icon
+			) }}
+		</li>
+	{% endfor %}
 
 	<li class="aside-contacts__divider" aria-hidden="true"></li>
 
-	<li class="aside-contacts__group">
-		<ul class="aside-contacts__items">
-			{% for item in global.contacts.main %}
-				{% if item.icon != 'email' and item.icon != 'whatsapp' and item.icon != 'telegram' %}
-					<li class="aside-contacts__item aside-contacts__item_{{ item.icon }}">
-						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
-					</li>
-				{% endif %}
-			{% endfor %}
-
-			{% for item in global.contacts.additional %}
-				{% set extraIcon = item.icon or (item.title | lower | replace('_', '')) %}
-				{% if extraIcon != 'whatsapp' and extraIcon != 'telegram' and extraIcon != 'github' %}
-					<li class="aside-contacts__item aside-contacts__item_{{ extraIcon }}">
-						<a href="{{ item.url }}" class="aside-contacts__link">{{ item.title | replace('_', ' ') }}</a>
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	</li>
+	{% for item in global.contacts.socials %}
+		<li class="aside-contacts__item">
+			{{ link(
+				text = item.title | replace('_', ' '),
+				href = item.url,
+				size = 'xs',
+				icon = item.icon
+			) }}
+		</li>
+	{% endfor %}
 </ul>

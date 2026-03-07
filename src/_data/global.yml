@@ -8,11 +8,18 @@ contacts:
   heading: Contacts
   text: Contact me if you interested in working together
   comment: Or just to talk =)
-  main:
+  messaging:
     - title: hi@arturtrifonov.com
       url: mailto:hi@arturtrifonov.com
       icon: email
-    - title: Linked_In
+    - title: WhatsApp
+      url: https://wa.me/qr/D5O7F7DDAEUHK1
+      icon: whatsapp
+    - title: Telegram
+      url: https://t.me/wrgraff
+      icon: telegram
+  socials:
+    - title: LinkedIn
       url: https://www.linkedin.com/in/arturtrifonov/
       icon: linkedin
     - title: Behance
@@ -21,8 +28,3 @@ contacts:
     - title: Dribbble
       url: https://dribbble.com/arturtrifonov
       icon: dribbble
-  additional:
-    - title: Telegram
-      url: https://t.me/wrgraff
-    - title: GitHub
-      url: https://github.com/wrgraff/

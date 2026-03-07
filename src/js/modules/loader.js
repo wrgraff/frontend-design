@@ -77,7 +77,7 @@ const templates = {
 	},
 	detailsButton( url ) {
 		return `
-			<a href="${url}#comment" class="details__button button button_secondary button_small_m button_l button_ico_message" target="_blank">Comment on Behance</a>
+			<a href="${url}#comment" class="details__button button button_mode_secondary button_small_m button_size_l button_ico_message" target="_blank">Comment on Behance</a>
 		`;
 	},
 	nav() {

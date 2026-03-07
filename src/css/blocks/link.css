@@ -12,6 +12,7 @@
 
 .link {
 	display: inline-flex;
+	align-items: center;
 	gap: var(--link-gap);
 
 	color: var(--link-text-color);
@@ -60,13 +61,13 @@ a:not([class]):active {
 
 /* Sizes */
 
-.link_xs {
+.link_size_xs {
 	--link-font: var(--font-text-xs);
 	--link-gap: var(--space-gap-4xs);
 	--link-icon-size: var(--space-size-xxs);
 }
 
-.link_s {
+.link_size_s {
 	--link-font: var(--font-text-s);
 	--link-gap: var(--space-gap-3xs);
 	--link-icon-size: var(--space-size-xs);
