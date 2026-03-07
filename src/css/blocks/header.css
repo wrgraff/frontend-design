@@ -1,20 +1,21 @@
+/* Variables */
+
 .header {
-	--padding: 64px 56px 56px;
-	--logo-width: 243px;
-	--logo-height: 64px;
-	--logo-offset: -16px;
+	--header-padding: 64px 56px 56px;
+	--header-logo-width: 243px;
+	--header-logo-height: 64px;
 }
 
 /* Header */
 
 .header {
-	padding: var(--padding);
+	padding: var(--header-padding);
 }
 
-/* Logo */
+/* Header Logo */
 
 .header__logo {
 	display: inline-block;
-	height: var(--logo-height);
-	width: var(--logo-width);
+	height: var(--header-logo-height);
+	width: var(--header-logo-width);
 }

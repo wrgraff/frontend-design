@@ -9,7 +9,7 @@
 
 @import url('./global.css');
 
-@import url('./blocks/visually-hidden.css');
+@import url('./utilities/visually-hidden.css');
 @import url('./blocks/icon.css');
 @import url('./blocks/button.css');
 @import url('./blocks/link.css');

@@ -1,5 +1,12 @@
+/* Variables */
+
 .icon {
 	--icon-color-alt: var(--color-text-alt);
+}
+
+/* Icon */
+
+.icon {
 	color: currentColor;
 
 	display: block;

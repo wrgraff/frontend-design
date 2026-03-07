@@ -1,35 +1,46 @@
+/* Variables */
+
+.logo {
+	--logo-transition: transform 220ms ease;
+	--logo-hover-scale: 1.035;
+	--logo-name-animation: logo-name-tilt-left 360ms ease-out 1;
+	--logo-name-origin: 50% 50%;
+	--logo-name-fill: var(--color-text-primary);
+	--logo-surname-fill: var(--color-text-base);
+}
+
 /* Logo */
 
 .logo {
 	display: block;
 	height: 100%;
 	transform-origin: center;
-	transition: transform 220ms ease;
+	transition: var(--logo-transition);
 	width: 100%;
 }
 
 .logo__name {
 	transform-box: fill-box;
-	transform-origin: 50% 50%;
+	transform-origin: var(--logo-name-origin);
 }
 
 .logo__dot path,
 .logo__name path {
-	fill: var(--color-text-primary);
+	fill: var(--logo-name-fill);
 }
 
 .logo__surname path {
-	fill: var(--color-text-base);
+	fill: var(--logo-surname-fill);
 }
 
 .header__logo:hover .logo,
 .header__logo:focus-visible .logo {
-	transform: scale(1.035);
+	transform: scale(var(--logo-hover-scale));
 }
 
 .header__logo:hover .logo__name,
 .header__logo:focus-visible .logo__name {
-	animation: logo-name-tilt-left 360ms ease-out 1;
+	animation: var(--logo-name-animation);
 }
 
 @keyframes logo-name-tilt-left {
