@@ -1,0 +1,79 @@
+.timeline {
+	--timeline-padding-left: var(--space-gap-l);
+	--timeline-padding-top: var(--space-gap-xs);
+	--timeline-rail-color: var(--color-border-base);
+	--timeline-icon-size: var(--space-size-s);
+	--timeline-offset-top: var(--space-gap-m);
+	--timeline-icon-color: var(--color-text-primary);
+	--timeline-gap: var(--space-gap-m);
+	--timeline-date-font: var(--font-caption-xs);
+	--timeline-date-color: var(--color-text-alt);
+	--timeline-company-font: var(--font-text-m);
+	--timeline-company-color: var(--color-text-base);
+	--timeline-role-font: var(--font-text-xs);
+	--timeline-role-color: var(--color-text-base);
+	--timeline-description-font: var(--font-text-xs);
+	--timeline-description-color: var(--color-text-secondary);
+	--timeline-icon-margin: var(--space-gap-5xs);
+	--timeline-icon-offset: var(--space-gap-3xs);
+}
+
+/* Timeline */
+
+.timeline {
+	padding: var(--timeline-padding-top) 0 0 var(--timeline-padding-left);
+}
+
+.timeline:not(.timeline_order_last)::before {
+	content: '';
+	position: absolute;
+	left: -1px;
+	top: calc(var(--timeline-icon-size) + var(--timeline-icon-offset) + var(--timeline-icon-margin));
+	bottom: calc(-240px - var(--timeline-icon-margin));
+	width: 2px;
+	border-radius: 2px;
+	background-color: var(--timeline-rail-color);
+}
+
+.timeline__icon {
+	color: var(--timeline-icon-color);
+	position: absolute;
+	top: var(--timeline-icon-offset);
+	left: calc( var(--timeline-icon-size) / -2);
+	transform: rotate(90deg);
+}
+
+.timeline_order_last .timeline__icon  {
+	transform: rotate(-90deg);
+}
+
+.timeline__container {
+	position: sticky;
+	top: var(--timeline-offset-top);
+}
+
+.timeline__date {
+	color: var(--timeline-date-color);
+	font: var(--timeline-date-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	margin: 0 0 var(--timeline-gap);
+	text-transform: var(--font-caption-transform);
+}
+
+.timeline__company {
+	color: var(--timeline-company-color);
+	font: var(--timeline-company-font);
+	margin: 0;
+}
+
+.timeline__role {
+	color: var(--timeline-role-color);
+	font: var(--timeline-role-font);
+	margin: 0;
+}
+
+.timeline__description {
+	color: var(--timeline-description-color);
+	font: var(--timeline-description-font);
+	margin: var(--timeline-gap) 0 0;
+}

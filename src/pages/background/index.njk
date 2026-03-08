@@ -1,15 +1,17 @@
 {% from 'hero.njk' import heroSection %}
-{% from 'section.njk' import section %}
+{% from 'timeline-section.njk' import timelineSection %}
 
 {{ heroSection(hero) }}
 
 {% for sectionItem in sections %}
-	{{ section({
+	{{ timelineSection({
 		id: sectionItem.id,
 		pretitle: sectionItem.pretitle,
 		heading: sectionItem.heading,
 		lead: sectionItem.lead,
+		details: sectionItem.details,
 		content: sectionItem.content,
-		cta: sectionItem.cta
+		conclusion: sectionItem.conclusion,
+		timeline: sectionItem.timeline
 	}) }}
 {% endfor %}

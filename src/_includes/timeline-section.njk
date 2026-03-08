@@ -1,0 +1,78 @@
+{% from 'icon.njk' import icon %}
+
+{% macro timelineSection(data = {}) %}
+	{% set sectionClasses = [
+		'main__section',
+		'section',
+		'section_view_timeline',
+		data.extra_class or ''
+	] | join(' ') | trim %}
+	{% set timelineClasses = [
+		'section__timeline',
+		'timeline',
+		data.timeline and data.timeline.order == 'last' and 'timeline_order_last' or ''
+	] | join(' ') | trim %}
+
+	<section class="{{ sectionClasses }}"{% if data.id %} id="{{ data.id }}"{% endif %}>
+		<header class="section__header">
+			{% if data.pretitle %}
+				<p class="section__eyebrow">
+					{{ (data.pretitle | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+				</p>
+			{% endif %}
+
+			{% if data.heading %}
+				<h2 class="section__heading">
+					{{ (data.heading | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+				</h2>
+			{% endif %}
+		</header>
+
+		{% if data.lead %}
+			<div class="section__lead">
+				{{ data.lead | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if data.content or (data.details and (data.details | length)) or data.conclusion %}
+			<div class="section__content">
+				{% if data.content %}
+					{{ data.content | markdown | safe }}
+				{% endif %}
+
+				{% if data.details and (data.details | length) %}
+					<ul>
+						{% for detailItem in data.details %}
+							<li>{{ detailItem | markdown | trim | replace('<p>', '') | replace('</p>', '') | safe }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+
+				{% if data.conclusion %}
+					{{ data.conclusion | markdown | safe }}
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if data.timeline %}
+			<aside class="{{ timelineClasses }}" aria-label="Timeline">
+				{{ icon('arrows/destination_right', 'timeline__icon') }}
+
+				<div class="timeline__container">
+					{% if data.timeline.date %}
+						<p class="timeline__date">{{ data.timeline.date }}</p>
+					{% endif %}
+					{% if data.timeline.company %}
+						<p class="timeline__company">{{ data.timeline.company }}</p>
+					{% endif %}
+					{% if data.timeline.role %}
+						<p class="timeline__role">{{ data.timeline.role }}</p>
+					{% endif %}
+					{% if data.timeline.description %}
+						<p class="timeline__description">{{ data.timeline.description }}</p>
+					{% endif %}
+				</div>
+			</aside>
+		{% endif %}
+	</section>
+{% endmacro %}

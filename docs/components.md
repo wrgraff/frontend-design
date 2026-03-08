@@ -151,3 +151,26 @@ Behavior:
 Constraints:
 - Use either markdown content (`data.content`) or caller HTML for structured blocks; avoid mixing when not needed.
 - For `kind: link`, provide `href`.
+
+## timelineSection
+
+Source: `src/_includes/timeline-section.njk`  
+Signature: `timelineSection(data = {})`
+
+Inputs (`data` object):
+- `id` (optional, string)
+- `extra_class` (optional, string)
+- `pretitle` (optional, markdown string)
+- `heading` (optional, markdown string)
+- `lead` (optional, markdown string)
+- `details` (optional, array of markdown strings)
+- `content` (optional, markdown string)
+- `conclusion` (optional, markdown string)
+- `timeline` (optional, object)
+
+Inputs (`timeline` object):
+- `date` (optional, string)
+- `company` (optional, string)
+- `role` (optional, string)
+- `description` (optional, string)
+- `order` (optional, string): `last` adds `timeline_order_last` modifier

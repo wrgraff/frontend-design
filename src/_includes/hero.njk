@@ -27,7 +27,7 @@
 					(ctaItem.text | default('Button') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
 					ctaItem.href or '',
 					ctaItem.mode or 'secondary',
-					ctaItem.size or 'l',
+					ctaItem.size or 'xl',
 					(ctaItem.subtext | default('') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
 					ctaItem.icon_left or '',
 					ctaItem.icon_right or '',
