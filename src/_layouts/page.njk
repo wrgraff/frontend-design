@@ -35,6 +35,12 @@
 		<main class="page__main main">
 			{% include "header.njk" %}
 			{{ content | safe }}
+
+			<div class="main__grid" aria-hidden="true">
+				{% for _ in [1, 2, 3, 4, 5] %}
+					<div class="main__column"></div>
+				{% endfor %}
+			</div>
 		</main>
 
 		{% include "aside.njk" %}
