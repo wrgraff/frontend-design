@@ -12,6 +12,7 @@ const Typograf = require('typograf');
 const typograf = new Typograf({
 	locale: ['en-GB']
 });
+typograf.setSetting('common/nbsp/beforeShortLastWord', 'lengthLastWord', 999);
 
 const DEFAULT_I18N_CONFIG = {
 	defaultLocale: 'en',
@@ -129,6 +130,21 @@ function localizePath(href, localeOrUrl) {
 	return `${localizedPath}${suffix}`;
 }
 
+function widont(value) {
+	const text = String(value ?? '');
+	return text.replace(/(\S)\s+(\S+)\s*$/u, '$1\u00A0$2');
+}
+
+function widontHtml(content) {
+	return String(content ?? '').replace(/>([^<]+)</g, (match, textNode) => {
+		if (!/\S/u.test(textNode)) {
+			return match;
+		}
+
+		return `>${widont(textNode)}<`;
+	});
+}
+
 module.exports = function (config) {
 	const isProduction = process.env.ELEVENTY_ENV === 'production';
 	const byOrder = (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0);
@@ -210,6 +226,10 @@ module.exports = function (config) {
 		return localizePath(href, localeOrUrl);
 	});
 
+	config.addFilter('widont', (value) => {
+		return widont(value);
+	});
+
     // Collections
 
     const collections = {
@@ -258,7 +278,7 @@ module.exports = function (config) {
 			return content;
 		}
 
-		return typograf.execute(content);
+		return widontHtml(typograf.execute(content));
 	});
 
 	// Passthrough copy
