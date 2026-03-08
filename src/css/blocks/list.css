@@ -1,0 +1,88 @@
+/* Variables */
+
+.list,
+:where(ul, ol):not([class]) {
+	--list-columns: 1;
+	--list-gap: var(--space-gap-l);
+	--list-item-gap: var(--space-gap-xxs);
+	--list-item-font: var(--font-text-s);
+	--list-item-color: var(--color-text-base);
+	--list-order-font: var(--font-caption-xs);
+	--list-order-color: var(--color-text-alt);
+	--list-order-border-width: var(--space-border-light);
+	--list-order-border-color: var(--color-border-base);
+	--list-order-padding-bottom: var(--space-gap-3xs);
+	--list-marker-width: var(--space-size-xl);
+	--list-marker-border-width: var(--space-border-medium);
+	--list-marker-border-color: var(--color-text-alt);
+}
+
+/* List */
+
+.list,
+:where(ul, ol):not([class]) {
+	align-content: start;
+	display: grid;
+	gap: var(--list-gap);
+	grid-template-columns: repeat(var(--list-columns), minmax(0, 1fr));
+	list-style: none;
+	padding: 0;
+}
+
+.list__item,
+:where(ul, ol):not([class]) > li {
+	align-content: start;
+	color: var(--list-item-color);
+	display: grid;
+	font: var(--list-item-font);
+	gap: var(--list-item-gap);
+	margin: 0;
+	min-width: 0;
+}
+
+/* Ordered */
+
+.list_type_ordered,
+ol:not([class]) {
+	counter-reset: list-item;
+}
+
+.list_type_ordered .list__item,
+ol:not([class]) > li {
+	counter-increment: list-item;
+}
+
+.list_type_ordered .list__item::before,
+ol:not([class]) > li::before {
+	border-bottom: var(--list-order-border-width) solid var(--list-order-border-color);
+	color: var(--list-order-color);
+	content: counter(list-item, decimal-leading-zero);
+	font: var(--list-order-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	padding-bottom: var(--list-order-padding-bottom);
+	text-transform: var(--font-caption-transform);
+}
+
+.list_type_ordered .list__item[data-list-label]::before,
+ol:not([class]) > li[data-list-label]::before {
+	content: attr(data-list-label);
+}
+
+/* Unordered */
+
+.list:not(.list_type_ordered) .list__item::before,
+ul:not([class]) > li::before {
+	border-top: var(--list-marker-border-width) solid var(--list-marker-border-color);
+	content: '';
+	width: var(--list-marker-width);
+}
+
+/* Columns */
+
+.list_columns_2 {
+	--list-columns: 2;
+}
+
+.list_columns_3 {
+	--list-columns: 3;
+}

@@ -1,4 +1,5 @@
-.link {
+.link,
+a:not([class]) {
 	--link-text-color: var(--color-text-base);
 	--link-font: var(--font-label-m);
 	--link-gap: var(--space-gap-xxs);
@@ -11,19 +12,20 @@
 
 /* Link */
 
+.link,
+a:not([class]) {
+	color: var(--link-text-color);
+	font: var(--link-font);
+	letter-spacing: var(--font-text-letterspacing);
+	text-transform: var(--font-text-transform);
+	transition: color var(--transition-element-duration) var(--transition-element-function);
+}
+
 .link {
 	align-items: center;
-
-	color: var(--link-text-color);
 	display: inline-flex;
-
-	font: var(--link-font);
 	gap: var(--link-gap);
-	letter-spacing: var(--font-text-letterspacing);
 	text-decoration: none;
-	text-transform: var(--font-text-transform);
-
-	transition: color var(--transition-element-duration) var(--transition-element-function);
 }
 
 .link:hover {
@@ -40,26 +42,22 @@
 
 /* Plain links */
 
+.link__text,
 a:not([class]) {
-	color: var(--link-text-color);
-	font: var(--link-font);
-	letter-spacing: var(--font-text-letterspacing);
 	text-decoration: underline;
 	text-decoration-color: var(--link-underline-color);
 	text-decoration-thickness: var(--space-border-light);
-	text-transform: var(--font-text-transform);
 	text-underline-offset: var(--link-underline-offset);
-	transition:
-		color var(--transition-element-duration) var(--transition-element-function),
-		text-decoration-color var(--transition-element-duration) var(--transition-element-function);
+	transition: text-decoration-color var(--transition-element-duration) var(--transition-element-function);
 }
 
+.link:hover .link__text,
 a:not([class]):hover {
 	text-decoration-color: var(--color-text-primary);
 }
 
+.link:active .link__text,
 a:not([class]):active {
-	color: var(--color-text-alt);
 	text-decoration-color: var(--color-text-alt);
 }
 
@@ -96,12 +94,4 @@ a:not([class]):active {
 .link__external {
 	height: var(--link-icon-size);
 	width: var(--link-external-size);
-}
-
-.link__text {
-	text-decoration: underline;
-	text-decoration-color: var(--link-underline-color);
-	text-decoration-thickness: var(--space-border-light);
-	text-underline-offset: var(--link-underline-offset);
-	transition: text-decoration-color var(--transition-element-duration) var(--transition-element-function);
 }

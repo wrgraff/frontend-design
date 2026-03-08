@@ -35,10 +35,9 @@
 	heading: approach_to_work.heading,
 	lead: approach_to_work.intro
 }) %}
-	<ol>
+	<ol class="section__list list list_type_ordered list_columns_2">
 		{% for step in approach_to_work.steps %}
-			<li>
-				<p>{{ step.label }}</p>
+			<li class="list__item"{% if step.label %} data-list-label="{{ step.label }}"{% endif %}>
 				<p>{{ step.text }}</p>
 			</li>
 		{% endfor %}
@@ -53,23 +52,29 @@
 }) %}
 
 	<h3>Locations</h3>
-	<ul>
+	<ul class="section__list list">
 		{% for location in contacts.locations %}
-			<li>{{ location }}</li>
+			<li class="list__item">
+				{{ location }}
+			</li>
 		{% endfor %}
 	</ul>
 
 	<h3>Direct contacts</h3>
-	<ul>
+	<ul class="section__list list">
 		{% for contact in contacts.direct_contacts %}
-			<li>{{ contact }}</li>
+			<li class="list__item">
+				{{ contact }}
+			</li>
 		{% endfor %}
 	</ul>
 
 	<h3>Social links</h3>
-	<ul>
+	<ul class="section__list list">
 		{% for link in contacts.social_links %}
-			<li>{{ link }}</li>
+			<li class="list__item">
+				{{ link }}
+			</li>
 		{% endfor %}
 	</ul>
 {% endcall %}

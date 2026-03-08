@@ -75,7 +75,8 @@ Forbidden:
   - define block variables at block root (`--button-*`, `--link-*`);
   - in states (`:hover`, `:active`), override variables instead of duplicating full property sets;
   - modifiers should change variables, not rewrite full block styling.
-- Hairline rules: use `--space-border-hair` (or any "hairline" width) only inside a retina/HiDPI media query such as `(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)`.
+- Border widths must follow the design spec (`light`, `medium`, `bold`, etc.). Do not use `hair` unless the design explicitly calls for a hairline.
+- If design explicitly calls for `hair`: keep default non-retina width at `light`, and switch to `--space-border-hair` only inside a retina/HiDPI media query such as `(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)`.
 
 Principles:
 
@@ -86,8 +87,16 @@ Principles:
 - Avoid selector chains and combinators (`.block .block__el`, `.block > .block__el`) when a plain BEM selector is enough (`.block__el`).
 - Do not increase specificity “for safety”; solve collisions via block structure, source order, and variables.
 
+Soft convention (non-strict, do not lint):
+
+- In block CSS files, split block root into two separate sections.
+- First declaration of `.block` should contain variables only.
+- Second declaration of `.block` should contain style declarations only.
+
 ## BEM Layout Boundaries (Mandatory)
 
+- In `src/css/blocks/<block>.css`, selectors must target only that block: `.block`, `.block__element`, `.block_modifier_value`, `.block__element_modifier_value`.
+- Cross-block and contextual selectors are forbidden in block files (examples: `.section .block`, `.other-block__el`, tag styling through parent blocks).
 - BEM block selector (`.block`) must not set `margin`.
 - BEM block selector (`.block`) may set only `z-index: 0` (for local stacking scope). Any other `z-index` value on block root is forbidden.
 - BEM block selector (`.block`) must not set `position: absolute`.
