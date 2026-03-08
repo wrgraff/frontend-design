@@ -113,6 +113,7 @@
 /* Elements */
 
 .button__subtext {
+	margin-top: .08rem;
 
 	color: var(--button-subtext-color);
 

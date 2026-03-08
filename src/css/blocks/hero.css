@@ -4,7 +4,7 @@
 	--hero-img-size: 680px;
 	--hero-padding: 120px 80px;
 	--hero-gap: var(--space-gap-l);
-	--hero-columns: repeat(5, 1fr);
+	--hero-columns: 5;
 	--hero-z-index: 0;
 	--hero-heading-column: 1 / 5;
 	--hero-text-column: 1 / 4;
@@ -25,7 +25,7 @@
 .hero {
 	display: grid;
 	gap: var(--hero-gap);
-	grid-template-columns: var(--hero-columns);
+	grid-template-columns: repeat(var(--hero-columns), 1fr);
 	padding: var(--hero-padding);
 	position: relative;
 	z-index: var(--hero-z-index);

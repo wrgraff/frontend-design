@@ -3,7 +3,7 @@
 .section {
 	--section-gap: var(--space-gap-l);
 	--section-padding: 120px 80px;
-	--section-columns: repeat(5, minmax(0, 1fr));
+	--section-columns: 5;
 	--section-header-gap: var(--space-gap-xxs);
 	--section-header-border: var(--space-border-light) solid var(--color-border-base);
 	--section-header-padding-bottom: var(--space-gap-xxs);
@@ -27,7 +27,7 @@
 .section {
 	display: grid;
 	gap: var(--section-gap);
-	grid-template-columns: var(--section-columns);
+	grid-template-columns: repeat(var(--section-columns), minmax(0, 1fr));
 	padding: var(--section-padding);
 }
 
