@@ -10,6 +10,7 @@
 	--button-subtext-font: var(--font-text-xs);
 	--button-subtext-color: var(--color-text-secondary);
 	--button-icon-size: var(--space-size-xxs);
+	--button-icon-compensation-offset: -.15rem;
 	--button-radius: var(--radius-m);
 	--button-superellipse-radius: var(--superellipse-radius-m);
 	--button-superellipse-level: var(--superellipse-level-m);
@@ -129,11 +130,13 @@
 	width: var(--button-icon-size);
 }
 
-.button__icon:first-child {
+.button__icon_position_left {
 	margin-right: var(--button-gap);
+	margin-left: var(--button-icon-compensation-offset);
 }
 
-.button__icon:last-child {
+.button__icon_position_right {
+	margin-right: var(--button-icon-compensation-offset);
 	margin-left: var(--button-gap);
 }
 

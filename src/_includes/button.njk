@@ -12,6 +12,7 @@
 	extraClass = '',
 	download = false
 ) %}
+	{% set hasSubtext = (subtext | striptags | trim | length) %}
 	{% set classes = [
 		'button',
 		mode and 'button_mode_' + mode or '',
@@ -22,38 +23,40 @@
 		'button__icon',
 		mode == 'primary' and 'icon_inverse' or ''
 	] | join(' ') | trim %}
+	{% set iconLeftClasses = (iconClasses + ' button__icon_position_left') | trim %}
+	{% set iconRightClasses = (iconClasses + ' button__icon_position_right') | trim %}
 
 	{% if href %}
 		<a href="{{ href }}" class="{{ classes }}"{% if download %}{% if download == true %} download{% else %} download="{{ download }}"{% endif %}{% endif %}>
 			{% if iconLeft %}
-				{{ icon(iconLeft, iconClasses) }}
+				{{ icon(iconLeft, iconLeftClasses) }}
 			{% endif %}
 
 			{{ text }}
 
-			{% if subtext %}
+			{% if hasSubtext > 0 %}
 				<span class="button__subtext">{{ subtext }}</span>
 			{% endif %}
 
 			{% if iconRight %}
-				{{ icon(iconRight, iconClasses) }}
+				{{ icon(iconRight, iconRightClasses) }}
 			{% endif %}
 		</a>
 	{% else %}
 		<button type="{{ type }}" class="{{ classes }}">
 			{% if iconLeft %}
-				{{ icon(iconLeft, iconClasses) }}
+				{{ icon(iconLeft, iconLeftClasses) }}
 			{% endif %}
 
 			<span class="button__text-wrap">
 				<span class="button__text">{{ text }}</span>
-				{% if subtext %}
+				{% if hasSubtext > 0 %}
 					<span class="button__subtext">{{ subtext }}</span>
 				{% endif %}
 			</span>
 
 			{% if iconRight %}
-				{{ icon(iconRight, iconClasses) }}
+				{{ icon(iconRight, iconRightClasses) }}
 			{% endif %}
 		</button>
 	{% endif %}
