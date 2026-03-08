@@ -55,10 +55,145 @@ function reqBoolean(file, field, value) {
 	return value;
 }
 
+function reqNumber(file, field, value) {
+	if (typeof value !== 'number' || Number.isNaN(value)) {
+		fail(file, field, 'must be a number');
+		return null;
+	}
+	return value;
+}
+
 async function loadYaml(relPath) {
 	const absPath = path.join(ROOT, relPath);
 	const raw = await fs.readFile(absPath, 'utf8');
 	return yaml.load(raw);
+}
+
+async function loadMarkdownFrontMatter(relPath) {
+	const absPath = path.join(ROOT, relPath);
+	const raw = await fs.readFile(absPath, 'utf8');
+	const match = raw.match(/^---\n([\s\S]*?)\n---/);
+
+	if (!match) {
+		fail(relPath, 'frontmatter', 'is required');
+		return null;
+	}
+
+	try {
+		const data = yaml.load(match[1]);
+		if (!isObject(data)) {
+			fail(relPath, 'frontmatter', 'must be a YAML object');
+			return null;
+		}
+		return data;
+	} catch (error) {
+		fail(relPath, 'frontmatter', `cannot be parsed: ${error.message}`);
+		return null;
+	}
+}
+
+async function listCollectionEntryFiles(collectionDir) {
+	const absCollectionDir = path.join(ROOT, collectionDir);
+	const entries = await fs.readdir(absCollectionDir, { withFileTypes: true });
+
+	return entries
+		.filter((entry) => entry.isDirectory())
+		.map((entry) => path.posix.join(collectionDir, entry.name, 'index.md'));
+}
+
+function validatePortfolioEntry(file, data) {
+	const root = reqObject(file, 'root', data);
+	if (!root) return;
+
+	reqString(file, 'layout', root.layout);
+	reqString(file, 'title', root.title);
+	reqNumber(file, 'order', root.order);
+
+	const external = root.external;
+	if (external !== undefined && typeof external !== 'boolean' && typeof external !== 'string') {
+		fail(file, 'external', 'must be a boolean or a string');
+	}
+
+	if (root.nda !== undefined) reqBoolean(file, 'nda', root.nda);
+
+	const imgs = reqArray(file, 'imgs', root.imgs);
+	if (imgs && imgs.length === 0) {
+		fail(file, 'imgs', 'must contain at least one item');
+	}
+	if (imgs) {
+		imgs.forEach((item, index) => {
+			const base = `imgs[${index}]`;
+			if (typeof item === 'string') {
+				reqString(file, base, item);
+				return;
+			}
+
+			const obj = reqObject(file, base, item);
+			if (!obj) return;
+			reqString(file, `${base}.type`, obj.type);
+			reqString(file, `${base}.name`, obj.name);
+		});
+	}
+
+	if (root.tags !== undefined) {
+		const tags = reqArray(file, 'tags', root.tags);
+		if (tags) tags.forEach((tag, index) => reqString(file, `tags[${index}]`, tag));
+	}
+}
+
+function validatePublicationsEntry(file, data) {
+	const root = reqObject(file, 'root', data);
+	if (!root) return;
+
+	reqString(file, 'title', root.title);
+	reqNumber(file, 'order', root.order);
+	reqString(file, 'kind', root.kind);
+	optString(file, 'description', root.description);
+
+	if (root.kind !== 'article' && root.kind !== 'video') {
+		fail(file, 'kind', 'must be "article" or "video"');
+		return;
+	}
+
+	const external = reqBoolean(file, 'external', root.external);
+	if (external === null) return;
+
+	if (root.kind === 'article') {
+		if (external) {
+			const externalUrl = reqString(file, 'external_url', root.external_url);
+			if (externalUrl && !/^https?:\/\//.test(externalUrl)) {
+				fail(file, 'external_url', 'must start with http:// or https://');
+			}
+			optString(file, 'source_label', root.source_label);
+			if (root.permalink !== false) {
+				fail(file, 'permalink', 'must be false for external article');
+			}
+		} else {
+			reqString(file, 'layout', root.layout);
+			const hero = reqObject(file, 'hero', root.hero);
+			if (hero) {
+				reqString(file, 'hero.heading', hero.heading);
+				reqString(file, 'hero.text', hero.text);
+			}
+		}
+	}
+
+	if (root.kind === 'video') {
+		if (!external) {
+			fail(file, 'external', 'must be true for video');
+		}
+		const youtubeUrl = reqString(file, 'youtube_url', root.youtube_url);
+		if (youtubeUrl && !/^https?:\/\//.test(youtubeUrl)) {
+			fail(file, 'youtube_url', 'must start with http:// or https://');
+		}
+		const slidesUrl = optString(file, 'slides_url', root.slides_url);
+		if (slidesUrl && !/^https?:\/\//.test(slidesUrl)) {
+			fail(file, 'slides_url', 'must start with http:// or https://');
+		}
+		if (root.permalink !== false) {
+			fail(file, 'permalink', 'must be false for video');
+		}
+	}
 }
 
 function validateCta(file, field, cta) {
@@ -241,11 +376,23 @@ function validateI18n(file, data) {
 
 async function main() {
 	const i18n = await loadYaml('src/_data/i18n.yml');
+	const portfolioFiles = await listCollectionEntryFiles('src/portfolio');
+	const publicationsFiles = await listCollectionEntryFiles('src/publications');
 
 	validateHome('src/pages/home/index.yml', await loadYaml('src/pages/home/index.yml'));
 	validateGlobal('src/_data/global.yml', await loadYaml('src/_data/global.yml'));
 	validateMenu('src/_data/menu.yml', await loadYaml('src/_data/menu.yml'), Array.isArray(i18n?.locales) ? i18n.locales : []);
 	validateI18n('src/_data/i18n.yml', i18n);
+
+	for (const file of portfolioFiles) {
+		const data = await loadMarkdownFrontMatter(file);
+		if (data) validatePortfolioEntry(file, data);
+	}
+
+	for (const file of publicationsFiles) {
+		const data = await loadMarkdownFrontMatter(file);
+		if (data) validatePublicationsEntry(file, data);
+	}
 
 	if (!errors.length) {
 		console.log('Content contracts: OK');
