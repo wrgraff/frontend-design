@@ -1,5 +1,6 @@
 {% from 'hero.njk' import heroSection %}
 {% from 'section.njk' import section %}
+{% from 'label.njk' import label %}
 
 {{ heroSection(hero) }}
 
@@ -22,7 +23,7 @@
 				<p>{{ item.description }}</p>
 				<ul>
 					{% for tag in item.tags %}
-						<li>{{ tag }}</li>
+						<li>{{ label(tag) }}</li>
 					{% endfor %}
 				</ul>
 			</li>

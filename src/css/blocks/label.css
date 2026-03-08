@@ -1,0 +1,72 @@
+.label {
+	--label-text-color: var(--color-text-base);
+	--label-bg: var(--color-common-secondary);
+	--label-border-color: var(--color-border-base);
+	--label-height: var(--space-size-m);
+	--label-padding-inline: var(--space-gap-xxs);
+	--label-font: var(--font-caption-s);
+	--label-letterspacing: var(--font-caption-letterspacing);
+	--label-transform: var(--font-caption-transform);
+	--label-radius: var(--radius-xs);
+	--label-superellipse-radius: var(--superellipse-radius-xs);
+	--label-superellipse-level: var(--superellipse-level-xs);
+	--label-border-light-width: var(--space-border-light);
+	--label-border-hair-width: var(--space-border-light);
+}
+
+/* Label */
+
+.label {
+	align-items: center;
+	background-color: var(--label-bg);
+	border-bottom: var(--label-border-hair-width) solid var(--label-border-color);
+	border-left: var(--label-border-light-width) solid var(--label-border-color);
+	border-radius: var(--label-radius);
+	border-right: var(--label-border-light-width) solid var(--label-border-color);
+	border-top: var(--label-border-hair-width) solid var(--label-border-color);
+	color: var(--label-text-color);
+	display: inline-flex;
+	font: var(--label-font);
+	height: var(--label-height);
+	justify-content: center;
+	letter-spacing: var(--label-letterspacing);
+	padding-inline: var(--label-padding-inline);
+	text-transform: var(--label-transform);
+	white-space: nowrap;
+}
+
+@supports (corner-shape: superellipse(1)) {
+	.label {
+		border-radius: var(--label-superellipse-radius);
+		corner-shape: var(--label-superellipse-level);
+	}
+}
+
+/* Modes */
+
+.label_mode_primary {
+	--label-text-color: var(--color-text-inverse);
+	--label-bg: var(--color-common-primary);
+}
+
+.label_mode_special {
+	--label-text-color: var(--color-text-base);
+	--label-bg: var(--color-surface-special-amber);
+}
+
+/* Sizes */
+
+.label_size_m {
+	--label-height: var(--space-size-s);
+	--label-padding-inline: var(--space-gap-3xs);
+	--label-font: var(--font-caption-xs);
+	--label-radius: var(--radius-m);
+	--label-superellipse-radius: var(--superellipse-radius-m);
+	--label-superellipse-level: var(--superellipse-level-m);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.label {
+		--label-border-hair-width: var(--space-border-hair);
+	}
+}

@@ -1,0 +1,17 @@
+{% macro label(
+	text = 'Label text',
+	mode = '',
+	size = '',
+	extraClass = ''
+) %}
+	{% set classes = [
+		'label',
+		mode and mode != 'default' and 'label_mode_' + mode or '',
+		size and size != 'l' and 'label_size_' + size or '',
+		extraClass
+	] | join(' ') | trim %}
+
+	<span class="{{ classes }}">
+		{{ text }}
+	</span>
+{% endmacro %}

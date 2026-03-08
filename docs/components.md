@@ -54,6 +54,20 @@ Inputs:
 Constraints:
 - If `href` is empty, `type` should be valid button type (`button|submit|reset`).
 
+## label
+
+Source: `src/_includes/label.njk`  
+Signature: `label(text='Label text', mode='', size='', extraClass='')`
+
+Inputs:
+- `text` (required, string)
+- `mode` (optional, string): supports `primary` and `special`; `default` is base state and is rendered without modifier class
+- `size` (optional, string): supports `m`; `l` is base state and is rendered without modifier class
+- `extraClass` (optional, string)
+
+Constraints:
+- Macro returns non-interactive `<span>` and must not be used as link/button replacement.
+
 ## heroSection
 
 Source: `src/_includes/hero.njk`  

@@ -13,6 +13,7 @@
 	--button-radius: var(--radius-m);
 	--button-superellipse-radius: var(--superellipse-radius-m);
 	--button-superellipse-level: var(--superellipse-level-m);
+	--button-border-width: var(--space-border-light);
 }
 
 .button:hover {
@@ -30,7 +31,7 @@
 .button {
 	align-items: center;
 	background-color: var(--button-bg);
-	border: var(--space-border-light) solid var(--color-border-base);
+	border: var(--button-border-width) solid var(--color-border-base);
 	border-radius: var(--button-radius);
 	box-shadow: var(--button-shadow-static);
 
@@ -134,4 +135,10 @@
 
 .button__icon:last-child {
 	margin-left: var(--button-gap);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.button {
+		--button-border-width: var(--space-border-hair);
+	}
 }

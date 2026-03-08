@@ -22,6 +22,7 @@
 .list,
 :where(ul, ol):not([class]) {
 	align-content: start;
+	justify-items: start;
 	display: grid;
 	gap: var(--list-gap);
 	grid-template-columns: repeat(var(--list-columns), minmax(0, 1fr));
