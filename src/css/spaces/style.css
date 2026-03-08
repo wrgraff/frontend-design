@@ -20,7 +20,8 @@
 	--space-gap-l: 30px;
 	--space-gap-xl: 35px;
 
-	--space-border-hair: 0.5px;
+	/* Temporary fallback until browser rendering of hairline borders is evaluated. */
+	--space-border-hair: var(--space-border-light);
 	--space-border-light: 1px;
 	--space-border-medium: 2px;
 	--space-border-bold: 3px;

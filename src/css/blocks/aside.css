@@ -10,6 +10,7 @@
 	--aside-radius: 0;
 	--aside-superellipse-radius: 0;
 	--aside-superellipse-level: 0;
+	--aside-shadow: var(--shadow-level-4);
 
 	--aside-copy-icon-size: var(--space-size-xxs);
 	--aside-copy-padding: var(--space-gap-xs);
@@ -45,6 +46,7 @@
 	border: var(--aside-border-width) solid var(--color-border-base);
 	border-radius: var(--aside-radius);
 	border-style: var(--aside-border-style);
+	box-shadow: var(--aside-shadow);
 	height: var(--aside-height);
 	padding: var(--aside-padding);
 	position: sticky;
