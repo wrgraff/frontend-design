@@ -3,7 +3,7 @@ permalink: index.html
 hero:
   heading: Hi, I’m **Artur** — Product Designer
   text: I build data-heavy interfaces, scalable systems, and analytics tools — turning complexity into calm
-  image: /img/main/hero.png
+  image: /img/home/hero.png
   image_alt: Artur Trifonov portrait
   cta:
     - text: Watch intro
@@ -16,10 +16,9 @@ hero:
       download: true
       mode: base
       size: l
-      subtext: PDF, 500KB
+      subtext: PDF, 248KB
       icon_left: files/file_profile
       type: link
-  portrait: true
 
 my_design_journey:
   pretitle: Why I am here

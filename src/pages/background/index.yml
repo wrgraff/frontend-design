@@ -1,7 +1,24 @@
 title: My Background
 hero:
-  heading: My background
-  text: I moved from visual and interaction design into product work for complex B2B systems.
+  heading: My design journey
+  text: "Over time, I moved from web design to complex product UI: data-heavy interfaces, design systems, and implementation-ready specs"
+  image: /img/background/hero.png
+  image_alt: Background page hero illustration
+  cta:
+    - text: Check portfolio
+      href: /portfolio/
+      mode: primary
+      size: l
+      icon_left: romance-and-wedding/baggage_heart
+      type: button
+    - text: Download CV
+      href: /files/atrifonov-cv-en.pdf
+      download: true
+      mode: base
+      size: l
+      subtext: PDF, 248KB
+      icon_left: files/file_profile
+      type: link
 sections:
   - pretitle: Journey
     heading: Path to product design
