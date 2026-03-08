@@ -75,6 +75,7 @@ Forbidden:
   - define block variables at block root (`--button-*`, `--link-*`);
   - in states (`:hover`, `:active`), override variables instead of duplicating full property sets;
   - modifiers should change variables, not rewrite full block styling.
+- Hairline rules: use `--space-border-hair` (or any "hairline" width) only inside a retina/HiDPI media query such as `(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)`.
 
 Principles:
 
