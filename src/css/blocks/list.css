@@ -21,22 +21,22 @@
 
 .list,
 :where(ul, ol):not([class]) {
+	list-style: none;
+	padding: 0;
+}
+
+.list {
 	align-content: start;
 	justify-items: start;
 	display: grid;
 	gap: var(--list-gap);
 	grid-template-columns: repeat(var(--list-columns), minmax(0, 1fr));
-	list-style: none;
-	padding: 0;
 }
 
-.list__item,
-:where(ul, ol):not([class]) > li {
+.list__item {
 	align-content: start;
 	color: var(--list-item-color);
-	display: grid;
 	font: var(--list-item-font);
-	gap: var(--list-item-gap);
 	margin: 0;
 	min-width: 0;
 }
@@ -55,6 +55,8 @@ ol:not([class]) > li {
 
 .list_type_ordered .list__item::before,
 ol:not([class]) > li::before {
+	display: block;
+	margin-bottom: var(--list-item-gap);
 	border-bottom: var(--list-order-border-width) solid var(--list-order-border-color);
 	color: var(--list-order-color);
 	content: counter(list-item, decimal-leading-zero);
@@ -73,7 +75,10 @@ ol:not([class]) > li[data-list-label]::before {
 
 .list:not(.list_type_ordered) .list__item::before,
 ul:not([class]) > li::before {
-	border-top: var(--list-marker-border-width) solid var(--list-marker-border-color);
+	display: block;
+	margin-bottom: var(--list-item-gap);
+	height: var(--list-marker-border-width);
+	background-color: var(--list-marker-border-color);
 	content: '';
 	width: var(--list-marker-width);
 }

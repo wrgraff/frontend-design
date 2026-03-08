@@ -9,6 +9,18 @@ img {
 	max-width: 100%;
 }
 
+::selection {
+	background-color: var(--color-common-primary);
+	color: var(--color-text-inverse);
+}
+
+/* Focus */
+
+:focus-visible {
+	outline: var(--space-border-medium) solid var(--color-common-primary);
+	outline-offset: var(--space-gap-5xs);
+}
+
 strong {
 	color: var(--color-text-primary);
 	font-weight: inherit;
@@ -27,7 +39,7 @@ strong {
 	text-transform: var(--font-heading-transform);
 }
 
-:where(p, ul, ol, dl, blockquote, pre, figure) {
+:where(p, ul, ol, dl, blockquote, pre, figure, li) {
 	margin-block: 0.36em;
 }
 

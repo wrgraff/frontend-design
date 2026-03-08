@@ -17,13 +17,13 @@
 		<header class="section__header">
 			{% if data.pretitle %}
 				<p class="section__eyebrow">
-					{{ (data.pretitle | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+					{{ data.pretitle }}
 				</p>
 			{% endif %}
 
 			{% if data.heading %}
 				<h2 class="section__heading">
-					{{ (data.heading | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+					{{ data.heading }}
 				</h2>
 			{% endif %}
 		</header>
@@ -43,7 +43,7 @@
 				{% if data.details and (data.details | length) %}
 					<ul>
 						{% for detailItem in data.details %}
-							<li>{{ detailItem | markdown | trim | replace('<p>', '') | replace('</p>', '') | safe }}</li>
+							<li>{{ detailItem | markdown | safe }}</li>
 						{% endfor %}
 					</ul>
 				{% endif %}

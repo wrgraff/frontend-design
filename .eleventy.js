@@ -132,7 +132,13 @@ function localizePath(href, localeOrUrl) {
 
 function widont(value) {
 	const text = String(value ?? '');
-	return text.replace(/(\S)\s+(\S+)\s*$/u, '$1\u00A0$2');
+	const trailingWhitespaceMatch = text.match(/\s+$/u);
+	const trailingWhitespace = trailingWhitespaceMatch ? trailingWhitespaceMatch[0] : '';
+	const textWithoutTrailingWhitespace = trailingWhitespace
+		? text.slice(0, -trailingWhitespace.length)
+		: text;
+
+	return textWithoutTrailingWhitespace.replace(/(\S)\s+(\S+)$/u, '$1\u00A0$2') + trailingWhitespace;
 }
 
 function widontHtml(content) {
@@ -278,7 +284,10 @@ module.exports = function (config) {
 			return content;
 		}
 
-		return widontHtml(typograf.execute(content));
+		const typographedContent = typograf.execute(content)
+			.replace(/([^\s>])(<strong\b[^>]*>)/g, '$1 $2');
+
+		return widontHtml(typographedContent);
 	});
 
 	// Passthrough copy
