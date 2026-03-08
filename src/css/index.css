@@ -12,6 +12,7 @@
 @import url('./utilities/visually-hidden.css');
 @import url('./blocks/icon.css');
 @import url('./blocks/button.css');
+@import url('./blocks/icon-button.css');
 @import url('./blocks/link.css');
 @import url('./blocks/label.css');
 @import url('./blocks/page.css');

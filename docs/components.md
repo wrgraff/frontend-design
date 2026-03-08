@@ -54,6 +54,24 @@ Inputs:
 Constraints:
 - If `href` is empty, `type` should be valid button type (`button|submit|reset`).
 
+## iconButton
+
+Source: `src/_includes/icon-button.njk`  
+Signature: `iconButton(iconName='api/api_file', href='', mode='', size='', type='button', ariaLabel='Icon button', extraClass='', download=false)`
+
+Inputs:
+- `iconName` (optional, string): icon name from `src/_includes/icons`, without `.svg`
+- `href` (optional, string): if set, renders `<a>`, otherwise `<button>`
+- `mode` (optional, string): supports `secondary` and `primary`; `base` is default state and is rendered without modifier class
+- `size` (optional, string): supports `l` and `xl`; `m` is default state and is rendered without modifier class
+- `type` (optional, string): used only when rendering `<button>`
+- `ariaLabel` (optional, string): accessible name for icon-only control
+- `extraClass` (optional, string)
+- `download` (optional, boolean|string): used only for anchor
+
+Constraints:
+- Icon-only control must have a meaningful `ariaLabel`.
+
 ## label
 
 Source: `src/_includes/label.njk`  
