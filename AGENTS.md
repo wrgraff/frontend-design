@@ -54,6 +54,14 @@ Forbidden:
 - If parameter is not passed, do not add modifier class.
 - Base state must work without `*_mode_base` and `*_size_m`.
 
+## Block vs Modifier (Recommendation)
+
+- Avoid growing generic blocks (especially `section`) with multiple feature-specific elements like `section__foo-*`, `section__bar-*`, `section__baz-*`.
+- If a section variation needs more than 1-2 unique elements, create a standalone block and place it inside `section` content.
+- Nested specificity patterns like `block__element-specific-morespecific` are a signal to extract a new block.
+- Keep `section` as a base layout shell. Strongly unique entities (for example hero-like or contacts-map-like compositions) should be separate blocks.
+- If there is doubt between extending an existing block with a modifier vs creating a new block, stop and ask the user directly before implementation.
+
 ## Markup Rules
 
 - Do not add extra wrappers just for styling.
