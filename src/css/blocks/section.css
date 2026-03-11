@@ -3,7 +3,7 @@
 .section {
 	--section-gap: var(--space-gap-l);
 	--section-header-column: 1 / -1;
-	--section-padding-block: 120px;
+	--section-padding-block: 80px;
 	--section-padding-inline: 80px;
 	--section-padding: var(--section-padding-block) var(--section-padding-inline);
 	--section-columns: 5;

@@ -43,6 +43,10 @@ strong {
 	margin-block: 0.36em;
 }
 
+:where(ul, ol, dl, blockquote) {
+	margin-bottom: var(--space-gap-l);
+}
+
 :where(h1) {
 	font: var(--font-heading-h1);
 }

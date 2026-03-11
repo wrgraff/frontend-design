@@ -23,17 +23,15 @@
 :where(ul, ol):not([class]) {
 	list-style: none;
 	padding: 0;
-}
-
-.list {
-	align-content: start;
-	justify-items: start;
 	display: grid;
 	gap: var(--list-gap);
+	align-content: start;
+	justify-items: start;
 	grid-template-columns: repeat(var(--list-columns), minmax(0, 1fr));
 }
 
-.list__item {
+.list__item,
+:where(li):not([class])  {
 	align-content: start;
 	color: var(--list-item-color);
 	font: var(--list-item-font);
