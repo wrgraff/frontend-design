@@ -45,37 +45,4 @@
 	</ol>
 {% endcall %}
 
-{% call section({
-	id: 'contacts',
-	pretitle: contacts.pretitle,
-	heading: contacts.heading,
-	lead: contacts.body
-}) %}
-
-	<h3>Locations</h3>
-	<ul class="section__list list">
-		{% for location in contacts.locations %}
-			<li class="list__item">
-				{{ location }}
-			</li>
-		{% endfor %}
-	</ul>
-
-	<h3>Direct contacts</h3>
-	<ul class="section__list list">
-		{% for contact in contacts.direct_contacts %}
-			<li class="list__item">
-				{{ contact }}
-			</li>
-		{% endfor %}
-	</ul>
-
-	<h3>Social links</h3>
-	<ul class="section__list list">
-		{% for link in contacts.social_links %}
-			<li class="list__item">
-				{{ link }}
-			</li>
-		{% endfor %}
-	</ul>
-{% endcall %}
+{% include 'contacts.njk' %}

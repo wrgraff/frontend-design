@@ -1,19 +1,53 @@
-<section class="main__section section" id="contacts">
-	<header class="section__header section-header">
-		<h2 class="section-header__heading">{{ global.contacts.heading }}</h2>
-		<div class="section-header__text">
-			{{ global.contacts.text | markdown | safe }}
-			{% if global.contacts.comment %}
-				<p class="section-header__comment">{{ global.contacts.comment }}</p>
-			{% endif %}
+{% from 'link.njk' import link %}
+
+<section class="main__section contacts" id="contacts">
+	<header class="contacts__header">
+		{% if contacts.pretitle %}
+			<p class="contacts__eyebrow">
+				{{ contacts.pretitle }}
+			</p>
+		{% endif %}
+
+		{% if contacts.heading %}
+			<h2 class="contacts__heading">
+				{{ contacts.heading }}
+			</h2>
+		{% endif %}
+	</header>
+
+	<div class="contacts__content">
+		<div class="contacts__lead">
+			{{ contacts.body | markdown | safe }}
 		</div>
 
-		<ul class="section-header__links contact-links">
-			{% for item in global.contacts.main %}
-				<li class="contact-links__item">
-					<a href="{{ item.url }}" class="contact-links__link">{{ item.title }}</a>
+		<ul class="contacts__links contacts__links_type_social">
+			{% for social in global.contacts.socials %}
+				<li class="contacts__item">
+					{{ link(
+						text = social.title,
+						href = social.url,
+						size = 'xs',
+						icon = social.icon,
+						extraClass = 'contacts__link'
+					) }}
 				</li>
 			{% endfor %}
 		</ul>
-	</header>
+
+		<ul class="contacts__links contacts__links_type_direct">
+			{% for channel in global.contacts.messaging %}
+				<li class="contacts__item">
+					{{ link(
+						text = channel.title,
+						href = channel.url,
+						size = 'xs',
+						icon = channel.icon,
+						extraClass = 'contacts__link'
+					) }}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<img src="/img/route.svg" alt="" class="contacts__map" aria-hidden="true">
 </section>
