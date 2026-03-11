@@ -39,7 +39,7 @@
 	<ol class="section__list list list_type_ordered list_columns_2">
 		{% for step in approach_to_work.steps %}
 			<li class="list__item"{% if step.label %} data-list-label="{{ step.label }}"{% endif %}>
-				<p>{{ step.text }}</p>
+				{{ step.text | markdown | safe }}
 			</li>
 		{% endfor %}
 	</ol>
