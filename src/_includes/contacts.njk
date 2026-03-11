@@ -1,23 +1,24 @@
 {% from 'link.njk' import link %}
+{% set contactsData = global.contacts %}
 
 <section class="main__section contacts" id="contacts">
 	<header class="contacts__header">
-		{% if contacts.pretitle %}
+		{% if contactsData.pretitle %}
 			<p class="contacts__eyebrow">
-				{{ contacts.pretitle }}
+				{{ contactsData.pretitle }}
 			</p>
 		{% endif %}
 
-		{% if contacts.heading %}
+		{% if contactsData.heading %}
 			<h2 class="contacts__heading">
-				{{ contacts.heading }}
+				{{ contactsData.heading }}
 			</h2>
 		{% endif %}
 	</header>
 
 	<div class="contacts__content">
 		<div class="contacts__lead">
-			{{ contacts.body | markdown | safe }}
+			{{ contactsData.body | markdown | safe }}
 		</div>
 
 		<ul class="contacts__links contacts__links_type_social">

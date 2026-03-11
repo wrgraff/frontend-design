@@ -52,6 +52,10 @@
 	top: var(--timeline-offset-top);
 }
 
+.timeline_order_last .timeline__container {
+	position: static;
+}
+
 .timeline__date {
 	color: var(--timeline-date-color);
 	font: var(--timeline-date-font);

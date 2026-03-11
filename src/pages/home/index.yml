@@ -67,15 +67,15 @@ approach_to_work:
     - label: Preparation
       text: I clarify who owns the initiative, makes decisions, and what success looks like
     - label: Step 01
-      text: Map representative tasks, walk through them, and validate with users to understand the problem
+      text: Map representative tasks, walk through them, and validate with users to **understand the problem**
     - label: Step 02
-      text: Capture how people reach the goal in different ways, marking pain points and success moments
+      text: Capture **how people reach the goal** in different ways, marking pain points and success moments
     - label: Step 03
-      text: Use rough wireframes and prototypes to validate assumptions early, before polish
+      text: Use rough wireframes and prototypes to **validate assumptions** early, before polish
     - label: Step 04
-      text: Define key states, roles/permissions, edge cases, and feasibility, with handoff specs engineers can trust
+      text: Define key states, roles/permissions, edge cases, and feasibility, with **handoff specs** engineers can trust
     - label: Step 05
-      text: Review implementation for visual and behavioral correctness, then iterate based on feedback
+      text: Review implementation for visual and behavioral correctness, then **iterate based on feedback**
 
 contacts:
   pretitle: How to find me
