@@ -1,0 +1,42 @@
+---
+layout: page.njk
+---
+
+{% from 'section.njk' import section %}
+
+{{ section({
+	pretitle: hero.pretitle or 'Case',
+	heading: hero.heading or title,
+	lead: hero.lead or description
+}) }}
+
+{% if hero %}
+	{% call section({
+		pretitle: hero.meta_pretitle or 'Overview',
+		heading: hero.meta_heading or 'Case details'
+	}) %}
+		{% if hero.role %}
+			<p><strong>Role:</strong> {{ hero.role }}</p>
+		{% endif %}
+		{% if hero.scope %}
+			<p><strong>Scope:</strong> {{ hero.scope }}</p>
+		{% endif %}
+		{% if hero.project_type %}
+			<p><strong>Project type:</strong> {{ hero.project_type }}</p>
+		{% endif %}
+		{% if hero.tags and hero.tags.length %}
+			<p><strong>Tags:</strong> {{ hero.tags | join(', ') }}</p>
+		{% endif %}
+	{% endcall %}
+{% endif %}
+
+{% if sections and sections.length %}
+	{% for item in sections %}
+		{{ section({
+			pretitle: item.eyebrow or item.pretitle,
+			heading: item.heading,
+			lead: item.lead,
+			content: item.content
+		}) }}
+	{% endfor %}
+{% endif %}

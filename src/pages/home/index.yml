@@ -33,31 +33,9 @@ my_design_journey:
 portfolio:
   pretitle: My work
   heading: Latest works
-  items:
-    - role: Product UX Designer
-      title: Cloud Cost Explorer
-      description: "Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost"
-      tags:
-        - Data-heavy
-        - Data visualization
-    - role: Design System Designer
-      title: Mars Design System
-      description: System as a foundation for all new products
-      tags:
-        - UI
-        - DS
-    - role: UX Designer
-      title: Product list for a CRM
-      description: "Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost"
-      tags:
-        - DB
-        - Data visualization
-    - role: Design System Designer
-      title: UI Chart Figma Library
-      description: "Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost"
-      tags:
-        - DS
-        - Data visualization
+  lead: Selected projects rendered from the Eleventy portfolio collection.
+  empty_message: Portfolio entries are not added yet.
+  items: []
 
 approach_to_work:
   pretitle: My work
@@ -76,22 +54,3 @@ approach_to_work:
       text: Define key states, roles/permissions, edge cases, and feasibility, with **handoff specs** engineers can trust
     - label: Step 05
       text: Review implementation for visual and behavioral correctness, then **iterate based on feedback**
-
-contacts:
-  pretitle: How to find me
-  heading: Contacts
-  body: |
-    Feel free to reach out if you want to collaborate or just say hi.
-
-    I’m happy to meet in person - I’m based in Bratislava, and Vienna is just a short trip away.
-  locations:
-    - Vienna
-    - Bratislava
-  direct_contacts:
-    - hi@arturtrifonov.com
-    - WhatsApp
-    - Telegram
-  social_links:
-    - LinkedIn
-    - Behance
-    - Dribbble

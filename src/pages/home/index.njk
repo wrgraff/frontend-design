@@ -1,6 +1,7 @@
 {% from 'hero.njk' import heroSection %}
 {% from 'section.njk' import section %}
 {% from 'label.njk' import label %}
+{% from 'link.njk' import link %}
 
 {{ heroSection(hero) }}
 
@@ -13,22 +14,43 @@
 
 {% call section({
 	pretitle: portfolio.pretitle,
-	heading: portfolio.heading
+	heading: portfolio.heading,
+	lead: portfolio.lead
 }) %}
-	<ul>
-		{% for item in portfolio.items %}
-			<li>
-				<p>{{ item.role }}</p>
-				<h3>{{ item.title }}</h3>
-				<p>{{ item.description }}</p>
-				<ul>
-					{% for tag in item.tags %}
-						<li>{{ label(tag) }}</li>
-					{% endfor %}
-				</ul>
-			</li>
-		{% endfor %}
-	</ul>
+	{% set portfolioCollection = collections.portfolio or [] %}
+	{% if portfolioCollection.length %}
+		<ul>
+			{% for item in portfolioCollection %}
+				{% if loop.index <= 4 %}
+					<li>
+						{% if item.data.role %}
+							<p>{{ item.data.role }}</p>
+						{% endif %}
+				<h3>
+					{{ link(
+						text = item.data.title,
+						href = item.url,
+						size = 'xs',
+						icon = ''
+					) }}
+				</h3>
+						{% if item.data.description %}
+							<p>{{ item.data.description }}</p>
+						{% endif %}
+						{% if item.data.tags and item.data.tags.length %}
+							<ul>
+								{% for tag in item.data.tags %}
+									<li>{{ label(tag) }}</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>{{ portfolio.empty_message }}</p>
+	{% endif %}
 {% endcall %}
 
 {% call section({

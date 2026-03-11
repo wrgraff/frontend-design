@@ -1,12 +1,113 @@
 ---
-layout: case.njk
+layout: portfolio-case.njk
 title: Cloud Cost Explorer
 order: 1
 external: false
 nda: false
+role: Product UX Designer
+description: Helps understand cloud spend through trends, forecasts, and optimization views.
 tags:
   - Data-heavy
   - Data visualization
 imgs:
   - cover
+hero:
+  pretitle: Case
+  heading: Cloud Cost Explorer
+  lead: Helps stakeholders understand cloud spending - observe trends, investigate anomalies, forecast usage, and optimize cost.
+  meta_pretitle: Overview
+  meta_heading: Context and scope
+  role: Product UX Designer
+  scope: Work with Product Owner, frontend lead, and backend lead to align UX decisions with real data logic and implementation constraints.
+  project_type: NDA project, enterprise fintech context
+  tags:
+    - Data-heavy
+    - Data visualization
+sections:
+  - eyebrow: Preparation
+    heading: Success criteria
+    content: |
+      Before design work, I aligned stakeholders on success criteria for the first release.
+
+      1. Stakeholders can reliably answer core questions: where money goes, what changed, and why it looks suspicious.
+      2. MVP is connected to real cloud data in a fintech environment and works end-to-end.
+      3. Finance considers numbers consistent enough for reporting and budget conversations.
+      4. Readability holds when group counts and filters grow.
+
+  - eyebrow: Discovery
+    heading: Target audience
+    content: |
+      Enterprise companies (mostly fintech) with a large multi-cloud footprint need visibility into cloud spend and usage across teams, services, and accounts.
+
+      **Primary users**
+
+      **Finance / FinOps stakeholders**
+      - Accountable for cloud spend
+      - Need to explain variances and allocate costs across teams/projects
+
+      **Engineering leads**
+      - Need to understand what drives usage and cost in their area
+      - Need to spot anomalies early and plan budgets with confidence
+
+  - eyebrow: Discovery
+    heading: Problem context
+    content: |
+      To keep the work grounded, I framed design around representative tasks: real questions users need to answer.
+
+      **Pain points**
+      1. No single source of truth for cloud cost and usage
+      2. Existing internal tools are limited and hard to use
+      3. Too much data gets buried without strong organization
+
+      **Representative tasks**
+      - Cloud spend keeps growing and is close to our budget limit - what is driving it? (Understand)
+      - Spend jumped unexpectedly - what changed and what caused it? (Investigate)
+      - Where can we cut cloud costs with minimal risk and what is the expected impact? (Optimise)
+      - I see recurring spikes over a few days - what correlates with them? (Understand)
+      - If the trend continues, when do we exceed budget and what is the end-of-period forecast? (Predict)
+      - Plus additional rows in the full task map
+
+      **Constraints**
+      1. Very limited access to users and competitor products
+      2. Data-heavy UI with dense tables and many dimensions
+      3. Complex domain: FinOps, chargeback, forecasting, governance
+
+  - eyebrow: Discovery
+    heading: Benchmark
+    content: |
+      I benchmarked comparable tools and mapped the decision workflow around cloud spend. The analysis shaped information structure and key paths.
+
+      **Snapshot**
+      - AWS / Google Cloud: weak multicloud and event correlation support in this benchmark scope
+      - Harness / CloudHealth / Spot: strong coverage for key FinOps capabilities
+      - Apptio: broad coverage with partial trade-offs depending on capability
+
+      **Compared capabilities**
+      - Multicloud
+      - Simultaneously multicloud
+      - Tags granularity
+      - Work without tags
+      - Regions grouping
+      - Recommendations
+      - Budgets
+      - Documentation
+      - Anomalies detect
+      - Event correlation
+
+  - eyebrow: Key decisions
+    heading: Top groups and drill-down
+    content: |
+      **Problem**
+      Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise.
+
+      **Solution**
+      Show top cost groups in chart, consolidate the rest into "Other", and allow users to open "Other" for deeper breakdown.
+
+      **Advantages**
+      - Clear view of main cost drivers and their share of total spend
+      - Chart stays readable
+
+      **Risks to avoid**
+      - Lower discoverability of the drill path
+      - Navigation friction when going deeper
 ---

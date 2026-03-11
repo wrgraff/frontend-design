@@ -1,24 +1,63 @@
 {% from 'hero.njk' import heroSection %}
 {% from 'section.njk' import section %}
-{% from 'portfolio-list.njk' import portfolioList %}
+{% from 'label.njk' import label %}
+{% from 'link.njk' import link %}
 
 {{ heroSection(hero) }}
 
-{% set portfolioCollection = collections.portfolio %}
+{% set portfolioSection = portfolio or {} %}
+{% set portfolioCollection = collections.portfolio or [] %}
 
-{% if portfolioCollection and (portfolioCollection | length) %}
-	{% call section({
-		pretitle: portfolio_list_section.pretitle,
-		heading: portfolio_list_section.heading,
-		lead: portfolio_list_section.lead
-	}) %}
-		{{ portfolioList(collection = portfolioCollection) }}
-	{% endcall %}
-{% else %}
-	{{ section({
-		pretitle: portfolio_list_section.pretitle,
-		heading: portfolio_list_section.heading,
-		lead: portfolio_list_section.lead,
-		content: portfolio_list_section.empty_message
-	}) }}
-{% endif %}
+{% call section({
+	pretitle: portfolioSection.pretitle or 'My work',
+	heading: portfolioSection.heading or 'Latest works',
+	lead: portfolioSection.lead or 'Selected projects rendered from the Eleventy portfolio collection.'
+}) %}
+	{% if portfolioCollection.length %}
+		<ul>
+			{% for item in portfolioCollection %}
+				<li>
+					{% if item.data.role %}
+						<p>{{ item.data.role }}</p>
+					{% endif %}
+					<h3>
+						{{ link(
+							text = item.data.title,
+							href = item.url,
+							size = 'xs',
+							icon = ''
+						) }}
+					</h3>
+					{% if item.data.description %}
+						<p>{{ item.data.description }}</p>
+					{% endif %}
+					{% if item.data.tags and item.data.tags.length %}
+						<ul>
+							{% for tag in item.data.tags %}
+								<li>{{ label(tag) }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>{{ portfolioSection.empty_message or 'Portfolio entries are not added yet.' }}</p>
+	{% endif %}
+{% endcall %}
+
+{% call section({
+	pretitle: approach_to_work.pretitle,
+	heading: approach_to_work.heading,
+	lead: approach_to_work.intro
+}) %}
+	<ol class="section__list list list_type_ordered list_columns_2">
+		{% for step in approach_to_work.steps %}
+			<li class="list__item"{% if step.label %} data-list-label="{{ step.label }}"{% endif %}>
+				{{ step.text | markdown | safe }}
+			</li>
+		{% endfor %}
+	</ol>
+{% endcall %}
+
+{% include 'contacts.njk' %}
