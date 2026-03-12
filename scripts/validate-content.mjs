@@ -283,16 +283,6 @@ function validateHome(file, data) {
 		}
 	}
 
-	const contacts = reqObject(file, 'contacts', root.contacts);
-	if (contacts) {
-		reqString(file, 'contacts.pretitle', contacts.pretitle);
-		reqString(file, 'contacts.heading', contacts.heading);
-		reqString(file, 'contacts.body', contacts.body);
-		['locations', 'direct_contacts', 'social_links'].forEach((key) => {
-			const list = reqArray(file, `contacts.${key}`, contacts[key]);
-			if (list) list.forEach((item, i) => reqString(file, `contacts.${key}[${i}]`, item));
-		});
-	}
 }
 
 function validateMenu(file, data, locales = []) {
