@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "html-validate:recommended"
+  ],
+  "elements": [
+    "html5"
+  ],
+  "rules": {
+    "long-title": "off",
+    "void-style": "off",
+    "no-dup-attr": "error",
+    "unique-landmark": "error",
+    "tel-non-breaking": "error",
+    "element-permitted-parent": "error",
+    "no-multiple-main": "error"
+  }
+}

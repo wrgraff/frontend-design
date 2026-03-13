@@ -8,7 +8,7 @@
 
 	{% if iconMarkup | trim %}
 		{{ iconMarkup
-			| replace('<svg ', '<svg class="' ~ iconClass ~ '" aria-hidden="true" width="' ~ size ~ '" height="' ~ size ~ '" ')
+			| iconSvg(iconClass, size)
 			| safe
 		}}
 	{% endif %}

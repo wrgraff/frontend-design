@@ -1,5 +1,5 @@
 ---
-title: Figma basics for frontend developers
+heading: Figma basics for frontend developers
 order: 4
 kind: video
 external: true

@@ -1,30 +1,21 @@
----
 layout: portfolio-case.njk
 title: Cloud Cost Explorer
 heading: Cloud Cost Explorer
 order: 1
-external: false
-nda: false
-role: Product UX Designer
-scope: Placeholder scope for Cloud Cost Explorer case.
-description: Helps understand cloud spend through trends, forecasts, and optimization views.
+role: '**Product UX Designer**'
+focus: 'Placeholder focus for Cloud Cost Explorer case'
+area: 'Work with **Product Owner**, and with **frontend and backend leads** to align UX decisions with real data logic and implementation constraints'
+description: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
 tags:
   - Data-heavy
   - Data visualization
+  - NDA
 imgs:
   - cover
 hero:
-  pretitle: Case
-  heading: Cloud Cost Explorer
-  lead: Helps stakeholders understand cloud spending - observe trends, investigate anomalies, forecast usage, and optimize cost.
-  meta_pretitle: Overview
-  meta_heading: Context and scope
-  role: Product UX Designer
-  scope: Work with Product Owner, frontend lead, and backend lead to align UX decisions with real data logic and implementation constraints.
-  project_type: NDA project, enterprise fintech context
-  tags:
-    - Data-heavy
-    - Data visualization
+  image: /portfolio/cloud-cost-explorer/imgs/hero.png
+  image_alt: Abstract blurred product dashboard screenshot
+  lead: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
 sections:
   - eyebrow: Preparation
     heading: Success criteria
@@ -112,4 +103,3 @@ sections:
       **Risks to avoid**
       - Lower discoverability of the drill path
       - Navigation friction when going deeper
----

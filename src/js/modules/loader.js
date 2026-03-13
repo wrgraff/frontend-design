@@ -15,9 +15,9 @@ const templates = {
 			<div class="modal__container case" role="dialog" aria-modal="true"></div>
 		`;
 	},
-	title( title ) {
+	heading( heading ) {
 		return `
-			<h2 class="visually-hidden">${title}</h2>
+			<h2 class="visually-hidden">${heading}</h2>
 		`;
 	},
 	loading() {
@@ -145,7 +145,7 @@ class PortfolioLoader {
 		this._caseElement = createElement( templates.case() );
 		this._modalElement.querySelector( '.modal__overlay' ).append( this._caseElement );
 		this._loadingElement = null;
-		this._titleElement = null;
+		this._headingElement = null;
 		this._articleElement = null;
 		this._detailsElement = null;
 		this._detailsListElement = null;
@@ -190,8 +190,8 @@ class PortfolioLoader {
 		this._caseElement.append( this._loadingElement );
 	}
 
-	_renderCase( { title, imgs, tags, behance } ) {
-		this._renderTitle( title );
+	_renderCase( { heading, imgs, tags, behance } ) {
+		this._renderHeading( heading );
 		this._renderArticle( imgs );
 		this._renderDetails( tags, behance );
 		this._renderNav();
@@ -199,9 +199,9 @@ class PortfolioLoader {
 		this._removeLoadingState();
 	}
 
-	_renderTitle( title ) {
-		this._titleElement = createElement( templates.title( title ) );
-		this._caseElement.append( this._titleElement );
+	_renderHeading( heading ) {
+		this._headingElement = createElement( templates.heading( heading ) );
+		this._caseElement.append( this._headingElement );
 	}
 
 	_renderArticle( imgs ) {
@@ -275,7 +275,7 @@ class PortfolioLoader {
 	}
 
 	_removeCaseContent() {
-		removeElement( this._titleElement );
+		removeElement( this._headingElement );
 		removeElement( this._articleElement );
 		removeElement( this._detailsElement );
 		removeElement( this._detailsListElement );

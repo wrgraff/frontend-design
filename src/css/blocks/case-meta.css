@@ -1,0 +1,33 @@
+/* Variables */
+
+.case-meta {
+	--case-meta-row-gap: var(--space-gap-xxs);
+	--case-meta-column-gap: var(--space-gap-m);
+	--case-meta-item-gap: var(--space-gap-xxs);
+	--case-meta-term-font: var(--font-caption-s);
+	--case-meta-term-color: var(--color-text-tertiary);
+	--case-meta-term-offset: var(--space-gap-xxs);
+	--case-meta-value-font: var(--font-text-m);
+}
+
+/* Case Meta */
+
+.case-meta {
+	display: grid;
+	row-gap: var(--case-meta-row-gap);
+	column-gap: var(--case-meta-column-gap);
+}
+
+.case-meta__term {
+	color: var(--case-meta-term-color);
+	font: var(--case-meta-term-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	margin: var(--case-meta-term-offset) 0 0;
+	text-transform: var(--font-caption-transform);
+}
+
+.case-meta__value {
+	grid-column: 2 / 3;
+	font: var(--case-meta-value-font);
+	margin: 0;
+}

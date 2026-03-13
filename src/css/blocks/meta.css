@@ -32,9 +32,3 @@
 	font: var(--meta-value-font);
 	margin: 0;
 }
-
-@media (max-width: 768px) {
-	.meta {
-		--meta-gap: var(--space-gap-s);
-	}
-}

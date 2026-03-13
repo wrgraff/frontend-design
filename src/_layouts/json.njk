@@ -4,9 +4,7 @@
 {%- set nextUrl = "" -%}
 {%- for item in collection -%}
 	{%- if item.data.nda !== true -%}
-		{%- if item.data.external === false -%}
-			{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
-		{%- endif -%}
+		{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
 	{%- endif -%}
 {%- endfor -%}
 {%- for item in cleanCollection -%}
@@ -25,7 +23,7 @@
 	{%- endif -%}
 {%- endfor -%}
 {
-	"title": "{{ title }}",
+	"heading": "{{ heading or title }}",
 	{%- if imgs -%}
 		"imgs": [
 			{%- for img in imgs -%}

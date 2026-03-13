@@ -7,9 +7,7 @@ layout: page.njk
 {%- set previousUrl = "" -%}
 {%- set nextUrl = "" -%}
 {%- for item in collection -%}
-	{%- if item.data.external === false -%}
-		{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
-	{%- endif -%}
+	{%- set cleanCollection = (cleanCollection.push(item), cleanCollection) -%}
 {%- endfor -%}
 {%- for item in cleanCollection -%}
 	{%- if page.fileSlug == item.fileSlug -%}
@@ -27,11 +25,8 @@ layout: page.njk
 	{%- endif -%}
 {%- endfor -%}
 
-<body class="page__body page__body_case">
-	<main class="case">
-		{% include "header.njk" %}
-
-		<h1 class="visually-hidden">{{ title }}</h1>
+<section class="case">
+		<h1 class="visually-hidden">{{ heading or title }}</h1>
 
 		<article class="case__article article">
 			<h2 class="visually-hidden">Case description</h2>
@@ -75,7 +70,7 @@ layout: page.njk
 			{% endif %}
 		</section>
 
-		<nav class="case__nav">
+		<nav class="case__nav" aria-label="Case navigation">
 			<div class="case__side case__side_left">
 				<a href="/" class="case__home ico-button ico-button_l ico-button_small_xl ico-button_rounded ico-button_secondary ico-button_home">
 					<span class="visually-hidden">Home</span>
@@ -113,5 +108,4 @@ layout: page.njk
 				</div>
 			</div>
 		</nav>
-	</main>
-</body>
+</section>

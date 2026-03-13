@@ -1,0 +1,55 @@
+{% from 'label.njk' import label %}
+
+{% macro caseHero(hero = {}, heading = '', description = '', role = '', area = '', tags = []) %}
+	{% set heroImage = hero.image or '' %}
+	{% set heroHeading = hero.heading or heading %}
+	{% set heroLead = hero.lead or description %}
+	{% set heroTags = tags or [] %}
+
+	<section class="main__section case-hero">
+		{% if heroImage %}
+			<div class="case-hero__img">
+				<picture class="case-hero__picture">
+					<img src="{{ heroImage }}" alt="{{ hero.image_alt or '' }}">
+				</picture>
+			</div>
+		{% endif %}
+
+		{% if heroTags.length %}
+			<ul class="case-hero__tags">
+				{% for tag in heroTags %}
+					<li class="case-hero__tag">
+						{{ label(text = tag, size = 'm') }}
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		<h1 class="case-hero__heading">
+			{{ heroHeading | trim }}
+		</h1>
+
+		{% if heroLead %}
+			<div class="case-hero__text">
+				{{ heroLead | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if role or area %}
+			<dl class="case-hero__meta case-meta">
+				{% if role %}
+					<dt class="case-meta__term">Role:</dt>
+					<dd class="case-meta__value">
+						{{ (role | markdown | trim) | safe }}
+					</dd>
+				{% endif %}
+				{% if area %}
+					<dt class="case-meta__term">Area:</dt>
+					<dd class="case-meta__value">
+						{{ (area | markdown | trim) | safe }}
+					</dd>
+				{% endif %}
+			</dl>
+		{% endif %}
+	</section>
+{% endmacro %}

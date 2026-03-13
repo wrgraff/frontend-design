@@ -1,7 +1,9 @@
 layout: page.njk
 permalink: index.html
 hero:
-  heading: Hi, I’m **Artur** — Product Designer
+  heading: Hi, I’m
+  heading_highlight: Artur
+  heading_suffix: — Product Designer
   text: I build data-heavy interfaces, scalable systems, and analytics tools — turning complexity into calm
   image: /img/home/hero.png
   image_alt: Artur Trifonov portrait

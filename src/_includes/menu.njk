@@ -4,13 +4,13 @@
 		{% if itemLink == page.url %}
 			<li class="site-list__item site-list__item_current">
 				<a href="{{ itemLink }}" class="site-list__link" aria-current="page">
-					{{- item.title -}}
+					{{- item.heading -}}
 				</a>
 			</li>
 		{% else %}
 			<li class="site-list__item">
 				<a href="{{ itemLink }}" class="site-list__link">
-					{{- item.title -}}
+					{{- item.heading -}}
 				</a>
 			</li>
 		{% endif %}

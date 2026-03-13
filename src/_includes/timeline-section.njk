@@ -23,7 +23,7 @@
 
 			{% if data.heading %}
 				<h2 class="section__heading">
-					{{ data.heading }}
+					{{ data.heading | trim }}
 				</h2>
 			{% endif %}
 		</header>
@@ -57,7 +57,10 @@
 		{% endif %}
 
 		{% if data.timeline %}
-			<aside class="{{ timelineClasses }}" aria-label="Timeline">
+			<aside
+				class="{{ timelineClasses }}"
+				aria-label="{% if data.id %}Timeline {{ data.id | replace('-', ' ') | trim }}{% else %}Timeline{% endif %}"
+			>
 				{{ icon('arrows/destination_right', 'timeline__icon') }}
 
 				<div class="timeline__container">

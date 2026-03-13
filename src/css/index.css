@@ -20,11 +20,13 @@
 @import url('./blocks/header.css');
 @import url('./blocks/logo.css');
 @import url('./blocks/hero.css');
+@import url('./blocks/case-hero.css');
 @import url('./blocks/aside.css');
 @import url('./blocks/aside-contacts.css');
 @import url('./blocks/section.css');
 @import url('./blocks/portfolio.css');
 @import url('./blocks/meta.css');
+@import url('./blocks/case-meta.css');
 @import url('./blocks/contacts.css');
 @import url('./blocks/timeline.css');
 @import url('./blocks/site-list.css');

@@ -31,7 +31,7 @@
 		<meta property="og:locale" content="{{ currentLocaleMeta.ogLocale or 'en_GB' }}" />
 	</head>
 
-	<body class="page__body">
+		<body class="page__body">
 		<main class="page__main main">
 			{% include "header.njk" %}
 			{{ content | safe }}
@@ -43,8 +43,7 @@
 			</div>
 		</main>
 
-		{% include "aside.njk" %}
-	</body>
-
-	<script defer src="/js/index.js"></script>
-</html>
+			{% include "aside.njk" %}
+			<script defer src="/js/index.js"></script>
+		</body>
+	</html>

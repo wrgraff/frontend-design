@@ -11,7 +11,9 @@
 	{% endif %}
 
 	<h1 class="hero__heading">
-		{{ (hero.heading | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+		{{ hero.heading | trim }}
+		{% if hero.heading_highlight %} <strong>{{ hero.heading_highlight | trim }}</strong>{% endif %}
+		{% if hero.heading_suffix %} {{ hero.heading_suffix | trim }}{% endif %}
 	</h1>
 
 	{% if hero.text %}
@@ -24,11 +26,11 @@
 		<div class="hero__cta">
 			{% for ctaItem in hero.cta %}
 				{{ button(
-					(ctaItem.text | default('Button') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+					ctaItem.text | default('Button') | trim,
 					ctaItem.href or '',
 					ctaItem.mode or 'secondary',
 					ctaItem.size or 'xl',
-					(ctaItem.subtext | default('') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+					ctaItem.subtext | default('') | trim,
 					ctaItem.icon_left or '',
 					ctaItem.icon_right or '',
 					ctaItem.type or 'button',

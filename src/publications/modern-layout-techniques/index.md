@@ -1,5 +1,5 @@
 ---
-title: Modern layout techniques
+heading: Modern layout techniques
 order: 5
 kind: video
 external: true

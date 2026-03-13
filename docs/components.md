@@ -21,7 +21,7 @@ Source: `src/_includes/link.njk`
 Signature: `link(text='Link', href='', mode='', size='', icon='info-signs/link', external=false, target='', rel='', extraClass='')`
 
 Inputs:
-- `text` (required, string)
+- `text` (required, plain string; no markdown/HTML)
 - `href` (required for interactive use, string)
 - `mode` (optional, string): maps to `link_mode_*`
 - `size` (optional, string): maps to `link_size_*` and should use font-token naming (for example: `text-s`, `caption-xs`, `heading-h2`)
@@ -40,11 +40,11 @@ Source: `src/_includes/button.njk`
 Signature: `button(text='Button', href='', mode='', size='', subtext='', iconLeft='', iconRight='', type='button', extraClass='', download=false)`
 
 Inputs:
-- `text` (required, string)
+- `text` (required, plain string; no markdown/HTML)
 - `href` (optional, string): if set, renders `<a>`, otherwise `<button>`
 - `mode` (optional, string): maps to `button_mode_*`
 - `size` (optional, string): maps to `button_size_*`
-- `subtext` (optional, string)
+- `subtext` (optional, plain string; no markdown/HTML)
 - `iconLeft` (optional, string)
 - `iconRight` (optional, string)
 - `type` (optional, string): used only when rendering `<button>`
@@ -92,18 +92,20 @@ Source: `src/_includes/hero.njk`
 Signature: `heroSection(hero)`
 
 Inputs (`hero` object):
-- `heading` (required, markdown string)
+- `heading` (required, plain string)
+- `heading_highlight` (optional, plain string): accent fragment appended after `heading`
+- `heading_suffix` (optional, plain string): trailing fragment appended after `heading_highlight`
 - `text` (optional, markdown string)
 - `image` (optional, string URL/path)
 - `image_alt` (optional, string)
 - `cta` (optional, array of CTA items)
 
 CTA item:
-- `text` (required)
+- `text` (required, plain string)
 - `href` (optional)
 - `mode` (optional)
 - `size` (optional)
-- `subtext` (optional)
+- `subtext` (optional, plain string)
 - `icon_left` (optional)
 - `icon_right` (optional)
 - `type` (optional, defaults to `button`)
@@ -113,6 +115,28 @@ CTA item:
 Constraints:
 - `heading` is rendered as `<h1>`.
 
+## caseHero
+
+Source: `src/_includes/case-hero.njk`  
+Signature: `caseHero(hero = {}, heading = '', description = '', role = '', area = '', tags = [])`
+
+Inputs:
+- `hero` (optional, object): visual hero data
+- `heading` (optional, plain string): used when `hero.heading` is missing
+- `description` (optional, string): used when `hero.lead` is missing
+- `role` (optional, markdown string)
+- `area` (optional, markdown string)
+- `tags` (optional, array of strings)
+
+Inputs (`hero` object):
+- `heading` (optional, plain string)
+- `lead` (optional, markdown string)
+- `image` (optional, string URL/path)
+- `image_alt` (optional, string)
+
+Behavior:
+- Renders root-level tag labels, a case heading, lead text, detail rows, and an optional media block.
+
 ## section
 
 Source: `src/_includes/section.njk`  
@@ -121,8 +145,8 @@ Signature: `section(data = {})` (+ supports `{% call section(...) %}...{% endcal
 Inputs (`data` object):
 - `id` (optional, string)
 - `extra_class` (optional, string)
-- `pretitle` (optional, markdown string)
-- `heading` (optional, markdown string)
+- `pretitle` (optional, plain string)
+- `heading` (optional, plain string)
 - `lead` (optional, markdown string)
 - `content` (optional, markdown string)
 - `conclusion` (optional, markdown string)
@@ -130,7 +154,7 @@ Inputs (`data` object):
 
 CTA item:
 - `kind` (optional, string): `link` uses `link` macro; anything else uses `button` macro
-- `text` (required)
+- `text` (required, plain string)
 - `href` (optional; required for link CTA)
 - `mode` (optional)
 - `size` (optional)
@@ -140,7 +164,7 @@ CTA item:
 - `rel` (optional, link CTA)
 - `icon_left` (optional, button CTA)
 - `icon_right` (optional, button CTA)
-- `subtext` (optional, button CTA)
+- `subtext` (optional, plain string; button CTA)
 - `type` (optional, button CTA)
 - `extra_class` (optional)
 - `download` (optional, button CTA)
@@ -162,8 +186,8 @@ Signature: `timelineSection(data = {})`
 Inputs (`data` object):
 - `id` (optional, string)
 - `extra_class` (optional, string)
-- `pretitle` (optional, markdown string)
-- `heading` (optional, markdown string)
+- `pretitle` (optional, plain string)
+- `heading` (optional, plain string)
 - `lead` (optional, markdown string)
 - `details` (optional, array of markdown strings)
 - `content` (optional, markdown string)

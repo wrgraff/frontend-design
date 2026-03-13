@@ -12,13 +12,13 @@
 		<header class="section__header">
 			{% if data.pretitle %}
 				<p class="section__eyebrow">
-					{{ (data.pretitle | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+					{{ data.pretitle | trim }}
 				</p>
 			{% endif %}
 
 			{% if data.heading %}
 				<h2 class="section__heading">
-					{{ (data.heading | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe }}
+					{{ data.heading | trim }}
 				</h2>
 			{% endif %}
 		</header>
@@ -51,7 +51,7 @@
 				{% for ctaItem in data.cta %}
 					{% if ctaItem.kind == 'link' %}
 						{{ link(
-							text = (ctaItem.text | default('Link') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+							text = ctaItem.text | default('Link') | trim,
 							href = ctaItem.href or '',
 							mode = ctaItem.mode or '',
 							size = ctaItem.size or '',
@@ -63,11 +63,11 @@
 						) }}
 					{% else %}
 						{{ button(
-							(ctaItem.text | default('Button') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+							ctaItem.text | default('Button') | trim,
 							ctaItem.href or '',
 							ctaItem.mode or 'secondary',
 							ctaItem.size or 'l',
-							(ctaItem.subtext | default('') | markdown | trim | replace('<p>', '') | replace('</p>', '')) | safe,
+							ctaItem.subtext | default('') | trim,
 							ctaItem.icon_left or '',
 							ctaItem.icon_right or '',
 							ctaItem.type or 'button',

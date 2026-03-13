@@ -1,6 +1,7 @@
 ---
 layout: publication.njk
 title: Designing trustworthy dashboards
+heading: Designing trustworthy dashboards
 order: 2
 kind: article
 external: false

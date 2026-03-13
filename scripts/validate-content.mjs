@@ -96,9 +96,34 @@ async function listCollectionEntryFiles(collectionDir) {
 	const absCollectionDir = path.join(ROOT, collectionDir);
 	const entries = await fs.readdir(absCollectionDir, { withFileTypes: true });
 
-	return entries
+	const files = await Promise.all(entries
 		.filter((entry) => entry.isDirectory())
-		.map((entry) => path.posix.join(collectionDir, entry.name, 'index.md'));
+		.map(async (entry) => {
+			const ymlFile = path.posix.join(collectionDir, entry.name, 'index.yml');
+			const mdFile = path.posix.join(collectionDir, entry.name, 'index.md');
+
+			try {
+				await fs.access(path.join(ROOT, ymlFile));
+				return ymlFile;
+			} catch {}
+
+			return mdFile;
+		}));
+
+	return files;
+}
+
+async function loadCollectionEntryData(relPath) {
+	if (relPath.endsWith('.yml') || relPath.endsWith('.yaml')) {
+		const data = await loadYaml(relPath);
+		if (!isObject(data)) {
+			fail(relPath, 'root', 'must be a YAML object');
+			return null;
+		}
+		return data;
+	}
+
+	return loadMarkdownFrontMatter(relPath);
 }
 
 function validatePortfolioEntry(file, data) {
@@ -107,12 +132,8 @@ function validatePortfolioEntry(file, data) {
 
 	reqString(file, 'layout', root.layout);
 	reqString(file, 'title', root.title);
+	reqString(file, 'heading', root.heading);
 	reqNumber(file, 'order', root.order);
-
-	const external = root.external;
-	if (external !== undefined && typeof external !== 'boolean' && typeof external !== 'string') {
-		fail(file, 'external', 'must be a boolean or a string');
-	}
 
 	if (root.nda !== undefined) reqBoolean(file, 'nda', root.nda);
 
@@ -145,7 +166,7 @@ function validatePublicationsEntry(file, data) {
 	const root = reqObject(file, 'root', data);
 	if (!root) return;
 
-	reqString(file, 'title', root.title);
+	reqString(file, 'heading', root.heading);
 	reqNumber(file, 'order', root.order);
 	reqString(file, 'kind', root.kind);
 	optString(file, 'description', root.description);
@@ -160,6 +181,9 @@ function validatePublicationsEntry(file, data) {
 
 	if (root.kind === 'article') {
 		if (external) {
+			if (root.title !== undefined) {
+				fail(file, 'title', 'must be omitted for external article');
+			}
 			const externalUrl = reqString(file, 'external_url', root.external_url);
 			if (externalUrl && !/^https?:\/\//.test(externalUrl)) {
 				fail(file, 'external_url', 'must start with http:// or https://');
@@ -169,6 +193,7 @@ function validatePublicationsEntry(file, data) {
 				fail(file, 'permalink', 'must be false for external article');
 			}
 		} else {
+			reqString(file, 'title', root.title);
 			reqString(file, 'layout', root.layout);
 			const hero = reqObject(file, 'hero', root.hero);
 			if (hero) {
@@ -179,6 +204,9 @@ function validatePublicationsEntry(file, data) {
 	}
 
 	if (root.kind === 'video') {
+		if (root.title !== undefined) {
+			fail(file, 'title', 'must be omitted for video');
+		}
 		if (!external) {
 			fail(file, 'external', 'must be true for video');
 		}
@@ -258,7 +286,7 @@ function validateHome(file, data) {
 				const obj = reqObject(file, base, item);
 				if (!obj) return;
 				reqString(file, `${base}.role`, obj.role);
-				reqString(file, `${base}.title`, obj.title);
+				reqString(file, `${base}.heading`, obj.heading);
 				reqString(file, `${base}.description`, obj.description);
 				const tags = reqArray(file, `${base}.tags`, obj.tags);
 				if (tags) tags.forEach((tag, i) => reqString(file, `${base}.tags[${i}]`, tag));
@@ -293,7 +321,7 @@ function validateMenu(file, data, locales = []) {
 		const base = `[${index}]`;
 		const obj = reqObject(file, base, item);
 		if (!obj) return;
-		reqString(file, `${base}.title`, obj.title);
+		reqString(file, `${base}.heading`, obj.heading);
 		const link = reqString(file, `${base}.link`, obj.link);
 		if (link && !link.startsWith('/')) {
 			fail(file, `${base}.link`, 'must start with "/"');
@@ -311,7 +339,7 @@ function validateGlobal(file, data) {
 	const root = reqObject(file, 'root', data);
 	if (!root) return;
 
-	['title', 'subtitle', 'domain', 'name', 'language'].forEach((field) => reqString(file, field, root[field]));
+	['site_heading', 'subtitle', 'domain', 'name', 'language'].forEach((field) => reqString(file, field, root[field]));
 
 	const contacts = reqObject(file, 'contacts', root.contacts);
 	if (!contacts) return;
@@ -327,7 +355,7 @@ function validateGlobal(file, data) {
 			const base = `contacts.${field}[${index}]`;
 			const obj = reqObject(file, base, item);
 			if (!obj) return;
-			reqString(file, `${base}.title`, obj.title);
+			reqString(file, `${base}.heading`, obj.heading);
 			reqString(file, `${base}.url`, obj.url);
 			optString(file, `${base}.icon`, obj.icon);
 		});
@@ -375,12 +403,12 @@ async function main() {
 	validateI18n('src/_data/i18n.yml', i18n);
 
 	for (const file of portfolioFiles) {
-		const data = await loadMarkdownFrontMatter(file);
+		const data = await loadCollectionEntryData(file);
 		if (data) validatePortfolioEntry(file, data);
 	}
 
 	for (const file of publicationsFiles) {
-		const data = await loadMarkdownFrontMatter(file);
+		const data = await loadCollectionEntryData(file);
 		if (data) validatePublicationsEntry(file, data);
 	}
 

@@ -12,7 +12,7 @@ layout: page.njk
 		<article class="case__article video">
 			<div class="video__content">
 				<a class="video__main-link" href="{{ url }}" target="_blank" data-id="{{ id }}" data-start="{{ start }}">
-					<h1 class="video__heading">{{ title }}</h1>
+					<h1 class="video__heading">{{ heading or title }}</h1>
 					<p class="video__text">{{ description }}</p>
 				</a>
 				<button type="button" class="video__button" aria-label="Launch the video"></button>

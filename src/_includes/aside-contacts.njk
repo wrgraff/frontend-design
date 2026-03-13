@@ -4,7 +4,7 @@
 	{% for item in global.contacts.messaging %}
 		<li class="aside-contacts__item">
 			{{ link(
-				text = item.title,
+				text = item.heading,
 				href = item.url,
 				size = 'text-xs',
 				icon = item.icon
@@ -17,7 +17,7 @@
 	{% for item in global.contacts.socials %}
 		<li class="aside-contacts__item">
 			{{ link(
-				text = item.title,
+				text = item.heading,
 				href = item.url,
 				size = 'text-xs',
 				icon = item.icon

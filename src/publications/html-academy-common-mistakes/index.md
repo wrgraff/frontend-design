@@ -1,5 +1,5 @@
 ---
-title: Common design mistakes and how to fix them
+heading: Common design mistakes and how to fix them
 order: 3
 kind: article
 external: true

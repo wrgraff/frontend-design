@@ -73,6 +73,18 @@ Forbidden:
 - Prefer composition via mixed BEM blocks over deep element trees. Avoid structures like `block__meta-item`, `block__meta-term`, `block__meta-value`; split these into small mixed blocks when possible.
 - Prefer `heading` naming over `title` naming for markup/data fields in page sections and case cards.
 - Raster images must be wrapped in `<picture>` (required baseline for future responsive/image optimization pipeline).
+- All images must have explicit dimensions in markup (`width` and `height`), including `img` and `svg`.
+
+## Markdown Output Integrity (Mandatory)
+
+- Markup generated from data via `markdown` filter is immutable output and must not be modified by string replacements or regex transforms in templates/macros.
+- Forbidden post-processing examples: `replace('<p>', '')`, `replace('</p>', '')`, any tag stripping/rewrite, or any mutation of markdown-rendered HTML fragments.
+- If inline/plain text is required, provide plain text in data or use a dedicated non-markdown field; do not alter rendered markdown HTML.
+- Field-level policy for section-like content:
+  - `pretitle` / `eyebrow` fields are plain strings (no `markdown` filter).
+  - `heading` fields are plain strings (no `markdown` filter).
+  - `button` / `link` text fields are plain strings (including `text`, `subtext`).
+  - `lead`, `content`, `conclusion`, and rich descriptive fields may use `markdown`.
 
 ## Component Usage Rules
 

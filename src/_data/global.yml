@@ -1,4 +1,4 @@
-title: Artur Trifonov's personal website
+site_heading: Artur Trifonov's personal website
 subtitle: UI designer CV and portfolio
 domain: https://arturtrifonov.com
 name: Artur Trifonov
@@ -14,22 +14,22 @@ contacts:
   text: Contact me if you interested in working together
   comment: Or just to talk =)
   messaging:
-    - title: hi@arturtrifonov.com
+    - heading: hi@arturtrifonov.com
       url: mailto:hi@arturtrifonov.com
       icon: email/email
-    - title: WhatsApp
+    - heading: WhatsApp
       url: https://wa.me/qr/D5O7F7DDAEUHK1
       icon: social-networks/whatsapp
-    - title: Telegram
+    - heading: Telegram
       url: https://t.me/wrgraff
       icon: social-networks/telegram
   socials:
-    - title: LinkedIn
+    - heading: LinkedIn
       url: https://www.linkedin.com/in/arturtrifonov/
       icon: social-networks/linkedin
-    - title: Behance
+    - heading: Behance
       url: https://www.behance.net/arturtrifonov
       icon: social-networks/Behance
-    - title: Dribbble
+    - heading: Dribbble
       url: https://dribbble.com/arturtrifonov
       icon: social-networks/dribble

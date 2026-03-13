@@ -1,5 +1,5 @@
 ---
-title: Content management systems
+heading: Content management systems
 order: 6
 kind: video
 external: true

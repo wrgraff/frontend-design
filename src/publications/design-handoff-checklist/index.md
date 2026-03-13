@@ -1,6 +1,7 @@
 ---
 layout: publication.njk
 title: Practical design handoff checklist
+heading: Practical design handoff checklist
 order: 1
 kind: article
 external: false

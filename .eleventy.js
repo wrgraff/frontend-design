@@ -151,6 +151,21 @@ function widontHtml(content) {
 	});
 }
 
+function normalizeIconSvgAttributes(svgMarkup, className, size) {
+	const markup = String(svgMarkup ?? '');
+	const iconClass = String(className ?? '').replace(/"/g, '&quot;');
+	const iconSize = String(size ?? 32).replace(/"/g, '&quot;');
+
+	return markup.replace(/<svg\b([^>]*)>/i, (full, attrs) => {
+		const cleanedAttrs = String(attrs ?? '').replace(
+			/\s(?:class|aria-hidden|width|height)="[^"]*"/gi,
+			''
+		);
+
+		return `<svg${cleanedAttrs} class="${iconClass}" aria-hidden="true" width="${iconSize}" height="${iconSize}">`;
+	});
+}
+
 module.exports = function (config) {
 	const isProduction = process.env.ELEVENTY_ENV === 'production';
 	const byOrder = (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0);
@@ -236,10 +251,14 @@ module.exports = function (config) {
 		return widont(value);
 	});
 
+	config.addFilter('iconSvg', (svgMarkup, className, size = 32) => {
+		return normalizeIconSvgAttributes(svgMarkup, className, size);
+	});
+
     // Collections
 
     const collections = {
-        'portfolio': 'src/portfolio/*/index.md',
+        'portfolio': 'src/portfolio/*/index.njk',
 		'publications': 'src/publications/*/index.md'
     };
 

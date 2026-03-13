@@ -1,0 +1,110 @@
+/* Variables */
+
+.case-hero {
+	--case-hero-img-size: 680px;
+	--case-hero-padding: 120px 80px;
+	--case-hero-gap: var(--space-gap-l);
+	--case-hero-columns: 5;
+	--case-hero-z-index: 0;
+	--case-hero-tags-column: 1 / 4;
+	--case-hero-tags-gap: var(--space-gap-xxs);
+	--case-hero-heading-column: 1 / 5;
+	--case-hero-text-column: 1 / 4;
+	--case-hero-meta-column: 1 / -2;
+	--case-hero-meta-margin-top: var(--space-gap-s);
+	--case-hero-image-column: 5 / 6;
+	--case-hero-image-row: 1 / 4;
+	--case-hero-image-z-index: -1;
+	--case-hero-picture-offset-x: 86px;
+	--case-hero-picture-blur: 7px;
+	--case-hero-picture-overlay-opacity: 0.5;
+	--case-hero-picture-image-radius: 0 0 var(--case-hero-img-size) var(--case-hero-img-size);
+}
+
+/* Case hero */
+
+.case-hero {
+	display: grid;
+	gap: var(--case-hero-gap);
+	grid-template-columns: repeat(var(--case-hero-columns), 1fr);
+	padding: var(--case-hero-padding);
+	position: relative;
+	z-index: var(--case-hero-z-index);
+}
+
+/* Case hero image */
+
+.case-hero__img {
+	grid-column: var(--case-hero-image-column);
+	grid-row: var(--case-hero-image-row);
+	position: relative;
+	z-index: var(--case-hero-image-z-index);
+}
+
+.case-hero__picture {
+	align-items: end;
+	display: flex;
+	height: var(--case-hero-img-size);
+	left: calc(50% - (var(--case-hero-img-size) / 2 + var(--case-hero-picture-offset-x)));
+	position: absolute;
+	top: calc(50% - var(--case-hero-img-size) / 2);
+	width: var(--case-hero-img-size);
+}
+
+.case-hero__picture::before {
+	backdrop-filter: blur(var(--case-hero-picture-blur));
+	background-image: var(--color-gradient);
+	border-radius: 50%;
+	bottom: 0;
+	content: '';
+	left: 0;
+	opacity: var(--case-hero-picture-overlay-opacity);
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: -1;
+}
+
+.case-hero__picture img {
+	border-radius: var(--case-hero-picture-image-radius);
+	max-width: none;
+	object-fit: cover;
+	width: var(--case-hero-img-size);
+}
+
+/* Case hero content */
+
+.case-hero__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--case-hero-tags-gap);
+	grid-column: var(--case-hero-tags-column);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.case-hero__tag {
+	display: flex;
+	margin: 0;
+}
+
+.case-hero__heading {
+	font: var(--font-heading-hl1);
+	grid-column: var(--case-hero-heading-column);
+	letter-spacing: var(--font-heading-letterspacing);
+	margin: 0;
+	text-transform: var(--font-heading-transform);
+}
+
+.case-hero__text {
+	font: var(--font-text-xl);
+	grid-column: var(--case-hero-text-column);
+	letter-spacing: var(--font-text-letterspacing);
+	text-transform: var(--font-text-transform);
+}
+
+.case-hero__meta {
+	grid-column: var(--case-hero-meta-column);
+	margin-top: var(--case-hero-meta-margin-top);
+}

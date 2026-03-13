@@ -27,7 +27,7 @@
 				<li>
 					<h3>
 						<a href="{{ articleHref | localePath(page.url) }}"{% if publication.data.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
-							{{ publication.data.title }}
+							{{ publication.data.heading }}
 						</a>
 					</h3>
 					{% if publication.data.description %}
@@ -53,7 +53,7 @@
 		<ul>
 			{% for publication in videoItems %}
 				<li>
-					<h3>{{ publication.data.title }}</h3>
+					<h3>{{ publication.data.heading }}</h3>
 					{% if publication.data.description %}
 						<p>{{ publication.data.description }}</p>
 					{% endif %}

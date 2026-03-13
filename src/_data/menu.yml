@@ -1,8 +1,8 @@
-- title: Portfolio
+- heading: Portfolio
   link: /portfolio/
-- title: My background
+- heading: My background
   link: /background/
-- title: Publications
+- heading: Publications
   link: /publications/
-- title: Contacts
+- heading: Contacts
   link: /contacts/
