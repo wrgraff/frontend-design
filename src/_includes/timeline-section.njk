@@ -34,7 +34,7 @@
 			</div>
 		{% endif %}
 
-		{% if data.content or (data.details and (data.details | length)) or data.conclusion %}
+		{% if data.content or (data.details and (data.details | length)) %}
 			<div class="section__content">
 				{% if data.content %}
 					{{ data.content | markdown | safe }}
@@ -47,10 +47,12 @@
 						{% endfor %}
 					</ul>
 				{% endif %}
+			</div>
+		{% endif %}
 
-				{% if data.conclusion %}
-					{{ data.conclusion | markdown | safe }}
-				{% endif %}
+		{% if data.conclusion %}
+			<div class="section__tail">
+				{{ data.conclusion | markdown | safe }}
 			</div>
 		{% endif %}
 

@@ -125,6 +125,7 @@ Inputs (`data` object):
 - `heading` (optional, markdown string)
 - `lead` (optional, markdown string)
 - `content` (optional, markdown string)
+- `conclusion` (optional, markdown string)
 - `cta` (optional, array of CTA items)
 
 CTA item:
@@ -147,6 +148,7 @@ CTA item:
 Behavior:
 - If used with `{% call %}`, caller HTML is appended into `.section__content`.
 - `data.content` and caller content can be used together.
+- `data.conclusion`, if present, is rendered after `.section__content` in `.section__tail`.
 
 Constraints:
 - Use either markdown content (`data.content`) or caller HTML for structured blocks; avoid mixing when not needed.

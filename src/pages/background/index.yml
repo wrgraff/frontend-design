@@ -44,7 +44,7 @@ sections:
       - "**Adapt communication** by working with ~50 students at different starting levels, adjusting clarity, pace, and depth"
       - "**People-first collaboration**, reflected in consistent top-10 mentor feedback rankings"
       - "**Share knowledge** through Academy blog and course-book writing, plus lectures"
-    conclusion: "Co-authored a **course on design fundamentals** — a full program with structure, content, tasks, and examples."
+    conclusion: 'Co-authored a [course on design fundamentals](https://htmlacademy.ru/levelup/design) — a full program with structure, content, tasks, and examples.'
     timeline:
       date: October 2019 – July 2023
       company: HTML Academy
@@ -69,10 +69,10 @@ sections:
   - id: web-studio
     pretitle: Web design
     heading: Web studio
-    content: |
+    lead: |
       Before moving into product design, I worked in a small web studio as an interface developer.
 
-      I built complex business websites for industrial and e-commerce clients — projects where clarity, structure, and implementation quality mattered.
+      I built complex business websites for industrial and e-commerce clients — projects where clarity, structure, and implementation quality mattered
     timeline:
       date: October 2019 – July 2023
       company: United Design Studio
@@ -82,10 +82,10 @@ sections:
   - id: education
     pretitle: Education
     heading: Classical basis
-    content: |
+    lead: |
       I studied for Design in University, with a strong focus on visual craft: composition, typography, and form.
 
-      Beyond technique, it gave me a broader design lens: how visuals live in culture, shift over time, and borrow meaning from context, not just from requirements.
+      Beyond technique, it gave me a broader design lens: how visuals live in culture, shift over time, and borrow meaning from context, not just from requirements
     timeline:
       date: September 2005 – July 2011
       company: Environmental Design

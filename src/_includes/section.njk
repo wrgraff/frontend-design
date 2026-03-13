@@ -40,6 +40,12 @@
 			</div>
 		{% endif %}
 
+		{% if data.conclusion %}
+			<div class="section__tail">
+				{{ data.conclusion | markdown | safe }}
+			</div>
+		{% endif %}
+
 		{% if data.cta and (data.cta | length) %}
 			<div class="section__cta">
 				{% for ctaItem in data.cta %}
