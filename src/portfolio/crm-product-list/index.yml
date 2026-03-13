@@ -9,4 +9,17 @@ tags:
   - Data table
   - Workflows
 imgs:
-  - cover
+  - 00-hero
+  - 01-task
+  - 02-product-list
+  - 02-full-item
+  - 02-adjustment-features
+  - 02-search
+  - type: mp4
+    name: 02-product-filters
+  - 03-products-hierarchy
+  - 03-hierarchy-settings
+  - 03-multi-edit
+  - 04-tag-system
+  - 04-full-setup
+  - 05-final-conclusion

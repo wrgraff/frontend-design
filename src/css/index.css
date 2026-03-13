@@ -21,6 +21,7 @@
 @import url('./blocks/logo.css');
 @import url('./blocks/hero.css');
 @import url('./blocks/case-hero.css');
+@import url('./blocks/legacy-case.css');
 @import url('./blocks/aside.css');
 @import url('./blocks/aside-contacts.css');
 @import url('./blocks/section.css');

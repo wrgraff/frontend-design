@@ -1,7 +1,8 @@
 <ul class="aside__list site-list">
 {% for item in menu %}
 		{% set itemLink = item.link | localePath(page.url) %}
-		{% if itemLink == page.url %}
+		{% set isCurrent = itemLink == page.url or (itemLink != '/' and page.url.indexOf(itemLink) == 0) %}
+		{% if isCurrent %}
 			<li class="site-list__item site-list__item_current">
 				<a href="{{ itemLink }}" class="site-list__link" aria-current="page">
 					{{- item.heading -}}
