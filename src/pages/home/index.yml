@@ -33,7 +33,6 @@ my_design_journey:
 portfolio:
   pretitle: My work
   heading: Latest works
-  lead: Selected projects rendered from the Eleventy portfolio collection.
   empty_message: Portfolio entries are not added yet.
   items: []
 

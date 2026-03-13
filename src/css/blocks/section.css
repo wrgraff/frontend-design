@@ -83,6 +83,10 @@
 	--section-content-column: 1 / span 3;
 }
 
+.section_view_portfolio {
+	--section-content-column: 1 / -1;
+}
+
 .section_view_timeline {
 	position: relative;
 }

@@ -1,10 +1,12 @@
 ---
 layout: portfolio-case.njk
 title: Cloud Cost Explorer
+heading: Cloud Cost Explorer
 order: 1
 external: false
 nda: false
 role: Product UX Designer
+scope: Placeholder scope for Cloud Cost Explorer case.
 description: Helps understand cloud spend through trends, forecasts, and optimization views.
 tags:
   - Data-heavy

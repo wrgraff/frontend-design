@@ -1,0 +1,40 @@
+/* Variables */
+
+.meta {
+	--meta-row-gap: var(--space-gap-xxs);
+	--meta-column-gap: var(--space-gap-m);
+	--meta-item-gap: var(--space-gap-xxs);
+	--meta-term-font: var(--font-caption-xs);
+	--meta-term-color: var(--color-text-tertiary);
+	--meta-value-font: var(--font-label-s);
+	--meta-value-color: var(--color-text-primary);
+}
+
+/* Meta */
+
+.meta {
+	display: grid;
+	row-gap: var(--meta-row-gap);
+	column-gap: var(--meta-column-gap);
+}
+
+.meta__term {
+	grid-row: 1 / 2;
+	color: var(--meta-term-color);
+	font: var(--meta-term-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	margin: 0;
+	text-transform: var(--font-caption-transform);
+}
+
+.meta__value {
+	color: var(--meta-value-color);
+	font: var(--meta-value-font);
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.meta {
+		--meta-gap: var(--space-gap-s);
+	}
+}

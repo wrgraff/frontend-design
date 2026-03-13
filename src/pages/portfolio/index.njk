@@ -1,7 +1,6 @@
 {% from 'hero.njk' import heroSection %}
+{% from 'portfolio-cases.njk' import portfolioCases %}
 {% from 'section.njk' import section %}
-{% from 'label.njk' import label %}
-{% from 'link.njk' import link %}
 
 {{ heroSection(hero) }}
 
@@ -11,39 +10,13 @@
 {% call section({
 	pretitle: portfolioSection.pretitle or 'My work',
 	heading: portfolioSection.heading or 'Latest works',
-	lead: portfolioSection.lead or 'Selected projects rendered from the Eleventy portfolio collection.'
+	lead: portfolioSection.lead or '',
+	extra_class: 'section_view_portfolio'
 }) %}
-	{% if portfolioCollection.length %}
-		<ul>
-			{% for item in portfolioCollection %}
-				<li>
-					{% if item.data.role %}
-						<p>{{ item.data.role }}</p>
-					{% endif %}
-					<h3>
-						{{ link(
-							text = item.data.title,
-							href = item.url,
-							size = 'xs',
-							icon = ''
-						) }}
-					</h3>
-					{% if item.data.description %}
-						<p>{{ item.data.description }}</p>
-					{% endif %}
-					{% if item.data.tags and item.data.tags.length %}
-						<ul>
-							{% for tag in item.data.tags %}
-								<li>{{ label(tag) }}</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
-				</li>
-			{% endfor %}
-		</ul>
-	{% else %}
-		<p>{{ portfolioSection.empty_message or 'Portfolio entries are not added yet.' }}</p>
-	{% endif %}
+	{{ portfolioCases(
+		collection = portfolioCollection,
+		emptyMessage = portfolioSection.empty_message or 'Portfolio entries are not added yet.'
+	) }}
 {% endcall %}
 
 {% call section({

@@ -1,7 +1,6 @@
 {% from 'hero.njk' import heroSection %}
+{% from 'portfolio-cases.njk' import portfolioCases %}
 {% from 'section.njk' import section %}
-{% from 'label.njk' import label %}
-{% from 'link.njk' import link %}
 
 {{ heroSection(hero) }}
 
@@ -15,42 +14,14 @@
 {% call section({
 	pretitle: portfolio.pretitle,
 	heading: portfolio.heading,
-	lead: portfolio.lead
+	lead: portfolio.lead,
+	extra_class: 'section_view_portfolio'
 }) %}
-	{% set portfolioCollection = collections.portfolio or [] %}
-	{% if portfolioCollection.length %}
-		<ul>
-			{% for item in portfolioCollection %}
-				{% if loop.index <= 4 %}
-					<li>
-						{% if item.data.role %}
-							<p>{{ item.data.role }}</p>
-						{% endif %}
-				<h3>
-					{{ link(
-						text = item.data.title,
-						href = item.url,
-						size = 'xs',
-						icon = ''
-					) }}
-				</h3>
-						{% if item.data.description %}
-							<p>{{ item.data.description }}</p>
-						{% endif %}
-						{% if item.data.tags and item.data.tags.length %}
-							<ul>
-								{% for tag in item.data.tags %}
-									<li>{{ label(tag) }}</li>
-								{% endfor %}
-							</ul>
-						{% endif %}
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	{% else %}
-		<p>{{ portfolio.empty_message }}</p>
-	{% endif %}
+	{{ portfolioCases(
+		collection = collections.portfolio or [],
+		limit = 4,
+		emptyMessage = portfolio.empty_message
+	) }}
 {% endcall %}
 
 {% call section({

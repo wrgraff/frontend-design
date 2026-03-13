@@ -69,6 +69,10 @@ Forbidden:
 - If existing block/element already solves it, reuse it.
 - Keep list markup as flat and semantic as possible.
 - Internal links in templates/macros must go through locale-aware routing (`localePath` filter). Do not hardcode locale prefixes.
+- Prefer simple and clean naming over over-specific/double naming. If both are valid, choose the simpler name.
+- Prefer composition via mixed BEM blocks over deep element trees. Avoid structures like `block__meta-item`, `block__meta-term`, `block__meta-value`; split these into small mixed blocks when possible.
+- Prefer `heading` naming over `title` naming for markup/data fields in page sections and case cards.
+- Raster images must be wrapped in `<picture>` (required baseline for future responsive/image optimization pipeline).
 
 ## Component Usage Rules
 

@@ -24,7 +24,7 @@ Inputs:
 - `text` (required, string)
 - `href` (required for interactive use, string)
 - `mode` (optional, string): maps to `link_mode_*`
-- `size` (optional, string): maps to `link_size_*`
+- `size` (optional, string): maps to `link_size_*` and should use font-token naming (for example: `text-s`, `caption-xs`, `heading-h2`)
 - `icon` (optional, string): icon name; empty string disables left icon
 - `external` (optional, boolean): shows external icon
 - `target` (optional, string)

@@ -2,9 +2,12 @@
 a:not([class]) {
 	--link-text-color: var(--color-text-base);
 	--link-font: var(--font-label-m);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
 	--link-gap: var(--space-gap-xxs);
 	--link-underline-color: var(--color-text-alt);
-	--link-underline-offset: var(--space-gap-3xs);
+	--link-underline-offset: .25rem;
+	--link-underline-thickness: var(--space-border-light);
 	--link-icon-size: var(--space-size-s);
 	--link-icon-color: currentColor;
 	--link-external-size: var(--space-size-4xs);
@@ -15,17 +18,22 @@ a:not([class]) {
 .link,
 a:not([class]) {
 	color: var(--link-text-color);
-	font: var(--link-font);
-	letter-spacing: var(--font-text-letterspacing);
-	text-transform: var(--font-text-transform);
-	transition: color var(--transition-element-duration) var(--transition-element-function);
+	letter-spacing: var(--link-letterspacing);
+	text-transform: var(--link-text-transform);
+	transition:
+		color var(--transition-element-duration) var(--transition-element-function),
+		text-decoration-color var(--transition-element-duration) var(--transition-element-function);
+	text-decoration: underline;
+	text-decoration-color: var(--link-underline-color);
+	text-decoration-thickness: var(--link-underline-thickness);
+	text-underline-offset: var(--link-underline-offset);
 }
 
 .link {
 	align-items: center;
 	display: inline-flex;
 	gap: var(--link-gap);
-	text-decoration: none;
+	font: var(--link-font);
 }
 
 .link:hover {
@@ -37,19 +45,9 @@ a:not([class]) {
 	--link-text-color: var(--color-text-alt);
 	--link-underline-color: var(--color-text-alt);
 	--link-icon-color: var(--color-text-alt);
-
 }
 
 /* Plain links */
-
-.link__text,
-a:not([class]) {
-	text-decoration: underline;
-	text-decoration-color: var(--link-underline-color);
-	text-decoration-thickness: var(--space-border-light);
-	text-underline-offset: var(--link-underline-offset);
-	transition: text-decoration-color var(--transition-element-duration) var(--transition-element-function);
-}
 
 .link:hover .link__text,
 a:not([class]):hover {
@@ -61,20 +59,240 @@ a:not([class]):active {
 	text-decoration-color: var(--color-text-alt);
 }
 
-/* Sizes */
+/* Sizes - Text */
 
-.link_size_xs {
+.link_size_text-xs {
 	--link-font: var(--font-text-xs);
-	--link-gap: var(--space-gap-4xs);
 	--link-icon-size: var(--space-size-xxs);
-	--link-underline-offset: var(--space-gap-4xs);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
 }
 
-.link_size_s {
+.link_size_text-s {
 	--link-font: var(--font-text-s);
-	--link-gap: var(--space-gap-3xs);
 	--link-icon-size: var(--space-size-xs);
-	--link-underline-offset: var(--space-gap-4xs);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
+}
+
+.link_size_text-m {
+	--link-font: var(--font-text-m);
+	--link-icon-size: var(--space-size-s);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
+}
+
+.link_size_text-l {
+	--link-font: var(--font-text-l);
+	--link-icon-size: var(--space-size-m);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
+}
+
+.link_size_text-xl {
+	--link-font: var(--font-text-xl);
+	--link-icon-size: var(--space-size-l);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
+}
+
+.link_size_text-2xl {
+	--link-font: var(--font-text-2xl);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
+}
+
+.link_size_text-3xl {
+	--link-font: var(--font-text-3xl);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-text-letterspacing);
+	--link-text-transform: var(--font-text-transform);
+}
+
+/* Sizes - Label */
+
+.link_size_label-xs {
+	--link-font: var(--font-label-xs);
+	--link-icon-size: var(--space-size-xxs);
+	--link-letterspacing: var(--font-label-letterspacing);
+	--link-text-transform: var(--font-label-transform);
+}
+
+.link_size_label-s {
+	--link-font: var(--font-label-s);
+	--link-icon-size: var(--space-size-xs);
+	--link-letterspacing: var(--font-label-letterspacing);
+	--link-text-transform: var(--font-label-transform);
+}
+
+.link_size_label-m {
+	--link-font: var(--font-label-m);
+	--link-icon-size: var(--space-size-s);
+	--link-letterspacing: var(--font-label-letterspacing);
+	--link-text-transform: var(--font-label-transform);
+}
+
+.link_size_label-l {
+	--link-font: var(--font-label-l);
+	--link-icon-size: var(--space-size-m);
+	--link-letterspacing: var(--font-label-letterspacing);
+	--link-text-transform: var(--font-label-transform);
+}
+
+.link_size_label-xl {
+	--link-font: var(--font-label-xl);
+	--link-icon-size: var(--space-size-l);
+	--link-letterspacing: var(--font-label-letterspacing);
+	--link-text-transform: var(--font-label-transform);
+}
+
+.link_size_label-2xl {
+	--link-font: var(--font-label-2xl);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-label-letterspacing);
+	--link-text-transform: var(--font-label-transform);
+}
+
+.link_size_label-3xl {
+	--link-font: var(--font-label-3xl);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-label-letterspacing);
+	--link-text-transform: var(--font-label-transform);
+}
+
+/* Sizes - Caption */
+
+.link_size_caption-xs {
+	--link-font: var(--font-caption-xs);
+	--link-icon-size: var(--space-size-xxs);
+	--link-letterspacing: var(--font-caption-letterspacing);
+	--link-text-transform: var(--font-caption-transform);
+}
+
+.link_size_caption-s {
+	--link-font: var(--font-caption-s);
+	--link-icon-size: var(--space-size-xs);
+	--link-letterspacing: var(--font-caption-letterspacing);
+	--link-text-transform: var(--font-caption-transform);
+}
+
+.link_size_caption-m {
+	--link-font: var(--font-caption-m);
+	--link-icon-size: var(--space-size-s);
+	--link-letterspacing: var(--font-caption-letterspacing);
+	--link-text-transform: var(--font-caption-transform);
+}
+
+.link_size_caption-l {
+	--link-font: var(--font-caption-l);
+	--link-icon-size: var(--space-size-m);
+	--link-letterspacing: var(--font-caption-letterspacing);
+	--link-text-transform: var(--font-caption-transform);
+}
+
+.link_size_caption-xl {
+	--link-font: var(--font-caption-xl);
+	--link-icon-size: var(--space-size-l);
+	--link-letterspacing: var(--font-caption-letterspacing);
+	--link-text-transform: var(--font-caption-transform);
+}
+
+.link_size_caption-2xl {
+	--link-font: var(--font-caption-2xl);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-caption-letterspacing);
+	--link-text-transform: var(--font-caption-transform);
+}
+
+.link_size_caption-3xl {
+	--link-font: var(--font-caption-3xl);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-caption-letterspacing);
+	--link-text-transform: var(--font-caption-transform);
+}
+
+/* Sizes - Heading */
+
+.link_size_heading-hl1 {
+	--link-font: var(--font-heading-hl1);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-hl2 {
+	--link-font: var(--font-heading-hl2);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-hl3 {
+	--link-font: var(--font-heading-hl3);
+	--link-icon-size: var(--space-size-xl);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-h1 {
+	--link-font: var(--font-heading-h1);
+	--link-icon-size: var(--space-size-l);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-h2 {
+	--link-font: var(--font-heading-h2);
+	--link-icon-size: var(--space-size-l);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-h3 {
+	--link-font: var(--font-heading-h3);
+	--link-icon-size: var(--space-size-m);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-h4 {
+	--link-font: var(--font-heading-h4);
+	--link-icon-size: var(--space-size-m);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-h5 {
+	--link-font: var(--font-heading-h5);
+	--link-icon-size: var(--space-size-s);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
+}
+
+.link_size_heading-h6 {
+	--link-font: var(--font-heading-h6);
+	--link-icon-size: var(--space-size-s);
+	--link-letterspacing: var(--font-heading-letterspacing);
+	--link-text-transform: var(--font-heading-transform);
+	--link-underline-thickness: var(--space-border-medium);
+	--link-underline-offset: .35rem;
 }
 
 /* Elements */
