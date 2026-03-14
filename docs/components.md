@@ -54,6 +54,28 @@ Inputs:
 Constraints:
 - If `href` is empty, `type` should be valid button type (`button|submit|reset`).
 
+## ctaItem
+
+Source: `src/_includes/cta-item.njk`  
+Signature: `ctaItem(item = {}, defaultMode = 'secondary', defaultSize = 'l', defaultType = 'button')`
+
+Inputs:
+- `item` (optional, object): CTA item data
+  - `kind` (optional, string): `link` uses `link` macro; anything else uses `button` macro
+  - `text` (required, plain string)
+  - `href` (optional)
+  - `mode` (optional)
+  - `size` (optional)
+  - `extra_class` (optional)
+  - link-specific: `icon`, `external`, `target`, `rel`
+  - button-specific: `subtext`, `icon_left`, `icon_right`, `type`, `download`
+- `defaultMode` (optional, string): fallback mode for button path
+- `defaultSize` (optional, string): fallback size for button path
+- `defaultType` (optional, string): fallback type for button path
+
+Behavior:
+- Shared CTA renderer used by `hero` and `section`.
+
 ## iconButton
 
 Source: `src/_includes/icon-button.njk`  
@@ -151,6 +173,7 @@ Inputs (`data` object):
 - `content` (optional, markdown string): plain section markdown body
 - `tail` (optional, markdown string): preferred section tail field
 - `conclusion` (optional, markdown string): legacy alias for `tail`
+- `cta` (optional, array of CTA items): rendered via `ctaItem`
 - `decor_image` (optional, string URL/path): decorative image rendered at the end of the section
 - `decor_width` (optional, number|string): required together with `decor_height` to render decorative image
 - `decor_height` (optional, number|string): required together with `decor_width` to render decorative image
@@ -160,6 +183,7 @@ Behavior:
 - If used with `{% call %}`, caller HTML is appended into `.section__content`.
 - `data.content` and caller content can be used together.
 - `tail`/`conclusion`, if present, is rendered after `.section__content` in `.section__tail`.
+- `cta`, if present, is rendered in `.section__cta` via shared `ctaItem`.
 - Decorative image is rendered as `<picture class="section__decor ...">` with nested `<img class="section__decor-image">` after content/tail when `decor_image`, `decor_width`, and `decor_height` are all provided.
 - Decorative image `<img>` is rendered with `aria-hidden="true"` and fixed `alt=""`.
 

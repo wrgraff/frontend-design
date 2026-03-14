@@ -1,3 +1,5 @@
+{% from 'cta-item.njk' import ctaItem %}
+
 {% macro section(data = {}) %}
 	{% set sectionTail = data.tail or data.conclusion %}
 	{% set sectionClasses = [
@@ -41,6 +43,14 @@
 		{% if sectionTail %}
 			<div class="section__tail">
 				{{ sectionTail | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if data.cta and (data.cta | length) %}
+			<div class="section__cta">
+				{% for item in data.cta %}
+					{{ ctaItem(item, 'secondary', 'l', 'button') }}
+				{% endfor %}
 			</div>
 		{% endif %}
 

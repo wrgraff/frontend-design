@@ -1,4 +1,4 @@
-{% from 'button.njk' import button %}
+{% from 'cta-item.njk' import ctaItem %}
 
 {% macro heroSection(hero) %}
 <section class="main__section hero">
@@ -24,19 +24,8 @@
 
 	{% if hero.cta and (hero.cta | length) %}
 		<div class="hero__cta">
-			{% for ctaItem in hero.cta %}
-				{{ button(
-					ctaItem.text | default('Button') | trim,
-					ctaItem.href or '',
-					ctaItem.mode or 'secondary',
-					ctaItem.size or 'xl',
-					ctaItem.subtext | default('') | trim,
-					ctaItem.icon_left or '',
-					ctaItem.icon_right or '',
-					ctaItem.type or 'button',
-					ctaItem.extra_class or '',
-					ctaItem.download or false
-				) }}
+			{% for item in hero.cta %}
+				{{ ctaItem(item, 'secondary', 'xl', 'button') }}
 			{% endfor %}
 		</div>
 	{% endif %}

@@ -1,0 +1,31 @@
+{% from 'button.njk' import button %}
+{% from 'link.njk' import link %}
+
+{% macro ctaItem(item = {}, defaultMode = 'secondary', defaultSize = 'l', defaultType = 'button') %}
+	{% if item.kind == 'link' %}
+		{{ link(
+			text = item.text | default('Link') | trim,
+			href = item.href or '',
+			mode = item.mode or '',
+			size = item.size or '',
+			icon = item.icon or 'info-signs/link',
+			external = item.external or false,
+			target = item.target or '',
+			rel = item.rel or '',
+			extraClass = item.extra_class or ''
+		) }}
+	{% else %}
+		{{ button(
+			item.text | default('Button') | trim,
+			item.href or '',
+			item.mode or defaultMode,
+			item.size or defaultSize,
+			item.subtext | default('') | trim,
+			item.icon_left or '',
+			item.icon_right or '',
+			item.type or defaultType,
+			item.extra_class or '',
+			item.download or false
+		) }}
+	{% endif %}
+{% endmacro %}

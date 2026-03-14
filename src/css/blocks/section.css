@@ -23,6 +23,8 @@
 	--section-content-column: 1 / span 4;
 	--section-tail-font: var(--section-lead-font);
 	--section-tail-column: var(--section-lead-column);
+	--section-cta-column: 1 / -1;
+	--section-cta-gap: var(--space-gap-xxs);
 }
 
 /* Section */
@@ -71,6 +73,14 @@
 .section__tail {
 	font: var(--section-tail-font);
 	grid-column: var(--section-tail-column);
+}
+
+.section__cta {
+	align-content: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--section-cta-gap);
+	grid-column: var(--section-cta-column);
 }
 
 /* Timeline section variant */
