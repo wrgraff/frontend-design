@@ -54,6 +54,68 @@
 	--label-bg: var(--color-surface-special-amber);
 }
 
+/* Tones */
+
+.label_tone_success {
+	--label-bg: var(--color-surface-special-success);
+}
+
+.label_tone_warning {
+	--label-bg: var(--color-surface-special-warning);
+}
+
+.label_tone_error {
+	--label-bg: var(--color-surface-special-error);
+}
+
+.label_tone_orange {
+	--label-bg: var(--color-surface-special-orange);
+}
+
+.label_tone_amber {
+	--label-bg: var(--color-surface-special-amber);
+}
+
+.label_tone_emerald {
+	--label-bg: var(--color-surface-special-emerald);
+}
+
+.label_tone_teal {
+	--label-bg: var(--color-surface-special-teal);
+}
+
+.label_tone_cyan {
+	--label-bg: var(--color-surface-special-cyan);
+}
+
+.label_tone_sky {
+	--label-bg: var(--color-surface-special-sky);
+}
+
+.label_tone_blue {
+	--label-bg: var(--color-surface-special-blue);
+}
+
+.label_tone_violet {
+	--label-bg: var(--color-surface-special-violet);
+}
+
+.label_tone_purple {
+	--label-bg: var(--color-surface-special-purple);
+}
+
+.label_tone_fuchsia {
+	--label-bg: var(--color-surface-special-fuchsia);
+}
+
+.label_tone_pink {
+	--label-bg: var(--color-surface-special-pink);
+}
+
+.label_tone_rose {
+	--label-bg: var(--color-surface-special-rose);
+}
+
 /* Sizes */
 
 .label_size_m {

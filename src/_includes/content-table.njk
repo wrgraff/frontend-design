@@ -1,0 +1,50 @@
+{% from 'label.njk' import label %}
+
+{% macro contentTable(data = {}) %}
+	<div class="section__content-item content-table">
+		{% if data.heading %}
+			<h3 class="content-table__heading">{{ data.heading }}</h3>
+		{% endif %}
+
+		<table class="content-table__table">
+			{% if data.columns and data.columns.length %}
+				<thead class="content-table__head">
+					<tr class="content-table__row content-table__row_role_head">
+						{% for column in data.columns %}
+							<th class="content-table__cell content-table__cell_role_head">
+								{{ column.heading | default('') | trim }}
+							</th>
+						{% endfor %}
+					</tr>
+				</thead>
+			{% endif %}
+
+			{% if data.rows and data.rows.length %}
+				<tbody class="content-table__body">
+					{% for row in data.rows %}
+						<tr class="content-table__row">
+							{% for column in data.columns or [] %}
+								{% set cell = row[column.key] %}
+								<td class="content-table__cell">
+									{% if cell and cell.text and cell.tone %}
+										{{ label(
+											text = cell.text | trim,
+											mode = 'special',
+											tone = cell.tone,
+											size = 'm',
+											extraClass = 'content-table__label'
+										) }}
+									{% elif cell and cell.text %}
+										{{ cell.text | markdown | safe }}
+									{% elif cell %}
+										{{ cell | markdown | safe }}
+									{% endif %}
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			{% endif %}
+		</table>
+	</div>
+{% endmacro %}

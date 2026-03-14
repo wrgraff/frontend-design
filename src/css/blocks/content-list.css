@@ -1,18 +1,8 @@
-/* Variables */
-
-.content-list {
-	--content-list-gap: var(--space-gap-2xs);
-}
 
 /* Content list */
 
 .content-list {
 	display: grid;
-	gap: var(--content-list-gap);
-}
-
-.content-list__heading {
-	margin: 0;
 }
 
 .content-list__list {

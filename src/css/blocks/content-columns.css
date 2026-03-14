@@ -12,10 +12,6 @@
 	gap: var(--space-gap-2xs);
 }
 
-.content-columns__heading {
-	margin: 0;
-}
-
 .content-columns__list {
 	display: grid;
 	gap: var(--content-columns-gap);

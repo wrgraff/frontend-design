@@ -1,12 +1,14 @@
 {% macro label(
 	text = 'Label text',
 	mode = '',
+	tone = '',
 	size = '',
 	extraClass = ''
 ) %}
 	{% set classes = [
 		'label',
 		mode and mode != 'default' and 'label_mode_' + mode or '',
+		tone and 'label_tone_' + tone or '',
 		size and size != 'l' and 'label_size_' + size or '',
 		extraClass
 	] | join(' ') | trim %}

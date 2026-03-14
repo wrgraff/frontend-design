@@ -53,26 +53,54 @@ sections:
 
   - eyebrow: Discovery
     heading: Problem context
-    content: |
-      To keep the work grounded, I framed design around representative tasks: real questions users need to answer.
+    lead: "To keep the work grounded, I framed design around representative tasks: real questions users need to answer."
+    content:
+      - type: content-list
+        heading: Pain points
+        ordered: true
+        columns: 3
+        items:
+          - No single source of truth for cloud cost and usage
+          - Existing internal tools are limited and hard to use
+          - Too much data gets buried without strong organization
 
-      **Pain points**
-      1. No single source of truth for cloud cost and usage
-      2. Existing internal tools are limited and hard to use
-      3. Too much data gets buried without strong organization
+      - type: content-table
+        heading: Representative tasks
+        columns:
+          - key: question
+            heading: Question
+          - key: cluster
+            heading: Cluster
+        rows:
+          - question: Cloud spend keeps growing and is close to our budget limit - what is driving it?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: Spend jumped unexpectedly - what changed and what caused it?
+            cluster:
+              text: Investigate
+              tone: emerald
+          - question: Where can we cut cloud costs with minimal risk and what is the expected impact?
+            cluster:
+              text: Optimise
+              tone: sky
+          - question: I see recurring spikes over a few days - what correlates with them?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: If the trend continues, when do we exceed budget and what is the end-of-period forecast?
+            cluster:
+              text: Predict
+              tone: emerald
 
-      **Representative tasks**
-      - Cloud spend keeps growing and is close to our budget limit - what is driving it? (Understand)
-      - Spend jumped unexpectedly - what changed and what caused it? (Investigate)
-      - Where can we cut cloud costs with minimal risk and what is the expected impact? (Optimise)
-      - I see recurring spikes over a few days - what correlates with them? (Understand)
-      - If the trend continues, when do we exceed budget and what is the end-of-period forecast? (Predict)
-      - Plus additional rows in the full task map
-
-      **Constraints**
-      1. Very limited access to users and competitor products
-      2. Data-heavy UI with dense tables and many dimensions
-      3. Complex domain: FinOps, chargeback, forecasting, governance
+      - type: content-list
+        heading: Constraints
+        ordered: true
+        columns: 3
+        items:
+          - Very limited access to users and competitor products
+          - Data-heavy UI with dense tables and many dimensions
+          - "Complex domain: FinOps, chargeback, forecasting, governance"
 
   - eyebrow: Discovery
     heading: Benchmark

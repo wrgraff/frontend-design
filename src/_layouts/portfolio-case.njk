@@ -6,6 +6,7 @@ layout: page.njk
 {% from 'section.njk' import section %}
 {% from 'content-list.njk' import contentList %}
 {% from 'content-columns.njk' import contentColumns %}
+{% from 'content-table.njk' import contentTable %}
 
 {{ caseHero(
 	hero = hero or {},
@@ -35,6 +36,8 @@ layout: page.njk
 						{{ contentList(contentItem) }}
 					{% elif contentItem.type == 'content-columns' %}
 						{{ contentColumns(contentItem) }}
+					{% elif contentItem.type == 'content-table' %}
+						{{ contentTable(contentItem) }}
 					{% endif %}
 				{% endfor %}
 			{% endcall %}

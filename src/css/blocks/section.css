@@ -25,6 +25,10 @@
 	--section-tail-column: var(--section-lead-column);
 	--section-cta-column: 1 / -1;
 	--section-cta-gap: var(--space-gap-xxs);
+	--section-decor-column: 1 / -1;
+	--section-decor-align-content: end;
+	--section-decor-height: 200px;
+	--section-decor-margin-inline-end: calc(var(--section-padding-inline) * -1);
 }
 
 /* Section */
@@ -70,6 +74,10 @@
 	grid-column: var(--section-content-column);
 }
 
+.section__content-item + .section__content-item {
+	margin-top: var(--section-gap);
+}
+
 .section__tail {
 	font: var(--section-tail-font);
 	grid-column: var(--section-tail-column);
@@ -109,8 +117,8 @@
 
 .section__decor {
 	display: grid;
-	grid-column: 1 / -1;
-	align-content: end;
-	height: 200px;
-	margin-right: calc(var(--section-padding-inline) * -1);
+	grid-column: var(--section-decor-column);
+	align-content: var(--section-decor-align-content);
+	height: var(--section-decor-height);
+	margin-inline-end: var(--section-decor-margin-inline-end);
 }

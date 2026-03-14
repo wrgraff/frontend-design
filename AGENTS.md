@@ -132,6 +132,7 @@ Soft convention (non-strict, do not lint):
 
 - In `src/css/blocks/<block>.css`, selectors must target only that block: `.block`, `.block__element`, `.block_modifier_value`, `.block__element_modifier_value`.
 - Cross-block and contextual selectors are forbidden in block files (examples: `.section .block`, `.other-block__el`, tag styling through parent blocks).
+- Cross-block modifier overrides are forbidden: a modifier of one block/element must not change variables or visual styles of another block (forbidden example: `.content-table__label_tone_emerald { --label-bg: ... }`).
 - BEM block selector (`.block`) must not set `margin`.
 - BEM block selector (`.block`) may set only `z-index: 0` (for local stacking scope). Any other `z-index` value on block root is forbidden.
 - BEM block selector (`.block`) must not set `position: absolute`.

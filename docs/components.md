@@ -97,11 +97,13 @@ Constraints:
 ## label
 
 Source: `src/_includes/label.njk`  
-Signature: `label(text='Label text', mode='', size='', extraClass='')`
+Signature: `label(text='Label text', mode='', tone='', size='', extraClass='')`
 
 Inputs:
 - `text` (required, string)
 - `mode` (optional, string): supports `primary` and `special`; `default` is base state and is rendered without modifier class
+- `tone` (optional, string): color tone modifier via `label_tone_*`; for `mode=special` supported tones are
+  `success`, `warning`, `error`, `orange`, `amber`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `violet`, `purple`, `fuchsia`, `pink`, `rose` (15 total)
 - `size` (optional, string): supports `m`; `l` is base state and is rendered without modifier class
 - `extraClass` (optional, string)
 
@@ -217,6 +219,23 @@ Inputs (`data` object):
 
 Behavior:
 - Renders standalone `content-columns` block intended to be mixed into `section__content`.
+
+## contentTable
+
+Source: `src/_includes/content-table.njk`  
+Signature: `contentTable(data = {})`
+
+Inputs (`data` object):
+- `heading` (optional, plain string): heading for the block
+- `columns` (optional, array): table columns definition
+  - column fields: `key` (required), `heading` (optional)
+- `rows` (optional, array of objects): each row object maps values by column `key`
+  - plain cell value: markdown string
+  - tag cell value object: `text` (plain string), `tone` (optional: `amber|emerald|sky`)
+
+Behavior:
+- Renders standalone `content-table` block intended to be mixed into `section__content`.
+- Footer/summary actions are intentionally out of scope for this macro.
 
 ## timelineSection
 
