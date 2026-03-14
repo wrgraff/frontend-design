@@ -27,6 +27,14 @@ This file is the source of truth for implementation rules that AI agents must fo
 - Do not introduce `RU` content/UI copy unless explicitly requested for a specific task.
 - The language of user prompts does not change site content language requirements.
 
+## Content Safety (Mandatory)
+
+- Never change user-authored content/copy in data files (`src/_data/*.yml`, page-level `*.yml`) unless the user explicitly asks to change that exact content.
+- "Content/copy" includes wording, punctuation, casing, sentence order, labels, headings, and list item text.
+- Data structure changes are allowed without extra approval (for example: moving text between fields, splitting one field into arrays/objects, adding/removing structural keys), as long as all original text is preserved exactly.
+- If a task is structural/styling-only, modify templates/macros/CSS only and preserve content text exactly as-is.
+- If content changes seem necessary to complete a task, stop and ask the user before editing any copy.
+
 ## BEM Naming (Mandatory)
 
 - Block: `.block`
@@ -77,6 +85,9 @@ Forbidden:
 
 ## Markdown Output Integrity (Mandatory)
 
+- Data files (`*.yml`) must store content only, not HTML or template markup.
+- Storing markup in data is strictly forbidden (examples: `<div>`, `<ol>`, `<li>`, `<picture>`, inline SVG, embedded component snippets).
+- Required markup structure must be generated in templates/macros from structured data fields (arrays/objects), not copied as raw HTML strings.
 - Markup generated from data via `markdown` filter is immutable output and must not be modified by string replacements or regex transforms in templates/macros.
 - Forbidden post-processing examples: `replace('<p>', '')`, `replace('</p>', '')`, any tag stripping/rewrite, or any mutation of markdown-rendered HTML fragments.
 - If inline/plain text is required, provide plain text in data or use a dedicated non-markdown field; do not alter rendered markdown HTML.

@@ -12,9 +12,12 @@
 	--list-order-border-width: var(--space-border-light);
 	--list-order-border-color: var(--color-border-base);
 	--list-order-padding-bottom: var(--space-gap-3xs);
-	--list-marker-width: var(--space-size-xl);
-	--list-marker-border-width: var(--space-border-medium);
-	--list-marker-border-color: var(--color-text-alt);
+	--list-unordered-gap: var(--space-gap-5xs);
+	--list-unordered-padding-inline-start: var(--space-gap-3xs);
+	--list-unordered-marker-width: var(--space-size-xs);
+	--list-unordered-marker-height: var(--space-border-medium);
+	--list-unordered-marker-color: var(--color-text-alt);
+	--list-unordered-marker-offset: .8em;
 }
 
 /* List */
@@ -26,17 +29,14 @@
 	display: grid;
 	gap: var(--list-gap);
 	align-content: start;
-	justify-items: start;
 	grid-template-columns: repeat(var(--list-columns), minmax(0, 1fr));
 }
 
 .list__item,
 :where(li):not([class])  {
-	align-content: start;
 	color: var(--list-item-color);
 	font: var(--list-item-font);
 	margin: 0;
-	min-width: 0;
 }
 
 /* Ordered */
@@ -71,14 +71,27 @@ ol:not([class]) > li[data-list-label]::before {
 
 /* Unordered */
 
+.list:not(.list_type_ordered),
+ul:not([class]) {
+	--list-gap: var(--list-unordered-gap);
+	padding-inline-start: var(--list-unordered-padding-inline-start);
+}
+
+.list:not(.list_type_ordered) .list__item,
+ul:not([class]) > li {
+	align-items: start;
+	column-gap: var(--list-item-gap);
+	display: grid;
+	grid-template-columns: var(--list-unordered-marker-width) minmax(0, 1fr);
+}
+
 .list:not(.list_type_ordered) .list__item::before,
 ul:not([class]) > li::before {
-	display: block;
-	margin-bottom: var(--list-item-gap);
-	height: var(--list-marker-border-width);
-	background-color: var(--list-marker-border-color);
 	content: '';
-	width: var(--list-marker-width);
+	background-color: var(--list-unordered-marker-color);
+	width: var(--list-unordered-marker-width);
+	height: var(--list-unordered-marker-height);
+	margin-top: var(--list-unordered-marker-offset);
 }
 
 /* Columns */

@@ -106,3 +106,17 @@
 	margin-top: var(--section-padding-block);
 	margin-bottom: var(--section-padding-block);
 }
+
+.section__decor {
+	display: grid;
+	grid-column: 1 / -1;
+	align-content: end;
+	height: 200px;
+	margin-right: calc(var(--section-padding-inline) * -1);
+}
+
+.section__groups {
+	display: grid;
+	gap: var(--section-gap);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}

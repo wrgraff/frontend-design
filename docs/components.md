@@ -151,6 +151,10 @@ Inputs (`data` object):
 - `content` (optional, markdown string)
 - `conclusion` (optional, markdown string)
 - `cta` (optional, array of CTA items)
+- `decor_image` (optional, string URL/path): decorative image rendered at the end of the section
+- `decor_width` (optional, number|string): required together with `decor_height` to render decorative image
+- `decor_height` (optional, number|string): required together with `decor_width` to render decorative image
+- `decor_class` (optional, string): extra class for decorative image element
 
 CTA item:
 - `kind` (optional, string): `link` uses `link` macro; anything else uses `button` macro
@@ -173,6 +177,8 @@ Behavior:
 - If used with `{% call %}`, caller HTML is appended into `.section__content`.
 - `data.content` and caller content can be used together.
 - `data.conclusion`, if present, is rendered after `.section__content` in `.section__tail`.
+- Decorative image is rendered as `<picture class="section__decor ...">` with nested `<img class="section__decor-image">` after content/tail/cta when `decor_image`, `decor_width`, and `decor_height` are all provided.
+- Decorative image `<img>` is rendered with `aria-hidden="true"` and fixed `alt=""`.
 
 Constraints:
 - Use either markdown content (`data.content`) or caller HTML for structured blocks; avoid mixing when not needed.

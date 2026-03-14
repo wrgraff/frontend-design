@@ -19,28 +19,30 @@ hero:
 sections:
   - eyebrow: Preparation
     heading: Success criteria
-    content: |
-      Before design work, I aligned stakeholders on success criteria for the first release.
-
-      1. Stakeholders can reliably answer core questions: where money goes, what changed, and why it looks suspicious.
-      2. MVP is connected to real cloud data in a fintech environment and works end-to-end.
-      3. Finance considers numbers consistent enough for reporting and budget conversations.
-      4. Readability holds when group counts and filters grow.
+    lead: Before design work, I aligned stakeholders on success criteria for the first release
+    decor_image: /portfolio/cloud-cost-explorer/imgs/line-chart.svg
+    decor_width: 1320
+    decor_height: 330
+    decor_class: section__decor_type_line-chart
+    steps:
+      - text: "Stakeholders can reliably answer core questions: where money goes, what changed, and why it looks suspicious"
+      - text: "MVP is connected to real cloud data in a fintech environment and works end-to-end"
+      - text: "Finance considers numbers consistent enough for reporting and budget conversations"
+      - text: "Readability holds when group counts and filters grow"
 
   - eyebrow: Discovery
     heading: Target audience
-    content: |
-      Enterprise companies (mostly fintech) with a large multi-cloud footprint need visibility into cloud spend and usage across teams, services, and accounts.
-
-      **Primary users**
-
-      **Finance / FinOps stakeholders**
-      - Accountable for cloud spend
-      - Need to explain variances and allocate costs across teams/projects
-
-      **Engineering leads**
-      - Need to understand what drives usage and cost in their area
-      - Need to spot anomalies early and plan budgets with confidence
+    lead: Enterprise companies (mostly fintech) with a large multi-cloud footprint need visibility into cloud spend and usage across teams, services, and accounts
+    groups_heading: Primary users
+    groups:
+      - heading: Finance / FinOps stakeholders
+        items:
+          - Accountable for cloud spend
+          - Need to explain variances and allocate costs across teams/projects
+      - heading: Engineering leads
+        items:
+          - Need to understand what drives usage and cost in their area
+          - Need to spot anomalies early and plan budgets with confidence
 
   - eyebrow: Discovery
     heading: Problem context

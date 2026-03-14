@@ -78,5 +78,20 @@
 				{% endfor %}
 			</div>
 		{% endif %}
+
+		{% if data.decor_image and data.decor_width and data.decor_height %}
+			<picture class="section__decor{% if data.decor_class %} {{ data.decor_class }}{% endif %}">
+				<img
+					class="section__decor-image"
+					src="{{ data.decor_image }}"
+					alt=""
+					aria-hidden="true"
+					width="{{ data.decor_width }}"
+					height="{{ data.decor_height }}"
+					loading="lazy"
+					decoding="async"
+				>
+			</picture>
+		{% endif %}
 	</section>
 {% endmacro %}

@@ -44,7 +44,8 @@ strong {
 }
 
 :where(ul, ol, dl, blockquote) {
-	margin-bottom: var(--space-gap-l);
+	margin-top: var(--space-gap-s);
+	margin-bottom: var(--space-gap-m);
 }
 
 :where(h1) {

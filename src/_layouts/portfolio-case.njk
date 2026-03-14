@@ -16,11 +16,67 @@ layout: page.njk
 
 {% if sections and sections.length %}
 	{% for item in sections %}
-		{{ section({
-			pretitle: item.eyebrow or item.pretitle,
-			heading: item.heading,
-			lead: item.lead,
-			content: item.content
-		}) }}
+		{% if item.groups and item.groups.length %}
+			{% call section({
+				pretitle: item.eyebrow or item.pretitle,
+				heading: item.heading,
+				lead: item.lead,
+				content: item.content,
+				decor_image: item.decor_image,
+				decor_width: item.decor_width,
+				decor_height: item.decor_height,
+				decor_class: item.decor_class
+			}) %}
+				{% if item.groups_heading %}
+					<h3>{{ item.groups_heading }}</h3>
+				{% endif %}
+				<div class="section__groups">
+					{% for group in item.groups %}
+						<div class="section__group">
+							{% if group.heading %}
+								<p><strong>{{ group.heading }}</strong></p>
+							{% endif %}
+							{% if group.items and group.items.length %}
+								<ul class="section__group-list list">
+									{% for groupItem in group.items %}
+										<li class="list__item">{{ groupItem }}</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endcall %}
+		{% elif item.steps and item.steps.length %}
+			{% call section({
+				pretitle: item.eyebrow or item.pretitle,
+				heading: item.heading,
+				lead: item.lead,
+				content: item.content,
+				decor_image: item.decor_image,
+				decor_width: item.decor_width,
+				decor_height: item.decor_height,
+				decor_class: item.decor_class
+			}) %}
+				<ol class="section__list list list_type_ordered list_columns_2">
+					{% for step in item.steps %}
+						<li class="list__item"{% if step.label %} data-list-label="{{ step.label }}"{% endif %}>
+							{{ step.text | markdown | safe }}
+						</li>
+					{% endfor %}
+				</ol>
+			{% endcall %}
+		{% else %}
+			{{ section({
+				pretitle: item.eyebrow or item.pretitle,
+				heading: item.heading,
+				lead: item.lead,
+				content: item.content,
+				decor_image: item.decor_image,
+				decor_width: item.decor_width,
+				decor_height: item.decor_height,
+				decor_class: item.decor_class
+			}) }}
+		{% endif %}
 	{% endfor %}
 {% endif %}
