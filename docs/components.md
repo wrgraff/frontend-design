@@ -148,41 +148,51 @@ Inputs (`data` object):
 - `pretitle` (optional, plain string)
 - `heading` (optional, plain string)
 - `lead` (optional, markdown string)
-- `content` (optional, markdown string)
-- `conclusion` (optional, markdown string)
-- `cta` (optional, array of CTA items)
+- `content` (optional, markdown string): plain section markdown body
+- `tail` (optional, markdown string): preferred section tail field
+- `conclusion` (optional, markdown string): legacy alias for `tail`
 - `decor_image` (optional, string URL/path): decorative image rendered at the end of the section
 - `decor_width` (optional, number|string): required together with `decor_height` to render decorative image
 - `decor_height` (optional, number|string): required together with `decor_width` to render decorative image
 - `decor_class` (optional, string): extra class for decorative image element
 
-CTA item:
-- `kind` (optional, string): `link` uses `link` macro; anything else uses `button` macro
-- `text` (required, plain string)
-- `href` (optional; required for link CTA)
-- `mode` (optional)
-- `size` (optional)
-- `icon` (optional, link CTA)
-- `external` (optional, link CTA)
-- `target` (optional, link CTA)
-- `rel` (optional, link CTA)
-- `icon_left` (optional, button CTA)
-- `icon_right` (optional, button CTA)
-- `subtext` (optional, plain string; button CTA)
-- `type` (optional, button CTA)
-- `extra_class` (optional)
-- `download` (optional, button CTA)
-
 Behavior:
 - If used with `{% call %}`, caller HTML is appended into `.section__content`.
 - `data.content` and caller content can be used together.
-- `data.conclusion`, if present, is rendered after `.section__content` in `.section__tail`.
-- Decorative image is rendered as `<picture class="section__decor ...">` with nested `<img class="section__decor-image">` after content/tail/cta when `decor_image`, `decor_width`, and `decor_height` are all provided.
+- `tail`/`conclusion`, if present, is rendered after `.section__content` in `.section__tail`.
+- Decorative image is rendered as `<picture class="section__decor ...">` with nested `<img class="section__decor-image">` after content/tail when `decor_image`, `decor_width`, and `decor_height` are all provided.
 - Decorative image `<img>` is rendered with `aria-hidden="true"` and fixed `alt=""`.
 
 Constraints:
 - Use either markdown content (`data.content`) or caller HTML for structured blocks; avoid mixing when not needed.
-- For `kind: link`, provide `href`.
+
+## contentList
+
+Source: `src/_includes/content-list.njk`  
+Signature: `contentList(data = {})`
+
+Inputs (`data` object):
+- `heading` (optional, plain string): heading for the block
+- `ordered` (optional, boolean): `true` renders `<ol>`, otherwise `<ul>`
+- `columns` (optional, number): supported values `2`, `3` (maps to `list_columns_*`)
+- `items` (optional, array): each item can be either a markdown string or an object
+  - object fields: `text` (markdown string), `label` (optional string for ordered labels via `data-list-label`)
+
+Behavior:
+- Renders standalone `content-list` block intended to be mixed into `section__content`.
+
+## contentColumns
+
+Source: `src/_includes/content-columns.njk`  
+Signature: `contentColumns(data = {})`
+
+Inputs (`data` object):
+- `heading` (optional, plain string): heading for the block
+- `columns` (optional, number): supported values `2`, `3` (maps to `content-columns_columns_*`)
+- `items` (optional, array of markdown strings): each item is rendered as one column
+
+Behavior:
+- Renders standalone `content-columns` block intended to be mixed into `section__content`.
 
 ## timelineSection
 

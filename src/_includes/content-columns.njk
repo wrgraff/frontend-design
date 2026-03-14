@@ -1,0 +1,16 @@
+{% macro contentColumns(data = {}) %}
+	{% set columnsClass = 'content-columns_columns_' + data.columns if data.columns else '' %}
+
+	<div class="section__content-item content-columns {{ columnsClass }}">
+		{% if data.heading %}
+			<h3 class="content-columns__heading">{{ data.heading }}</h3>
+		{% endif %}
+		<div class="content-columns__list">
+			{% for item in data.items or [] %}
+				<div class="content-columns__item">
+					{{ item | markdown | safe }}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endmacro %}

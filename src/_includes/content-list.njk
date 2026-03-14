@@ -1,0 +1,21 @@
+{% macro contentList(data = {}) %}
+	{% set listTypeClass = 'list_type_ordered' if data.ordered else '' %}
+	{% set listColumnsClass = 'list_columns_' + data.columns if data.columns else '' %}
+
+	<div class="section__content-item content-list">
+		{% if data.heading %}
+			<h3 class="content-list__heading">{{ data.heading }}</h3>
+		{% endif %}
+		<{{ 'ol' if data.ordered else 'ul' }} class="content-list__list list {{ listTypeClass }} {{ listColumnsClass }}">
+			{% for item in data.items or [] %}
+				{% if item.text %}
+					<li class="list__item"{% if item.label %} data-list-label="{{ item.label }}"{% endif %}>
+						{{ item.text | markdown | safe }}
+					</li>
+				{% else %}
+					<li class="list__item">{{ item | markdown | safe }}</li>
+				{% endif %}
+			{% endfor %}
+		</{{ 'ol' if data.ordered else 'ul' }}>
+	</div>
+{% endmacro %}

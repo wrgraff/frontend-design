@@ -1,18 +1,3 @@
 {% from 'hero.njk' import heroSection %}
-{% from 'section.njk' import section %}
 
 {{ heroSection(hero) }}
-
-{% for sectionItem in sections %}
-	{{ section({
-		pretitle: sectionItem.pretitle,
-		heading: sectionItem.heading,
-		lead: sectionItem.lead,
-		content: sectionItem.content,
-		cta: sectionItem.cta,
-		decor_image: sectionItem.decor_image,
-		decor_width: sectionItem.decor_width,
-		decor_height: sectionItem.decor_height,
-		decor_class: sectionItem.decor_class
-	}) }}
-{% endfor %}

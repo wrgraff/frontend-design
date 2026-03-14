@@ -1,7 +1,5 @@
-{% from 'button.njk' import button %}
-{% from 'link.njk' import link %}
-
 {% macro section(data = {}) %}
+	{% set sectionTail = data.tail or data.conclusion %}
 	{% set sectionClasses = [
 		'main__section',
 		'section',
@@ -40,42 +38,9 @@
 			</div>
 		{% endif %}
 
-		{% if data.conclusion %}
+		{% if sectionTail %}
 			<div class="section__tail">
-				{{ data.conclusion | markdown | safe }}
-			</div>
-		{% endif %}
-
-		{% if data.cta and (data.cta | length) %}
-			<div class="section__cta">
-				{% for ctaItem in data.cta %}
-					{% if ctaItem.kind == 'link' %}
-						{{ link(
-							text = ctaItem.text | default('Link') | trim,
-							href = ctaItem.href or '',
-							mode = ctaItem.mode or '',
-							size = ctaItem.size or '',
-							icon = ctaItem.icon or 'info-signs/link',
-							external = ctaItem.external or false,
-							target = ctaItem.target or '',
-							rel = ctaItem.rel or '',
-							extraClass = ctaItem.extra_class or ''
-						) }}
-					{% else %}
-						{{ button(
-							ctaItem.text | default('Button') | trim,
-							ctaItem.href or '',
-							ctaItem.mode or 'secondary',
-							ctaItem.size or 'l',
-							ctaItem.subtext | default('') | trim,
-							ctaItem.icon_left or '',
-							ctaItem.icon_right or '',
-							ctaItem.type or 'button',
-							ctaItem.extra_class or '',
-							ctaItem.download or false
-						) }}
-					{% endif %}
-				{% endfor %}
+				{{ sectionTail | markdown | safe }}
 			</div>
 		{% endif %}
 

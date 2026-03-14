@@ -4,16 +4,16 @@ title: Page Not Found
 hero:
   heading: Error 404
   text: The page you requested does not exist or has been moved.
-sections:
-  - pretitle: Navigation
-    heading: Try one of these pages
-    lead: You can continue from the homepage or open one of the main sections.
-    cta:
-      - kind: link
-        text: Go to home
-        href: /
-        icon: home/home
-      - kind: link
-        text: Open portfolio
-        href: /portfolio/
-        icon: folders/portfolio
+  cta:
+    - text: Go to home
+      href: /
+      mode: primary
+      size: xl
+      icon_left: home/home
+      type: link
+    - text: Open portfolio
+      href: /portfolio/
+      mode: base
+      size: xl
+      icon_left: folders/portfolio
+      type: link

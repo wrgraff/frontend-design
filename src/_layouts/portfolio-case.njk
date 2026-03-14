@@ -4,6 +4,8 @@ layout: page.njk
 
 {% from 'case-hero.njk' import caseHero %}
 {% from 'section.njk' import section %}
+{% from 'content-list.njk' import contentList %}
+{% from 'content-columns.njk' import contentColumns %}
 
 {{ caseHero(
 	hero = hero or {},
@@ -16,55 +18,25 @@ layout: page.njk
 
 {% if sections and sections.length %}
 	{% for item in sections %}
-		{% if item.groups and item.groups.length %}
+		{% if item.content and item.content.length and item.content[0].type %}
 			{% call section({
 				pretitle: item.eyebrow or item.pretitle,
 				heading: item.heading,
 				lead: item.lead,
-				content: item.content,
+				content: '',
+				tail: item.tail,
 				decor_image: item.decor_image,
 				decor_width: item.decor_width,
 				decor_height: item.decor_height,
 				decor_class: item.decor_class
 			}) %}
-				{% if item.groups_heading %}
-					<h3>{{ item.groups_heading }}</h3>
-				{% endif %}
-				<div class="section__groups">
-					{% for group in item.groups %}
-						<div class="section__group">
-							{% if group.heading %}
-								<p><strong>{{ group.heading }}</strong></p>
-							{% endif %}
-							{% if group.items and group.items.length %}
-								<ul class="section__group-list list">
-									{% for groupItem in group.items %}
-										<li class="list__item">{{ groupItem }}</li>
-									{% endfor %}
-								</ul>
-							{% endif %}
-						</div>
-					{% endfor %}
-				</div>
-			{% endcall %}
-		{% elif item.steps and item.steps.length %}
-			{% call section({
-				pretitle: item.eyebrow or item.pretitle,
-				heading: item.heading,
-				lead: item.lead,
-				content: item.content,
-				decor_image: item.decor_image,
-				decor_width: item.decor_width,
-				decor_height: item.decor_height,
-				decor_class: item.decor_class
-			}) %}
-				<ol class="section__list list list_type_ordered list_columns_2">
-					{% for step in item.steps %}
-						<li class="list__item"{% if step.label %} data-list-label="{{ step.label }}"{% endif %}>
-							{{ step.text | markdown | safe }}
-						</li>
-					{% endfor %}
-				</ol>
+				{% for contentItem in item.content %}
+					{% if contentItem.type == 'content-list' %}
+						{{ contentList(contentItem) }}
+					{% elif contentItem.type == 'content-columns' %}
+						{{ contentColumns(contentItem) }}
+					{% endif %}
+				{% endfor %}
 			{% endcall %}
 		{% else %}
 			{{ section({
@@ -72,6 +44,7 @@ layout: page.njk
 				heading: item.heading,
 				lead: item.lead,
 				content: item.content,
+				tail: item.tail,
 				decor_image: item.decor_image,
 				decor_width: item.decor_width,
 				decor_height: item.decor_height,

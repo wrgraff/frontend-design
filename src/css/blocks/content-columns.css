@@ -1,0 +1,31 @@
+/* Variables */
+
+.content-columns {
+	--content-columns-gap: var(--space-gap-l);
+	--content-columns-count: 2;
+}
+
+/* Content columns */
+
+.content-columns {
+	display: grid;
+	gap: var(--space-gap-2xs);
+}
+
+.content-columns__heading {
+	margin: 0;
+}
+
+.content-columns__list {
+	display: grid;
+	gap: var(--content-columns-gap);
+	grid-template-columns: repeat(var(--content-columns-count), minmax(0, 1fr));
+}
+
+.content-columns_columns_2 {
+	--content-columns-count: 2;
+}
+
+.content-columns_columns_3 {
+	--content-columns-count: 3;
+}
