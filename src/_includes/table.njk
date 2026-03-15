@@ -1,0 +1,82 @@
+{% from 'label.njk' import label %}
+{% from 'icon.njk' import icon %}
+
+{% macro table(data = {}) %}
+	{% set tableSize = data.size or 'm' %}
+
+	<table class="table{% if tableSize %} table_size_{{ tableSize }}{% endif %}">
+		{% if data.columns and data.columns.length %}
+			<colgroup class="table__columns">
+				{% for column in data.columns %}
+					{% set columnWidth = column.width | default('') %}
+					{% set widthValue = columnWidth %}
+					{% set minWidthValue = column.min_width | default('') %}
+					{% set maxWidthValue = column.max_width | default('') %}
+					{% if columnWidth is number %}
+						{% set widthValue = columnWidth + 'px' %}
+					{% endif %}
+					{% if minWidthValue is number %}
+						{% set minWidthValue = minWidthValue + 'px' %}
+					{% endif %}
+					{% if maxWidthValue is number %}
+						{% set maxWidthValue = maxWidthValue + 'px' %}
+					{% endif %}
+					<col
+						class="table__column{% if column.extra_class %} {{ column.extra_class }}{% endif %}"
+						{% if widthValue or minWidthValue or maxWidthValue %}
+							style="{% if widthValue %}width: {{ widthValue | string | trim }};{% endif %}{% if minWidthValue %} min-width: {{ minWidthValue | string | trim }};{% endif %}{% if maxWidthValue %} max-width: {{ maxWidthValue | string | trim }};{% endif %}"
+						{% endif %}
+					>
+				{% endfor %}
+			</colgroup>
+		{% endif %}
+
+		{% if data.columns and data.columns.length %}
+			<thead class="table__head">
+				<tr class="table__row table__row_role_head">
+					{% for column in data.columns %}
+						<th class="table__cell table__cell_role_head">
+							{{ column.heading | default('') | trim }}
+						</th>
+					{% endfor %}
+				</tr>
+			</thead>
+		{% endif %}
+
+		{% if data.rows and data.rows.length %}
+			<tbody class="table__body">
+				{% for row in data.rows %}
+					<tr class="table__row">
+						{% for column in data.columns or [] %}
+							{% set cell = row[column.key] %}
+							<td class="table__cell">
+								{% if cell and cell.text and cell.tone and tableSize != 's' %}
+									{{ label(
+										text = cell.text | trim,
+										mode = 'special',
+										tone = cell.tone,
+										size = 'm',
+										extraClass = 'table__label'
+									) }}
+								{% elif cell and cell.text %}
+									{% set valueIcon = '' %}
+									{% if cell.icon %}
+										{% set valueIcon = cell.icon | trim %}
+									{% endif %}
+									<span class="table__value{% if cell.tone %} table__value_tone_{{ cell.tone }}{% endif %}">
+										{% if valueIcon %}
+											{{ icon(valueIcon, 'table__value-icon', 24) }}
+										{% endif %}
+										{{ cell.text | trim }}
+									</span>
+								{% elif cell %}
+									{{ cell | markdown | safe }}
+								{% endif %}
+							</td>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		{% endif %}
+	</table>
+{% endmacro %}

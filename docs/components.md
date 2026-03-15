@@ -182,9 +182,9 @@ Inputs (`data` object):
 - `decor_class` (optional, string): extra class for decorative image element
 
 Behavior:
-- If used with `{% call %}`, caller HTML is appended into `.section__content`.
+- If used with `{% call %}`, caller HTML is rendered inside `.section__container`.
 - `data.content` and caller content can be used together.
-- `tail`/`conclusion`, if present, is rendered after `.section__content` in `.section__tail`.
+- `tail`/`conclusion`, if present, is rendered after content container(s) in `.section__tail`.
 - `cta`, if present, is rendered in `.section__cta` via shared `ctaItem`.
 - Decorative image is rendered as `<picture class="section__decor ...">` with nested `<img class="section__decor-image">` after content/tail when `decor_image`, `decor_width`, and `decor_height` are all provided.
 - Decorative image `<img>` is rendered with `aria-hidden="true"` and fixed `alt=""`.
@@ -205,7 +205,7 @@ Inputs (`data` object):
   - object fields: `text` (markdown string), `label` (optional string for ordered labels via `data-list-label`)
 
 Behavior:
-- Renders standalone `content-list` block intended to be mixed into `section__content`.
+- Renders standalone `content-list` block intended to be mixed into `section__container`.
 
 ## contentColumns
 
@@ -218,7 +218,7 @@ Inputs (`data` object):
 - `items` (optional, array of markdown strings): each item is rendered as one column
 
 Behavior:
-- Renders standalone `content-columns` block intended to be mixed into `section__content`.
+- Renders standalone `content-columns` block intended to be mixed into `section__container`.
 
 ## contentTable
 
@@ -227,15 +227,35 @@ Signature: `contentTable(data = {})`
 
 Inputs (`data` object):
 - `heading` (optional, plain string): heading for the block
+- `size` (optional, string): `m` or `s` (forwarded to `table`)
 - `columns` (optional, array): table columns definition
   - column fields: `key` (required), `heading` (optional)
 - `rows` (optional, array of objects): each row object maps values by column `key`
   - plain cell value: markdown string
-  - tag cell value object: `text` (plain string), `tone` (optional: `amber|emerald|sky`)
+  - object cell value: `text` (plain string), `tone` (optional: `success|warning|error`), `icon` (optional icon name for `icon` macro)
 
 Behavior:
-- Renders standalone `content-table` block intended to be mixed into `section__content`.
+- Renders standalone `content-table` wrapper block intended to be mixed into `section__container`.
+- Internally delegates table markup to `table`.
 - Footer/summary actions are intentionally out of scope for this macro.
+
+## table
+
+Source: `src/_includes/table.njk`  
+Signature: `table(data = {})`
+
+Inputs (`data` object):
+- `size` (optional, string): `m` (default) or `s`
+- `columns` (optional, array): table columns definition
+  - column fields: `key` (required), `heading` (optional)
+  - optional colgroup fields: `width`, `min_width`, `max_width` (CSS values), `extra_class` (optional string class for `<col>`)
+- `rows` (optional, array of objects): each row object maps values by column `key`
+  - plain cell value: markdown string
+  - object cell value: `text` (plain string), `tone` (optional: `success|warning|error`), `icon` (optional icon name for `icon` macro)
+
+Behavior:
+- Renders a reusable base table component (`table`) used by content blocks.
+- Renders optional `<colgroup>` when columns are passed, forwarding column layout parameters to `<col>`.
 
 ## timelineSection
 

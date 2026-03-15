@@ -8,6 +8,7 @@
   "rules": {
     "long-title": "off",
     "void-style": "off",
+    "no-inline-style": "off",
     "no-dup-attr": "error",
     "unique-landmark": "error",
     "tel-non-breaking": "error",

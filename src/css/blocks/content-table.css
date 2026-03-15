@@ -1,47 +1,18 @@
 /* Variables */
 
 .content-table {
-	--content-table-cell-gap: var(--space-gap-3xs);
-	--content-table-cell-padding: var(--space-gap-3xs) var(--space-gap-xxs) var(--space-gap-xxs);
-	--content-table-cell-min-height: 56px;
-	--content-table-row-border: var(--space-border-light) solid var(--color-border-base);
-	--content-table-head-color: var(--color-text-secondary);
+	--content-table-gap: var(--space-gap-s);
 }
 
 /* Content table */
 
 .content-table {
 	display: grid;
+	gap: var(--content-table-gap);
+	margin-right: -80px;
 }
 
-.content-table__table {
-	border-collapse: collapse;
-	width: 100%;
+.content-table__scroll {
+	max-width: 100%;
+	overflow-x: scroll;
 }
-
-.content-table__row {
-	border-bottom: var(--content-table-row-border);
-}
-
-.content-table__cell {
-	font: var(--font-text-s);
-	min-height: var(--content-table-cell-min-height);
-	padding: var(--content-table-cell-padding);
-	vertical-align: top;
-}
-
-.content-table__cell:first-child {
-	padding-left: 0;
-}
-
-.content-table__cell:last-child {
-	padding-right: 0;
-}
-
-.content-table__cell_role_head {
-	color: var(--content-table-head-color);
-	font: var(--font-text-s);
-	font-weight: 400;
-	text-align: left;
-}
-

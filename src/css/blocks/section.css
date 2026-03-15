@@ -21,6 +21,8 @@
 	--section-lead-column: 1 / span 3;
 	--section-content-font: var(--font-text-s);
 	--section-content-column: 1 / span 4;
+	--section-container-column: var(--section-content-column);
+	--section-container-gap: var(--space-gap-s);
 	--section-tail-font: var(--section-lead-font);
 	--section-tail-column: var(--section-lead-column);
 	--section-cta-column: 1 / -1;
@@ -74,8 +76,14 @@
 	grid-column: var(--section-content-column);
 }
 
-.section__content-item + .section__content-item {
-	margin-top: var(--section-gap);
+.section__container {
+	display: grid;
+	gap: var(--section-container-gap);
+	grid-column: var(--section-container-column);
+}
+
+.section__container_width_fill {
+	--section-container-column: 1 / -1;
 }
 
 .section__tail {

@@ -82,6 +82,7 @@ Forbidden:
 - Prefer `heading` naming over `title` naming for markup/data fields in page sections and case cards.
 - Raster images must be wrapped in `<picture>` (required baseline for future responsive/image optimization pipeline).
 - All images must have explicit dimensions in markup (`width` and `height`), including `img` and `svg`.
+- Inline styles are allowed only for explicit, data-driven exceptions where class-only styling is impractical (for example table `colgroup` width/min/max values). Do not use inline styles as a default styling method.
 
 ## Markdown Output Integrity (Mandatory)
 

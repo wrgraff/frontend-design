@@ -2,7 +2,7 @@
 	{% set listTypeClass = 'list_type_ordered' if data.ordered else '' %}
 	{% set listColumnsClass = 'list_columns_' + data.columns if data.columns else '' %}
 
-	<div class="section__content-item content-list">
+	<div class="section__container-item content-list">
 		{% if data.heading %}
 			<h3 class="content-list__heading">{{ data.heading }}</h3>
 		{% endif %}

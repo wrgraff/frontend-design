@@ -1,7 +1,7 @@
 {% macro contentColumns(data = {}) %}
 	{% set columnsClass = 'content-columns_columns_' + data.columns if data.columns else '' %}
 
-	<div class="section__content-item content-columns {{ columnsClass }}">
+	<div class="section__container-item content-columns {{ columnsClass }}">
 		{% if data.heading %}
 			<h3 class="content-columns__heading">{{ data.heading }}</h3>
 		{% endif %}

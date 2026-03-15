@@ -104,25 +104,116 @@ sections:
 
   - eyebrow: Discovery
     heading: Benchmark
-    content: |
-      I benchmarked comparable tools and mapped the decision workflow around cloud spend. The analysis shaped information structure and key paths.
-
-      **Snapshot**
-      - AWS / Google Cloud: weak multicloud and event correlation support in this benchmark scope
-      - Harness / CloudHealth / Spot: strong coverage for key FinOps capabilities
-      - Apptio: broad coverage with partial trade-offs depending on capability
-
-      **Compared capabilities**
-      - Multicloud
-      - Simultaneously multicloud
-      - Tags granularity
-      - Work without tags
-      - Regions grouping
-      - Recommendations
-      - Budgets
-      - Documentation
-      - Anomalies detect
-      - Event correlation
+    lead: I benchmarked comparable tools and mapped the decision workflow around cloud spend. The analysis shaped information structure and key paths.
+    content_columns: fill
+    content:
+      - type: content-table
+        size: s
+        columns:
+          - key: capability
+            heading: " "
+          - key: aws
+            heading: AWS
+            min_width: 190
+          - key: gcp
+            heading: Google Cloud
+            min_width: 190
+          - key: azure
+            heading: Azure
+            min_width: 190
+          - key: harness
+            heading: Harness
+            min_width: 190
+          - key: apptio
+            heading: Apptio
+            min_width: 190
+          - key: cloudhealth
+            heading: CloudHealth
+            min_width: 190
+          - key: spot
+            heading: Spot
+            min_width: 190
+        rows:
+          - capability: Multicloud
+            aws: { text: No, tone: error, icon: choice-and-validation/cross }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: Azure & AWS, tone: warning, icon: info-signs/minus }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Simultaneously multicloud
+            aws: { text: No, tone: error, icon: choice-and-validation/cross }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: Azure & AWS, tone: warning, icon: info-signs/minus }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: With service, tone: warning, icon: info-signs/minus }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Tags
+            aws: Hour
+            gcp: Hour
+            azure: Hour
+            harness: Hour
+            apptio: Day
+            cloudhealth: Day
+            spot: Hour
+          - capability: Work without tags
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Regions grouping
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: No, tone: error, icon: choice-and-validation/cross }
+            cloudhealth: { text: No, tone: error, icon: choice-and-validation/cross }
+            spot: { text: No, tone: error, icon: choice-and-validation/cross }
+          - capability: Recommendations
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Budgets
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Documentation
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Anomalies detect
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: No, tone: error, icon: choice-and-validation/cross }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Event correlation
+            aws: { text: No, tone: error, icon: choice-and-validation/cross }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: No, tone: error, icon: choice-and-validation/cross }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: No, tone: error, icon: choice-and-validation/cross }
+            cloudhealth: { text: No, tone: error, icon: choice-and-validation/cross }
+            spot: { text: No, tone: error, icon: choice-and-validation/cross }
 
   - eyebrow: Key decisions
     heading: Top groups and drill-down

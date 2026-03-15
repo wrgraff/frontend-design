@@ -29,14 +29,16 @@
 			</div>
 		{% endif %}
 
-		{% if data.content or caller %}
+		{% if data.content %}
 			<div class="section__content">
-				{% if data.content %}
-					{{ data.content | markdown | safe }}
-				{% endif %}
-				{% if caller %}
-					{{ caller() }}
-				{% endif %}
+				{{ data.content | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if caller %}
+			{% set contentColumns = data.content_columns or '' %}
+			<div class="section__container{% if contentColumns %} section__container_width_{{ contentColumns }}{% endif %}">
+				{{ caller() }}
 			</div>
 		{% endif %}
 
