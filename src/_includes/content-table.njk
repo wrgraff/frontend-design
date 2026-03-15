@@ -5,12 +5,10 @@
 		{% if data.heading %}
 			<h3 class="content-table__heading">{{ data.heading }}</h3>
 		{% endif %}
-		<div class="content-table__scroll">
-			{{ table({
-				size: data.size or 'm',
-				columns: data.columns or [],
-				rows: data.rows or []
-			}) }}
-		</div>
+		{{ table({
+			size: data.size or 'm',
+			columns: data.columns or [],
+			rows: data.rows or []
+		}) }}
 	</div>
 {% endmacro %}

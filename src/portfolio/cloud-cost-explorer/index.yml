@@ -64,7 +64,7 @@ sections:
           - Existing internal tools are limited and hard to use
           - Too much data gets buried without strong organization
 
-      - type: content-table
+      - type: table
         heading: Representative tasks
         columns:
           - key: question
@@ -107,7 +107,7 @@ sections:
     lead: I benchmarked comparable tools and mapped the decision workflow around cloud spend. The analysis shaped information structure and key paths.
     content_columns: fill
     content:
-      - type: content-table
+      - type: datatable
         size: s
         columns:
           - key: capability

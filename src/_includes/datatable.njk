@@ -1,0 +1,16 @@
+{% from 'table.njk' import table %}
+
+{% macro datatable(data = {}) %}
+	<div class="section__container-item datatable">
+		{% if data.heading %}
+			<h3 class="datatable__heading">{{ data.heading }}</h3>
+		{% endif %}
+		<div class="datatable__scroll">
+			{{ table({
+				size: data.size or 'm',
+				columns: data.columns or [],
+				rows: data.rows or []
+			}) }}
+		</div>
+	</div>
+{% endmacro %}

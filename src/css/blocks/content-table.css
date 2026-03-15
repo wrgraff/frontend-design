@@ -9,10 +9,4 @@
 .content-table {
 	display: grid;
 	gap: var(--content-table-gap);
-	margin-right: -80px;
-}
-
-.content-table__scroll {
-	max-width: 100%;
-	overflow-x: scroll;
 }

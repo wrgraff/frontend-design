@@ -1,0 +1,22 @@
+/* Variables */
+
+.datatable {
+	--datatable-gap: var(--space-gap-s);
+}
+
+/* Datatable */
+
+.datatable {
+	display: grid;
+	gap: var(--datatable-gap);
+}
+
+.datatable__heading {
+	margin: 0;
+}
+
+.datatable__scroll {
+	max-width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+}

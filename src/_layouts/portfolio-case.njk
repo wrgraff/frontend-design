@@ -7,6 +7,7 @@ layout: page.njk
 {% from 'content-list.njk' import contentList %}
 {% from 'content-columns.njk' import contentColumns %}
 {% from 'content-table.njk' import contentTable %}
+{% from 'datatable.njk' import datatable %}
 
 {{ caseHero(
 	hero = hero or {},
@@ -37,8 +38,10 @@ layout: page.njk
 						{{ contentList(contentItem) }}
 					{% elif contentItem.type == 'content-columns' %}
 						{{ contentColumns(contentItem) }}
-					{% elif contentItem.type == 'content-table' %}
+					{% elif contentItem.type == 'table' or contentItem.type == 'content-table' %}
 						{{ contentTable(contentItem) }}
+					{% elif contentItem.type == 'datatable' or contentItem.type == 'data-table' %}
+						{{ datatable(contentItem) }}
 					{% endif %}
 				{% endfor %}
 			{% endcall %}

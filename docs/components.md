@@ -238,6 +238,26 @@ Behavior:
 - Renders standalone `content-table` wrapper block intended to be mixed into `section__container`.
 - Internally delegates table markup to `table`.
 - Footer/summary actions are intentionally out of scope for this macro.
+- Does not add horizontal scroll wrapper.
+
+## datatable
+
+Source: `src/_includes/datatable.njk`  
+Signature: `datatable(data = {})`
+
+Inputs (`data` object):
+- `heading` (optional, plain string): heading for the block
+- `size` (optional, string): `m` or `s` (forwarded to `table`)
+- `columns` (optional, array): table columns definition
+  - column fields: `key` (required), `heading` (optional)
+- `rows` (optional, array of objects): each row object maps values by column `key`
+  - plain cell value: markdown string
+  - object cell value: `text` (plain string), `tone` (optional: `success|warning|error`), `icon` (optional icon name for `icon` macro)
+
+Behavior:
+- Renders standalone `datatable` wrapper block intended to be mixed into `section__container`.
+- Internally delegates table markup to `table`.
+- Adds horizontal scroll wrapper around the table (`.datatable__scroll`).
 
 ## table
 
