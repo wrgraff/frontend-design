@@ -8,6 +8,7 @@ layout: page.njk
 {% from 'content-columns.njk' import contentColumns %}
 {% from 'content-table.njk' import contentTable %}
 {% from 'datatable.njk' import datatable %}
+{% from 'design-solution.njk' import designSolution %}
 
 {{ caseHero(
 	hero = hero or {},
@@ -42,6 +43,8 @@ layout: page.njk
 						{{ contentTable(contentItem) }}
 					{% elif contentItem.type == 'datatable' or contentItem.type == 'data-table' %}
 						{{ datatable(contentItem) }}
+					{% elif contentItem.type == 'design-solution' %}
+						{{ designSolution(contentItem) }}
 					{% endif %}
 				{% endfor %}
 			{% endcall %}

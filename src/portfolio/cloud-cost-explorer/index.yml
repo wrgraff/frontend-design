@@ -217,17 +217,29 @@ sections:
 
   - eyebrow: Key decisions
     heading: Top groups and drill-down
-    content: |
-      **Problem**
-      Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise.
-
-      **Solution**
-      Show top cost groups in chart, consolidate the rest into "Other", and allow users to open "Other" for deeper breakdown.
-
-      **Advantages**
-      - Clear view of main cost drivers and their share of total spend
-      - Chart stays readable
-
-      **Risks to avoid**
-      - Lower discoverability of the drill path
-      - Navigation friction when going deeper
+    content_columns: fill
+    content:
+      - type: design-solution
+        images:
+          - src: /portfolio/cloud-cost-explorer/imgs/solution-1-1.png
+            alt: Cloud Cost Explorer screen, chart overview
+            width: 1240
+            height: 704
+          - src: /portfolio/cloud-cost-explorer/imgs/solution-1-2.png
+            alt: Cloud Cost Explorer screen, chart details
+            width: 1240
+            height: 704
+        primary:
+          - heading: Problem
+            content: Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise.
+          - heading: Solution
+            content: Show top cost groups in chart, consolidate the rest into "Other", and allow users to open "Other" for deeper breakdown.
+        secondary:
+          - heading: Advantages
+            items:
+              - Clear view of main cost drivers and their share of total spend
+              - Chart stays readable
+          - heading: Risks to avoid
+            items:
+              - Lower discoverability of the drill path
+              - Navigation friction when going deeper

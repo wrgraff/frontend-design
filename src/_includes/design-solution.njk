@@ -1,0 +1,97 @@
+{% from 'icon-button.njk' import iconButton %}
+
+{% macro designSolution(data = {}) %}
+	{% set images = data.images or [] %}
+	{% set primaryDetails = data.primary or [] %}
+	{% set secondaryDetails = data.secondary or [] %}
+	{% set hasSlider = images and (images | length) > 1 %}
+
+	<div class="section__container-item design-solution{% if hasSlider %} design-solution_with_slider{% endif %}"{% if hasSlider %} data-design-solution-slider{% endif %}>
+		{% if images and (images | length) %}
+			<div class="design-solution__media">
+				{% for image in images %}
+					<figure class="design-solution__slide{% if loop.first %} design-solution__slide_active{% endif %}"{% if not loop.first %} hidden{% endif %}>
+						<picture class="design-solution__picture">
+							<img
+								class="design-solution__image"
+								src="{{ image.src }}"
+								alt="{{ image.alt | default('') }}"
+								width="{{ image.width }}"
+								height="{{ image.height }}"
+								loading="{{ 'eager' if loop.first else 'lazy' }}"
+								decoding="async"
+							>
+						</picture>
+					</figure>
+				{% endfor %}
+
+				{% if hasSlider %}
+					<div class="design-solution__controls">
+						{{ iconButton(
+							iconName = 'simple-arrows/arrow_left',
+							mode = 'secondary',
+							size = 'l',
+							type = 'button',
+							ariaLabel = 'Previous image',
+							extraClass = 'design-solution__control design-solution__control_direction_previous'
+						) }}
+						{{ iconButton(
+							iconName = 'simple-arrows/arrow_right',
+							mode = 'secondary',
+							size = 'l',
+							type = 'button',
+							ariaLabel = 'Next image',
+							extraClass = 'design-solution__control design-solution__control_direction_next'
+						) }}
+					</div>
+				{% endif %}
+			</div>
+		{% endif %}
+
+		{% if primaryDetails and (primaryDetails | length) %}
+			<dl class="design-solution__details design-solution__details_role_primary description-list">
+				{% for detail in primaryDetails %}
+					<div class="description-list__item">
+						{% if detail.heading %}
+							<dt class="description-list__term">
+								{{ detail.heading | trim }}
+							</dt>
+						{% endif %}
+						{% if detail.content %}
+							<dd class="description-list__description">
+								{{ detail.content | markdown | safe }}
+							</dd>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</dl>
+		{% endif %}
+
+		{% if secondaryDetails and (secondaryDetails | length) %}
+			<dl class="design-solution__details design-solution__details_role_secondary description-list">
+				{% for detail in secondaryDetails %}
+					<div class="description-list__item">
+						{% if detail.heading %}
+							<dt class="description-list__term">
+								{{ detail.heading | trim }}
+							</dt>
+						{% endif %}
+						{% if detail.items and (detail.items | length) %}
+							<dd class="description-list__description">
+								<ul class="design-solution__list list">
+									{% for item in detail.items %}
+										<li class="list__item">{{ item | markdown | safe }}</li>
+									{% endfor %}
+								</ul>
+							</dd>
+						{% elif detail.content %}
+							<dd class="description-list__description">
+								{{ detail.content | markdown | safe }}
+							</dd>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</dl>
+		{% endif %}
+	</div>
+{% endmacro %}

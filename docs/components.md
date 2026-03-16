@@ -259,6 +259,24 @@ Behavior:
 - Internally delegates table markup to `table`.
 - Adds horizontal scroll wrapper around the table (`.datatable__scroll`).
 
+## designSolution
+
+Source: `src/_includes/design-solution.njk`  
+Signature: `designSolution(data = {})`
+
+Inputs (`data` object):
+- `images` (optional, array): media slides
+  - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required)
+- `primary` (optional, array): first row of details
+  - detail fields: `heading` (optional, plain string), `content` (optional, markdown string)
+- `secondary` (optional, array): second row of details
+  - detail fields: `heading` (optional, plain string), `items` (optional, array of markdown strings), `content` (optional, markdown string)
+
+Behavior:
+- Renders standalone `design-solution` block intended to be mixed into `section__container`.
+- If `images.length > 1`, renders navigation controls and initializes slider behavior via JS (`design-solution-slider` module).
+- If a single image is passed, renders static media without slider controls.
+
 ## table
 
 Source: `src/_includes/table.njk`  
