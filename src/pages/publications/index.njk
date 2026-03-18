@@ -49,8 +49,8 @@
 								href = articleHref,
 								size = 'heading-h6',
 								iconName = '',
-								target = publication.data.external and '_blank' or '',
-								rel = publication.data.external and 'noopener noreferrer' or ''
+								extraClass = 'publications__link',
+								external = publication.data.external
 							) }}
 						</h3>
 						{% if publication.data.description %}
@@ -79,25 +79,39 @@
 	lead: videos_section.lead
 }) %}
 	{% if videoItems.length %}
-		<ul>
+		<ul class="publications">
 			{% for publication in videoItems %}
-				<li>
-					<h3>{{ publication.data.heading }}</h3>
-					{% if publication.data.description %}
-						<p>{{ publication.data.description }}</p>
-					{% endif %}
-					<ul>
-						{% if publication.data.youtube_url %}
-							<li>
-								<a href="{{ publication.data.youtube_url }}" target="_blank" rel="noopener noreferrer">Video on YouTube</a>
-							</li>
+				{% set videoHref = publication.url %}
+				{% set cardImage = publication.data.cover or '/img/publications/hero.png' %}
+				{% set cardImageWidth = publication.data.cover_width or 681 %}
+				{% set cardImageHeight = publication.data.cover_height or 744 %}
+				<li class="publications__item">
+					<picture class="publications__media">
+						<img
+							class="publications__image"
+							src="{{ cardImage }}"
+							alt=""
+							aria-hidden="true"
+							width="{{ cardImageWidth }}"
+							height="{{ cardImageHeight }}"
+							loading="lazy"
+							decoding="async"
+						>
+					</picture>
+					<div class="publications__content">
+						<h3 class="publications__heading">
+								{{ link(
+									text = publication.data.heading,
+									href = videoHref,
+									size = 'heading-h6',
+									iconName = '',
+									extraClass = 'publications__link'
+								) }}
+						</h3>
+						{% if publication.data.description %}
+							<p class="publications__description">{{ publication.data.description }}</p>
 						{% endif %}
-						{% if publication.data.slides_url %}
-							<li>
-								<a href="{{ publication.data.slides_url }}" target="_blank" rel="noopener noreferrer">Slides</a>
-							</li>
-						{% endif %}
-					</ul>
+					</div>
 				</li>
 			{% endfor %}
 		</ul>

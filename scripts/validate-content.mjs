@@ -204,11 +204,10 @@ function validatePublicationsEntry(file, data) {
 	}
 
 	if (root.kind === 'video') {
-		if (root.title !== undefined) {
-			fail(file, 'title', 'must be omitted for video');
-		}
+		reqString(file, 'title', root.title);
+		reqString(file, 'layout', root.layout);
 		if (!external) {
-			fail(file, 'external', 'must be true for video');
+			fail(file, 'external', 'must be true for video (source is external, page is embedded)');
 		}
 		const youtubeUrl = reqString(file, 'youtube_url', root.youtube_url);
 		if (youtubeUrl && !/^https?:\/\//.test(youtubeUrl)) {
@@ -218,8 +217,8 @@ function validatePublicationsEntry(file, data) {
 		if (slidesUrl && !/^https?:\/\//.test(slidesUrl)) {
 			fail(file, 'slides_url', 'must start with http:// or https://');
 		}
-		if (root.permalink !== false) {
-			fail(file, 'permalink', 'must be false for video');
+		if (root.permalink === false) {
+			fail(file, 'permalink', 'must not be false for video');
 		}
 	}
 }

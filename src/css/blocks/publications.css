@@ -24,6 +24,7 @@
 }
 
 .publications__item {
+	position: relative;
 	border-bottom: var(--publications-item-border);
 	display: grid;
 	gap: var(--publications-item-gap);
@@ -51,6 +52,15 @@
 .publications__heading {
 	display: grid;
 	margin: 0;
+}
+
+.publications__link::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 }
 
 .publications__description {

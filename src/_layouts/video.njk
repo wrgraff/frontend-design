@@ -2,84 +2,124 @@
 layout: page.njk
 ---
 
-{% from 'videos-list.njk' import videosList with context %}
+{% from 'button.njk' import button %}
+{% from 'label.njk' import label %}
 {% from 'link.njk' import link %}
+{% from 'section.njk' import section %}
 
-<body class="page__body page__body_case">
-	<main class="case">
-		{% include "header.njk" %}
+{% set videoUrl = youtube_url or url %}
+{% set videoCover = cover or '/img/publications/hero.png' %}
+{% set videoCoverWidth = cover_width or 1400 %}
+{% set videoCoverHeight = cover_height or 720 %}
+{% set publicationsCollection = collections.publications or [] %}
+{% set otherVideoItems = [] %}
 
-		<article class="case__article video">
-			<div class="video__content">
-				<a class="video__main-link" href="{{ url }}" target="_blank" data-id="{{ id }}" data-start="{{ start }}">
-					<h1 class="video__heading">{{ heading or title }}</h1>
-					<p class="video__text">{{ description }}</p>
-				</a>
-				<button type="button" class="video__button" aria-label="Launch the video"></button>
-				<picture class="video__media">
-					<img class="video__img" src="./{{ cover }}" alt="">
-				</picture>
-			</div>
+{% for item in publicationsCollection %}
+	{% if item.data.kind == 'video' and item.fileSlug != page.fileSlug %}
+		{% set otherVideoItems = (otherVideoItems.push(item), otherVideoItems) %}
+	{% endif %}
+{% endfor %}
 
-			<div class="video__links">
-				{{ link(
-					text = 'Watch on YouTube',
-					href = url,
-					extraClass = 'video__link',
-					iconName = 'video/play_circle',
-					target = '_blank',
-					rel = 'noopener noreferrer'
-				) }}
-				{% if slides %}
-					{{ link(
-						text = 'Slides',
-						href = slides,
-						extraClass = 'video__link',
-						iconName = 'files/file_powerpoint',
-						target = '_blank',
-						rel = 'noopener noreferrer'
+<article
+	class="main__section video"
+	data-video-url="{{ videoUrl }}"
+	data-start="{{ start or 'false' }}"
+>
+	{% if tags and tags.length %}
+		<ul class="video__tags">
+			{% for item in tags %}
+				<li class="video__tag">
+					{{ label(
+						text = item,
+						size = 'm'
 					) }}
-				{% endif %}
-			</div>
-		</article>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 
-		<section class="case__videos-section videos-section">
-			<div class="videos-section__header">
-				<h2 class="videos-section__heading">Other Speaking Videos</h2>
-				<p class="videos-section__comment">* All materials are in russian language</p>
-			</div>
+	<div class="video__content">
+		<picture class="video__media">
+			<img
+				class="video__img"
+				src="{{ videoCover }}"
+				alt=""
+				aria-hidden="true"
+				width="{{ videoCoverWidth }}"
+				height="{{ videoCoverHeight }}"
+				loading="lazy"
+				decoding="async"
+			>
+		</picture>
 
-			{{ videosList(
-				collection = collections.videos,
-				parentSection = 'videos-section',
-				currentItemId = id
+		<div class="video__footer">
+			{{ button(
+				text = 'Play the video',
+				mode = 'primary',
+				size = 'l',
+				iconLeft = 'video/play_circle',
+				type = 'button',
+				extraClass = 'video__button'
 			) }}
-		</section>
 
-		<nav class="case__nav">
-			<div class="case__side case__side_left">
-				<a href="/" class="case__home ico-button ico-button_l ico-button_small_xl ico-button_rounded ico-button_secondary ico-button_home">
-					<span class="visually-hidden">Home</span>
-				</a>
-			</div>
+			{{ link(
+				text = 'Watch on YouTube',
+				href = videoUrl,
+				size = 'text-s',
+				iconName = 'social-networks/youtube',
+				external = true,
+				extraClass = 'video__link'
+			) }}
+		</div>
+	</div>
 
-			<div class="case__side case__side_right">
-				<div class="case__side-contacts side-contacts">
-					<div class="side-contacts__me me me_small">
-						<img src="/img/me.png" class="me__img" alt="" aria-hidden="true">
+	<div class="video__body">
+		<h1 class="video__heading">{{ heading or title }}</h1>
+		{% if description %}
+			<p class="video__description">{{ description }}</p>
+		{% endif %}
+	</div>
+</article>
+
+{% if otherVideoItems.length %}
+	{% call section({
+		pretitle: 'Speeches',
+		heading: 'Other speaking videos'
+	}) %}
+		<ul class="publications">
+			{% for publication in otherVideoItems %}
+				{% set videoHref = publication.url %}
+				{% set cardImage = publication.data.cover or '/img/publications/hero.png' %}
+				{% set cardImageWidth = publication.data.cover_width or 681 %}
+				{% set cardImageHeight = publication.data.cover_height or 744 %}
+				<li class="publications__item">
+					<picture class="publications__media">
+						<img
+							class="publications__image"
+							src="{{ cardImage }}"
+							alt=""
+							aria-hidden="true"
+							width="{{ cardImageWidth }}"
+							height="{{ cardImageHeight }}"
+							loading="lazy"
+							decoding="async"
+						>
+					</picture>
+					<div class="publications__content">
+						<h3 class="publications__heading">
+							{{ link(
+								text = publication.data.heading,
+								href = videoHref,
+								size = 'heading-h6',
+								iconName = ''
+							) }}
+						</h3>
+						{% if publication.data.description %}
+							<p class="publications__description">{{ publication.data.description }}</p>
+						{% endif %}
 					</div>
-
-					<ul class="side-contacts__list">
-						<li class="side-contacts__item">
-							<a href="mailto:hi@arturtrifonov.com" class="ico-button ico-button_l ico-button_rounded ico-button_secondary ico-button_email">
-								<span class="visually-hidden">hi@arturtrifonov.com</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</main>
-
-	<script defer src="/js/index.js"></script>
-</body>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endcall %}
+{% endif %}

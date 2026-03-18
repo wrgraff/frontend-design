@@ -18,7 +18,7 @@ Behavior:
 ## link
 
 Source: `src/_includes/link.njk`  
-Signature: `link(text='Link', href='', mode='', size='', iconName='info-signs/link', external=false, target='', rel='', extraClass='')`
+Signature: `link(text='Link', href='', mode='', size='', iconName='info-signs/link', external=false, extraClass='')`
 
 Inputs:
 - `text` (required, plain string; no markdown/HTML)
@@ -27,8 +27,6 @@ Inputs:
 - `size` (optional, string): maps to `link_size_*` and should use font-token naming (for example: `text-s`, `caption-xs`, `heading-h2`)
 - `iconName` (optional, string): icon name; empty string disables left icon
 - `external` (optional, boolean): shows external icon and defaults link to external-safe behavior (`target="_blank"` + safe `rel`)
-- `target` (optional, string)
-- `rel` (optional, string)
 - `extraClass` (optional, string)
 
 Constraints:
@@ -67,7 +65,7 @@ Inputs:
   - `mode` (optional)
   - `size` (optional)
   - `extra_class` (optional)
-  - link-specific: `icon_name` (preferred), `icon` (legacy alias), `external`, `target`, `rel`
+  - link-specific: `icon_name` (preferred), `icon` (legacy alias), `external`
   - button-specific: `subtext`, `icon_left`, `icon_right`, `type`, `download`
 - `defaultMode` (optional, string): fallback mode for button path
 - `defaultSize` (optional, string): fallback size for button path
