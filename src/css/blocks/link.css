@@ -292,7 +292,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .32rem;
+	--link-underline-offset: .24rem;
 }
 
 /* Elements */

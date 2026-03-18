@@ -27,7 +27,9 @@
 	position: relative;
 	border-bottom: var(--publications-item-border);
 	display: grid;
+	grid-template-rows: auto 1fr auto;
 	gap: var(--publications-item-gap);
+	margin: 0;
 	padding-bottom: var(--publications-item-padding-bottom);
 }
 
@@ -47,6 +49,7 @@
 .publications__content {
 	display: grid;
 	gap: var(--publications-content-gap);
+	align-content: start;
 }
 
 .publications__heading {

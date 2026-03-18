@@ -26,6 +26,7 @@
 		<ul class="publications">
 			{% for publication in articleItems %}
 				{% set articleHref = publication.data.external and publication.data.external_url or publication.url %}
+				{% set articleHeading = publication.data.heading or publication.data.title %}
 				{% set cardImage = publication.data.cover or '/img/publications/hero.png' %}
 				{% set cardImageWidth = publication.data.cover_width or 681 %}
 				{% set cardImageHeight = publication.data.cover_height or 744 %}
@@ -45,7 +46,7 @@
 					<div class="publications__content">
 						<h3 class="publications__heading">
 							{{ link(
-								text = publication.data.heading,
+								text = articleHeading,
 								href = articleHref,
 								size = 'heading-h6',
 								iconName = '',
@@ -112,6 +113,16 @@
 							<p class="publications__description">{{ publication.data.description }}</p>
 						{% endif %}
 					</div>
+					{% if publication.data.tags and publication.data.tags.length %}
+						<div class="publications__tags">
+							{% for item in publication.data.tags %}
+								{{ label(
+									text = item,
+									size = 'm'
+								) }}
+							{% endfor %}
+						</div>
+					{% endif %}
 				</li>
 			{% endfor %}
 		</ul>

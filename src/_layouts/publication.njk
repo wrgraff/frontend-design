@@ -5,19 +5,17 @@ layout: page.njk
 {% from 'hero.njk' import heroSection %}
 {% from 'section.njk' import section %}
 
+{% set publicationHeading = heading or title %}
+{% set publicationLead = description %}
+
 {% if hero %}
 	{{ heroSection(hero) }}
 {% endif %}
 
-{{ section({
-	pretitle: 'Publication',
-	heading: heading,
-	lead: description
-}) }}
-
 {% call section({
-	pretitle: 'Content',
-	heading: 'Article'
+	pretitle: 'Publication',
+	heading: publicationHeading,
+	lead: publicationLead
 }) %}
 	{{ content | safe }}
 {% endcall %}

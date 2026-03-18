@@ -314,8 +314,8 @@ module.exports = function (config) {
 	[
 		'src/fonts',
 		'src/img',
-        'src/portfolio/**/*.!(md)',
-        'src/publications/**/*.!(md)',
+        'src/portfolio/**/img/**/*',
+        'src/publications/**/img/**/*',
 		'src/files'
 	].forEach(
 		path => config.addPassthroughCopy(path)

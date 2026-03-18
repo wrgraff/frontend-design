@@ -118,6 +118,16 @@ layout: page.njk
 							<p class="publications__description">{{ publication.data.description }}</p>
 						{% endif %}
 					</div>
+					{% if publication.data.tags and publication.data.tags.length %}
+						<div class="publications__tags">
+							{% for item in publication.data.tags %}
+								{{ label(
+									text = item,
+									size = 'm'
+								) }}
+							{% endfor %}
+						</div>
+					{% endif %}
 				</li>
 			{% endfor %}
 		</ul>

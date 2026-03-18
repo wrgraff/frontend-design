@@ -13,14 +13,14 @@ tags:
 imgs:
   - cover
 hero:
-  image: /portfolio/cloud-cost-explorer/imgs/hero.png
+  image: /portfolio/cloud-cost-explorer/img/hero.png
   image_alt: Abstract blurred product dashboard screenshot
   lead: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
 sections:
   - eyebrow: Preparation
     heading: Success criteria
     lead: Before design work, I aligned stakeholders on success criteria for the first release
-    decor_image: /portfolio/cloud-cost-explorer/imgs/line-chart.svg
+    decor_image: /portfolio/cloud-cost-explorer/img/line-chart.svg
     decor_width: 1320
     decor_height: 330
     decor_class: section__decor_type_line-chart
@@ -221,11 +221,11 @@ sections:
     content:
       - type: design-solution
         images:
-          - src: /portfolio/cloud-cost-explorer/imgs/solution-1-1.png
+          - src: /portfolio/cloud-cost-explorer/img/solution-1-1.png
             alt: Cloud Cost Explorer screen, chart overview
             width: 1240
             height: 704
-          - src: /portfolio/cloud-cost-explorer/imgs/solution-1-2.png
+          - src: /portfolio/cloud-cost-explorer/img/solution-1-2.png
             alt: Cloud Cost Explorer screen, chart details
             width: 1240
             height: 704
