@@ -26,13 +26,13 @@ Inputs:
 - `mode` (optional, string): maps to `link_mode_*`
 - `size` (optional, string): maps to `link_size_*` and should use font-token naming (for example: `text-s`, `caption-xs`, `heading-h2`)
 - `iconName` (optional, string): icon name; empty string disables left icon
-- `external` (optional, boolean): shows external icon
+- `external` (optional, boolean): shows external icon and defaults link to external-safe behavior (`target="_blank"` + safe `rel`)
 - `target` (optional, string)
 - `rel` (optional, string)
 - `extraClass` (optional, string)
 
 Constraints:
-- If `target="_blank"`, pass a safe `rel` value (for example: `noopener noreferrer`).
+- If `external=true`, macro always sets `target="_blank"` and `rel="noopener noreferrer"`.
 
 ## button
 

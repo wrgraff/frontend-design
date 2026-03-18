@@ -11,6 +11,8 @@
 	rel = '',
 	extraClass = ''
 ) %}
+	{% set resolvedTarget = external and '_blank' or target %}
+	{% set resolvedRel = external and 'noopener noreferrer' or rel %}
 	{% set classes = [
 		'link',
 		mode and 'link_mode_' + mode or '',
@@ -21,8 +23,8 @@
 	<a
 		href="{{ href | localePath(page.url) }}"
 		class="{{ classes }}"
-		{% if target %}target="{{ target }}"{% endif %}
-		{% if rel %}rel="{{ rel }}"{% endif %}
+		{% if resolvedTarget %}target="{{ resolvedTarget }}"{% endif %}
+		{% if resolvedRel %}rel="{{ resolvedRel }}"{% endif %}
 	>
 		{% if iconName %}
 			{{ icon(iconName, 'link__icon') }}
