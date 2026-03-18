@@ -1,11 +1,11 @@
-{% from 'icon.njk' import icon as uiIcon %}
+{% from 'icon.njk' import icon %}
 
 {% macro link(
 	text = 'Link',
 	href = '',
 	mode = '',
 	size = '',
-	icon = 'info-signs/link',
+	iconName = 'info-signs/link',
 	external = false,
 	target = '',
 	rel = '',
@@ -24,14 +24,14 @@
 		{% if target %}target="{{ target }}"{% endif %}
 		{% if rel %}rel="{{ rel }}"{% endif %}
 	>
-		{% if icon %}
-			{{ uiIcon(icon, 'link__icon') }}
+		{% if iconName %}
+			{{ icon(iconName, 'link__icon') }}
 		{% endif %}
 
 		<span class="link__text">{{ text }}</span>
 
 		{% if external %}
-			{{ uiIcon('simple-arrows/arrow_right', 'link__external') }}
+			{{ icon('simple-arrows/arrow_right', 'link__external') }}
 		{% endif %}
 	</a>
 {% endmacro %}
