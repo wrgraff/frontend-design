@@ -95,3 +95,8 @@
 	grid-column: var(--hero-cta-column);
 	margin-top: var(--hero-cta-margin-top);
 }
+
+.hero__link + .hero__link,
+.hero__button + .hero__link {
+	margin-left: calc(var(--hero-cta-gap) * 2);
+}

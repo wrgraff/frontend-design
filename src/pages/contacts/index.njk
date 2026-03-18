@@ -1,14 +1,50 @@
 {% from 'hero.njk' import heroSection %}
 {% from 'section.njk' import section %}
+{% from 'link.njk' import link %}
 
 {{ heroSection(hero) }}
 
-{% for sectionItem in sections %}
-	{{ section({
-		id: sectionItem.id,
-		pretitle: sectionItem.pretitle,
-		heading: sectionItem.heading,
-		lead: sectionItem.lead,
-		content: sectionItem.content
-	}) }}
-{% endfor %}
+{% call section({
+	id: 'contacts',
+	pretitle: online.pretitle,
+	heading: online.heading,
+	lead: online.lead
+}) %}
+	<div class="section__columns">
+		{% for column in online.columns %}
+			<div class="section__list">
+				{% for item in column %}
+					<div class="section__item">
+						{{ link(
+							text = item.text,
+							href = item.href,
+							size = 'text-s',
+							icon = item.icon,
+							extraClass = 'section__link'
+						) }}
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+	</div>
+{% endcall %}
+
+{% call section({
+	pretitle: offline.pretitle,
+	heading: offline.heading,
+	lead: offline.lead
+}) %}
+	<div class="section__route" aria-hidden="true">
+		<picture class="section__route-picture">
+			<img
+				class="section__route-image"
+				src="{{ offline.route.src }}"
+				alt=""
+				width="{{ offline.route.width }}"
+				height="{{ offline.route.height }}"
+				loading="lazy"
+				decoding="async"
+			>
+		</picture>
+	</div>
+{% endcall %}
