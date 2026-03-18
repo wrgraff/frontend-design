@@ -20,6 +20,24 @@ This file is the source of truth for implementation rules that AI agents must fo
 - Source of truth for styles: `src/css/blocks/*.css` (one block = one file).
 - Do not duplicate logic or SVG markup in local templates if a shared macro/component already exists.
 
+## JavaScript Architecture (Mandatory)
+
+- Entry point for runtime initialization is `src/js/index.js`.
+- JS modules must export explicit `init*` functions (example: `initVideos`, `initNoJs`) instead of relying on side-effect imports.
+- Do not use IIFE modules for new code.
+- Do not write to global scope (`window.*`) unless explicitly requested by the user.
+- Prefer function-based modules over classes for simple behavior.
+- A module should use `early return` if target DOM nodes are missing.
+- A module should return a cleanup function (`destroy`) even if currently unused.
+- Keep one module focused on one UI behavior.
+- Prefer `data-*` hooks for JS behavior targeting; reuse existing selectors where markup is already stable.
+
+## JavaScript Quality Gates
+
+- Run `npm run lint:js` when JS files are changed.
+- `lint:js` currently excludes `src/js/modules/gallery.js` and `src/js/modules/loader.js` as temporary legacy modules that are not active in `src/js/index.js`.
+- If any excluded module is re-enabled or edited as part of a task, remove its exclusion and fix its lint errors in the same task.
+
 ## Implementation Priority (Mandatory)
 
 - Consistency and code reuse have the highest priority.
@@ -171,4 +189,6 @@ Soft convention (non-strict, do not lint):
 - No duplicated icon or template logic.
 - `docs/components.md` is updated when macro input/output contract changes.
 - `button` and `link` macros do not auto-attach default modifiers.
+- JS modules follow `init*` contract from this file.
+- If JS changed, `npm run lint:js` passes.
 - Strict lint suite passes: `npm run lint:all:strict`.

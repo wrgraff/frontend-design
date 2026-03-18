@@ -1,10 +1,9 @@
-'use strict';
-
-( () => {
+export const initDesignSolutionSlider = () => {
 	const sliders = document.querySelectorAll( '.design-solution[data-design-solution-slider]' );
+	const listeners = [];
 
 	if ( !sliders.length ) {
-		return;
+		return () => {};
 	}
 
 	sliders.forEach( ( slider ) => {
@@ -35,15 +34,23 @@
 		showSlide( activeIndex );
 
 		if ( prevButton ) {
-			prevButton.addEventListener( 'click', () => {
+			const previousClickHandler = () => {
 				showSlide( activeIndex - 1 );
-			} );
+			};
+			prevButton.addEventListener( 'click', previousClickHandler );
+			listeners.push( () => prevButton.removeEventListener( 'click', previousClickHandler ) );
 		}
 
 		if ( nextButton ) {
-			nextButton.addEventListener( 'click', () => {
+			const nextClickHandler = () => {
 				showSlide( activeIndex + 1 );
-			} );
+			};
+			nextButton.addEventListener( 'click', nextClickHandler );
+			listeners.push( () => nextButton.removeEventListener( 'click', nextClickHandler ) );
 		}
 	} );
-} )();
+
+	return () => {
+		listeners.forEach( ( removeListener ) => removeListener() );
+	};
+};

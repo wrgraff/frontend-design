@@ -6,11 +6,12 @@
   "scripts": {
     "start": "ELEVENTY_ENV=development eleventy --serve --quiet",
     "build": "rm -rf dist && ELEVENTY_ENV=production eleventy",
+    "lint:js": "eslint \"src/js/**/*.js\" --ignore-pattern \"src/js/modules/gallery.js\" --ignore-pattern \"src/js/modules/loader.js\"",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:contracts:strict": "node scripts/lint-css-contracts.mjs --strict",
     "lint:data": "node scripts/validate-content.mjs",
     "lint:html": "npm run build && html-validate \"dist/**/*.html\"",
-    "lint:all:strict": "npm run lint:css && npm run lint:data && npm run lint:css:contracts:strict && npm run lint:html",
+    "lint:all:strict": "npm run lint:js && npm run lint:css && npm run lint:data && npm run lint:css:contracts:strict && npm run lint:html",
     "fix:css": "stylelint \"src/**/*.css\" --fix",
     "lint:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json",
     "fix:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json --fix",
