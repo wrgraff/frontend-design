@@ -28,6 +28,12 @@ This file is the source of truth for implementation rules that AI agents must fo
 - Small visual differences (for example a few pixels in spacing/alignment) are acceptable if they preserve reuse and system integrity.
 - Do not introduce new wrappers/elements/modifiers solely to match minor Figma offsets when an existing pattern already solves the UI.
 
+## Legacy Policy (Mandatory)
+
+- Default behavior: break legacy compatibility and update all usages in the same task.
+- Do not add fallback branches, compatibility shims, or dual parameter support unless explicitly requested by the user.
+- This project is small: when an API/contract changes, migrate all call sites immediately instead of preserving old behavior.
+
 ## Language Policy
 
 - Primary site language is `EN`.
