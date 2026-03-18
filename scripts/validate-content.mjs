@@ -176,10 +176,10 @@ function validatePublicationsEntry(file, data) {
 		return;
 	}
 
-	const external = reqBoolean(file, 'external', root.external);
-	if (external === null) return;
-
 	if (root.kind === 'article') {
+		const external = reqBoolean(file, 'external', root.external);
+		if (external === null) return;
+
 		if (external) {
 			if (root.title !== undefined) {
 				fail(file, 'title', 'must be omitted for external article');
@@ -206,9 +206,6 @@ function validatePublicationsEntry(file, data) {
 	if (root.kind === 'video') {
 		reqString(file, 'title', root.title);
 		reqString(file, 'layout', root.layout);
-		if (!external) {
-			fail(file, 'external', 'must be true for video (source is external, page is embedded)');
-		}
 		const youtubeUrl = reqString(file, 'youtube_url', root.youtube_url);
 		if (youtubeUrl && !/^https?:\/\//.test(youtubeUrl)) {
 			fail(file, 'youtube_url', 'must start with http:// or https://');
