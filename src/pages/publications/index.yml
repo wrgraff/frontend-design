@@ -21,13 +21,11 @@ hero:
       type: link
 
 articles_section:
-  pretitle: Articles
-  heading: Written publications
-  lead: Internal articles and selected external publications.
+  pretitle: Reading
+  heading: Articles
   empty_message: No articles yet.
 
 videos_section:
-  pretitle: Videos
-  heading: Speaking videos
-  lead: Talks and lectures with optional slide decks.
+  pretitle: Speeches
+  heading: Videos
   empty_message: No videos yet.
