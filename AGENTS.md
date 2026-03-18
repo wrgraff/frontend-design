@@ -20,6 +20,14 @@ This file is the source of truth for implementation rules that AI agents must fo
 - Source of truth for styles: `src/css/blocks/*.css` (one block = one file).
 - Do not duplicate logic or SVG markup in local templates if a shared macro/component already exists.
 
+## Implementation Priority (Mandatory)
+
+- Consistency and code reuse have the highest priority.
+- Prefer existing blocks/macros (`section`, `hero`, `link`, `button`, `icon`, etc.) over creating page-specific structures.
+- Pixel-perfect matching is secondary to architecture consistency.
+- Small visual differences (for example a few pixels in spacing/alignment) are acceptable if they preserve reuse and system integrity.
+- Do not introduce new wrappers/elements/modifiers solely to match minor Figma offsets when an existing pattern already solves the UI.
+
 ## Language Policy
 
 - Primary site language is `EN`.
