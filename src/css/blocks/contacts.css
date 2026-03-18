@@ -95,7 +95,3 @@
 .contacts__item {
 	margin: 0;
 }
-
-.contacts__link {
-	--link-icon-color: var(--color-text-primary);
-}

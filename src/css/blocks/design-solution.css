@@ -62,7 +62,6 @@
 }
 
 .design-solution__list {
-	--list-item-font: var(--design-solution-list-item-font);
 	margin: 0;
 }
 
