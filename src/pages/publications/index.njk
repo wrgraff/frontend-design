@@ -1,5 +1,7 @@
 {% from 'hero.njk' import heroSection %}
 {% from 'section.njk' import section %}
+{% from 'link.njk' import link %}
+{% from 'label.njk' import label %}
 
 {{ heroSection(hero) }}
 
@@ -21,20 +23,47 @@
 	lead: articles_section.lead
 }) %}
 	{% if articleItems.length %}
-		<ul>
+		<ul class="publications">
 			{% for publication in articleItems %}
 				{% set articleHref = publication.data.external and publication.data.external_url or publication.url %}
-				<li>
-					<h3>
-						<a href="{{ articleHref | localePath(page.url) }}"{% if publication.data.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
-							{{ publication.data.heading }}
-						</a>
-					</h3>
-					{% if publication.data.description %}
-						<p>{{ publication.data.description }}</p>
-					{% endif %}
+				{% set cardImage = publication.data.cover or '/img/publications/hero.png' %}
+				{% set cardImageWidth = publication.data.cover_width or 681 %}
+				{% set cardImageHeight = publication.data.cover_height or 744 %}
+				<li class="publications__item">
+					<picture class="publications__media">
+						<img
+							class="publications__image"
+							src="{{ cardImage }}"
+							alt=""
+							aria-hidden="true"
+							width="{{ cardImageWidth }}"
+							height="{{ cardImageHeight }}"
+							loading="lazy"
+							decoding="async"
+						>
+					</picture>
+					<div class="publications__content">
+						<h3 class="publications__heading">
+							{{ link(
+								text = publication.data.heading,
+								href = articleHref,
+								size = 'heading-h6',
+								icon = '',
+								target = publication.data.external and '_blank' or '',
+								rel = publication.data.external and 'noopener noreferrer' or ''
+							) }}
+						</h3>
+						{% if publication.data.description %}
+							<p class="publications__description">{{ publication.data.description }}</p>
+						{% endif %}
+					</div>
 					{% if publication.data.external and publication.data.source_label %}
-						<p>{{ publication.data.source_label }}</p>
+						<div class="publications__tags">
+							{{ label(
+								text = publication.data.source_label,
+								size = 'm'
+							) }}
+						</div>
 					{% endif %}
 				</li>
 			{% endfor %}

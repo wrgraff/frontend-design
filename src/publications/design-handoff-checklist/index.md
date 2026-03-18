@@ -6,6 +6,9 @@ order: 1
 kind: article
 external: false
 description: A short checklist for preparing UI states, specs, and edge cases before implementation.
+cover: /img/publications/hero.png
+cover_width: 681
+cover_height: 744
 hero:
   heading: Practical design handoff checklist
   text: A compact checklist for product teams shipping complex interfaces.

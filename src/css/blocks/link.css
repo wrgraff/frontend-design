@@ -220,7 +220,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-hl2 {
@@ -229,7 +229,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-hl3 {
@@ -238,7 +238,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-h1 {
@@ -247,7 +247,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-h2 {
@@ -256,7 +256,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-h3 {
@@ -265,7 +265,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-h4 {
@@ -274,7 +274,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-h5 {
@@ -283,7 +283,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 .link_size_heading-h6 {
@@ -292,7 +292,7 @@ a:not([class]):active {
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
-	--link-underline-offset: .35rem;
+	--link-underline-offset: .3rem;
 }
 
 /* Elements */
