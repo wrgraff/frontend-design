@@ -2,12 +2,16 @@
 layout: publication.njk
 title: 'Когда в верстке нужна высота?'
 heading: 'Когда в верстке нужна высота?'
+order: 2
 kind: article
 external: false
 description: 'Когда и почему можно жестко зафиксировать высоту, а когда этого делать не стоит'
 cover: /img/publications/hero.png
 cover_width: 681
 cover_height: 744
+hero:
+  heading: 'Когда в верстке нужна высота?'
+  text: 'Когда и почему можно жестко зафиксировать высоту, а когда этого делать не стоит'
 author: artur-trifonov
 tags:
     - css

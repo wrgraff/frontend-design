@@ -2,12 +2,16 @@
 layout: publication.njk
 title: 'Как отличить margin от padding'
 heading: 'Как отличить margin от padding'
+order: 4
 kind: article
 external: false
 description: 'И то и другое отступы, результат одинаковый. Так что же использовать?'
 cover: /img/publications/hero.png
 cover_width: 681
 cover_height: 744
+hero:
+  heading: 'Как отличить margin от padding'
+  text: 'И то и другое отступы, результат одинаковый. Так что же использовать?'
 author: artur-trifonov
 tags:
     - layout
