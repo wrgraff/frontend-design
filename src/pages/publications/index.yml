@@ -1,7 +1,24 @@
 title: Publications
 hero:
   heading: Publications
-  text: Articles and speaking materials.
+  text: A selection of articles and videos where I share how I think about product UI, design systems, and building data-heavy interfaces
+  image: /img/publications/hero.png
+  image_alt: Publications page hero illustration
+  cta:
+    - text: Check portfolio
+      href: /portfolio/
+      mode: primary
+      size: xl
+      icon_left: romance-and-wedding/baggage_heart
+      type: button
+    - text: Download CV
+      href: /files/atrifonov-cv-en.pdf
+      download: true
+      mode: base
+      size: xl
+      subtext: PDF, 248KB
+      icon_left: files/file_profile
+      type: link
 
 articles_section:
   pretitle: Articles
