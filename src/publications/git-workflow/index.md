@@ -13,9 +13,9 @@ hero:
   heading: Git Workflow, Why Are You So Weird?
   text: Explanations on why the process of working with Git is so complex in the second year, why it's done this way, and why it's important
 tags:
-	- git
-	- workflow
-	- teamwork
+  - git
+  - workflow
+  - teamwork
 ---
 
 ## The Problem
