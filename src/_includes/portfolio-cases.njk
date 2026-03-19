@@ -38,11 +38,11 @@
 								<dl class="portfolio__meta meta">
 									{% if item.data.role %}
 										<dt class="meta__term">Role:</dt>
-										<dd class="meta__value">{{ item.data.role }}</dd>
+										<dd class="meta__value">{{ (item.data.role | markdown | trim) | safe }}</dd>
 									{% endif %}
 									{% if item.data.focus %}
 										<dt class="meta__term">Focus:</dt>
-										<dd class="meta__value">{{ item.data.focus }}</dd>
+										<dd class="meta__value">{{ (item.data.focus | markdown | trim) | safe }}</dd>
 									{% endif %}
 								</dl>
 							{% endif %}
