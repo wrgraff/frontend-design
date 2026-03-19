@@ -8,6 +8,7 @@
 	type = 'button',
 	ariaLabel = 'Icon button',
 	extraClass = '',
+	dataAttrs = '',
 	download = false
 ) %}
 	{% set classes = [
@@ -26,12 +27,13 @@
 			href="{{ href }}"
 			class="{{ classes }}"
 			aria-label="{{ ariaLabel }}"
+			{{ dataAttrs | safe }}
 			{% if download %}{% if download == true %} download{% else %} download="{{ download }}"{% endif %}{% endif %}
 		>
 			{{ icon(iconName, iconClasses) }}
 		</a>
 	{% else %}
-		<button type="{{ type }}" class="{{ classes }}" aria-label="{{ ariaLabel }}">
+		<button type="{{ type }}" class="{{ classes }}" aria-label="{{ ariaLabel }}" {{ dataAttrs | safe }}>
 			{{ icon(iconName, iconClasses) }}
 		</button>
 	{% endif %}

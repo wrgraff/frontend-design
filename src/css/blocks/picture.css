@@ -1,0 +1,39 @@
+/* Variables */
+
+.picture {
+	--picture-bg: var(--color-surface-secondary);
+	--picture-aspect-ratio: 986 / 560;
+	--picture-description-bg: var(--color-surface-tertiary);
+	--picture-description-color: var(--color-text-secondary);
+	--picture-description-font: var(--font-text-xs);
+	--picture-description-padding: var(--space-gap-4xs) var(--space-gap-3xs);
+}
+
+/* Picture */
+
+.picture {
+	display: grid;
+}
+
+.picture__media {
+	background-color: var(--picture-bg);
+	display: block;
+	aspect-ratio: var(--picture-aspect-ratio);
+	overflow: hidden;
+	width: 100%;
+}
+
+.picture__image {
+	display: block;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.picture__description {
+	background-color: var(--picture-description-bg);
+	color: var(--picture-description-color);
+	font: var(--picture-description-font);
+	margin: 0;
+	padding: var(--picture-description-padding);
+}

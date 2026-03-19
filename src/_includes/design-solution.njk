@@ -1,51 +1,31 @@
-{% from 'icon-button.njk' import iconButton %}
+{% from 'slider.njk' import slider %}
+{% from 'picture.njk' import picture %}
 
 {% macro designSolution(data = {}) %}
 	{% set images = data.images or [] %}
 	{% set primaryDetails = data.primary or [] %}
 	{% set secondaryDetails = data.secondary or [] %}
 	{% set hasSlider = images and (images | length) > 1 %}
+	{% set singleImage = images[0] if images and (images | length) == 1 else {} %}
+	{% set singleImageDescription = (singleImage.description | default('') | trim) if singleImage else '' %}
 
-	<div class="section__container-item design-solution{% if hasSlider %} design-solution_with_slider{% endif %}"{% if hasSlider %} data-design-solution-slider{% endif %}>
+	<div class="section__container-item design-solution">
 		{% if images and (images | length) %}
-			<div class="design-solution__media">
-				{% for image in images %}
-					<figure class="design-solution__slide{% if loop.first %} design-solution__slide_active{% endif %}"{% if not loop.first %} hidden{% endif %}>
-						<picture class="design-solution__picture">
-							<img
-								class="design-solution__image"
-								src="{{ image.src }}"
-								alt="{{ image.alt | default('') }}"
-								width="{{ image.width }}"
-								height="{{ image.height }}"
-								loading="{{ 'eager' if loop.first else 'lazy' }}"
-								decoding="async"
-							>
-						</picture>
-					</figure>
-				{% endfor %}
-
-				{% if hasSlider %}
-					<div class="design-solution__controls">
-						{{ iconButton(
-							iconName = 'simple-arrows/arrow_left',
-							mode = 'secondary',
-							size = 'l',
-							type = 'button',
-							ariaLabel = 'Previous image',
-							extraClass = 'design-solution__control design-solution__control_direction_previous'
-						) }}
-						{{ iconButton(
-							iconName = 'simple-arrows/arrow_right',
-							mode = 'secondary',
-							size = 'l',
-							type = 'button',
-							ariaLabel = 'Next image',
-							extraClass = 'design-solution__control design-solution__control_direction_next'
-						) }}
-					</div>
-				{% endif %}
-			</div>
+			{% if hasSlider %}
+				{{ slider(
+					images = images,
+					ariaLabel = 'Design solution slides',
+					previousLabel = 'Previous slide',
+					nextLabel = 'Next slide',
+					extraClass = 'design-solution__slider'
+				) }}
+			{% elif singleImage %}
+				{{ picture(
+					image = singleImage,
+					description = singleImageDescription,
+					extraClass = 'design-solution__image-item'
+				) }}
+			{% endif %}
 		{% endif %}
 
 		{% if primaryDetails and (primaryDetails | length) %}

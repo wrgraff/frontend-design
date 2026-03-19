@@ -20,6 +20,14 @@
 	--icon-button-shadow: var(--shadow-level-1);
 }
 
+.icon-button:disabled {
+	--icon-button-icon-color: var(--color-text-tertiary);
+	--icon-button-bg: var(--color-common-secondary);
+	--icon-button-shadow: var(--shadow-level-1);
+	cursor: default;
+	pointer-events: none;
+}
+
 /* Icon button */
 
 .icon-button {

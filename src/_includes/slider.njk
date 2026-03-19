@@ -1,0 +1,76 @@
+{% from 'icon-button.njk' import iconButton %}
+
+{% macro slider(
+	images = [],
+	ariaLabel = 'Image slider',
+	previousLabel = 'Previous slide',
+	nextLabel = 'Next slide',
+	extraClass = ''
+) %}
+	{% set hasSlides = images and (images | length) > 1 %}
+	{% set firstImage = images[0] if images and (images | length) else {} %}
+	{% set firstDescription = (firstImage.description | default('') | trim) if firstImage else '' %}
+	{% set initialCounter = '1 / ' + (images | length) + ' slides' if hasSlides else '' %}
+	{% set initialStatus = (initialCounter + ('. ' + firstDescription if firstDescription else '')) if hasSlides else '' %}
+	{% set classes = [
+		extraClass,
+		'slider'
+	] | join(' ') | trim %}
+
+	{% if images and (images | length) %}
+		<div class="{{ classes }}" {% if hasSlides %}data-slider tabindex="0" aria-label="{{ ariaLabel }}"{% endif %}>
+			<div class="slider__media">
+				{% for image in images %}
+					{% set slideDescription = image.description | default('') | trim %}
+					<figure
+						class="slider__slide{% if loop.first %} slider__slide_active{% endif %}"
+						data-slider-slide
+						data-slider-slide-description="{{ slideDescription }}"
+						aria-roledescription="slide"
+						aria-label="{{ loop.index }} of {{ images | length }}"
+						aria-hidden="{{ 'false' if loop.first else 'true' }}"
+						{% if not loop.first %}hidden{% endif %}
+					>
+						<picture class="slider__picture">
+							<img
+								class="slider__image"
+								src="{{ image.src }}"
+								alt="{{ image.alt | default('') }}"
+								width="{{ image.width }}"
+								height="{{ image.height }}"
+								loading="{{ 'eager' if loop.first else 'lazy' }}"
+								decoding="async"
+							>
+						</picture>
+					</figure>
+				{% endfor %}
+			</div>
+
+			{% if hasSlides %}
+				<div class="slider__footer">
+					<p class="slider__counter" data-slider-counter>{{ initialCounter }}</p>
+					<p class="slider__description" data-slider-description>{{ firstDescription }}</p>
+
+					<div class="slider__controls">
+						{{ iconButton(
+							iconName = 'simple-arrows/arrow_left',
+							type = 'button',
+							ariaLabel = previousLabel,
+							dataAttrs = 'data-slider-control-prev',
+							extraClass = 'slider__control slider__control_direction_previous'
+						) }}
+						{{ iconButton(
+							iconName = 'simple-arrows/arrow_right',
+							type = 'button',
+							ariaLabel = nextLabel,
+							dataAttrs = 'data-slider-control-next',
+							extraClass = 'slider__control slider__control_direction_next'
+						) }}
+					</div>
+
+					<p class="visually-hidden" data-slider-status aria-live="polite" aria-atomic="true">{{ initialStatus }}</p>
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+{% endmacro %}

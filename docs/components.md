@@ -77,7 +77,7 @@ Behavior:
 ## iconButton
 
 Source: `src/_includes/icon-button.njk`  
-Signature: `iconButton(iconName='api/api_file', href='', mode='', size='', type='button', ariaLabel='Icon button', extraClass='', download=false)`
+Signature: `iconButton(iconName='api/api_file', href='', mode='', size='', type='button', ariaLabel='Icon button', extraClass='', dataAttrs='', download=false)`
 
 Inputs:
 - `iconName` (optional, string): icon name from `src/_includes/icons`, without `.svg`
@@ -87,6 +87,7 @@ Inputs:
 - `type` (optional, string): used only when rendering `<button>`
 - `ariaLabel` (optional, string): accessible name for icon-only control
 - `extraClass` (optional, string)
+- `dataAttrs` (optional, string): raw attribute string for custom data hooks (for example `data-slider-control-prev`)
 - `download` (optional, boolean|string): used only for anchor
 
 Constraints:
@@ -257,6 +258,39 @@ Behavior:
 - Internally delegates table markup to `table`.
 - Adds horizontal scroll wrapper around the table (`.datatable__scroll`).
 
+## picture
+
+Source: `src/_includes/picture.njk`  
+Signature: `picture(image = {}, description = '', extraClass = '')`
+
+Inputs:
+- `image` (required for output, object): image descriptor
+  - fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string)
+- `description` (optional, plain string): explicit caption override; falls back to `image.description`
+- `extraClass` (optional, string): additional class for block mix usage
+
+Behavior:
+- Renders standalone `picture` block with image and optional `figcaption`.
+- If required image fields are missing, renders nothing.
+
+## slider
+
+Source: `src/_includes/slider.njk`  
+Signature: `slider(images = [], ariaLabel = 'Image slider', previousLabel = 'Previous slide', nextLabel = 'Next slide', extraClass = '')`
+
+Inputs:
+- `images` (required for output, array): slide media list
+  - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string)
+- `ariaLabel` (optional, plain string): label for keyboard-focusable slider region
+- `previousLabel` (optional, plain string): aria-label for previous control button
+- `nextLabel` (optional, plain string): aria-label for next control button
+- `extraClass` (optional, string): additional class for block mix usage
+
+Behavior:
+- Renders standalone `slider` block with slides, controls, counter, and current slide description.
+- JS module `design-solution-slider` initializes behavior for `.slider[data-slider]`: updates active slide state, updates counter/description, exposes polite live status text, disables controls on first/last slide, and handles keyboard navigation (`ArrowLeft`, `ArrowRight`, `Home`, `End`).
+- If less than two slides are provided, the control footer is not rendered.
+
 ## designSolution
 
 Source: `src/_includes/design-solution.njk`  
@@ -264,7 +298,7 @@ Signature: `designSolution(data = {})`
 
 Inputs (`data` object):
 - `images` (optional, array): media slides
-  - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required)
+  - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string)
 - `primary` (optional, array): first row of details
   - detail fields: `heading` (optional, plain string), `content` (optional, markdown string)
 - `secondary` (optional, array): second row of details
@@ -272,8 +306,8 @@ Inputs (`data` object):
 
 Behavior:
 - Renders standalone `design-solution` block intended to be mixed into `section__container`.
-- If `images.length > 1`, renders navigation controls and initializes slider behavior via JS (`design-solution-slider` module).
-- If a single image is passed, renders static media without slider controls.
+- If `images.length > 1`, composes the standalone `slider` macro/block.
+- If exactly one image is passed, composes the standalone `picture` macro/block (without slider controls).
 
 ## table
 
