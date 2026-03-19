@@ -154,6 +154,7 @@ Principles:
 - Keep CSS specificity as low as possible.
 - Avoid selector chains and combinators (`.block .block__el`, `.block > .block__el`) when a plain BEM selector is enough (`.block__el`).
 - Do not increase specificity “for safety”; solve collisions via block structure, source order, and variables.
+- Do not use shorthand `flex: ...` declarations in block CSS. Always write `flex-grow`, `flex-shrink`, and `flex-basis` as separate properties for readability.
 
 Soft convention (non-strict, do not lint):
 
