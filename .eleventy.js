@@ -321,6 +321,8 @@ module.exports = function (config) {
 		path => config.addPassthroughCopy(path)
 	);
 
+	config.addWatchTarget('src/publications/**/*.md');
+
 	// Config
 
 	return {

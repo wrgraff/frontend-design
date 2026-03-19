@@ -195,11 +195,6 @@ function validatePublicationsEntry(file, data) {
 		} else {
 			reqString(file, 'title', root.title);
 			reqString(file, 'layout', root.layout);
-			const hero = reqObject(file, 'hero', root.hero);
-			if (hero) {
-				reqString(file, 'hero.heading', hero.heading);
-				reqString(file, 'hero.text', hero.text);
-			}
 		}
 	}
 

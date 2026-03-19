@@ -138,6 +138,20 @@ CTA item:
 Constraints:
 - `heading` is rendered as `<h1>`.
 
+## articleHeader
+
+Source: `src/_includes/article-header.njk`  
+Signature: `articleHeader(heading = '', description = '', tags = [])`
+
+Inputs:
+- `heading` (optional, plain string): article heading rendered as `<h1>`
+- `description` (optional, plain string): article lead text
+- `tags` (optional, array of strings): rendered via `label` macro with `#` prefix
+
+Behavior:
+- Renders standalone `article-header` block intended for publication/article pages.
+- Uses `label` macro for tag chips.
+
 ## caseHero
 
 Source: `src/_includes/case-hero.njk`  

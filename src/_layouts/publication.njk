@@ -2,20 +2,18 @@
 layout: page.njk
 ---
 
-{% from 'hero.njk' import heroSection %}
-{% from 'section.njk' import section %}
+{% from 'article-header.njk' import articleHeader %}
 
 {% set publicationHeading = heading or title %}
 {% set publicationLead = description %}
+{% set publicationTags = tags or [] %}
 
-{% if hero %}
-	{{ heroSection(hero) }}
-{% endif %}
+{{ articleHeader(
+	heading = publicationHeading,
+	description = publicationLead,
+	tags = publicationTags
+) }}
 
-{% call section({
-	pretitle: 'Publication',
-	heading: publicationHeading,
-	lead: publicationLead
-}) %}
+<section class="main__section article-section">
 	{{ content | safe }}
-{% endcall %}
+</section>

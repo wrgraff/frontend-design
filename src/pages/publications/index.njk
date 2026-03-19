@@ -58,12 +58,21 @@
 							<p class="publications__description">{{ publication.data.description }}</p>
 						{% endif %}
 					</div>
-					{% if publication.data.external and publication.data.source_label %}
+					{% if (publication.data.tags and publication.data.tags.length) or (publication.data.external and publication.data.source_label) %}
 						<div class="publications__tags">
-							{{ label(
-								text = publication.data.source_label,
-								size = 'm'
-							) }}
+							{% for item in publication.data.tags or [] %}
+								{{ label(
+									text = item,
+									size = 'm'
+								) }}
+							{% endfor %}
+
+							{% if publication.data.external and publication.data.source_label %}
+								{{ label(
+									text = publication.data.source_label,
+									size = 'm'
+								) }}
+							{% endif %}
 						</div>
 					{% endif %}
 				</li>

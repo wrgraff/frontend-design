@@ -1,0 +1,29 @@
+{% from 'label.njk' import label %}
+
+{% macro articleHeader(heading = '', description = '', tags = []) %}
+	<section class="main__section article-header">
+		{% if tags and (tags | length) %}
+			<div class="article-header__tags">
+				{% for item in tags %}
+					{{ label(
+						text = '#' + item,
+						size = 'm',
+						extraClass = 'article-header__tag'
+					) }}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if heading %}
+			<h1 class="article-header__heading">
+				{{ heading | trim }}
+			</h1>
+		{% endif %}
+
+		{% if description %}
+			<p class="article-header__description">
+				{{ description | trim }}
+			</p>
+		{% endif %}
+	</section>
+{% endmacro %}

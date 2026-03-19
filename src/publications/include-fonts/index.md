@@ -9,9 +9,6 @@ description: 'Как назвать шрифт, почему важен поря
 cover: /img/publications/hero.png
 cover_width: 681
 cover_height: 744
-hero:
-  heading: 'Как подключать шрифты'
-  text: 'Как назвать шрифт, почему важен порядок файлов, какие свойства указывать и как оптимизировать загрузку'
 author: artur-trifonov
 tags:
     - fonts

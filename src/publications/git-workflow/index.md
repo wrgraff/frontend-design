@@ -1,17 +1,14 @@
 ---
 layout: publication.njk
-title: Git Workflow, Why Are You So Weird?
-heading: Git Workflow, Why Are You So Weird?
+title: Basic Principles of Teamwork with Git
+heading: Basic Principles of Teamwork with Git
 order: 1
 kind: article
 external: false
-description: Explanations on why the process of working with Git is so complex in the second year, why it's done this way, and why it's important
-cover: /img/publications/hero.png
-cover_width: 681
-cover_height: 744
-hero:
-  heading: Git Workflow, Why Are You So Weird?
-  text: Explanations on why the process of working with Git is so complex in the second year, why it's done this way, and why it's important
+description: Why collaborative work with Git often seems more complicated than expected, and what practical problems this process actually solves
+cover: /publications/git-workflow/img/cover.png
+cover_width: 683
+cover_height: 400
 tags:
   - git
   - workflow
@@ -64,13 +61,13 @@ We also have a small team.
 
 ### Our Tasks
 
-1. **The project should be deployed automatically when the main repository is updated**
+1. **The project should be deployed automatically when the main repository is updated**  
    Manual uploads are slow and unreliable. It is much better when deployment is automated and the repository stays the single source of truth.
 
-2. **Several people should be able to work on the project at the same time**
+2. **Several people should be able to work on the project at the same time**  
    Even if everyone has different responsibilities, people still touch related files. The process should prevent team members from constantly breaking each other’s work.
 
-3. **The code should be checked automatically**
+3. **The code should be checked automatically**  
    Teamwork requires shared standards. Otherwise, the codebase quickly turns into a mess. So we add automated checks to make sure the code matches agreed rules.
 
 Git and GitHub help solve all of these problems.
@@ -295,3 +292,4 @@ A stable main branch protects the product.
 So this process is not complicated for the sake of ceremony.
 
 It exists because collaborative development is messy, and Git gives teams a way to keep that mess under control.
+
