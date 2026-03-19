@@ -29,7 +29,7 @@
 	position: absolute;
 	left: -1px;
 	top: calc(var(--timeline-icon-size) + var(--timeline-icon-offset) + var(--timeline-icon-margin));
-	bottom: calc(-240px - var(--timeline-icon-margin));
+	bottom: calc(-160px - var(--timeline-icon-margin));
 	width: 2px;
 	border-radius: 2px;
 	background-color: var(--timeline-rail-color);
