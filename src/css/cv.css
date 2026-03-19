@@ -5,7 +5,7 @@
 @import url('./spaces/index.css');
 @import url('./radius/index.css');
 
-@import url('./global.css');
+@import url('./global/index.css');
 
 @import url('./utilities/visually-hidden.css');
 

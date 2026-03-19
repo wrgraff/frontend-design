@@ -7,7 +7,7 @@
 @import url('./shadows/index.css');
 @import url('./transitions/index.css');
 
-@import url('./global.css');
+@import url('./global/index.css');
 
 @import url('./utilities/visually-hidden.css');
 @import url('./blocks/icon.css');

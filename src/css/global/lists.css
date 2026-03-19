@@ -1,0 +1,46 @@
+:where(ul, ol):not([class]) {
+	list-style: none;
+	display: grid;
+	gap: var(--space-gap-5xs);
+	padding: 0;
+}
+
+:where(ul, ol):not([class]) > li {
+	align-items: start;
+	column-gap: var(--space-gap-xs);
+	display: grid;
+	font: var(--font-text-s);
+	grid-template-columns: var(--space-size-xs) minmax(0, 1fr);
+	margin: 0;
+	padding-inline-start: var(--space-gap-3xs);
+}
+
+:where(ul):not([class]) > li::before {
+	content: '';
+	background-color: var(--color-text-alt);
+	height: var(--space-border-medium);
+	margin-top: .8em;
+	width: var(--space-size-xs);
+}
+
+:where(ol):not([class]) {
+	counter-reset: list-item;
+}
+
+:where(ol):not([class]) > li {
+	counter-increment: list-item;
+}
+
+:where(ol):not([class]) > li::before {
+	color: var(--color-text-alt);
+	content: counter(list-item, decimal-leading-zero);
+	font: var(--font-caption-xs);
+	letter-spacing: var(--font-caption-letterspacing);
+	margin-top: var(--space-gap-3xs);
+	text-transform: var(--font-caption-transform);
+}
+
+:where(li > ul:not([class]), li > ol:not([class])) {
+	margin-block: 0;
+	padding-inline-start: var(--space-gap-s);
+}

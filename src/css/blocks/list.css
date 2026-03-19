@@ -1,7 +1,6 @@
 /* Variables */
 
-.list,
-:where(ul, ol):not([class]) {
+.list {
 	--list-columns: 1;
 	--list-gap: var(--space-gap-l);
 	--list-item-gap: var(--space-gap-xxs);
@@ -22,8 +21,7 @@
 
 /* List */
 
-.list,
-:where(ul, ol):not([class]) {
+.list {
 	list-style: none;
 	padding: 0;
 	display: grid;
@@ -32,8 +30,7 @@
 	grid-template-columns: repeat(var(--list-columns), minmax(0, 1fr));
 }
 
-.list__item,
-:where(li):not([class])  {
+.list__item {
 	color: var(--list-item-color);
 	font: var(--list-item-font);
 	margin: 0;
@@ -41,18 +38,15 @@
 
 /* Ordered */
 
-.list_type_ordered,
-ol:not([class]) {
+.list_type_ordered {
 	counter-reset: list-item;
 }
 
-.list_type_ordered .list__item,
-ol:not([class]) > li {
+.list_type_ordered .list__item {
 	counter-increment: list-item;
 }
 
-.list_type_ordered .list__item::before,
-ol:not([class]) > li::before {
+.list_type_ordered .list__item::before {
 	display: block;
 	margin-bottom: var(--list-item-gap);
 	border-bottom: var(--list-order-border-width) solid var(--list-order-border-color);
@@ -64,29 +58,25 @@ ol:not([class]) > li::before {
 	text-transform: var(--font-caption-transform);
 }
 
-.list_type_ordered .list__item[data-list-label]::before,
-ol:not([class]) > li[data-list-label]::before {
+.list_type_ordered .list__item[data-list-label]::before {
 	content: attr(data-list-label);
 }
 
 /* Unordered */
 
-.list:not(.list_type_ordered),
-ul:not([class]) {
+.list:not(.list_type_ordered) {
 	--list-gap: var(--list-unordered-gap);
 	padding-inline-start: var(--list-unordered-padding-inline-start);
 }
 
-.list:not(.list_type_ordered) .list__item,
-ul:not([class]) > li {
+.list:not(.list_type_ordered) .list__item {
 	align-items: start;
 	column-gap: var(--list-item-gap);
 	display: grid;
 	grid-template-columns: var(--list-unordered-marker-width) minmax(0, 1fr);
 }
 
-.list:not(.list_type_ordered) .list__item::before,
-ul:not([class]) > li::before {
+.list:not(.list_type_ordered) .list__item::before {
 	content: '';
 	background-color: var(--list-unordered-marker-color);
 	width: var(--list-unordered-marker-width);

@@ -13,134 +13,285 @@ hero:
   heading: Git Workflow, Why Are You So Weird?
   text: Explanations on why the process of working with Git is so complex in the second year, why it's done this way, and why it's important
 tags:
-    - git
-    - workflow
+	- git
+	- workflow
+	- teamwork
 ---
 
-> Сразу обозначу, что существует рабочий процесс “gitflow” (или “git workflow”) . Там есть свой специфический подход к ветвлению и свои законы (еще более сложные). Речь не о нем, а о процессе, заведенном в HTML Academy.
+## The Problem
 
-## Проблема
+At some point, many beginners run into a Git process that feels unnecessarily complicated.
 
-Итак, начав работу с гитом в Академии, вы получили следующие инструкции:
+It usually looks something like this:
 
-1. форкнуть мастер-репозиторий Академии с проектом;
-2. склонировать себе на компьютер;
-3. создать новую ветку;
-4. отправить ее в свой форк;
-5. оттуда сделать пул-реквест в мастер-репозиторий;
-6. когда его примут — получить из мастер-репозитория обновления в свой локальный репозиторий (ну и в форк еще желательно отправить).
+1. clone the project repository;
+2. create a new branch;
+3. make your changes there;
+4. push that branch to GitHub;
+5. open a pull request;
+6. wait for review;
+7. merge the changes;
+8. sync your local repository again.
 
-Если вы еще не потеряли нить, то могут появиться некоторые вопросы. А именно:
+At first glance, this raises a few reasonable questions:
 
-- Зачем я создаю ветку в своем же собственном локальном репозитории?
-- Зачем я получаю свои же правки через репозиторий Академии (и это главное)?
+- Why create a separate branch for every task?
+- Why not just work directly in the main branch?
+- Why open a pull request if I can already push changes?
+- Why does teamwork through Git look so much more complicated than solo work?
 
-Давайте разбираться =)
+Let’s break it down.
 
-## От условности к реальности
+## From Abstraction to Reality
 
-Представим, что проект не учебный, а реальный. Так мы сможем приводить обоснования для решений из реального мира.
-Пускай это будет статический сайт, без бэкенда (для примера хватит).
-Соберем простенькую команду (состав примерный).
+Let’s imagine this is not a training project, but a real one.
 
-### Наша команда
-- **Тимлид** — наш старший коллега с опытом работы и повышенным чувством ответственности. Он хорошо знает верстку и JavaScript.
-    *Его роль играет наставник*
-- **Дизайнер** — автор дизайна и макета сайта.
-    *Его роль частично играет безмолвный кексобот и Николай =)*
-- **Верстальщик** — тот, кто сделает верстку макета.
-    *Это вы*
-- **Девопс** — специальный человек, который настроит тесты и публикацию проекта.
-    *Он настроил тесты, а публикация проекта останется в воображении (кексобот умеет публиковать только версию разработки)*
+Suppose we are building a small website or web application. That is enough to explain the logic behind this workflow.
 
-### Наши задачи
-1. **Сайт должен автоматически публиковаться при обновлении мастер-репозитория**
-    Загружать файлы вручную уже не модно. Гораздо удобнее и надежнее сделать этот процесс автоматическим: так наш сайт всегда будет синхронизирован с рабочим репозиторием.
-2. **Над сайтом могут работать несколько специалистов одновременно**
-    У нас есть команда, и хотя каждый занимается своим делом, в какой-то момент мы можем работать с одним и тем же файлом. Это не должно привести к тому, что коллеги будут ломать работу друг друга.
-3. **Код должен автоматически проверяться на ошибки**
-    Работая в команде, мы должны соблюдать правила работы с кодом, иначе он очень быстро превратится в вонючую кучу мусора. Мы условились как именно будем его оформлять и настроим проверки при добавлении кода, чтобы код соответствовал правилам.
+We also have a small team.
 
-И все эти задачи нам помогут решить Git и GitHub.
+### Our Team
 
-## Каждому — по репозиторию! Или по два?
+- **Team Lead** — the senior colleague with more experience and responsibility.
+  They help keep the codebase stable and review changes.
 
-Итак, наши коллеги уже решили одну из задач (да, вот так сразу).
-Они создали под проект репозиторий на GitHub, откуда и настроили публикацию сайта. Теперь при любых обновлениях, сайт собирается и отправляется на сервер прямо из GitHub.
+- **Designer** — the person who creates the layouts and interaction logic.
 
-Репозиторий очень прост: в нем лежит ветка **master** (это основная ветка, и она есть всегда, а с некоторых пор название по умолчанию будет **main**). Там лежит рабочий код, готовый к публикации. Это будет рабочая, *продакшн-версия* нашего проекта и наш мастер-репозиторий:
+- **Frontend Developer** — the person who implements the interface.
+  That is us.
 
-![Мастер-репозиторий на GitHub](img/step-1.png)
+- **DevOps Engineer** — the person who sets up checks, pipelines, and deployment.
 
-А еще, так как эта версия сразу же публикуется, доступ к ее правке имеет только тимлид, чтобы никакой новичок не смог что-нибудь испортить. Так будет безопасно и надежно, что очень хорошо...
+### Our Tasks
 
-Стоп, что? Но мы и есть этот новичок, так как же нам работать с проектом?
+1. **The project should be deployed automatically when the main repository is updated**
+   Manual uploads are slow and unreliable. It is much better when deployment is automated and the repository stays the single source of truth.
 
-### Так как нам работать?
+2. **Several people should be able to work on the project at the same time**
+   Even if everyone has different responsibilities, people still touch related files. The process should prevent team members from constantly breaking each other’s work.
 
-Собственно, эту задачу и решает одна из самых классных функций GitHub. Возможность **форкнуть** проект. **Форк** нажатием одной кнопки создает копию репозитория в нашем аккаунте, где у нас уже есть все права:
+3. **The code should be checked automatically**
+   Teamwork requires shared standards. Otherwise, the codebase quickly turns into a mess. So we add automated checks to make sure the code matches agreed rules.
 
-![Мастер-репозиторий и его форк](img/step-2.png)
+Git and GitHub help solve all of these problems.
 
-А еще GitHub привязывает наш форк к основному репозиторию и позволяет очень легко создавать запросы на изменения из форка в основной репозиторий. Это называется **pull request**.
+## One Repository for Everyone. Or More Than One?
 
-То есть, мы меняем код в форке и отправляем его в репозиторий, где наш тимлид сможет проверить обновление на ошибки и принять его, либо написать ревью с указанием того, что нужно поправить.
+Let’s say the team already has a central GitHub repository for the project.
 
-А еще при создании pull request можно настроить автоматическую проверку кода. И это решит нашу задачу №3.
+It is connected to build and deployment, so whenever it is updated, the project can be built and published automatically.
 
-Отлично, с правами разобрались! Но подождите. Ведь наш форк лежит на сервере GitHub. GitHub конечно позволяет править код прямо там, но это не очень удобно, ведь нам хочется писать код в своем любимом редакторе и проверять его работу в браузере. Как быть?
+At the center of this setup is the **main** branch. In older projects, this branch may still be called **master**.
 
-Все очень просто: нужно получить этот репозиторий себе на компьютер. То есть, получить локальную версию. Для этого мы клонируем свой репозиторий (который форк), чем создаем еще одну его копию.
+This branch contains the stable version of the project — the code that is trusted enough to be merged, built, and potentially deployed.
 
-![Клонирование форка к себе на компьютер](img/step-3.png)
+![Main repository on GitHub](img/step-1.png)
 
+Because this branch is important, teams usually protect it. Not everyone is allowed to push directly into it. That reduces the chance of accidental breakage.
 
-Наш локальный репозиторий автоматически получает ссылку на репозиторий на GitHub, который по умолчанию называется **origin**. Через эту ссылку мы сможем отправлять обновления в форк, а оттуда создавать pull request и вносить изменения в проект.
+Which leads to a practical question:
 
-Но кроме нас с проектом работают и другие члены команды. Что, если они внесли какие-то правки в проект? Значит, нам нужно периодически обновлять наш репозиторий прямо из проекта, а не только из своего форка. Для этого мы добавим вторую ссылку уже на мастер-репозиторий, через которую сможем обновляться (в учебном проекте это будет **academy**).
+If the main branch is protected, how do we actually work?
 
-![Взаимосвязь между репозиториями](img/step-4.png)
+### So How Do We Work?
 
+One common answer is simple: we work in our own branches and submit changes through pull requests.
 
-Теперь и задача №2 полностью решена. Итак, мы создали идеальную схему для работы! Или нет?
+In some setups, especially in open source or external collaboration, this may also involve a **fork** — a personal copy of the repository under your own account.
 
-## От реальности не убежишь
+![Main repository and its fork](img/step-2.png)
 
-Проблема в том, что реальный проект не идет как по маслу с задачами, поступающими по очереди:
+This gives you a safe place to work with full control, while still keeping a clean path for proposing changes back to the main project.
 
-1. Допустим, тимлид дал задание подготовить какую-то новую большую фичу. Вы оценили, что на нее уйдет неделя и начали работу.
-2. А затем через несколько дней пришел менеджер и попросил другую фичу, которая, как вдруг оказалось, для бизнеса куда важнее.
-  Приоритет задач меняется и нужно начать работать над задачей от менеджера.
-3. И вот, пока вы сидите и думаете, как это вам начать работу над другой задачей, когда текущий код уже частично переписан, вдруг подбегает дизайнер, который нашел в верстке баг, портящий весь дизайн, и слезно просит скорее это поправить (что легко можно сделать за час).
+GitHub also keeps that relationship visible and makes it easy to create a **pull request** — a request to merge your changes into the shared repository.
 
-И тут у вас взрывается голова. Потому что вы не подумали заранее как работать над несколькими задачами одновременно.
+That means the workflow is no longer just “write code and upload it.”
+It becomes:
 
-### Ветки
+- make changes in isolation;
+- send them for review;
+- run checks automatically;
+- merge only when the changes are ready.
 
-Собственно, для этой цели и придуманы ветки.
-Ветка — это такая “версия состояния” репозитория. Их может быть много и между ними можно переключаться.
+That already solves a large part of the team coordination problem.
 
-Как же с ветками решится наша проблема?
+## Local Work Still Matters
 
-1. Когда нам принесли фичу на разработку, мы создали под нее отдельную ветку new-feature, отделив ее от основной (это master или main — по сути, тоже ветка) и начали работать в new-feature;
-2. когда пришел менеджер, мы снова перешли в основную ветку и создали из нее другую: new-feature-2, которая существует параллельно с new-feature и не содержит ее изменений;
-3. а когда пришел дизайнер, мы снова от основной ветки создали новую типа bugfix, быстренько там все поправили и отправили pull request в основной репозиторий, после чего спокойно продолжили работу в new-feature-2.
+Of course, nobody wants to edit code directly in the browser all day.
 
-При этом, pull request мы создаем прямо из этих веток, но запрашиваем изменения в мастер основного проекта, так как хотим их внедрить в продакшн-версию.
+We want to work locally: in our own editor, with our own tools, and with the ability to test everything properly before sending it anywhere.
 
-![Ветки и их движение между репозиториями](img/step-5.png)
+So we clone the repository to our computer and get a local copy.
 
+![Cloning the fork to your computer](img/step-3.png)
 
-И еще есть важное условие. Мы никогда не должны писать код прямо в ветке master. Иначе с поступлением новой задачи мы не сможем создать оттуда новую, ничем не затронутую ветку.
+This local repository is usually connected to GitHub through a remote called **origin**.
 
-Поэтому и получается такой странный путь у наших изменений: мы пишем код в новой ветке, отправляем его из форка в мастер-репозиторий, а затем получаем его оттуда в наш локальный мастер.
+If the project also has a shared central repository, we may connect that as another remote too, so we can regularly pull in updates from the main project.
 
-----------
+![Relationships between repositories](img/step-4.png)
 
-Теперь то у нас точно все идеально? Конечно, нет =)
+Now the structure starts to make sense:
 
-Каким-то проектам этого подхода будет недостаточно и им нужны релизы, а для какого-нибудь личного проекта с одним разработчиком это явный перегиб.
+- the local repository is where we work;
+- the remote repository is where we share;
+- the central repository is where the stable project lives.
 
-Никаких идеальных решений в вэб-разработке не существует.
-Но это уже совсем другая история.
+## Reality Is Never Linear
 
+The real reason team Git workflows become more structured is that real projects are messy.
+
+Imagine this:
+
+1. You start working on a large feature that will take several days.
+2. Then a manager arrives with another task that suddenly becomes higher priority.
+3. Then the designer finds a visual bug and asks for a quick fix that should be done immediately.
+
+Now you are dealing with several parallel tasks, each moving at a different speed.
+
+If all of your work is happening directly in the main branch, everything gets mixed together:
+
+- half-finished feature work;
+- urgent fixes;
+- unrelated changes;
+- experiments that may not even be ready.
+
+That is exactly why branches exist.
+
+## Branches
+
+A branch is an isolated line of work inside the repository.
+
+You can think of it as a separate workspace for a specific task.
+
+For example:
+
+1. You receive a feature request and create a branch called `new-feature`.
+2. Then another task appears, so you return to `main` and create `new-feature-2`.
+3. Then a bug appears, and you create `bugfix` from `main`, fix it quickly, and send that change for review.
+
+Each branch exists independently.
+
+That gives the team several important advantages:
+
+- unfinished work does not pollute the stable branch;
+- urgent fixes can move faster than large features;
+- each task stays isolated and easier to review;
+- it becomes much clearer what exactly is being changed.
+
+When the work is ready, we open a pull request from that branch into the main branch of the shared project.
+
+![Branches and their movement between repositories](img/step-5.png)
+
+## Why We Should Not Work Directly in `main`
+
+This is one of the key rules in team workflows.
+
+If we write code directly in `main`, then `main` stops being a reliable base.
+
+It becomes a mixture of:
+
+- finished work;
+- unfinished work;
+- tested code;
+- untested code;
+- urgent edits;
+- random experiments.
+
+And once that happens, the team loses a lot:
+
+- a stable starting point for new work;
+- clean pull requests;
+- confidence in deployments;
+- clarity about what is actually ready.
+
+That is why the usual approach is simple:
+
+- keep `main` stable;
+- create a branch for each task;
+- review changes through pull requests;
+- merge back only when everything is checked.
+
+## What a Pull Request Really Does
+
+A pull request is not just a formality before merge.
+
+It solves several real problems at once.
+
+### It creates a review point
+
+Someone can look at the changes before they become part of the shared product.
+
+### It keeps discussion attached to the code
+
+Comments stay connected to the exact lines and decisions they refer to.
+
+### It runs automated checks
+
+Linters, tests, and build validation can run before merge.
+
+### It keeps the scope visible
+
+A good pull request makes it easy to answer one simple question:
+
+**What exactly changed here?**
+
+That matters because focused changes are easier to understand, review, and trust.
+
+## Why This Feels Weird at First
+
+Because beginners usually compare **team Git** to **solo Git**.
+
+Solo Git is optimized for speed and convenience.
+
+Team Git is optimized for:
+
+- safety;
+- coordination;
+- visibility;
+- predictable integration.
+
+These are different goals.
+
+What feels like “too many steps” is often just the minimum structure needed to avoid chaos once several people are working in the same codebase.
+
+## A Simple Mental Model
+
+If we reduce the whole thing to its core, the logic is very simple:
+
+- `main` is the stable version of the project;
+- branches are isolated workspaces for specific tasks;
+- pull requests are checkpoints for review and validation;
+- merging is the moment when the team accepts the change into the shared product.
+
+That is the main idea.
+
+Everything else is detail.
+
+## When This Can Be Simpler
+
+Of course, not every project needs the same level of process.
+
+For a tiny personal project, a strict branch-and-review model may be excessive.
+
+But once a project includes:
+
+- multiple contributors;
+- shared responsibility;
+- automated checks;
+- deployments;
+- production risk,
+
+then a structured Git workflow stops looking excessive and starts looking necessary.
+
+## Final Thought
+
+Teamwork through Git feels strange only until each step is connected to a real problem.
+
+Branches protect unfinished work.
+Pull requests protect quality.
+A stable main branch protects the product.
+
+So this process is not complicated for the sake of ceremony.
+
+It exists because collaborative development is messy, and Git gives teams a way to keep that mess under control.
