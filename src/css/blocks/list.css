@@ -12,7 +12,7 @@
 	--list-order-border-color: var(--color-border-base);
 	--list-order-padding-bottom: var(--space-gap-3xs);
 	--list-unordered-gap: var(--space-gap-5xs);
-	--list-unordered-padding-inline-start: var(--space-gap-3xs);
+	--list-unordered-padding-x-start: var(--space-gap-3xs);
 	--list-unordered-marker-width: var(--space-size-xs);
 	--list-unordered-marker-height: var(--space-border-medium);
 	--list-unordered-marker-color: var(--color-text-alt);
@@ -66,7 +66,7 @@
 
 .list:not(.list_type_ordered) {
 	--list-gap: var(--list-unordered-gap);
-	padding-inline-start: var(--list-unordered-padding-inline-start);
+	padding-left: var(--list-unordered-padding-x-start);
 }
 
 .list:not(.list_type_ordered) .list__item {

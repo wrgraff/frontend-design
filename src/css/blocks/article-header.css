@@ -2,9 +2,8 @@
 
 .article-header {
 	--article-header-gap: var(--space-gap-l);
-	--article-header-padding-block: 80px;
-	--article-header-padding-inline: 80px;
-	--article-header-padding: var(--article-header-padding-block) var(--article-header-padding-inline);
+	--article-header-padding-y: 80px;
+	--article-header-padding-x: 80px;
 	--article-header-columns: 5;
 	--article-header-tags-gap: var(--space-gap-xs);
 	--article-header-heading-font: var(--font-heading-hl3);
@@ -18,7 +17,7 @@
 	display: grid;
 	gap: var(--article-header-gap);
 	grid-template-columns: repeat(var(--article-header-columns), minmax(0, 1fr));
-	padding: var(--article-header-padding);
+	padding: var(--article-header-padding-y) var(--article-header-padding-x);
 }
 
 .article-header__tags {

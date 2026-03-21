@@ -1,7 +1,8 @@
 /* Variables */
 
 .aside-contacts {
-	--aside-contacts-padding: 0 var(--space-gap-xs);
+	--aside-contacts-padding-y: 0;
+	--aside-contacts-padding-x: var(--space-gap-xs);
 	--aside-contacts-gap: var(--space-gap-xs);
 }
 
@@ -14,7 +15,7 @@
 	gap: var(--aside-contacts-gap);
 	list-style: none;
 
-	padding: var(--aside-contacts-padding);
+	padding: var(--aside-contacts-padding-y) var(--aside-contacts-padding-x);
 }
 
 .aside-contacts__item {

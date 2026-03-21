@@ -3,7 +3,8 @@
 .aside {
 	--aside-offset-y: var(--space-gap-s);
 	--aside-gap: var(--space-gap-xl);
-	--aside-padding: var(--space-gap-xl) var(--space-gap-xs);
+	--aside-padding-y: var(--space-gap-xl);
+	--aside-padding-x: var(--space-gap-xs);
 	--aside-height: calc(100vh - var(--aside-offset-y) * 2);
 	--aside-border-style: none none none solid;
 	--aside-border-width: var(--space-border-hair);
@@ -13,17 +14,11 @@
 	--aside-shadow: var(--shadow-level-4);
 
 	--aside-copy-icon-size: var(--space-size-xxs);
-	--aside-copy-padding: var(--space-gap-xs);
+	--aside-copy-margin-x: var(--space-gap-xs);
 	--aside-copy-padding-top: 30px;
 	--aside-copy-gap: var(--space-gap-3xs);
 	--aside-copy-font: var(--font-label-xs);
 	--aside-copy-border-top: var(--aside-border-width) solid var(--color-border-base);
-}
-
-@media (width >= 1740px) {
-	.aside {
-
-	}
 }
 
 /* Aside */
@@ -44,7 +39,7 @@
 	border-style: solid;
 	box-shadow: var(--aside-shadow);
 	height: var(--aside-height);
-	padding: var(--aside-padding);
+	padding: var(--aside-padding-y) var(--aside-padding-x);
 	position: sticky;
 	top: var(--aside-offset-y);
 }
@@ -67,7 +62,7 @@
 .aside__copy {
 	display: flex;
 
-	margin: 0 var(--aside-copy-padding);
+	margin: 0 var(--aside-copy-margin-x);
 	padding-top: var(--aside-copy-padding-top);
 	gap: var(--aside-copy-gap);
 	font: var(--aside-copy-font);

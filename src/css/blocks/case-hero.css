@@ -2,7 +2,8 @@
 
 .case-hero {
 	--case-hero-img-size: 680px;
-	--case-hero-padding: 120px 80px;
+	--case-hero-padding-y: 120px;
+	--case-hero-padding-x: 80px;
 	--case-hero-gap: var(--space-gap-l);
 	--case-hero-columns: 5;
 	--case-hero-z-index: 0;
@@ -27,7 +28,7 @@
 	display: grid;
 	gap: var(--case-hero-gap);
 	grid-template-columns: repeat(var(--case-hero-columns), 1fr);
-	padding: var(--case-hero-padding);
+	padding: var(--case-hero-padding-y) var(--case-hero-padding-x);
 	position: relative;
 	z-index: var(--case-hero-z-index);
 }

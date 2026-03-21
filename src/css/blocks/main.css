@@ -1,6 +1,6 @@
 .main {
 	--main-grid-columns: 5;
-	--main-grid-padding-inline: 80px;
+	--main-grid-padding-x: 80px;
 	--main-grid-gap: var(--space-gap-l);
 	--main-grid-border-width: var(--space-border-light);
 	--main-grid-border-color: var(--color-border-base);
@@ -23,8 +23,7 @@
 	gap: var(--main-grid-gap);
 	grid-template-columns: repeat(var(--main-grid-columns), minmax(0, 1fr));
 
-	inset-block: 0;
-	inset-inline: var(--main-grid-padding-inline);
+	inset: 0 var(--main-grid-padding-x);
 	pointer-events: none;
 	position: absolute;
 	z-index: -1;

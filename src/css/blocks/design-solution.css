@@ -20,7 +20,8 @@
 	--picture-description-bg: var(--color-surface-tertiary);
 	--picture-description-color: var(--color-text-secondary);
 	--picture-description-font: var(--font-text-xs);
-	--picture-description-padding: var(--space-gap-4xs) var(--space-gap-3xs);
+	--picture-description-padding-y: var(--space-gap-4xs);
+	--picture-description-padding-x: var(--space-gap-3xs);
 	display: grid;
 	margin: 0;
 }

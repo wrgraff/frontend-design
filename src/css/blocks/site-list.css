@@ -1,6 +1,6 @@
 .site-list {
 	--site-list-gap: var(--space-gap-4xs);
-	--site-list-item-padding-inline: var(--space-gap-5xs);
+	--site-list-item-padding-x: var(--space-gap-5xs);
 	--site-list-item-radius: var(--radius-s);
 	--site-list-item-superellipse-radius: var(--superellipse-radius-s);
 	--site-list-item-superellipse-level: var(--superellipse-level-s);
@@ -10,8 +10,10 @@
 	--site-list-item-shadow: none;
 	--site-list-item-icon-size: var(--space-size-xs);
 	--site-list-item-icon-gap: var(--space-gap-3xs);
-	--site-list-link-padding: var(--space-gap-xxs) var(--space-gap-xs);
-	--site-list-sublist-padding: var(--space-gap-5xs) var(--space-gap-xs);
+	--site-list-link-padding-y: var(--space-gap-xxs);
+	--site-list-link-padding-x: var(--space-gap-xs);
+	--site-list-sublist-padding-y: var(--space-gap-5xs);
+	--site-list-sublist-padding-x: var(--space-gap-xs);
 	--site-list-subitem-font: var(--font-text-xs);
 	--site-list-subitem-color: var(--color-text-primary);
 	--site-list-subitem-icon-width: var(--space-size-xs);
@@ -35,7 +37,7 @@
 
 .site-list__item {
 	margin: 0;
-	padding: 0 var(--site-list-item-padding-inline);
+	padding: 0 var(--site-list-item-padding-x);
 }
 
 .site-list__link {
@@ -50,7 +52,7 @@
 
 	font: var(--site-list-item-font);
 	letter-spacing: var(--font-text-letterspacing);
-	padding: var(--site-list-link-padding);
+	padding: var(--site-list-link-padding-y) var(--site-list-link-padding-x);
 	text-decoration: none;
 	text-transform: var(--font-text-transform);
 	transition:
@@ -72,7 +74,7 @@
 	gap: 0;
 	list-style: none;
 	margin: 0;
-	padding: var(--site-list-sublist-padding);
+	padding: var(--site-list-sublist-padding-y) var(--site-list-sublist-padding-x);
 }
 
 .site-list__subitem {

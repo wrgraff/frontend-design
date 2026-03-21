@@ -1,7 +1,9 @@
 /* Variables */
 
 .header {
-	--header-padding: 64px 56px 56px;
+	--header-padding-top: 64px;
+	--header-padding-x: 56px;
+	--header-padding-bottom: 56px;
 	--header-logo-width: 243px;
 	--header-logo-height: 64px;
 }
@@ -9,7 +11,7 @@
 /* Header */
 
 .header {
-	padding: var(--header-padding);
+	padding: var(--header-padding-top) var(--header-padding-x) var(--header-padding-bottom);
 }
 
 /* Header Logo */

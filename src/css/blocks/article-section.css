@@ -1,13 +1,12 @@
 /* Variables */
 
 .article-section {
-	--article-section-padding-block: 80px;
-	--article-section-padding-inline: 80px;
-	--article-section-padding: var(--article-section-padding-block) var(--article-section-padding-inline);
+	--article-section-padding-y: 80px;
+	--article-section-padding-x: 80px;
 }
 
 /* Article section */
 
 .article-section {
-	padding: var(--article-section-padding);
+	padding: var(--article-section-padding-y) var(--article-section-padding-x);
 }

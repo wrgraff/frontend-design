@@ -3,7 +3,7 @@
 	--label-bg: var(--color-common-secondary);
 	--label-border-color: var(--color-border-base);
 	--label-height: var(--space-size-m);
-	--label-padding-inline: var(--space-gap-xxs);
+	--label-padding-x: var(--space-gap-xxs);
 	--label-font: var(--font-caption-s);
 	--label-letterspacing: var(--font-caption-letterspacing);
 	--label-transform: var(--font-caption-transform);
@@ -30,7 +30,7 @@
 	height: var(--label-height);
 	justify-content: center;
 	letter-spacing: var(--label-letterspacing);
-	padding-inline: var(--label-padding-inline);
+	padding: 0 var(--label-padding-x);
 	text-transform: var(--label-transform);
 	white-space: nowrap;
 }
@@ -120,7 +120,7 @@
 
 .label_size_m {
 	--label-height: var(--space-size-s);
-	--label-padding-inline: var(--space-gap-3xs);
+	--label-padding-x: var(--space-gap-3xs);
 	--label-font: var(--font-caption-xs);
 	--label-radius: var(--radius-m);
 	--label-superellipse-radius: var(--superellipse-radius-m);

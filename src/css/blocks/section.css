@@ -3,9 +3,8 @@
 .section {
 	--section-gap: var(--space-gap-l);
 	--section-header-column: 1 / -1;
-	--section-padding-block: 80px;
-	--section-padding-inline: 80px;
-	--section-padding: var(--section-padding-block) var(--section-padding-inline);
+	--section-padding-y: 80px;
+	--section-padding-x: 80px;
 	--section-columns: 5;
 	--section-header-gap: var(--space-gap-xxs);
 	--section-header-border: var(--space-border-light) solid var(--color-border-base);
@@ -14,7 +13,7 @@
 	--section-eyebrow-font: var(--font-caption-s);
 	--section-eyebrow-letterspacing: var(--font-caption-letterspacing);
 	--section-eyebrow-transform: var(--font-caption-transform);
-	--section-eyebrow-padding-inline: var(--space-gap-5xs);
+	--section-eyebrow-padding-x: var(--space-gap-5xs);
 	--section-heading-font: var(--font-heading-hl3);
 	--section-heading-letterspacing: var(--font-caption-letterspacing);
 	--section-lead-font: var(--font-text-m);
@@ -30,7 +29,7 @@
 	--section-decor-column: 1 / -1;
 	--section-decor-align-content: end;
 	--section-decor-height: 200px;
-	--section-decor-margin-inline-end: calc(var(--section-padding-inline) * -1);
+	--section-decor-margin-x-end: calc(var(--section-padding-x) * -1);
 }
 
 /* Section */
@@ -39,7 +38,7 @@
 	display: grid;
 	gap: var(--section-gap);
 	grid-template-columns: repeat(var(--section-columns), minmax(0, 1fr));
-	padding: var(--section-padding);
+	padding: var(--section-padding-y) var(--section-padding-x);
 }
 
 .section__header {
@@ -56,7 +55,7 @@
 	font: var(--section-eyebrow-font);
 	letter-spacing: var(--section-eyebrow-letterspacing);
 	margin: 0;
-	padding-inline: var(--section-eyebrow-padding-inline);
+	padding: 0 var(--section-eyebrow-padding-x);
 	text-transform: var(--section-eyebrow-transform);
 }
 
@@ -119,8 +118,7 @@
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	margin-top: var(--section-padding-block);
-	margin-bottom: var(--section-padding-block);
+	margin: var(--section-padding-y) 0;
 }
 
 .section__decor {
@@ -128,5 +126,5 @@
 	grid-column: var(--section-decor-column);
 	align-content: var(--section-decor-align-content);
 	height: var(--section-decor-height);
-	margin-inline-end: var(--section-decor-margin-inline-end);
+	margin-right: var(--section-decor-margin-x-end);
 }

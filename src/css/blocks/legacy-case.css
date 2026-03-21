@@ -1,7 +1,9 @@
 /* Variables */
 
 .legacy-case {
-	--legacy-case-padding: 0 81px 80px;
+	--legacy-case-padding-top: 0;
+	--legacy-case-padding-x: 81px;
+	--legacy-case-padding-bottom: 80px;
 	--legacy-case-columns: 5;
 }
 
@@ -10,7 +12,7 @@
 .legacy-case {
 	display: grid;
 	grid-template-columns: repeat(var(--legacy-case-columns), minmax(0, 1fr));
-	padding: var(--legacy-case-padding);
+	padding: var(--legacy-case-padding-top) var(--legacy-case-padding-x) var(--legacy-case-padding-bottom);
 }
 
 .legacy-case__list {

@@ -6,7 +6,8 @@
 	--picture-description-bg: var(--color-surface-tertiary);
 	--picture-description-color: var(--color-text-secondary);
 	--picture-description-font: var(--font-text-xs);
-	--picture-description-padding: var(--space-gap-4xs) var(--space-gap-3xs);
+	--picture-description-padding-y: var(--space-gap-4xs);
+	--picture-description-padding-x: var(--space-gap-3xs);
 }
 
 /* Picture */
@@ -35,5 +36,5 @@
 	color: var(--picture-description-color);
 	font: var(--picture-description-font);
 	margin: 0;
-	padding: var(--picture-description-padding);
+	padding: var(--picture-description-padding-y) var(--picture-description-padding-x);
 }

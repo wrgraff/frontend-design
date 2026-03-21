@@ -3,9 +3,8 @@
 .video {
 	--video-gap: var(--space-gap-s);
 	--video-columns: 5;
-	--video-padding-block: 80px;
-	--video-padding-inline: 80px;
-	--video-padding: var(--video-padding-block) var(--video-padding-inline);
+	--video-padding-y: 80px;
+	--video-padding-x: 80px;
 	--video-content-radius: var(--radius-xl);
 	--video-border: var(--space-border-light) solid var(--color-border-base);
 	--video-media-height: 720px;
@@ -26,7 +25,7 @@
 	display: grid;
 	gap: var(--video-gap);
 	grid-template-columns: repeat(var(--video-columns), minmax(0, 1fr));
-	padding: var(--video-padding);
+	padding: var(--video-padding-y) var(--video-padding-x);
 }
 
 .video__tags,
@@ -98,7 +97,7 @@
 .video__body {
 	display: grid;
 	gap: var(--video-body-gap);
-	padding-inline: var(--space-gap-5xs);
+	padding: 0 var(--space-gap-5xs);
 }
 
 .video__heading {

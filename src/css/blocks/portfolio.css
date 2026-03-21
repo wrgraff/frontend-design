@@ -4,7 +4,7 @@
 	--portfolio-gap: var(--space-gap-l);
 	--portfolio-border: var(--space-border-light) solid var(--color-border-base);
 	--portfolio-item-padding-bottom: var(--space-gap-l);
-	--portfolio-content-padding-block: var(--space-gap-4xs);
+	--portfolio-content-padding-y: var(--space-gap-4xs);
 	--portfolio-tag-gap: var(--space-gap-xxs);
 	--portfolio-description-font: var(--font-text-m);
 	--portfolio-description-color: var(--color-text-secondary);
@@ -35,7 +35,7 @@
 	grid-column: 1 / span 3;
 	grid-template-rows: max-content max-content 1fr max-content;
 	align-content: start;
-	padding-block: var(--portfolio-content-padding-block);
+	padding: var(--portfolio-content-padding-y) 0;
 }
 
 .portfolio__heading {

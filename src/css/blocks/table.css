@@ -3,7 +3,9 @@
 .table {
 	--table-cell-font: var(--font-text-s);
 	--table-cell-head-color: var(--color-text-secondary);
-	--table-cell-padding: var(--space-gap-3xs) var(--space-gap-xxs) var(--space-gap-xxs);
+	--table-cell-padding-top: var(--space-gap-3xs);
+	--table-cell-padding-x: var(--space-gap-xxs);
+	--table-cell-padding-bottom: var(--space-gap-xxs);
 	--table-row-border: var(--space-border-light) solid var(--color-border-base);
 	--table-value-gap: var(--space-gap-4xs);
 	--table-value-color: var(--color-text-base);
@@ -23,7 +25,7 @@
 
 .table__cell {
 	font: var(--table-cell-font);
-	padding: var(--table-cell-padding);
+	padding: var(--table-cell-padding-top) var(--table-cell-padding-x) var(--table-cell-padding-bottom);
 	vertical-align: top;
 }
 
@@ -72,5 +74,6 @@
 
 .table_size_s {
 	--table-cell-font: var(--font-text-xs);
-	--table-cell-padding: var(--space-gap-3xs) var(--space-gap-xxs);
+	--table-cell-padding-top: var(--space-gap-3xs);
+	--table-cell-padding-bottom: var(--space-gap-3xs);
 }

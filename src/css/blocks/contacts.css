@@ -2,9 +2,8 @@
 
 .contacts {
 	--contacts-gap: var(--space-gap-l);
-	--contacts-padding-block: 120px;
-	--contacts-padding-inline: 80px;
-	--contacts-padding: var(--contacts-padding-block) var(--contacts-padding-inline);
+	--contacts-padding-y: 120px;
+	--contacts-padding-x: 80px;
 	--contacts-columns: 5;
 	--contacts-header-gap: var(--space-gap-xxs);
 	--contacts-header-border: var(--space-border-light) solid var(--color-border-base);
@@ -13,7 +12,7 @@
 	--contacts-eyebrow-font: var(--font-caption-s);
 	--contacts-eyebrow-letterspacing: var(--font-caption-letterspacing);
 	--contacts-eyebrow-transform: var(--font-caption-transform);
-	--contacts-eyebrow-padding-inline: var(--space-gap-5xs);
+	--contacts-eyebrow-padding-x: var(--space-gap-5xs);
 	--contacts-heading-font: var(--font-heading-hl3);
 	--contacts-heading-letterspacing: var(--font-caption-letterspacing);
 	--contacts-content-columns: 5;
@@ -29,7 +28,7 @@
 	display: grid;
 	gap: var(--contacts-gap);
 	grid-template-columns: repeat(var(--contacts-columns), minmax(0, 1fr));
-	padding: var(--contacts-padding);
+	padding: var(--contacts-padding-y) var(--contacts-padding-x);
 }
 
 .contacts__header {
@@ -47,7 +46,7 @@
 	font: var(--contacts-eyebrow-font);
 	letter-spacing: var(--contacts-eyebrow-letterspacing);
 	margin: 0;
-	padding-inline: var(--contacts-eyebrow-padding-inline);
+	padding: 0 var(--contacts-eyebrow-padding-x);
 	text-transform: var(--contacts-eyebrow-transform);
 }
 

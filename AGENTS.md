@@ -161,6 +161,8 @@ Soft convention (non-strict, do not lint):
 - In block CSS files, split block root into two separate sections.
 - First declaration of `.block` should contain variables only.
 - Second declaration of `.block` should contain style declarations only.
+- For spacing axes, prefer `x/y` naming (`--block-padding-x`, `--block-padding-y`) over `inline/block`.
+- Prefer writing final spacing properties directly (`padding: ...`, `margin: ...`) instead of creating a combined intermediary variable like `--block-padding`.
 
 ## BEM Layout Boundaries (Mandatory)
 
