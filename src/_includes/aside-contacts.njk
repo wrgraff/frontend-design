@@ -1,27 +1,9 @@
 {% from 'link.njk' import link %}
 {% set contactsData = global.contacts %}
-{% set asideMessaging = ['email', 'whatsapp', 'telegram'] %}
-{% set asideSocials = ['linkedin', 'behance', 'dribbble'] %}
+{% set asideContacts = ['email', 'linkedin', 'whatsapp'] %}
 
 <ul class="aside__contacts aside-contacts">
-	{% for itemKey in asideMessaging %}
-		{% set item = contactsData.items[itemKey] %}
-		{% if item %}
-			<li class="aside-contacts__item">
-				{{ link(
-					text = item.heading,
-					href = item.url,
-					size = 'text-xs',
-					iconName = item.icon,
-					external = item.external or false
-				) }}
-			</li>
-		{% endif %}
-	{% endfor %}
-
-	<li class="aside-contacts__divider" aria-hidden="true"></li>
-
-	{% for itemKey in asideSocials %}
+	{% for itemKey in asideContacts %}
 		{% set item = contactsData.items[itemKey] %}
 		{% if item %}
 			<li class="aside-contacts__item">

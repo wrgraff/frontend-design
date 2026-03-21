@@ -1,9 +1,8 @@
 /* Variables */
 
 .aside-contacts {
-	--aside-contacts-padding: var(--space-gap-m) var(--space-gap-xs);
+	--aside-contacts-padding: 0 var(--space-gap-xs);
 	--aside-contacts-gap: var(--space-gap-xs);
-	--aside-contacts-divider-height: var(--space-size-3xs);
 }
 
 /* Aside Contacts */
@@ -22,10 +21,4 @@
 	display: flex;
 	margin: 0;
 	padding: 0;
-}
-
-.aside-contacts__divider {
-	background-color: var(--color-border-base);
-	height: var(--space-border-light);
-	margin: calc(var(--aside-contacts-divider-height) / 2) 0;
 }
