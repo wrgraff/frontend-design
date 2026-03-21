@@ -1,5 +1,7 @@
 {% from 'link.njk' import link %}
 {% set contactsData = global.contacts %}
+{% set sectionSocials = ['linkedin', 'behance', 'dribbble'] %}
+{% set sectionMessaging = ['email', 'whatsapp', 'telegram'] %}
 
 <section class="main__section contacts" id="contacts">
 	<header class="contacts__header">
@@ -22,30 +24,38 @@
 		</div>
 
 		<ul class="contacts__links contacts__links_type_social">
-			{% for social in global.contacts.socials %}
-				<li class="contacts__item">
-					{{ link(
-						text = social.heading,
-						href = social.url,
-						size = 'text-xs',
-						iconName = social.icon,
-						extraClass = 'contacts__link'
-					) }}
-				</li>
+			{% for itemKey in sectionSocials %}
+				{% set item = contactsData.items[itemKey] %}
+				{% if item %}
+					<li class="contacts__item">
+						{{ link(
+							text = item.heading,
+							href = item.url,
+							size = 'text-xs',
+							iconName = item.icon,
+							external = item.external or false,
+							extraClass = 'contacts__link'
+						) }}
+					</li>
+				{% endif %}
 			{% endfor %}
 		</ul>
 
 		<ul class="contacts__links contacts__links_type_direct">
-			{% for channel in global.contacts.messaging %}
-				<li class="contacts__item">
-					{{ link(
-						text = channel.heading,
-						href = channel.url,
-						size = 'text-xs',
-						iconName = channel.icon,
-						extraClass = 'contacts__link'
-					) }}
-				</li>
+			{% for itemKey in sectionMessaging %}
+				{% set item = contactsData.items[itemKey] %}
+				{% if item %}
+					<li class="contacts__item">
+						{{ link(
+							text = item.heading,
+							href = item.url,
+							size = 'text-xs',
+							iconName = item.icon,
+							external = item.external or false,
+							extraClass = 'contacts__link'
+						) }}
+					</li>
+				{% endif %}
 			{% endfor %}
 		</ul>
 	</div>

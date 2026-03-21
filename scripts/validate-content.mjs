@@ -338,19 +338,18 @@ function validateGlobal(file, data) {
 	['heading', 'text'].forEach((field) => reqString(file, `contacts.${field}`, contacts[field]));
 	optString(file, 'contacts.comment', contacts.comment);
 
-	['messaging', 'socials'].forEach((field) => {
-		const list = reqArray(file, `contacts.${field}`, contacts[field]);
-		if (!list) return;
-
-		list.forEach((item, index) => {
-			const base = `contacts.${field}[${index}]`;
-			const obj = reqObject(file, base, item);
+	const items = reqObject(file, 'contacts.items', contacts.items);
+	if (items) {
+		Object.entries(items).forEach(([key, value]) => {
+			const base = `contacts.items.${key}`;
+			const obj = reqObject(file, base, value);
 			if (!obj) return;
 			reqString(file, `${base}.heading`, obj.heading);
 			reqString(file, `${base}.url`, obj.url);
 			optString(file, `${base}.icon`, obj.icon);
+			if (obj.external !== undefined) reqBoolean(file, `${base}.external`, obj.external);
 		});
-	});
+	}
 }
 
 function validateI18n(file, data) {

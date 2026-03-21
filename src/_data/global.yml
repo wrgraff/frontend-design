@@ -13,23 +13,34 @@ contacts:
     I’m happy to meet in person - I’m based in Bratislava, and Vienna is just a short trip away.
   text: Contact me if you interested in working together
   comment: Or just to talk =)
-  messaging:
-    - heading: hi@arturtrifonov.com
+  items:
+    email:
+      heading: hi@arturtrifonov.com
       url: mailto:hi@arturtrifonov.com
       icon: email/email
-    - heading: WhatsApp
+      external: false
+    whatsapp:
+      heading: WhatsApp
       url: https://wa.me/qr/D5O7F7DDAEUHK1
       icon: social-networks/whatsapp
-    - heading: Telegram
+      external: true
+    telegram:
+      heading: Telegram
       url: https://t.me/wrgraff
       icon: social-networks/telegram
-  socials:
-    - heading: LinkedIn
+      external: true
+    linkedin:
+      heading: LinkedIn
       url: https://www.linkedin.com/in/arturtrifonov/
       icon: social-networks/linkedin
-    - heading: Behance
+      external: true
+    behance:
+      heading: Behance
       url: https://www.behance.net/arturtrifonov
       icon: social-networks/Behance
-    - heading: Dribbble
+      external: true
+    dribbble:
+      heading: Dribbble
       url: https://dribbble.com/arturtrifonov
       icon: social-networks/dribble
+      external: true
