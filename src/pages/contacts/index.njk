@@ -10,41 +10,56 @@
 	heading: online.heading,
 	lead: online.lead
 }) %}
-	<div class="section__columns">
+	<div class="all-contacts">
 		{% for column in online.columns %}
-			<div class="section__list">
+			<ul class="all-contacts__list">
 				{% for item in column %}
-					<div class="section__item">
+					<li class="all-contacts__item">
 						{{ link(
 							text = item.text,
 							href = item.href,
 							size = 'text-s',
 							iconName = item.icon,
-							extraClass = 'section__link'
+							extraClass = 'all-contacts__link'
 						) }}
-					</div>
+					</li>
 				{% endfor %}
-			</div>
+			</ul>
 		{% endfor %}
 	</div>
 {% endcall %}
 
-{% call section({
-	pretitle: offline.pretitle,
-	heading: offline.heading,
-	lead: offline.lead
-}) %}
-	<div class="section__route" aria-hidden="true">
-		<picture class="section__route-picture">
-			<img
-				class="section__route-image"
-				src="{{ offline.route.src }}"
-				alt=""
-				width="{{ offline.route.width }}"
-				height="{{ offline.route.height }}"
-				loading="lazy"
-				decoding="async"
-			>
-		</picture>
+<section class="main__section contacts">
+	<header class="contacts__header">
+		{% if offline.pretitle %}
+			<p class="contacts__eyebrow">
+				{{ offline.pretitle | trim }}
+			</p>
+		{% endif %}
+
+		{% if offline.heading %}
+			<h2 class="contacts__heading">
+				{{ offline.heading | trim }}
+			</h2>
+		{% endif %}
+	</header>
+
+	<div class="contacts__content">
+		{% if offline.lead %}
+			<div class="contacts__lead">
+				{{ offline.lead | markdown | safe }}
+			</div>
+		{% endif %}
 	</div>
-{% endcall %}
+
+	<picture class="contacts__map" aria-hidden="true">
+		<img
+			src="{{ offline.route.src }}"
+			alt=""
+			width="{{ offline.route.width }}"
+			height="{{ offline.route.height }}"
+			loading="lazy"
+			decoding="async"
+		>
+	</picture>
+</section>
