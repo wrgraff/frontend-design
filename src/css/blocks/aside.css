@@ -1,15 +1,15 @@
 /* Variables */
 
 .aside {
-	--aside-offset-y: 0;
+	--aside-offset-y: var(--space-gap-s);
 	--aside-gap: var(--space-gap-xl);
 	--aside-padding: var(--space-gap-xl) var(--space-gap-xs);
-	--aside-height: 100vh;
+	--aside-height: calc(100vh - var(--aside-offset-y) * 2);
 	--aside-border-style: none none none solid;
 	--aside-border-width: var(--space-border-hair);
-	--aside-radius: 0;
-	--aside-superellipse-radius: 0;
-	--aside-superellipse-level: 0;
+	--aside-radius: var(--radius-xl);
+	--aside-superellipse-radius: var(--superellipse-radius-xl);
+	--aside-superellipse-level: var(--superellipse-level-xl);
 	--aside-shadow: var(--shadow-level-4);
 
 	--aside-copy-icon-size: var(--space-size-xxs);
@@ -22,12 +22,7 @@
 
 @media (width >= 1740px) {
 	.aside {
-		--aside-offset-y: var(--space-gap-s);
-		--aside-height: calc(100vh - var(--aside-offset-y) * 2);
-		--aside-border-width: var(--space-border-light);
-		--aside-radius: var(--radius-xl);
-		--aside-superellipse-radius: var(--superellipse-radius-xl);
-		--aside-superellipse-level: var(--superellipse-level-xl);
+
 	}
 }
 
