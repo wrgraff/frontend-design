@@ -1,8 +1,12 @@
 - heading: Portfolio
   link: /portfolio/
+  icon: romance-and-wedding/baggage_heart
 - heading: My background
   link: /background/
+  icon: school-education/ancient_column
 - heading: Publications
   link: /publications/
+  icon: ads/megaphone
 - heading: Contacts
   link: /contacts/
+  icon: phone-calls/phone_email

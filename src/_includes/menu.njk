@@ -1,16 +1,36 @@
+{% from 'icon.njk' import icon %}
+
 <ul class="aside__list site-list">
 {% for item in menu %}
 		{% set itemLink = item.link | localePath(page.url) %}
-		{% set isCurrent = itemLink == page.url or (itemLink != '/' and page.url.indexOf(itemLink) == 0) %}
-		{% if isCurrent %}
-			<li class="site-list__item site-list__item_current">
-				<a href="{{ itemLink }}" class="site-list__link" aria-current="page">
+		{% set isExactCurrent = itemLink == page.url %}
+		{% set isInSection = isExactCurrent or (itemLink != '/' and page.url.indexOf(itemLink) == 0) %}
+		{% set hasSubmenu = item.link == '/portfolio/' or item.link == '/publications/' %}
+		{% set isSectionSubpage = hasSubmenu and isInSection and itemLink != page.url %}
+		{% set currentSubpageHeading = heading or title or page.fileSlug %}
+		{% if isInSection %}
+			<li class="site-list__item{% if isExactCurrent %} site-list__item_current{% endif %}">
+				<a href="{{ itemLink }}" class="site-list__link"{% if isExactCurrent %} aria-current="page"{% endif %}>
+					{% if item.icon %}
+						{{ icon(item.icon, 'site-list__icon') }}
+					{% endif %}
 					{{- item.heading -}}
 				</a>
+				{% if isSectionSubpage %}
+					<ul class="site-list__sublist">
+						<li class="site-list__subitem">
+							{{ icon('simple-arrows/navigate_down_right', 'site-list__subicon') }}
+							<span class="site-list__subheading">{{ currentSubpageHeading }}</span>
+						</li>
+					</ul>
+				{% endif %}
 			</li>
 		{% else %}
 			<li class="site-list__item">
 				<a href="{{ itemLink }}" class="site-list__link">
+					{% if item.icon %}
+						{{ icon(item.icon, 'site-list__icon') }}
+					{% endif %}
 					{{- item.heading -}}
 				</a>
 			</li>
