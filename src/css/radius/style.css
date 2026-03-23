@@ -23,3 +23,39 @@
 	--superellipse-level-l: superellipse(2);
 	--superellipse-level-xl: superellipse(2);
 }
+
+@media (width < 800px) {
+	:root {
+		--radius-xxs: 2px;
+		--radius-xs: 3px;
+		--radius-s: 4px;
+		--radius-m: 5px;
+		--radius-l: 5px;
+		--radius-xl: 7px;
+
+		--superellipse-radius-xxs: 3.33px;
+		--superellipse-radius-xs: 5px;
+		--superellipse-radius-s: 6.67px;
+		--superellipse-radius-m: 8.33px;
+		--superellipse-radius-l: 8.33px;
+		--superellipse-radius-xl: 11.67px;
+	}
+}
+
+@media (width < 500px) {
+	:root {
+		--radius-xxs: 1px;
+		--radius-xs: 2px;
+		--radius-s: 3px;
+		--radius-m: 4px;
+		--radius-l: 5px;
+		--radius-xl: 6px;
+
+		--superellipse-radius-xxs: 1.67px;
+		--superellipse-radius-xs: 3.33px;
+		--superellipse-radius-s: 5px;
+		--superellipse-radius-m: 6.67px;
+		--superellipse-radius-l: 8.33px;
+		--superellipse-radius-xl: 10px;
+	}
+}

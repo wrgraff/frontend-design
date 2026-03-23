@@ -1,7 +1,18 @@
-:root {
+/* Variables */
+
+.page {
 	--page-content-width: 1400px;
 	--page-aside-width: 340px;
+	--page-template-columns: 1fr var(--page-aside-width);
 }
+
+@media (width < 1600px) {
+	.page {
+		--page-template-columns: 1fr;
+	}
+}
+
+/* Page */
 
 .page {
 	background-color: var(--color-surface-base);
@@ -15,12 +26,19 @@
 /* Page body */
 
 .page__body {
-
 	display: grid;
-	grid-template-columns: 1fr var(--page-aside-width);
+	grid-template-columns: var(--page-template-columns);
 
 	margin: 0 auto;
 	max-width: calc( var(--page-content-width) + var(--page-aside-width) );
 	position: relative;
 	z-index: 0;
+}
+
+/* Aside */
+
+@media (width < 1600px) {
+	.page__aside {
+		display: none;
+	}
 }

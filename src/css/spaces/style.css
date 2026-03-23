@@ -26,3 +26,103 @@
 	--space-border-medium: 2px;
 	--space-border-bold: 3px;
 }
+
+@media (width < 1400px) {
+	:root {
+		--space-size-5xs: 6px;
+		--space-size-4xs: 10px;
+		--space-size-3xs: 14px;
+		--space-size-xxs: 18px;
+		--space-size-xs: 20px;
+		--space-size-s: 28px;
+		--space-size-m: 36px;
+		--space-size-l: 44px;
+		--space-size-xl: 52px;
+
+		--space-gap-zero: 0;
+		--space-gap-5xs: 4px;
+		--space-gap-4xs: 6px;
+		--space-gap-3xs: 9px;
+		--space-gap-xxs: 11px;
+		--space-gap-xs: 12px;
+		--space-gap-s: 17px;
+		--space-gap-m: 22px;
+		--space-gap-l: 27px;
+		--space-gap-xl: 32px;
+	}
+}
+
+@media (width < 1100px) {
+	:root {
+		--space-size-5xs: 6px;
+		--space-size-4xs: 10px;
+		--space-size-3xs: 14px;
+		--space-size-xxs: 18px;
+		--space-size-xs: 22px;
+		--space-size-s: 28px;
+		--space-size-m: 34px;
+		--space-size-l: 42px;
+		--space-size-xl: 50px;
+
+		--space-gap-zero: 0;
+		--space-gap-5xs: 4px;
+		--space-gap-4xs: 6px;
+		--space-gap-3xs: 9px;
+		--space-gap-xxs: 11px;
+		--space-gap-xs: 14px;
+		--space-gap-s: 17px;
+		--space-gap-m: 21px;
+		--space-gap-l: 26px;
+		--space-gap-xl: 31px;
+	}
+}
+
+@media (width < 800px) {
+	:root {
+		--space-size-5xs: 6px;
+		--space-size-4xs: 8px;
+		--space-size-3xs: 12px;
+		--space-size-xxs: 14px;
+		--space-size-xs: 16px;
+		--space-size-s: 22px;
+		--space-size-m: 30px;
+		--space-size-l: 38px;
+		--space-size-xl: 46px;
+
+		--space-gap-zero: 0;
+		--space-gap-5xs: 2px;
+		--space-gap-4xs: 5px;
+		--space-gap-3xs: 7px;
+		--space-gap-xxs: 9px;
+		--space-gap-xs: 10px;
+		--space-gap-s: 14px;
+		--space-gap-m: 19px;
+		--space-gap-l: 23px;
+		--space-gap-xl: 28px;
+	}
+}
+
+@media (width < 500px) {
+	:root {
+		--space-size-5xs: 4px;
+		--space-size-4xs: 6px;
+		--space-size-3xs: 8px;
+		--space-size-xxs: 10px;
+		--space-size-xs: 12px;
+		--space-size-s: 16px;
+		--space-size-m: 24px;
+		--space-size-l: 32px;
+		--space-size-xl: 40px;
+
+		--space-gap-zero: 0;
+		--space-gap-5xs: 2px;
+		--space-gap-4xs: 4px;
+		--space-gap-3xs: 5px;
+		--space-gap-xxs: 6px;
+		--space-gap-xs: 7px;
+		--space-gap-s: 10px;
+		--space-gap-m: 15px;
+		--space-gap-l: 20px;
+		--space-gap-xl: 25px;
+	}
+}
