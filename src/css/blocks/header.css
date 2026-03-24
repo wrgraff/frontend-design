@@ -1,8 +1,6 @@
 /* Variables */
 
 .header {
-	--header-margin-top: var(--space-gap-xl);
-	--header-margin-bottom: var(--space-gap-l);
 	--header-padding-x: 80px;
 	--header-padding-top: var(--space-gap-m);
 	--header-padding-bottom: var(--space-gap-m);
@@ -21,8 +19,8 @@
 /* Header */
 
 .header {
-	margin: var(--header-margin-top) 0 var(--header-margin-bottom);
 	padding: var(--header-padding-top) var(--header-padding-x) var(--header-padding-bottom);
+	z-index: 0;
 }
 
 .header__container {

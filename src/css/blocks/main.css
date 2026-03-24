@@ -1,6 +1,8 @@
 /* Variables */
 
 .main {
+	--main-header-margin-top: var(--space-gap-xl);
+	--main-header-margin-bottom: var(--space-gap-l);
 	--main-grid-columns: 5;
 	--main-grid-padding-x: 80px;
 	--main-grid-gap: var(--space-gap-l);
@@ -26,6 +28,7 @@
 
 @media (width < 1600px) {
 	.main__header {
+		margin: var(--main-header-margin-top) 0 var(--main-header-margin-bottom);
 		position: sticky;
 		top: 0;
 		z-index: 1;
