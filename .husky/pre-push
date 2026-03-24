@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-npm run lint:all:strict
+npm run lint:html
