@@ -1,8 +1,9 @@
 {% from 'link.njk' import link %}
 {% set contactsData = global.contacts %}
 {% set asideContacts = ['email', 'linkedin', 'whatsapp'] %}
+{% set asideContactsClass = asideContactsClass or 'aside__contacts' %}
 
-<ul class="aside__contacts aside-contacts">
+<ul class="{{ asideContactsClass }} aside-contacts">
 	{% for itemKey in asideContacts %}
 		{% set item = contactsData.items[itemKey] %}
 		{% if item %}

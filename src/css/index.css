@@ -13,11 +13,14 @@
 @import url('./blocks/icon.css');
 @import url('./blocks/button.css');
 @import url('./blocks/icon-button.css');
+@import url('./blocks/icon-link.css');
 @import url('./blocks/link.css');
 @import url('./blocks/label.css');
 @import url('./blocks/page.css');
 @import url('./blocks/main.css');
+@import url('./blocks/trail.css');
 @import url('./blocks/header.css');
+@import url('./blocks/header-menu.css');
 @import url('./blocks/logo.css');
 @import url('./blocks/hero.css');
 @import url('./blocks/article-header.css');

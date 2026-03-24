@@ -1,6 +1,7 @@
 {% from 'icon.njk' import icon %}
+{% set menuListClass = menuListClass or 'aside__list' %}
 
-<ul class="aside__list site-list">
+<ul class="{{ menuListClass }} site-list">
 {% for item in menu %}
 		{% set itemLink = item.link | localePath(page.url) %}
 		{% set isExactCurrent = itemLink == page.url %}

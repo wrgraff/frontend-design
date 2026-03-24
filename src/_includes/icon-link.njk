@@ -1,0 +1,25 @@
+{% from 'icon.njk' import icon %}
+
+{% macro iconLink(
+	iconName = 'info-signs/link',
+	href = '',
+	size = '',
+	ariaLabel = 'Icon link',
+	external = false,
+	extraClass = ''
+) %}
+	{% set classes = [
+		'icon-link',
+		size and size != 'xs' and 'icon-link_size_' + size or '',
+		extraClass
+	] | join(' ') | trim %}
+
+	<a
+		href="{{ href }}"
+		class="{{ classes }}"
+		aria-label="{{ ariaLabel }}"
+		{% if external %}target="_blank" rel="noopener noreferrer"{% endif %}
+	>
+		{{ icon(iconName, 'icon-link__icon') }}
+	</a>
+{% endmacro %}

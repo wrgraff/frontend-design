@@ -93,6 +93,22 @@ Inputs:
 Constraints:
 - Icon-only control must have a meaningful `ariaLabel`.
 
+## iconLink
+
+Source: `src/_includes/icon-link.njk`  
+Signature: `iconLink(iconName='info-signs/link', href='', size='', ariaLabel='Icon link', external=false, extraClass='')`
+
+Inputs:
+- `iconName` (optional, string): icon name from `src/_includes/icons`, without `.svg`
+- `href` (required for interactive use, string)
+- `size` (optional, string): supports `s` and `m`; `xs` is base state and is rendered without modifier class
+- `ariaLabel` (optional, string): accessible name for icon-only link
+- `external` (optional, boolean): adds `target="_blank"` + `rel="noopener noreferrer"`
+- `extraClass` (optional, string)
+
+Constraints:
+- Icon-only control must have a meaningful `ariaLabel`.
+
 ## label
 
 Source: `src/_includes/label.njk`  

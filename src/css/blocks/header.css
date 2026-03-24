@@ -1,23 +1,99 @@
 /* Variables */
 
 .header {
-	--header-padding-top: 64px;
-	--header-padding-x: 56px;
-	--header-padding-bottom: 56px;
+	--header-margin-top: var(--space-gap-xl);
+	--header-margin-bottom: var(--space-gap-l);
+	--header-padding-x: 80px;
+	--header-padding-top: var(--space-gap-m);
+	--header-padding-bottom: var(--space-gap-m);
+	--header-gap: var(--space-gap-4xs);
 	--header-logo-width: 243px;
 	--header-logo-height: 64px;
+	--header-logo-offset: -24px;
+	--header-background-color: transparent;
+	--header-border: var(--header-menu-panel-border-width) solid transparent;
+	--header-shadow: none;
+
+	--header-menu-panel-border-width: var(--space-border-light);
+	--header-menu-gap: var(--space-gap-s);
 }
 
 /* Header */
 
 .header {
+	margin: var(--header-margin-top) 0 var(--header-margin-bottom);
 	padding: var(--header-padding-top) var(--header-padding-x) var(--header-padding-bottom);
 }
 
-/* Header Logo */
+.header__container {
+	display: flex;
+	align-items: flex-end;
+	gap: var(--header-gap);
+}
+
+@media (width < 1600px) {
+	.header__container::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: calc(50% - 50vw);
+		width: 100vw;
+		z-index: -1;
+		background-color: var(--header-background-color);
+		border-bottom: var(--header-border);
+		box-shadow: var(--header-shadow);
+		transition:
+			background-color var(--transition-panel-duration) var(--transition-panel-function),
+			border-color var(--transition-panel-duration) var(--transition-panel-function),
+			box-shadow var(--transition-panel-duration) var(--transition-panel-function);
+	}
+
+	.header[data-stuck="true"] {
+		--header-background-color: var(--color-surface-base);
+		--header-border: var(--header-menu-panel-border-width) solid var(--color-border-base);
+		--header-shadow: var(--shadow-level-4);
+	}
+}
+
+/* Header logo */
 
 .header__logo {
 	display: inline-block;
 	height: var(--header-logo-height);
 	width: var(--header-logo-width);
+	margin-left: var(--header-logo-offset);
+}
+
+/* Compact mode */
+
+.header__trail,
+.header__menu {
+	display: none;
+}
+
+@media (width < 1600px) {
+	.header {
+		align-items: flex-end;
+		gap: var(--header-menu-gap);
+	}
+
+	.header__trail {
+		display: flex;
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: auto;
+		min-width: 0;
+	}
+
+	.header__menu {
+		display: flex;
+	}
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.header {
+		--header-menu-panel-border-width: var(--space-border-hair);
+	}
 }
