@@ -39,6 +39,12 @@
 				{% set isExactCurrent = itemLink == page.url %}
 				{% set isInSection = isExactCurrent or (itemLink != '/' and page.url.indexOf(itemLink) == 0) %}
 				{% if isInSection %}
+					{{ iconLink(
+						iconName = 'home/home_page',
+						href = '/' | localePath(page.url),
+						size = 's',
+						extraClass = 'trail__home'
+					) }}
 					{{ icon('simple-arrows/angle_right', 'trail__separator', 32) }}
 					{% if isExactCurrent %}
 						<p class="trail__current">

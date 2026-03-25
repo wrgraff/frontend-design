@@ -38,6 +38,10 @@
 	min-width: 0;
 }
 
+.trail__home {
+	display: none;
+}
+
 .trail__current {
 	align-items: center;
 	display: inline-flex;
@@ -57,4 +61,10 @@
 	flex-grow: 0;
 	flex-shrink: 0;
 	flex-basis: var(--trail-icon-size);
+}
+
+@media (width < 1100px) {
+	.trail__home {
+		display: inline-flex;
+	}
 }

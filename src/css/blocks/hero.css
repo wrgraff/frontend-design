@@ -29,6 +29,9 @@
 	grid-template-columns: repeat(var(--hero-columns), 1fr);
 	padding: var(--hero-padding-y) var(--hero-padding-x);
 	position: relative;
+}
+
+:where(.hero) {
 	z-index: var(--hero-z-index);
 }
 

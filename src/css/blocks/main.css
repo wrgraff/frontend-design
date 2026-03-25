@@ -11,13 +11,6 @@
 	--main-grid-opacity: 0.4;
 }
 
-/* Main */
-
-.main {
-	position: relative;
-	z-index: 0;
-}
-
 @media
 (-webkit-min-device-pixel-ratio: 2),
 (min-resolution: 192dpi) {
@@ -26,9 +19,24 @@
 	}
 }
 
+/* Main */
+
+.main {
+	position: relative;
+}
+
+:where(.main) {
+	z-index: 0;
+}
+
+/* Header */
+
+.main__header {
+	margin: var(--main-header-margin-top) 0 var(--main-header-margin-bottom);
+}
+
 @media (width < 1600px) {
 	.main__header {
-		margin: var(--main-header-margin-top) 0 var(--main-header-margin-bottom);
 		position: sticky;
 		top: 0;
 		z-index: 1;

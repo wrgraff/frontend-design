@@ -6,7 +6,6 @@
 	--case-hero-padding-x: 80px;
 	--case-hero-gap: var(--space-gap-l);
 	--case-hero-columns: 5;
-	--case-hero-z-index: 0;
 	--case-hero-tags-column: 1 / 4;
 	--case-hero-tags-gap: var(--space-gap-xxs);
 	--case-hero-heading-column: 1 / 5;
@@ -30,7 +29,10 @@
 	grid-template-columns: repeat(var(--case-hero-columns), 1fr);
 	padding: var(--case-hero-padding-y) var(--case-hero-padding-x);
 	position: relative;
-	z-index: var(--case-hero-z-index);
+}
+
+:where(.case-hero) {
+	z-index: 0;
 }
 
 /* Case hero image */

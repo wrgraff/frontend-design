@@ -28,18 +28,47 @@ function splitSelectors(rule) {
 	return (rule.selector || '').split(',').map((s) => s.trim()).filter(Boolean);
 }
 
+function unwrapLeadingWhere(selector) {
+	let current = selector.trim();
+
+	while (current.startsWith(':where(')) {
+		let depth = 0;
+		let end = -1;
+
+		for (let i = 0; i < current.length; i++) {
+			const char = current[i];
+			if (char === '(') depth += 1;
+			if (char === ')') {
+				depth -= 1;
+				if (depth === 0) {
+					end = i;
+					break;
+				}
+			}
+		}
+
+		if (end === -1) return current;
+
+		const inside = current.slice(':where('.length, end).trim();
+		const suffix = current.slice(end + 1);
+		current = `${inside}${suffix}`.trim();
+	}
+
+	return current;
+}
+
 function blockFromSelector(selector) {
-	const m = selector.match(/^\.([a-z0-9]+(?:-[a-z0-9]+)*)$/);
+	const m = unwrapLeadingWhere(selector).match(/^\.([a-z0-9]+(?:-[a-z0-9]+)*)$/);
 	return m ? m[1] : null;
 }
 
 function elementFromSelector(selector) {
-	const m = selector.match(/^\.([a-z0-9]+(?:-[a-z0-9]+)*)__([a-z0-9]+(?:-[a-z0-9]+)*)$/);
+	const m = unwrapLeadingWhere(selector).match(/^\.([a-z0-9]+(?:-[a-z0-9]+)*)__([a-z0-9]+(?:-[a-z0-9]+)*)$/);
 	return m ? `${m[1]}__${m[2]}` : null;
 }
 
 function scopeBlockFromSelector(selector) {
-	const m = selector.match(/^\.([a-z0-9]+(?:-[a-z0-9]+)*)(?:__|$)/);
+	const m = unwrapLeadingWhere(selector).match(/^\.([a-z0-9]+(?:-[a-z0-9]+)*)(?:__|$)/);
 	return m?.[1] ?? null;
 }
 

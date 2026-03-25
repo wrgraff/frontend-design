@@ -1,5 +1,6 @@
 {% from 'icon.njk' import icon %}
 {% set menuListClass = menuListClass or 'aside__list' %}
+{% set isCompactMenu = menuListClass == 'header-menu__list' %}
 
 <ul class="{{ menuListClass }} site-list">
 {% for item in menu %}
@@ -17,7 +18,7 @@
 					{% endif %}
 					{{- item.heading -}}
 				</a>
-				{% if isSectionSubpage %}
+				{% if isSectionSubpage and not isCompactMenu %}
 					<ul class="site-list__sublist">
 						<li class="site-list__subitem">
 							{{ icon('simple-arrows/navigate_down_right', 'site-list__subicon') }}

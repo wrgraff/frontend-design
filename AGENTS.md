@@ -175,6 +175,8 @@ Soft convention (non-strict, do not lint):
 - Block root may define its own internal layout (`display`, `grid-template-*`, `flex-*` for internal children).
 - Block root must not position itself in parent layout: forbid parent-placement properties on `.block` (`grid-column`, `grid-row`, `grid-area`, `align-self`, `justify-self`, `place-self`, `order`).
 - If `z-index` is used inside a block, that block (or a parent element within the same block scope) must define a local stacking context with `z-index: 0`.
+- For mixed usage (`class="a__b b"`), prefer placing stacking scope on the host element (`.a__b { z-index: 0; }`) instead of forcing it on `.b` to avoid specificity conflicts.
+- Low-specificity scope declaration is allowed for this purpose: `:where(.block) { z-index: 0; }`.
 - `position: absolute` is allowed only on elements (`.block__element`), and must be anchored by `position: relative|sticky|fixed` on the block root or another parent element inside the same block.
 - If an element is used as both an element and a standalone block (`class="a__b b"`), do not set `padding` on the element selector (`.a__b`); set it on `.b`.
 

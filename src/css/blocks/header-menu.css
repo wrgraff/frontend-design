@@ -2,7 +2,7 @@
 
 .header-menu {
 	--header-menu-gap: var(--space-gap-l);
-	--header-menu-contacts-gap: var(--space-gap-3xs);
+	--header-menu-contacts-gap: var(--space-gap-s);
 	--header-menu-panel-offset: var(--space-gap-5xs);
 	--header-menu-panel-width: 320px;
 	--header-menu-panel-gap: var(--space-gap-xl);
@@ -21,6 +21,9 @@
 	align-items: center;
 	gap: var(--header-menu-gap);
 	position: relative;
+}
+
+:where(.header-menu) {
 	z-index: 0;
 }
 
