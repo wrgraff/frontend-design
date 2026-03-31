@@ -3,10 +3,9 @@
 .hero {
 	--hero-img-size: 680px;
 	--hero-padding-y: 120px;
-	--hero-padding-x: 80px;
+	--hero-padding-x: var(--space-page-padding-x);
 	--hero-gap: var(--space-gap-l);
 	--hero-columns: 5;
-	--hero-z-index: 0;
 	--hero-heading-column: 1 / 5;
 	--hero-text-column: 1 / 4;
 	--hero-cta-column: 1 / 6;
@@ -14,11 +13,72 @@
 	--hero-cta-margin-top: var(--space-gap-s);
 	--hero-image-column: 5 / 6;
 	--hero-image-row: 1 / 3;
-	--hero-image-z-index: -1;
 	--hero-picture-offset-x: 86px;
 	--hero-picture-blur: 7px;
 	--hero-picture-overlay-opacity: 0.5;
 	--hero-picture-image-radius: 0 0 var(--hero-img-size) var(--hero-img-size);
+}
+
+@media (width < 1700px) {
+	.hero {
+		--hero-img-size: 650px;
+		--hero-picture-offset-x: 40px;
+	}
+}
+
+@media (width < 1600px) {
+	.hero {
+		--hero-picture-offset-x: 64px;
+	}
+}
+
+@media (width < 1300px) {
+	.hero {
+		--hero-picture-offset-x: 20px;
+	}
+}
+
+@media (width < 1200px) {
+	.hero {
+		--hero-img-size: 600px;
+		--hero-picture-offset-x: 0px;
+	}
+}
+
+@media (width < 1100px) {
+	.hero {
+		--hero-img-size: 560px;
+	}
+}
+
+@media (width < 1000px) {
+	.hero {
+		--hero-padding-y: 80px;
+		--hero-img-size: 280px;
+		--hero-text-column: 1 / 5;
+		--hero-image-column: 5 / 6;
+		--hero-image-row: 1 / 2;
+		--hero-picture-offset-x: -12px;
+	}
+}
+
+@media (width < 800px) {
+	.hero {
+		--hero-padding-y: 64px;
+		--hero-img-size: 180px;
+		--hero-image-column: 1 / 2;
+		--hero-image-row: 1 / 2;
+		--hero-picture-offset-x: 8px;
+		--hero-heading-column: 1 / 6;
+		--hero-text-column: 1 / 6;
+	}
+}
+
+@media (width < 500px) {
+	.hero {
+		--hero-padding-y: 48px;
+		--hero-img-size: 140px;
+	}
 }
 
 /* Hero */
@@ -32,7 +92,7 @@
 }
 
 :where(.hero) {
-	z-index: var(--hero-z-index);
+	z-index: 0;
 }
 
 /* Hero Image */
@@ -41,7 +101,14 @@
 	grid-column: var(--hero-image-column);
 	grid-row: var(--hero-image-row);
 	position: relative;
-	z-index: var(--hero-image-z-index);
+	z-index: -1;
+}
+
+@media (width < 800px) {
+	.hero__img {
+		width: var(--hero-img-size);
+		height: var(--hero-img-size);
+	}
 }
 
 .hero__picture {

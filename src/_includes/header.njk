@@ -33,15 +33,17 @@
 			</svg>
 		</a>
 
-		<div class="header__trail trail" data-header-trail>
+		{% set trailContent %}
 			{% for item in menu %}
 				{% set itemLink = item.link | localePath(page.url) %}
+				{% set homeLink = '/' | localePath(page.url) %}
 				{% set isExactCurrent = itemLink == page.url %}
 				{% set isInSection = isExactCurrent or (itemLink != '/' and page.url.indexOf(itemLink) == 0) %}
-				{% if isInSection %}
+				{% set isHomeOnlyMatch = page.url == homeLink and itemLink == homeLink %}
+				{% if isInSection and not isHomeOnlyMatch %}
 					{{ iconLink(
 						iconName = 'home/home_page',
-						href = '/' | localePath(page.url),
+						href = homeLink,
 						size = 's',
 						extraClass = 'trail__home'
 					) }}
@@ -66,7 +68,12 @@
 					{% endif %}
 				{% endif %}
 			{% endfor %}
-		</div>
+		{% endset %}
+		{% if trailContent | trim %}
+			<div class="header__trail trail" data-header-trail>
+				{{ trailContent | safe }}
+			</div>
+		{% endif %}
 
 		<div class="header__menu header-menu" data-header-menu-root>
 			<ul class="header-menu__contacts">

@@ -4,7 +4,7 @@
 	--section-gap: var(--space-gap-l);
 	--section-header-column: 1 / -1;
 	--section-padding-y: 80px;
-	--section-padding-x: 80px;
+	--section-padding-x: var(--space-page-padding-x);
 	--section-columns: 5;
 	--section-header-gap: var(--space-gap-xxs);
 	--section-header-border: var(--space-border-light) solid var(--color-border-base);
@@ -30,6 +30,24 @@
 	--section-decor-align-content: end;
 	--section-decor-height: 200px;
 	--section-decor-margin-x-end: calc(var(--section-padding-x) * -1);
+}
+
+@media (width < 1000px) {
+	.section {
+		--section-padding-y: 64px;
+	}
+}
+
+@media (width < 800px) {
+	.section {
+		--section-padding-y: 48px;
+	}
+}
+
+@media (width < 500px) {
+	.section {
+		--section-padding-y: 32px;
+	}
 }
 
 /* Section */

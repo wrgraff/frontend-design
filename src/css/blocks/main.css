@@ -4,7 +4,7 @@
 	--main-header-margin-top: var(--space-gap-xl);
 	--main-header-margin-bottom: var(--space-gap-l);
 	--main-grid-columns: 5;
-	--main-grid-padding-x: 80px;
+	--main-grid-padding-x: var(--space-page-padding-x);
 	--main-grid-gap: var(--space-gap-l);
 	--main-grid-border-width: var(--space-border-light);
 	--main-grid-border-color: var(--color-border-base);
@@ -19,10 +19,17 @@
 	}
 }
 
+@media (width < 500px) {
+	.main {
+		--main-grid-columns: 5;
+	}
+}
+
 /* Main */
 
 .main {
 	position: relative;
+	overflow: hidden;
 }
 
 :where(.main) {

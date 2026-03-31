@@ -20,6 +20,8 @@
 	--space-gap-l: 30px;
 	--space-gap-xl: 35px;
 
+	--space-page-padding-x: 80px;
+
 	/* Temporary fallback until browser rendering of hairline borders is evaluated. */
 	--space-border-hair: var(--space-border-light);
 	--space-border-light: 1px;
@@ -74,6 +76,8 @@
 		--space-gap-m: 21px;
 		--space-gap-l: 26px;
 		--space-gap-xl: 31px;
+
+		--space-page-padding-x: 64px;
 	}
 }
 
@@ -99,6 +103,8 @@
 		--space-gap-m: 19px;
 		--space-gap-l: 23px;
 		--space-gap-xl: 28px;
+
+		--space-page-padding-x: 48px;
 	}
 }
 
@@ -124,5 +130,7 @@
 		--space-gap-m: 15px;
 		--space-gap-l: 20px;
 		--space-gap-xl: 25px;
+
+		--space-page-padding-x: 30px;
 	}
 }

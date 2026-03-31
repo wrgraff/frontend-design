@@ -2,8 +2,8 @@
 
 .contacts {
 	--contacts-gap: var(--space-gap-l);
-	--contacts-padding-y: 120px;
-	--contacts-padding-x: 80px;
+	--contacts-padding-y: 80px;
+	--contacts-padding-x: var(--space-page-padding-x);
 	--contacts-columns: 5;
 	--contacts-header-gap: var(--space-gap-xxs);
 	--contacts-header-border: var(--space-border-light) solid var(--color-border-base);
@@ -20,6 +20,24 @@
 	--contacts-content-font: var(--font-text-s);
 	--contacts-lead-font: var(--font-text-m);
 	--contacts-links-gap: var(--space-gap-3xs);
+}
+
+@media (width < 1000px) {
+	.contacts {
+		--contacts-padding-y: 64px;
+	}
+}
+
+@media (width < 800px) {
+	.contacts {
+		--contacts-padding-y: 48px;
+	}
+}
+
+@media (width < 500px) {
+	.contacts {
+		--contacts-padding-y: 32px;
+	}
 }
 
 /* Contacts */
