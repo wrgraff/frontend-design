@@ -19,7 +19,7 @@
 	}
 }
 
-@media (width < 500px) {
+@media (width < 540px) {
 	.main {
 		--main-grid-columns: 5;
 	}
@@ -42,7 +42,7 @@
 	margin: var(--main-header-margin-top) 0 var(--main-header-margin-bottom);
 }
 
-@media (width < 1600px) {
+@media (540px <= width < 1600px) {
 	.main__header {
 		position: sticky;
 		top: 0;

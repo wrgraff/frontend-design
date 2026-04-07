@@ -44,7 +44,7 @@
 	}
 }
 
-@media (width < 500px) {
+@media (width < 540px) {
 	.section {
 		--section-padding-y: 32px;
 	}

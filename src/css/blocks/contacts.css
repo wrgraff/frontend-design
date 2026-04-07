@@ -34,7 +34,7 @@
 	}
 }
 
-@media (width < 500px) {
+@media (width < 540px) {
 	.contacts {
 		--contacts-padding-y: 32px;
 	}

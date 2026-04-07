@@ -1,4 +1,4 @@
-const STICKY_VIEWPORT_QUERY = '(max-width: 1599px)';
+const STICKY_VIEWPORT_QUERY = '(min-width: 501px) and (max-width: 1599px)';
 
 export const initHeaderStickyState = () => {
 	const header = document.querySelector( '[data-header-sticky]' );

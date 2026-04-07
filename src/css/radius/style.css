@@ -42,7 +42,7 @@
 	}
 }
 
-@media (width < 500px) {
+@media (width < 540px) {
 	:root {
 		--radius-xxs: 1px;
 		--radius-xs: 2px;

@@ -108,15 +108,15 @@
 	}
 }
 
-@media (width < 500px) {
+@media (width < 540px) {
 	:root {
 		--space-size-5xs: 4px;
 		--space-size-4xs: 6px;
 		--space-size-3xs: 8px;
-		--space-size-xxs: 10px;
-		--space-size-xs: 12px;
-		--space-size-s: 16px;
-		--space-size-m: 24px;
+		--space-size-xxs: 12px;
+		--space-size-xs: 16px;
+		--space-size-s: 20px;
+		--space-size-m: 26px;
 		--space-size-l: 32px;
 		--space-size-xl: 40px;
 

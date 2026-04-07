@@ -77,14 +77,14 @@
 
 		<div class="header__menu header-menu" data-header-menu-root>
 			<ul class="header-menu__contacts">
-				{% for itemKey in ['linkedin', 'email', 'whatsapp'] %}
+				{% for itemKey in ['linkedin', 'behance', 'email', 'whatsapp'] %}
 					{% set item = global.contacts.items[itemKey] %}
 					{% if item %}
 						<li class="header-menu__contacts-item">
 							{{ iconLink(
 								iconName = item.icon,
 								href = item.url,
-								size = 's',
+								size = 'm',
 								ariaLabel = item.heading,
 								external = item.external
 							) }}
@@ -93,13 +93,14 @@
 				{% endfor %}
 			</ul>
 
-				{{ button(
-					text = 'Menu',
-					mode = 'base',
-					size = 'l',
-					iconLeft = 'menu/menu',
-					type = 'button'
-				) }}
+			{{ button(
+				text = 'Menu',
+				mode = 'base',
+				size = 'xl',
+				iconLeft = 'menu/menu',
+				type = 'button',
+				extraClass = 'header-menu__button'
+			) }}
 
 			<div class="header-menu__panel" data-header-menu-panel hidden>
 				{% set menuListClass = 'header-menu__list' %}

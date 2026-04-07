@@ -74,7 +74,7 @@
 	}
 }
 
-@media (width < 500px) {
+@media (width < 540px) {
 	.hero {
 		--hero-padding-y: 48px;
 		--hero-img-size: 140px;
