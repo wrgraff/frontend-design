@@ -80,7 +80,11 @@
 				{% for itemKey in ['linkedin', 'behance', 'email', 'whatsapp'] %}
 					{% set item = global.contacts.items[itemKey] %}
 					{% if item %}
-						<li class="header-menu__contacts-item">
+						{% set itemClass = [
+							'header-menu__contacts-item',
+							itemKey == 'behance' and 'header-menu__contacts-item_visibility_mobile' or ''
+						] | join(' ') | trim %}
+						<li class="{{ itemClass }}">
 							{{ iconLink(
 								iconName = item.icon,
 								href = item.url,

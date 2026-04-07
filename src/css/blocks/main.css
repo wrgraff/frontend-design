@@ -29,7 +29,13 @@
 
 .main {
 	position: relative;
-	overflow: hidden;
+}
+
+@media (width < 540px) {
+	.main {
+		overflow: hidden;
+		padding-bottom: 64px;
+	}
 }
 
 :where(.main) {

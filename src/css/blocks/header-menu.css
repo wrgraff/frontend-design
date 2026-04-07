@@ -59,9 +59,17 @@
 	margin: 0;
 }
 
+.header-menu__contacts-item_visibility_mobile {
+	display: none;
+}
+
 @media (width < 540px) {
 	.header-menu__contacts {
 		flex-grow: 1;
+	}
+
+	.header-menu__contacts-item_visibility_mobile {
+		display: flex;
 	}
 
 	.header-menu__contacts-item:nth-child(2) {
