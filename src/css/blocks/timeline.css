@@ -1,3 +1,5 @@
+/* Variables */
+
 .timeline {
 	--timeline-padding-left: var(--space-gap-l);
 	--timeline-padding-top: var(--space-gap-xs);
@@ -37,6 +39,8 @@
 
 .timeline__icon {
 	color: var(--timeline-icon-color);
+	width: var(--timeline-icon-size);
+	height: var(--timeline-icon-size);
 	position: absolute;
 	top: var(--timeline-icon-offset);
 	left: calc( var(--timeline-icon-size) / -2);

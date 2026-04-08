@@ -35,6 +35,8 @@
 @media (width < 1000px) {
 	.section {
 		--section-padding-y: 64px;
+		--section-lead-column: 1 / span 4;
+		--section-content-column: 1 / -1;
 	}
 }
 
