@@ -1,3 +1,5 @@
+/* Variables */
+
 .link,
 a:not([class]) {
 	--link-text-color: var(--color-text-base);

@@ -1,3 +1,10 @@
+/* Variables */
+
+.content-list {
+	--content-list-list-style: none;
+	--content-list-list-margin: 0;
+}
+
 /* Content list */
 
 .content-list {
@@ -5,6 +12,6 @@
 }
 
 .content-list__list {
-	list-style: none;
-	margin: 0;
+	list-style: var(--content-list-list-style);
+	margin: var(--content-list-list-margin);
 }

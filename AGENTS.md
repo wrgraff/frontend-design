@@ -164,6 +164,100 @@ Soft convention (non-strict, do not lint):
 - For spacing axes, prefer `x/y` naming (`--block-padding-x`, `--block-padding-y`) over `inline/block`.
 - Prefer writing final spacing properties directly (`padding: ...`, `margin: ...`) instead of creating a combined intermediary variable like `--block-padding`.
 
+### CSS File Pattern For Agents (Recommended)
+
+Use this canonical order in `src/css/blocks/<block>.css` to keep files predictable for both humans and AI agents:
+
+1. `/* Variables */`
+2. `.block { --block-* }` (variables only)
+3. `@media` overrides for `.block` variables only
+4. `/* Block */`
+5. `.block { ... }` (actual styles only)
+6. `@media` overrides for `.block` actual styles
+7. `/* Element */`
+8. `.block__element { ... }` (actual styles only)
+9. `@media` overrides for `.block__element` actual styles
+10. Repeat item 7-9 for each next element/modifier as needed
+
+Practical rules for extraction into variables:
+
+- Move to `--block-*` any value that is reused, changes across breakpoints, or may vary by modifier/state.
+- Keep direct literals only for truly local one-off values that are not reused and do not change by media/state.
+- Prefer variable overrides inside `@media` for responsive behavior; keep property trees stable when possible.
+- Keep media query order consistent across the file (example: `1000`, `800`, `540`).
+
+Example template:
+
+```css
+/* Variables */
+
+.block {
+	--block-gap: var(--space-gap-l);
+	--block-padding-y: 80px;
+	--block-padding-x: var(--space-page-padding-x);
+	--block-columns: 5;
+	--block-title-font: var(--font-heading-hl3);
+	--block-item-column: 1 / span 3;
+}
+
+@media (width < 1000px) {
+	.block {
+		--block-padding-y: 64px;
+		--block-item-column: 1 / -1;
+	}
+}
+
+@media (width < 800px) {
+	.block {
+		--block-padding-y: 48px;
+	}
+}
+
+@media (width < 540px) {
+	.block {
+		--block-padding-y: 32px;
+	}
+}
+
+/* Block */
+
+.block {
+	display: grid;
+	gap: var(--block-gap);
+	grid-template-columns: repeat(var(--block-columns), minmax(0, 1fr));
+	padding: var(--block-padding-y) var(--block-padding-x);
+}
+
+@media (width < 1000px) {
+	.block {
+		/* Use only when block styles themselves (not variables) must change */
+	}
+}
+
+/* Element */
+
+.block__title {
+	font: var(--block-title-font);
+	margin: 0;
+}
+
+@media (width < 1000px) {
+	.block__title {
+		/* Element-specific responsive style overrides */
+	}
+}
+
+.block__item {
+	grid-column: var(--block-item-column);
+}
+
+@media (width < 1000px) {
+	.block__item {
+		/* Keep near the element for local readability */
+	}
+}
+```
+
 ## BEM Layout Boundaries (Mandatory)
 
 - In `src/css/blocks/<block>.css`, selectors must target only that block: `.block`, `.block__element`, `.block_modifier_value`, `.block__element_modifier_value`.

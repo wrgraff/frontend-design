@@ -5,6 +5,12 @@
 	--all-contacts-column-gap: var(--space-gap-l);
 }
 
+@media (width < 1100px) {
+	.all-contacts {
+		--all-contacts-columns: 1;
+	}
+}
+
 /* All Contacts */
 
 .all-contacts {
@@ -25,10 +31,4 @@
 
 .all-contacts__item {
 	margin: 0;
-}
-
-@media (width < 1100px) {
-	.all-contacts {
-		--all-contacts-columns: 1;
-	}
 }

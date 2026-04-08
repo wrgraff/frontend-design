@@ -15,6 +15,12 @@
 	--header-menu-panel-shadow: var(--shadow-level-4);
 }
 
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.header-menu {
+		--header-menu-panel-border: var(--space-border-hair) solid var(--color-border-base);
+	}
+}
+
 /* Header menu */
 
 .header-menu {
@@ -33,13 +39,6 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		z-index: 1;
-	}
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	.header-menu {
-		--header-menu-panel-border: var(--space-border-hair) solid var(--color-border-base);
 	}
 }
 

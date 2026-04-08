@@ -38,6 +38,12 @@
 	}
 }
 
+@media (width < 1100px) and (-webkit-min-device-pixel-ratio: 2), (width < 1100px) and (min-resolution: 192dpi) {
+	.header {
+		--header-menu-panel-border-width: var(--space-border-hair);
+	}
+}
+
 /* Header */
 
 .header {
@@ -109,6 +115,7 @@
 		padding-right: var(--space-page-padding-x);
 		padding-left: var(--space-page-padding-x);
 		background-color: var(--color-surface-tertiary);
+		z-index: 1;
 	}
 }
 
@@ -136,11 +143,5 @@
 
 	.header__logo {
 		grid-column: 1;
-	}
-
-	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-		.header {
-			--header-menu-panel-border-width: var(--space-border-hair);
-		}
 	}
 }

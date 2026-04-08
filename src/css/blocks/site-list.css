@@ -1,5 +1,10 @@
+/* Variables */
+
 .site-list {
 	--site-list-gap: var(--space-gap-4xs);
+	--site-list-list-style: none;
+	--site-list-padding: 0;
+	--site-list-item-margin: 0;
 	--site-list-item-padding-x: var(--space-gap-5xs);
 	--site-list-item-radius: var(--radius-s);
 	--site-list-item-superellipse-radius: var(--superellipse-radius-s);
@@ -14,6 +19,9 @@
 	--site-list-link-padding-x: var(--space-gap-xs);
 	--site-list-sublist-padding-y: var(--space-gap-5xs);
 	--site-list-sublist-padding-x: var(--space-gap-xs);
+	--site-list-sublist-gap: 0;
+	--site-list-sublist-list-style: none;
+	--site-list-sublist-margin: 0;
 	--site-list-subitem-font: var(--font-text-xs);
 	--site-list-subitem-color: var(--color-text-primary);
 	--site-list-subitem-icon-width: var(--space-size-xs);
@@ -29,14 +37,14 @@
 	display: grid;
 	gap: var(--site-list-gap);
 
-	list-style: none;
-	padding: 0;
+	list-style: var(--site-list-list-style);
+	padding: var(--site-list-padding);
 }
 
 /* Items */
 
 .site-list__item {
-	margin: 0;
+	margin: var(--site-list-item-margin);
 	padding: 0 var(--site-list-item-padding-x);
 }
 
@@ -71,9 +79,9 @@
 
 .site-list__sublist {
 	display: grid;
-	gap: 0;
-	list-style: none;
-	margin: 0;
+	gap: var(--site-list-sublist-gap);
+	list-style: var(--site-list-sublist-list-style);
+	margin: var(--site-list-sublist-margin);
 	padding: var(--site-list-sublist-padding-y) var(--site-list-sublist-padding-x);
 }
 

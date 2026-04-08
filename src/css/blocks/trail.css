@@ -7,18 +7,17 @@
 	--trail-current-font: var(--font-label-s);
 	--trail-icon-size: var(--space-size-xs);
 	--trail-separator-size: var(--space-size-s);
-}
-
-/* Trail */
-
-.trail {
 	--link-font: var(--trail-link-font);
 	--link-icon-size: var(--trail-icon-size);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 	--link-gap: var(--trail-link-gap);
 	--link-underline-color: var(--color-text-alt);
+}
 
+/* Trail */
+
+.trail {
 	display: flex;
 	align-items: center;
 	gap: var(--trail-gap);

@@ -1,3 +1,5 @@
+/* Variables */
+
 .button {
 	--button-text-color: var(--color-text-primary);
 	--button-bg: var(--color-common-base);
@@ -16,6 +18,12 @@
 	--button-superellipse-radius: var(--superellipse-radius-m);
 	--button-superellipse-level: var(--superellipse-level-m);
 	--button-border-width: var(--space-border-light);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.button {
+		--button-border-width: var(--space-border-hair);
+	}
 }
 
 .button:hover {
@@ -139,10 +147,4 @@
 .button__icon_position_right {
 	margin-right: var(--button-icon-compensation-offset);
 	margin-left: var(--button-gap);
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	.button {
-		--button-border-width: var(--space-border-hair);
-	}
 }

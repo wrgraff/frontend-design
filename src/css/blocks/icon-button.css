@@ -1,3 +1,5 @@
+/* Variables */
+
 .icon-button {
 	--icon-button-icon-color: var(--color-text-primary);
 	--icon-button-bg: var(--color-common-base);
@@ -8,6 +10,12 @@
 	--icon-button-superellipse-radius: var(--superellipse-radius-m);
 	--icon-button-superellipse-level: var(--superellipse-level-m);
 	--icon-button-border-width: var(--space-border-light);
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.icon-button {
+		--icon-button-border-width: var(--space-border-hair);
+	}
 }
 
 .icon-button:hover {
@@ -105,10 +113,4 @@
 .icon-button__icon {
 	height: var(--icon-button-icon-size);
 	width: var(--icon-button-icon-size);
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	.icon-button {
-		--icon-button-border-width: var(--space-border-hair);
-	}
 }
