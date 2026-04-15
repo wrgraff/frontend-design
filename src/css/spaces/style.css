@@ -104,7 +104,7 @@
 		--space-gap-l: 23px;
 		--space-gap-xl: 28px;
 
-		--space-page-padding-x: 48px;
+		--space-page-padding-x: 42px;
 	}
 }
 
@@ -131,6 +131,6 @@
 		--space-gap-l: 20px;
 		--space-gap-xl: 25px;
 
-		--space-page-padding-x: 30px;
+		--space-page-padding-x: 24px;
 	}
 }

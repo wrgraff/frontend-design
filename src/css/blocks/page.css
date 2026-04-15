@@ -10,7 +10,7 @@
 @media (width < 1600px) {
 	.page {
 		--page-template-columns: 1fr;
-		--page-max-width: var(--page-content-width);
+		--page-max-width: none;
 	}
 }
 

@@ -33,7 +33,6 @@
 
 @media (width < 540px) {
 	.main {
-		overflow: hidden;
 		padding-bottom: 64px;
 	}
 }

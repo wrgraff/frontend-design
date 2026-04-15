@@ -127,10 +127,6 @@
 		--section-content-column: 1 / span 3;
 	}
 
-	.section_view_portfolio {
-		--section-content-column: 1 / -1;
-	}
-
 	.section_view_timeline {
 		position: relative;
 	}
@@ -150,6 +146,14 @@
 		grid-column: 1 / span 5;
 	}
 }
+
+/* Portfolio section variant */
+
+.section_view_portfolio {
+	--section-content-column: 1 / -1;
+}
+
+/* Decor */
 
 .section__decor {
 	display: grid;

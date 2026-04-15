@@ -87,8 +87,8 @@
 
 @media (width < 1100px) {
 	:root {
-		--font-size-xs: 15px;
-		--font-size-s: 19px;
+		--font-size-xs: 16px;
+		--font-size-s: 18px;
 		--font-size-m: 22px;
 		--font-size-l: 26px;
 		--font-size-xl: 30px;
@@ -96,13 +96,13 @@
 		--font-size-3xl: 38px;
 
 		--font-size-heading-hl1: 78px;
-		--font-size-heading-hl2: 71px;
+		--font-size-heading-hl2: 70px;
 		--font-size-heading-hl3: 64px;
 		--font-size-heading-h1: 44px;
-		--font-size-heading-h2: 37px;
-		--font-size-heading-h3: 33px;
-		--font-size-heading-h4: 29px;
-		--font-size-heading-h5: 25px;
+		--font-size-heading-h2: 38px;
+		--font-size-heading-h3: 34px;
+		--font-size-heading-h4: 30px;
+		--font-size-heading-h5: 26px;
 		--font-size-heading-h6: 22px;
 	}
 }
@@ -111,29 +111,29 @@
 	:root {
 		--font-size-xs: 14px;
 		--font-size-s: 18px;
-		--font-size-m: 21px;
+		--font-size-m: 22px;
 		--font-size-l: 24px;
 		--font-size-xl: 28px;
 		--font-size-2xl: 32px;
 		--font-size-3xl: 36px;
 
-		--font-size-heading-hl1: 71px;
-		--font-size-heading-hl2: 65px;
+		--font-size-heading-hl1: 72px;
+		--font-size-heading-hl2: 66px;
 		--font-size-heading-hl3: 58px;
-		--font-size-heading-h1: 41px;
-		--font-size-heading-h2: 35px;
-		--font-size-heading-h3: 31px;
-		--font-size-heading-h4: 27px;
-		--font-size-heading-h5: 23px;
-		--font-size-heading-h6: 20px;
+		--font-size-heading-h1: 42px;
+		--font-size-heading-h2: 36px;
+		--font-size-heading-h3: 32px;
+		--font-size-heading-h4: 28px;
+		--font-size-heading-h5: 24px;
+		--font-size-heading-h6: 22px;
 	}
 }
 
 @media (width < 800px) {
 	:root {
-		--font-size-xs: 13px;
+		--font-size-xs: 14px;
 		--font-size-s: 16px;
-		--font-size-m: 19px;
+		--font-size-m: 18px;
 		--font-size-l: 22px;
 		--font-size-xl: 26px;
 		--font-size-2xl: 30px;
@@ -153,22 +153,22 @@
 
 @media (width < 540px) {
 	:root {
-		--font-size-xs: 10px;
-		--font-size-s: 12px;
-		--font-size-m: 14px;
-		--font-size-l: 16px;
-		--font-size-xl: 18px;
+		--font-size-xs: 12px;
+		--font-size-s: 14px;
+		--font-size-m: 16px;
+		--font-size-l: 18px;
+		--font-size-xl: 20px;
 		--font-size-2xl: 22px;
 		--font-size-3xl: 26px;
 
-		--font-size-heading-hl1: 30px;
-		--font-size-heading-hl2: 28px;
-		--font-size-heading-hl3: 26px;
-		--font-size-heading-h1: 24px;
-		--font-size-heading-h2: 22px;
-		--font-size-heading-h3: 20px;
-		--font-size-heading-h4: 16px;
-		--font-size-heading-h5: 14px;
-		--font-size-heading-h6: 12px;
+		--font-size-heading-hl1: 32px;
+		--font-size-heading-hl2: 30px;
+		--font-size-heading-hl3: 28px;
+		--font-size-heading-h1: 26px;
+		--font-size-heading-h2: 24px;
+		--font-size-heading-h3: 22px;
+		--font-size-heading-h4: 20px;
+		--font-size-heading-h5: 18px;
+		--font-size-heading-h6: 16px;
 	}
 }
