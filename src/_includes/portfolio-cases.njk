@@ -34,7 +34,7 @@
 						{% endif %}
 
 						{% if item.data.role or item.data.focus %}
-							<dl class="portfolio__meta meta">
+							<dl class="portfolio__meta meta meta_columns_2">
 								{% if item.data.role %}
 									<dt class="meta__term">Role:</dt>
 									<dd class="meta__value">{{ (item.data.role | markdown | trim) | safe }}</dd>

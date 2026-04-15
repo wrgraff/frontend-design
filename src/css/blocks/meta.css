@@ -18,6 +18,10 @@
 	column-gap: var(--meta-column-gap);
 }
 
+.meta_columns_2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
 .meta__term {
 	grid-row: 1 / 2;
 	color: var(--meta-term-color);

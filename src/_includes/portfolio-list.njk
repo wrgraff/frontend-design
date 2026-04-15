@@ -5,10 +5,8 @@
 ) %}
 
 	{% if slugList and slugList.length %}
-		{# Фильтруем коллекцию, оставляем только элементы с нужными slug #}
 		{% set selectedItems = collection | filterBySlugList(slugList) %}
 	{% else %}
-		{# Если список slug не передан – используем всю коллекцию #}
 		{% set selectedItems = collection %}
 	{% endif %}
 

@@ -25,11 +25,11 @@ sections:
     heading: Current position
     lead: "My work focuses on data-heavy products that help people understand costs, monitor utilization, and plan infrastructure and budgets with confidence:"
     details:
-      - "**Cloud Cost Explorer** — Helps understand cloud spend: trends, forecast, optimize"
+      - "[**Cloud Cost Explorer**](/portfolio/cloud-cost-explorer/) — Helps understand cloud spend: trends, forecast, optimize"
       - "**Utilization Monitor** — Helps understand cloud spend: trends, forecast, optimize"
       - "**Infrastructure Planner** — Helps understand cloud spend: trends, forecast, optimize"
       - "**Dashboard Builder** — Helps understand cloud spend: trends, forecast, optimize"
-    conclusion: "I built and own our design system, which became a foundation for the company’s products. **Mars Design System** — consistency and scalability across components, patterns, and states."
+    conclusion: "I built and own our design system, which became a foundation for the company’s products. [**Mars Design System**](/portfolio/mars-design-system/) — consistency and scalability across components, patterns, and states."
     timeline:
       date: August 2021 – Present
       company: CloudTech
