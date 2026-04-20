@@ -2,6 +2,7 @@
 
 .hero {
 	--hero-img-size: 680px;
+	--hero-img-container-size: 200px;
 	--hero-padding-y: 120px;
 	--hero-padding-x: var(--space-page-padding-x);
 	--hero-gap: var(--space-gap-l);
@@ -55,6 +56,7 @@
 	.hero {
 		--hero-padding-y: 80px;
 		--hero-img-size: 280px;
+		--hero-img-container-size: 0;
 		--hero-text-column: 1 / 5;
 		--hero-image-column: 5 / 6;
 		--hero-image-row: 1 / 2;
@@ -98,6 +100,7 @@
 /* Hero Image */
 
 .hero__img {
+	height: var(--hero-img-container-size);
 	grid-column: var(--hero-image-column);
 	grid-row: var(--hero-image-row);
 	position: relative;
@@ -117,8 +120,14 @@
 	height: var(--hero-img-size);
 	left: calc(50% - (var(--hero-img-size) / 2 + var(--hero-picture-offset-x)));
 	position: absolute;
-	top: calc(50% - var(--hero-img-size) / 2);
+	top: calc(var(--hero-img-size) / -6);
 	width: var(--hero-img-size);
+}
+
+@media (width < 800px) {
+	.hero__picture {
+		top: 0;
+	}
 }
 
 .hero__picture::before {

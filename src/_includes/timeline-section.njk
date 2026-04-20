@@ -67,12 +67,14 @@
 					{% if data.timeline.date %}
 						<p class="timeline__date">{{ data.timeline.date }}</p>
 					{% endif %}
-					{% if data.timeline.company %}
-						<p class="timeline__company">{{ data.timeline.company }}</p>
-					{% endif %}
-					{% if data.timeline.role %}
-						<p class="timeline__role">{{ data.timeline.role }}</p>
-					{% endif %}
+					<div class="timeline__position">
+						{% if data.timeline.company %}
+							<p class="timeline__company">{{ data.timeline.company }}</p>
+						{% endif %}
+						{% if data.timeline.role %}
+							<p class="timeline__role">{{ data.timeline.role }}</p>
+						{% endif %}
+					</div>
 					{% if data.timeline.description %}
 						<p class="timeline__description">{{ data.timeline.description }}</p>
 					{% endif %}
