@@ -69,6 +69,12 @@
 		box-shadow var(--transition-element-duration) var(--transition-element-function);
 }
 
+@media (width < 1600px) {
+	.site-list__link {
+		display: flex;
+	}
+}
+
 .site-list__icon {
 	flex-grow: 0;
 	flex-shrink: 0;
