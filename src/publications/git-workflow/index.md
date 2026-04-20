@@ -82,7 +82,7 @@ At the center of this setup is the **main** branch. In older projects, this bran
 
 This branch contains the stable version of the project — the code that is trusted enough to be merged, built, and potentially deployed.
 
-![Main repository on GitHub](img/step-1.png)
+![Main repository on GitHub](img/step-1.png "Main repository on GitHub")
 
 Because this branch is important, teams usually protect it. Not everyone is allowed to push directly into it. That reduces the chance of accidental breakage.
 

@@ -234,6 +234,34 @@ const markdown = new MarkdownIt({
 	highlight: (code, infoString) => renderCodeSnippet(code, infoString),
 });
 
+const defaultImageRenderer = markdown.renderer.rules.image
+	|| ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options));
+
+markdown.renderer.rules.image = (tokens, idx, options, env, self) => {
+	const imageToken = tokens[idx];
+	const src = imageToken.attrGet('src');
+
+	if (!src) {
+		return defaultImageRenderer(tokens, idx, options, env, self);
+	}
+
+	const title = imageToken.attrGet('title');
+	const alt = self.renderInlineAsText(imageToken.children || [], options, env);
+	const escapedSrc = escapeHtml(src);
+	const escapedAlt = escapeHtml(alt);
+	const titleMarkup = title
+		? `<span class="article-image__title">${escapeHtml(title)}</span>`
+		: '';
+	const imageMarkup = `<picture class="article-image__media"><img class="article-image__img" src="${escapedSrc}" alt="${escapedAlt}" loading="lazy" decoding="async"></picture>`;
+	const isLinkedImage = tokens[idx - 1]?.type === 'link_open' && tokens[idx + 1]?.type === 'link_close';
+
+	if (isLinkedImage) {
+		return `<span class="article-image">${imageMarkup}${titleMarkup}</span>`;
+	}
+
+	return `<span class="article-image"><a href="${escapedSrc}" class="article-image__link">${imageMarkup}${titleMarkup}</a></span>`;
+};
+
 module.exports = function (config) {
 	const isProduction = process.env.ELEVENTY_ENV === 'production';
 	const byOrder = (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0);
