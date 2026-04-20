@@ -154,6 +154,9 @@ CTA item:
 Constraints:
 - `heading` is rendered as `<h1>`.
 
+Behavior:
+- If `hero.image` is empty/missing, root section gets modifier class `hero_size_small`.
+
 ## articleHeader
 
 Source: `src/_includes/article-header.njk`  

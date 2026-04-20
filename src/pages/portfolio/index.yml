@@ -2,8 +2,6 @@ title: Portfolio
 hero:
   heading: Portfolio
   text: Selected recent work — the projects most relevant to product design roles
-  image: /img/portfolio/hero.png
-  image_alt: Artur Trifonov portfolio
   cta:
     - text: Download CV
       href: /files/atrifonov-cv-en.pdf

@@ -1,11 +1,12 @@
 {% from 'cta-item.njk' import ctaItem %}
 
 {% macro heroSection(hero) %}
-<section class="main__section hero">
-	{% if hero.image %}
+{% set hasImage = hero.image | default('', true) | trim %}
+<section class="main__section hero{% if not hasImage %} hero_size_small{% endif %}">
+	{% if hasImage %}
 		<div class="hero__img">
 			<picture class="hero__picture">
-				<img src="{{ hero.image }}" alt="{{ hero.image_alt or '' }}">
+				<img src="{{ hasImage }}" alt="{{ hero.image_alt or '' }}">
 			</picture>
 		</div>
 	{% endif %}

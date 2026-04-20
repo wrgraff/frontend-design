@@ -97,6 +97,10 @@
 	z-index: 0;
 }
 
+.hero_size_small {
+	padding: var(--hero-padding-x);
+}
+
 /* Hero Image */
 
 .hero__img {

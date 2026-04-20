@@ -1,9 +1,7 @@
 title: Publications
 hero:
   heading: Publications
-  text: A selection of articles and videos where I share how I think about product UI, design systems, and building data-heavy interfaces
-  image: /img/publications/hero.png
-  image_alt: Publications page hero illustration
+  text: A selection of articles and videos about design and web development
   cta:
     - text: Check portfolio
       href: /portfolio/
