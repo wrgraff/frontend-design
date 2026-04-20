@@ -6,7 +6,8 @@ const pimport = require('postcss-import');
 const fs = require('node:fs');
 const path = require('node:path');
 const yaml = require('js-yaml');
-const markdown = require('markdown-it')({ html: true });
+const MarkdownIt = require('markdown-it');
+const highlightjs = require('highlight.js/lib/common');
 const esbuild = require('esbuild');
 const Typograf = require('typograf');
 const typograf = new Typograf({
@@ -179,6 +180,60 @@ function normalizeIconSvgAttributes(svgMarkup, className, size) {
 	});
 }
 
+function escapeHtml(value) {
+	return String(value ?? '')
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+}
+
+function getCodeLanguage(infoString) {
+	const language = String(infoString ?? '')
+		.trim()
+		.split(/\s+/u)
+		[0]
+		?.toLowerCase();
+
+	if (!language) {
+		return '';
+	}
+
+	return highlightjs.getLanguage(language) ? language : '';
+}
+
+function renderCodeSnippet(code, infoString) {
+	const language = getCodeLanguage(infoString);
+	const languageClass = language ? ` language-${language}` : '';
+	const highlightedCode = language
+		? highlightjs.highlight(code, { language, ignoreIllegals: true }).value
+		: escapeHtml(code);
+
+	return `<pre class="code-snippet"><code class="code-snippet__code hljs${languageClass}">${highlightedCode}</code></pre>`;
+}
+
+function protectCodeFragments(content) {
+	const protectedFragments = [];
+	const placeholderPrefix = '__CODE_FRAGMENT_';
+	const protectedContent = String(content ?? '').replace(/<(pre|code)\b[\s\S]*?<\/\1>/gi, (fragment) => {
+		const index = protectedFragments.push(fragment) - 1;
+		return `${placeholderPrefix}${index}__`;
+	});
+
+	return {
+		protectedContent,
+		restore: (value) => protectedFragments.reduce((result, fragment, index) => {
+			return result.replace(`${placeholderPrefix}${index}__`, fragment);
+		}, String(value ?? ''))
+	};
+}
+
+const markdown = new MarkdownIt({
+	html: true,
+	highlight: (code, infoString) => renderCodeSnippet(code, infoString),
+});
+
 module.exports = function (config) {
 	const isProduction = process.env.ELEVENTY_ENV === 'production';
 	const byOrder = (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0);
@@ -316,10 +371,11 @@ module.exports = function (config) {
 			return content;
 		}
 
-		const typographedContent = typograf.execute(content)
+		const { protectedContent, restore } = protectCodeFragments(content);
+		const typographedContent = typograf.execute(protectedContent)
 			.replace(/([^\s>])(<strong\b[^>]*>)/g, '$1 $2');
 
-		return widontHtml(typographedContent);
+		return restore(widontHtml(typographedContent));
 	});
 
 	// Passthrough copy

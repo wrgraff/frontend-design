@@ -27,3 +27,13 @@
 		url('../fonts/lexend-bold.woff2') format('woff2'),
 		url('../fonts/lexend-bold.woff') format('woff');
 }
+
+@font-face {
+	font-display: swap;
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		url('../fonts/jetbrains-mono-regular.woff2') format('woff2'),
+		url('../fonts/jetbrains-mono-regular.woff') format('woff');
+}
