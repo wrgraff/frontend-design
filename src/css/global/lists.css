@@ -8,16 +8,15 @@
 :where(ul, ol):not([class]) > li {
 	position: relative;
 	align-items: start;
-	column-gap: var(--space-gap-xs);
 	font: var(--font-text-s);
 	margin: 0;
-	padding-left: calc(var(--space-gap-3xs) + var(--space-size-xs));
+	padding-left: calc(var(--space-gap-3xs) + var(--space-size-xs) + var(--space-gap-xs));
 }
 
 :where(ul):not([class]) > li::before {
 	content: '';
 	position: absolute;
-	left: 0;
+	left: var(--space-gap-3xs);
 	background-color: var(--color-text-alt);
 	height: var(--space-border-medium);
 	margin-top: .8em;
@@ -36,7 +35,7 @@
 	color: var(--color-text-alt);
 	content: counter(list-item, decimal-leading-zero);
 	position: absolute;
-	left: 0;
+	left: var(--space-gap-3xs);
 	font: var(--font-caption-xs);
 	letter-spacing: var(--font-caption-letterspacing);
 	margin-top: var(--space-gap-3xs);
