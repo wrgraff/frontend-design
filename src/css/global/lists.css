@@ -6,17 +6,18 @@
 }
 
 :where(ul, ol):not([class]) > li {
+	position: relative;
 	align-items: start;
 	column-gap: var(--space-gap-xs);
-	display: grid;
 	font: var(--font-text-s);
-	grid-template-columns: var(--space-size-xs) minmax(0, 1fr);
 	margin: 0;
-	padding-left: var(--space-gap-3xs);
+	padding-left: calc(var(--space-gap-3xs) + var(--space-size-xs));
 }
 
 :where(ul):not([class]) > li::before {
 	content: '';
+	position: absolute;
+	left: 0;
 	background-color: var(--color-text-alt);
 	height: var(--space-border-medium);
 	margin-top: .8em;
@@ -34,6 +35,8 @@
 :where(ol):not([class]) > li::before {
 	color: var(--color-text-alt);
 	content: counter(list-item, decimal-leading-zero);
+	position: absolute;
+	left: 0;
 	font: var(--font-caption-xs);
 	letter-spacing: var(--font-caption-letterspacing);
 	margin-top: var(--space-gap-3xs);
