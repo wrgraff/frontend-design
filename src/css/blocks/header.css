@@ -3,7 +3,7 @@
 .header {
 	--header-padding-x: var(--space-page-padding-x);
 	--header-padding-y: var(--space-gap-m);
-	--header-gap: var(--space-gap-4xs);
+	--header-gap: var(--space-gap-l);
 	--header-logo-width: 243px;
 	--header-logo-height: 64px;
 	--header-logo-offset: -24px;
@@ -25,7 +25,6 @@
 	.header {
 		--header-logo-width: 213px;
 		--header-logo-height: 56px;
-		--header-gap: var(--space-gap-l);
 		--header-logo-offset: -16px;
 	}
 }
@@ -122,23 +121,13 @@
 @media (width < 1600px) {
 	.header__trail {
 		display: flex;
+		grid-column: 1 / -1;
+		grid-row: 1;
 		min-width: 0;
 	}
 
 	.header__menu {
 		display: flex;
-	}
-}
-
-@media (width < 1100px) {
-	.header__container {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-	}
-
-	.header__trail {
-		grid-column: 1 / -1;
-		grid-row: 1;
 	}
 
 	.header__logo {
