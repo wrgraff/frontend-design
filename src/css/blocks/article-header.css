@@ -3,7 +3,7 @@
 .article-header {
 	--article-header-gap: var(--space-gap-l);
 	--article-header-padding-y: 80px;
-	--article-header-padding-x: 80px;
+	--article-header-padding-x: var(--space-page-padding-x);
 	--article-header-columns: 5;
 	--article-header-tags-gap: var(--space-gap-xs);
 	--article-header-heading-font: var(--font-heading-hl3);

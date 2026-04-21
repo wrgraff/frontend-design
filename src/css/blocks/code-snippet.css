@@ -1,8 +1,6 @@
 /* Variables */
 
 .code-snippet {
-	--code-snippet-border: var(--space-border-light) solid var(--color-border-base);
-	--code-snippet-radius: var(--radius-m);
 	--code-snippet-bg: var(--color-surface-secondary);
 	--code-snippet-padding-y: var(--space-gap-s);
 	--code-snippet-padding-x: var(--space-gap-m);
@@ -20,9 +18,9 @@
 
 .code-snippet {
 	background-color: var(--code-snippet-bg);
-	border: var(--code-snippet-border);
-	border-radius: var(--code-snippet-radius);
 	display: block;
+	max-width: 100%;
+	overflow-x: auto;
 	padding: var(--code-snippet-padding-y) var(--code-snippet-padding-x);
 }
 
@@ -32,6 +30,7 @@
 	color: var(--code-snippet-color);
 	display: block;
 	font: var(--code-snippet-font);
+	min-width: max-content;
 	white-space: pre;
 }
 

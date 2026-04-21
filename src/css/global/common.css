@@ -26,6 +26,18 @@ strong {
 	font-weight: inherit;
 }
 
+:where(:not(pre) > code) {
+	background-color: var(--color-surface-secondary);
+	border-radius: var(--radius-xs);
+	color: var(--color-text-base);
+	font-family: var(--font-family-monospace);
+	font-size: .9em;
+	hyphens: none;
+	margin: 0;
+	overflow-wrap: anywhere;
+	padding: .1em .3em .1em;
+}
+
 /* Typography baseline */
 
 :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, pre, figure) {
