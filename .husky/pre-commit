@@ -3,3 +3,4 @@ npx lint-staged
 npm run lint:js
 npm run lint:css
 npm run lint:data
+npm run lint:html
