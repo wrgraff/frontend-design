@@ -4,10 +4,10 @@
 	--video-gap: var(--space-gap-s);
 	--video-columns: 5;
 	--video-padding-y: 80px;
-	--video-padding-x: 80px;
+	--video-padding-x: var(--space-page-padding-x);
+	--video-content-ratio: 16 / 9;
 	--video-content-radius: var(--radius-xl);
 	--video-border: var(--space-border-light) solid var(--color-border-base);
-	--video-media-height: 720px;
 	--video-footer-padding: var(--space-gap-l);
 	--video-footer-border: var(--space-border-light) solid var(--color-border-base);
 	--video-footer-bg: rgb(from var(--color-surface-secondary) r g b / 40%);
@@ -49,6 +49,7 @@
 }
 
 .video__content {
+	aspect-ratio: var(--video-content-ratio);
 	border: var(--video-border);
 	border-radius: var(--video-content-radius);
 	overflow: hidden;
@@ -57,7 +58,7 @@
 
 .video__media {
 	display: block;
-	height: var(--video-media-height);
+	height: 100%;
 }
 
 .video__img,
