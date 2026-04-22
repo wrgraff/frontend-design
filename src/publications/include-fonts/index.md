@@ -1,86 +1,90 @@
 ---
 layout: publication.njk
-title: 'Как подключать шрифты'
-heading: 'Как подключать шрифты'
+title: 'How to Load Fonts'
+heading: 'How to Load Fonts'
 order: 3
 kind: article
 external: false
-description: 'Как назвать шрифт, почему важен порядок файлов, какие свойства указывать и как оптимизировать загрузку'
+description: 'How to name a font family correctly, why file order matters, which properties to specify, and how to optimize loading'
 cover: /img/publications/hero.png
 cover_width: 681
 cover_height: 744
 author: artur-trifonov
 tags:
-    - fonts
-    - css
-    - performance
+  - fonts
+  - css
+  - performance
 ---
 
-## Какие способы глобально
+## What are the main ways to load fonts?
 
-Если говорить в очень общем смысле, то способов подключить сами шрифты к странице — это локально и внешне через какой-то сервис вроде Google Fonts.  
+Speaking very broadly, there are two main ways to load fonts on a page: locally, or externally through a service like Google Fonts.  
 
-Подключать шрифты через сервис довольно просто, достаточно разобраться в интерфейсе Google Fonts. Поэтому, этот способ мы рассматривать не будем, а разберем вариант с подключением шрифтов локально.
+Loading fonts through a service is fairly simple — you mostly just need to understand the Google Fonts interface. So we will not cover that option here and will focus on loading fonts locally instead.
 
-Если же вы в поисках легкого пути, то вам тут делать особо нечего =)  
-*(Но можно прочитать последнюю часть, там про указание шрифта)*
+If you are looking for the easiest route, there is probably not much for you here =)  
+*(Though you may still want to read the last section — it is about how to specify a font properly.)*
 
-## Из чего состоят шрифты
+## What fonts are made of
 
-Зайдем издалека и рассмотрим структуру шрифта. Нам понадобятся эти знания, чтобы понимать, как мы управляемся со шрифтом.
+Let’s take a step back and look at font structure first. We will need that to understand what exactly we are working with.
 
-*Я попрошу людей, знакомых с типографией, несколько расслабиться: мы рассмотрим все в контексте веба и не будем слишком сильно усложнять.*  
+*I would ask people who know typography well to relax a little: we are looking at this in the context of the web, so there is no need to overcomplicate it.*  
 
-Прежде всего, шрифты делятся на несколько типов. Вот самые основные (иное едва ли встретится):
+First of all, fonts can be divided into several basic categories. These are the main ones you are likely to encounter:
 
-- шрифты с засечками (**serif**);
-- шрифты без засечек (**sans-serif**);
-- моноширинные (**monospace**).
+- serif fonts (**serif**);
+- sans-serif fonts (**sans-serif**);
+- monospaced fonts (**monospace**).
 
-Возьмем, например, семейство **Open Sans**. Это семейство без засечек, оно попадает в категорию **sans-serif**. *Стоп!* Мы только что говорили про шрифты, какое еще “**семейство**”?
+Let’s take **Open Sans** as an example. It is a sans-serif family, so it belongs to the **sans-serif** category. *Wait.* We were just talking about fonts — what do you mean by a **family**?
 
-**Семейство** — это набор шрифтов, объединенных общей стилистикой (это еще можно назвать “гарнитура”, но нам в вебе ближе термин “семейство”).
-Именно семейства имеют названия: `Arial, Times New Roman, Helvetica`. И **Open Sans** в том числе. Давайте откроем [Open Sans на Google Fonts](https://fonts.google.com/specimen/Open+Sans#standard-styles) и посмотрим что там есть:
+A **family** is a set of fonts united by a shared visual style. You could also call it a typeface, but in web development the term “family” is the more practical one.
 
-![Семейство Open Sans на Google Fonts](img/opensans-family.png)
+Families are what have names: `Arial`, `Times New Roman`, `Helvetica`. **Open Sans** as well. Let’s open [Open Sans on Google Fonts](https://fonts.google.com/specimen/Open+Sans#standard-styles) and see what is inside:
 
-Итак, куча разных вариантов. По сути, каждый вариант — это и есть шрифт, входящий в семейство Open Sans.
+![Open Sans family on Google Fonts](img/opensans-family.png)
 
-Если его скачать, то каждый шрифт будет представлен отдельным файлом:
+So, quite a lot of variations. In practice, each variation is a separate font inside the Open Sans family.
 
-![Файлы семейства Open Sans](img/font-files.png)
+If you download it, each font is represented by its own file:
 
-Можно легко заметить, что шрифты отличаются друг от друга по двум параметрам: толщине (или весу, **weight**) и начертанию (**style**).  
-Чуть ниже находится список глифов — букв и символов, которые есть в этом семействе (но нам это важно, только если мы захотим упороться на оптимизации):
+![Open Sans family files](img/font-files.png)
 
-![Глифы семейства Open Sans](img/font-glyphs.png)
+It is easy to notice that fonts differ by two main properties: thickness, or **weight**, and **style**.  
+A little further down you can also see the list of glyphs — letters and symbols included in the family. That only becomes important if you want to get deep into optimization:
 
-Ну, со структурой шрифта разобрались, давайте подключать!
+![Glyphs in the Open Sans family](img/font-glyphs.png)
 
-## Разбираем @font-face по кусочкам
+Now that the structure is clear, let’s load the font.
 
-Итак, чтобы подключить шрифт, нам нужно в CSS использовать правило `@font-face`:
+## Breaking `@font-face` into pieces
 
-``` css
+To load a font in CSS, we use the `@font-face` rule:
+
+```css
 @font-face {
     ...
 }
 ```
 
-Это правило будет подключать шрифт (именно шрифт, и теперь мы знаем что это значит). Разберемся на примере нашего Open Sans.
+This rule loads a font — an actual font, and now we know what that means. Let’s use Open Sans as an example.
 
-### Основные параметры шрифта
-- font-family — указывает, к какому семейству относится шрифт;
-- font-weight — указывает вес шрифта;
-- font-style — указывает начертание шрифта.
+### The main font properties
 
-Будьте внимательны с параметром font-family. Там должно быть указано именно семейство шрифта, то есть в нашем случае это `'Open Sans'`.
-Многие по ошибке указывают `'Open Sans Bold'`, `'Open Sans Italic'` и создают тем самым семейства с одним шрифтом. И каждый раз, меняя толщину шрифта, приходится менять и семейство.  
-Так делать не нужно, `@font-face` как раз позволяет нам подключать к одному семейству разные шрифты с указанным весом и начертанием, чтобы браузер по этим параметрам брал нужный файл.
+- `font-family` — defines which family the font belongs to;
+- `font-weight` — defines the font weight;
+- `font-style` — defines the font style.
 
-Получается что-то такое:
+Be careful with `font-family`. It should contain the family name itself, so in our case it is `'Open Sans'`.
 
-``` css
+A common mistake is to write `'Open Sans Bold'` or `'Open Sans Italic'` there, which effectively creates separate one-font families. Then every time you want to change the weight, you also have to change the family name.
+
+That is not how it should be done. `@font-face` exists specifically so that you can load different font files into one family and let the browser choose the correct file based on weight and style.
+
+So the setup looks something like this:
+
+```css
 @font-face {
     font-family: 'Open Sans';
     font-weight: 400;
@@ -94,15 +98,15 @@ tags:
 }
 ```
 
-### Подключаем файлы
+### Loading the files
 
-Как мы помним, каждый шрифт представлен отдельным файлом. Поэтому, для каждого `@font-face` правила нужно подключить свой файл. Но с ними не все так просто (ну а как же).
+As we already know, each font is stored in a separate file. That means every `@font-face` rule needs its own file reference. But, of course, it is not quite that simple.
 
-У шрифтов очень много различных форматов. К счастью, для современных браузеров на данный момент используется всего 2: woff и woff2. woff2 чуть современнее и лучше оптимизирован.
+Fonts come in many different formats. Fortunately, for modern browsers today, only two really matter: `woff` and `woff2`. `woff2` is newer and more efficient.
 
-Чтобы подключить файлы, нужно воспользоваться параметром `src`:
+To connect the files, use the `src` property:
 
-``` css
+```css
 @font-face {
     font-family: 'Open Sans';
     font-weight: 400;
@@ -122,24 +126,24 @@ tags:
 }
 ```
 
-Важно соблюсти порядок подключения и начинать с более современного (менее поддерживаемого, но лучше оптимизированного) формата.
+It is important to keep the correct order and start with the more modern format — the one with slightly less support, but better optimization.
 
-**Почему так?**  
-Браузер будет считывать список файлов по очереди и загрузит первый подходящий ему файл. Все браузеры, имеющие поддержку woff2, поддерживают и woff. Следовательно, если woff будет идти первым, то до более современного формата браузеры никогда не дойдут.
+**Why?**  
+The browser reads the list in order and loads the first format it supports. Every browser that supports `woff2` also supports `woff`. So if `woff` comes first, the browser will never even reach the more modern format.
 
-### Оптимизация загрузки
+### Optimizing font loading
 
-Кажется, что шрифт — файл очень небольшой, всего несколько десятков килобайт. Что, блин, там оптимизировать?
+A font file may only weigh a few dozen kilobytes. What is there to optimize?
 
-Ну, давайте начнем с того, что шрифт по степени важности намного выше, чем даже контентные картинки, потому что 99% сайтов самую важную информацию предоставляют в текстовом виде. Поэтому, задержка в отображении текста крайне критична и с большой долей вероятности посетитель обратит на это внимание. А уж если вдруг что-то случится со стабильностью или скоростью интернета…
+Well, for starters, a font is often much more important than even content images, because 99% of websites deliver their most important information through text. So any delay in text rendering is highly noticeable, and users are very likely to feel it. Especially if the connection is slow or unstable.
 
-Возможно, вы замечали, что на некоторых сайтах при загрузке появляется совсем белая страница, а на других текст показывается сперва одним шрифтом, а затем другим.  
+You may have noticed that some websites show a blank white page for a moment while loading, while others first show text in one font and then switch to another.
 
-Как раз за это отвечает параметр `font-display`. Про нюансы его работы можно писать отдельную статью (хотя, что значит можно, вот [статья Зака Лезермана в переводе на CSS-live](https://css-live.ru/articles/ischerpyvayushhee-rukovodstvo-po-strategiyam-zagruzki-veb-shriftov.html) с кучей слов и жуткими аббревиатурами типа FOIT, FOUT и FOFT).
+That behavior is controlled by the `font-display` property. You could write a whole separate article about its nuances. In fact, there already is one — [Zach Leatherman’s article translated on CSS-live](https://css-live.ru/articles/ischerpyvayushhee-rukovodstvo-po-strategiyam-zagruzki-veb-shriftov.html), full of words and terrifying abbreviations like FOIT, FOUT, and FOFT.
 
-Я же просто укажу, что значение `auto`, действующее по умолчанию, обычно использует стратегию `block`, которая означает, что пока шрифт грузится, браузер не показывает ту самую белую страницу, что не очень здорово, так как соединение может быть плохим или вовсе оборваться, что оставит посетителя сайта без текста.
+I will keep it simple here: the default value, `auto`, usually behaves like `block`, which means that while the font is loading, the browser may hide the text entirely. That is not great, because the connection may be poor or even fail completely, leaving the visitor with no visible text.
 
-Лично я предпочитаю значение `swap`: так браузер сперва покажет текст запасным шрифтом, а как только загрузится нужный, то он заменит запасной на него. Да, это создаст небольшое дергание страницы, но зато текст будет доступен сразу:
+Personally, I prefer `swap`: the browser first shows the text using a fallback font, then replaces it with the intended one as soon as it loads. Yes, this can cause a slight visual shift, but at least the text is available immediately:
 
 ```css
 @font-face {
@@ -153,13 +157,13 @@ tags:
 }
 ```
 
-Помимо этого, можно ускорить загрузку шрифта, добавив в `<head>` страницы предзагрузку для тех файлов шрифтов, что точно понадобятся. Тогда браузер начнет загружать шрифт еще до того, как распарсит стили и сам поймет, какие шрифты ему нужны:
+On top of that, you can speed up font loading by adding a preload in the page `<head>` for the font files you know will definitely be needed. Then the browser starts fetching the font before it has even parsed the CSS and figured out which fonts are required:
 
 ```html
 <link rel="preload" href="fonts/open-sans.woff2" as="font" type="font/woff2" crossorigin>
 ```
 
-Есть и еще один метод: указать в адресе шрифта имя для поиска среди локально установленных в системе пользователя шрифтов, что вообще избавит от необходимости загружать какие-либо файлы:
+There is also another method: you can specify a local font name in the font source and let the browser check whether the user already has that font installed, which can eliminate the need to download any font files at all:
 
 ```css
 @font-face {
@@ -174,40 +178,45 @@ tags:
 }
 ```
 
-Однако, здесь стоит проявить осторожность, так как на компьютере пользователя может стоять какой-нибудь пиратский или устаревший шрифт, который не будет выглядеть так же, как ваш.
+Still, this should be used with caution, because the user might have some outdated or unofficial version of the font installed, and it may not look the same as yours.
 
-Ну и напоследок: можно разделить шрифт по глифам и загружать его только при необходимости использования символов из определенного диапазона.  
-В рамках курса этого не только не требуют, но и не рассказывают о таких возможностях. Если же очень интересно, то рекомендую посмотреть выступление Вадима Макеева [_____ ___ _____?](https://youtu.be/uI3Q5m9xkkw)
+And one last thing: fonts can also be split by glyph ranges and loaded only when characters from a certain range are actually needed.
 
-## Как указывать шрифт
+This is well beyond the scope of a basic course — it is usually neither required nor explained there. But if you are curious, I would recommend Vadim Makeev’s talk [_____ ___ _____?](https://youtu.be/uI3Q5m9xkkw).
 
-Ну и последнее: как правильно шрифт указывать? Кажется, все очень просто: есть свойство font-family:
+## How to specify a font correctly
 
-``` css
+And finally, how should you actually specify a font?
+
+At first glance, it seems simple enough. There is the `font-family` property:
+
+```css
 font-family: 'Open Sans';
 ```
 
-Но на самом деле этого недостаточно, нужно указать еще 2 параметра:
+But in reality, this is not enough. You should also specify two more things:
 
-- **веб-безопасный шрифт**: это максимально похожий шрифт на нужный, который подключится если вдруг не загрузится нужный. Это должен быть один из шрифтов, имеющий значительную долю в одной из популярных операционных систем. Список можно посмотреть [где-нибудь в интернете](https://www.cssfontstack.com/);
-- **семейство шрифта**: это уже по сути тип шрифта, в основном это будет шрифт с засечками или без.
+- **a web-safe font** — a reasonably similar font that will be used if the main one fails to load. This should be one of the fonts that are widely available on major operating systems. You can find lists of such fonts [somewhere on the internet](https://www.cssfontstack.com/);
+- **a generic font family** — essentially the broader font category, most often serif or sans-serif.
 
-И получится что-то такое:
+So the final declaration looks something like this:
 
-``` css
+```css
 font-family: 'Open Sans', 'Arial', sans-serif;
 ```
 
-> Небольшой оффтоп. И сразу предупреждаю: на курсе так не делаем =)  
-> В общем, на мой взгляд веб-безопасный шрифт вещь довольно бесполезная. Ни один из этих старых допотопных шрифтов не будет похож на современный.  
-> Более того, если выставить сразу sans-serif, то система применит свой шрифт. Для современных macOS это будет San Francisco, а для Windows это будет Segue UI. Так вот, любой этот шрифт будет больше похож на Open Sans, чем допотопный Arial или его братья.  
-> Так что получается, что веб-безопасный шрифт только мешает.
+> A small off-topic note. And a warning right away: this is not how we do it in the course =)  
+> Personally, I think web-safe fonts are not especially useful. None of those old legacy fonts really looks like a modern one.  
+> More than that, if you specify `sans-serif` directly, the system will use its own default sans-serif font. On modern macOS that will be San Francisco, and on Windows it will be Segoe UI. In practice, either of those is closer to Open Sans than ancient Arial or its relatives.  
+> So in the end, the so-called web-safe font often just gets in the way.
 
-И есть еще один важный момент, который касается наследования. Это относится не только к шрифтам, но тем не менее рассмотрим этот момент.
-В самом свойстве font-family все довольно просто: браузер пытается подключить первый шрифт, и если не получается, то пытается подключить следующий, пока не получится. Если совсем не получится, браузер в итоге подключит Times New Roman (поэтому и указываем в конце семейство).
-Однако, внимание обратить нужно вот на что. Многие, указав весь необходимый набор шрифтов для body, для вложенных элементов с другим шрифтом уже не прописывают веб-безопасный и семейство:
+There is one more important point related to inheritance. This applies not only to fonts, but fonts make it easy to explain.
 
-``` css
+Inside `font-family`, the logic is straightforward: the browser tries the first option, and if it cannot use it, it moves to the next one, and so on. If nothing works, the browser eventually falls back to Times New Roman, which is why we add the generic family at the end.
+
+But here is the part that really matters. Many people define a full font stack on `body`, and then for nested elements with another font they only write the new family name without the fallback font and generic family:
+
+```css
 body {
     font-family: 'Open Sans', 'Arial', sans-serif;
 }
@@ -217,11 +226,13 @@ body {
 }
 ```
 
-И это большая ошибка, потому что браузер, когда он не сможет подключить Gotham, не пойдет в родительский элемент смотреть какие шрифты там указаны в `font-family`. CSS так не работает. Свойство `font-family` будет считаться перезаписанным полностью, и для элемента `.some-class` уже не будет иметь никакого значения что там за шрифты на `body`. И браузер попробует подключить Gotham, а затем двинется дальше, не найдет вариантов и подключит Times New Roman.
+That is a serious mistake, because when the browser fails to load Gotham, it will not go back to the parent element and check which fonts were listed in `body`. CSS does not work like that.
 
-Поэтому правильное подключение будет выглядеть так:
+The `font-family` property is considered completely overwritten. So for `.some-class`, it no longer matters what was specified on `body`. The browser tries Gotham, fails, runs out of options, and falls back to Times New Roman.
 
-``` css
+So the correct version looks like this:
+
+```css
 body {
     font-family: 'Open Sans', 'Arial', sans-serif;
 }
@@ -231,5 +242,5 @@ body {
 }
 ```
 
-Ну, вот теперь всё.  
-Успехов!
+And now that is really it.  
+Good luck!

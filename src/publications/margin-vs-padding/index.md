@@ -1,135 +1,142 @@
 ---
 layout: publication.njk
-title: 'Как отличить margin от padding'
-heading: 'Как отличить margin от padding'
+title: 'How to Tell Margin from Padding'
+heading: 'How to Tell Margin from Padding'
 order: 4
 kind: article
 external: false
-description: 'И то и другое отступы, результат одинаковый. Так что же использовать?'
+description: 'They are both spacing, and the result often looks the same. So which one should you use?'
 cover: /img/publications/hero.png
 cover_width: 681
 cover_height: 744
 author: artur-trifonov
 tags:
-    - layout
-    - css
+  - layout
+  - css
 ---
 
-В самом начале бывает трудно выбирать между margin и padding: и то и другое отступы, так что же использовать
+At the very beginning, it can be hard to choose between `margin` and `padding`: both create spacing, so which one should you use?
 
-Попробуем разобраться. Готового алгоритма нет, да и придумать его очень сложно. Поэтому сперва мы немного потеоретизируем, а затем перейдем к чуть более практичной части и разберем несколько примеров. Ну что, Погнали? (признавайтесь, у кого сейчас мурашки по спине побежали 😁 )
+Let’s try to figure it out. There is no ready-made algorithm, and it would be very hard to invent one anyway. So first we will spend a bit of time on theory, and then move on to a more practical part with a few examples. Ready? Let’s go. *(Come on, admit it — who just got goosebumps from that intro? 😁)*
 
-## Теоретизируем
-### Ключевая разница
+## A bit of theory
 
-Давайте начнем с… перевода. Мы привыкли их воспринимать как “внутренний отступ” и “внешний отступ”. Однако, прямой перевод с английского даст очень разные понятия:  
-`margin` — *поле*,  
-а `padding` — *набивка.*
+### The key difference
 
-По-моему, разница ощущается более явно, чем если представлять их как отступы. Поле — пустое пространство на котором ничего нет, а набивка — наполнение внутри ограниченного пространства.
+Let’s start with… translation. We are used to thinking of them as “inner spacing” and “outer spacing.” But if you translate the English words more directly, the meanings become much more distinct:  
+`margin` means *a field* or *a margin*,  
+and `padding` means *stuffing* or *filling*.
 
-Обычно сложности возникают с элементами с неявными границами, но если мы сравним как эти свойства меняют элемент с фоном и рамкой, то разница в поведении будет хорошо заметна:
+To me, the difference becomes much clearer this way than when both are treated simply as spacing. A field is empty space with nothing in it, while padding is content placed inside a limited area.
+
+The confusion usually appears when elements do not have explicit boundaries. But if we compare how these properties affect an element with a background and a border, the difference in behavior becomes obvious:
 
 ![Temporary illustration 1](https://paper-attachments.dropbox.com/s_0DE7E837E7F6AC584AF3939EF51ECE736B0930024CA2CC7B53F43074EA445ECE_1618420348935_margin-vs-padding.png)
 
+Indeed, `margin` creates space around the element, while `padding` fills the inside, so the text can no longer touch the edge.
 
-Действительно, margin создал поле вокруг элемента, а padding набился внутрь и текст больше не может упереться в край.
+> By the way, when deciding which kind of spacing you need, try imagining that the block you are building has a background or a border. That often helps you understand whether the space belongs inside or outside.
 
+### Reproduce behavior, not the picture
 
-> Кстати, определяя тип отступа, попробуйте представить, что у размечаемого блока есть фон или рамка. Это может помочь понять, где именно вам нужно пространство, внутри или снаружи.
+Or, to put it more precisely: reproduce the behavior, not the screenshot.
 
-### Воспроизводите, а не копируйте
+A layout is not just an image you have to match. It is an interface designed with a certain logic of behavior behind it.
 
-А если выразиться точнее: воспроизводите поведение, а не копируйте картинку.
+> That is exactly why the Pixel Perfect approach has been losing popularity so quickly: what matters is flexible layout, good handling of different content sizes, easy modification, and reliable adaptation to different devices. And all of that is about behavior.
 
-Макет сайта — это не картинка, в которую надо попасть, а продуманный дизайнером интерфейс, в который заложена своя логика поведения.
+Let’s take the simplest example. To reproduce the text placement in the square at the top right, it would be enough to add `10px` of spacing from the top and left.  
+But that is probably not the behavior the designer had in mind, because a different set of words could easily stick to the right edge. Most likely, the intention was to have inner spacing on all sides of the element, and that is what should be reproduced.
 
+> By the way, you could call this kind of spacing a “safe area,” because it protects the content from sticking to the edges.
+> If you want to protect an element from content sticking to its inner edges, you need `padding`.
+> If you want to keep other elements from sitting too close to it on the outside, you need `margin`.
 
-> Именно поэтому стремительно теряет популярность подход Pixel Perfect: важна гибкость верстки, хорошая работа с контентом разного объема, легкая модифицируемость и хорошая адаптация под разные устройства. И все это про поведение.
+## Can we get more specific already?
 
-Возьмем простейший пример. Чтобы сверстать текст как в квадрате справа сверху, вам достаточно будет добавить отступы по `10px` сверху и слева.  
-Но дизайнер вряд ли задумывал такое поведение, ведь возможен набор слов, при котором буквы “прилипнут” к правому краю. Задуман там отступ внутри элемента со всех сторон, что и следует воспроизвести в макете.
+All right, fair enough. We have been circling the point for quite a while. Let’s move on to concrete examples.
 
-> Кстати, такие отступы можно назвать “охранная область”, поскольку они обезопашивают от прилипания текста или других элементов.
-> Если вы хотите обезопасить элемент от прилипаний контента внутри — нужен padding.
-> Если же вы хотите, чтобы к элементу снаружи не располагались вплотную другие элементы — нужен margin.
+I divided them into three parts: interactive elements, groups of elements, and larger blocks. They go from the most obvious to the more context-dependent cases.
 
-## Может уже конкретнее, а?
+### Interactive elements
 
-Ладно-ладно, согласен, долго уже ходим вокруг да около. Давайте разберемся на конкретных примерах.
+These are the easiest.
 
-Я поделил примеры на 3 части: интерактив, группы элементов и крупные блоки. По степени конкретности и понятности.
+For example, buttons are usually rectangular and usually have either a background or a border. So this part is simple, right? Inside the border is `padding`, outside the border is `margin`.
 
-### Интерактивные элементы
+Of course, there can be exceptions. But in most cases, you can also find a clue in the style guide, because interaction states often make previously invisible boundaries visible:
 
-С ними проще всего. Например, кнопки в большинстве случаев — прямоугольные и либо с фоном, либо в рамочке. Тут все очень просто, правда? Внутри рамки — `padding`, снаружи — `margin`.  
-Иногда, конечно, бывают исключения, но чаще всего можно посмотреть подсказку в стайлгайде, так как при взаимодействии ранее невидимые границы могут стать видимыми:
+[There is a video here. I have not implemented embeds on the site yet, so just click and watch =Р](https://www.dropbox.com/s/5nyzwkd3ydiaexl/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-04-15%20%D0%B2%2002.37.07.mov?dl=0)
 
-[Тут ролик, я пока не реализовал встраивание на сайте, так что кликаем и смотрим =Р](https://www.dropbox.com/s/5nyzwkd3ydiaexl/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-04-15%20%D0%B2%2002.37.07.mov?dl=0)
-
-Ссылки реже имеют видимые границы, однако и они часто по размеру не являются только текстом. Например, в Техномарте можно увидеть в стайлгайде какого размера ссылки в главном меню:
+Links have visible boundaries less often, but even then they are often larger than just the text itself. For example, in Technomart you can see in the style guide what size the main menu links actually are:
 
 ![Temporary illustration 2](https://paper-attachments.dropbox.com/s_0DE7E837E7F6AC584AF3939EF51ECE736B0930024CA2CC7B53F43074EA445ECE_1618519430683_.png)
 
+Do not mix this up: this is the size of the link itself, not the list item around it. In 99.8% of cases, interaction affects the interactive element itself, not something surrounding it.
 
-Не перепутайте: это именно размер ссылки, а не элемента списка. При взаимодействии с интерактивным элементом в 99.8% случаев изменяется именно он, а не что-то вокруг.  
+Now here is a more interesting question. The main menu in the Nerds project. No boundaries are highlighted there at all… So we can safely use `margin`, right?
 
-А вот вопрос поинтереснее. Главное меню в проекте Нердс. Там никакие границы не подсвечены… Спокойно делаем `margin`, так?  
-Нет, не так! Только не в мою смену. Кликабельную область желательно увеличить, чтобы попасть в ссылку было проще. Мы можем использовать пространство между текстом, расположив элементы вплотную или оставив небольшой зазор (да, отступы можно и комбинировать, чтобы не создавать слишком огромные ссылки):
+No. Absolutely not.
+
+It is usually better to increase the clickable area so the link is easier to hit. We can use the space between the text items for that — placing them close together or leaving a small gap. Yes, you can combine spacing methods too, so the links do not become absurdly large:
 
 ![Temporary illustration 3](https://paper-attachments.dropbox.com/s_0DE7E837E7F6AC584AF3939EF51ECE736B0930024CA2CC7B53F43074EA445ECE_1618521416663_.png)
 
-### Группы и списки
+### Groups and lists
 
-На сайтах списки попадаются часто и в больших количествах. А еще это могут быть не списки, но и разные сгруппированные элементы.
+Websites use lists constantly, and in large quantities. And sometimes they are not literal lists, but just groups of related elements.
 
-Возьмем вот такой вот список с максимально размытыми границами. Все, что у нас есть это направляющие и текст с картинками:
+Let’s take a list like this, where the boundaries are as vague as they can be. All we really have are guides, text, and images:
 
 ![Temporary illustration 4](https://paper-attachments.dropbox.com/s_0DE7E837E7F6AC584AF3939EF51ECE736B0930024CA2CC7B53F43074EA445ECE_1618522373602_.png)
 
-Ну и как тут разобраться?  
-Нам нужно представить и найти границы каждого элемента. В группе идентичных элементов важно в первую очередь то, что все они одинаковы. И нам нужно подобрать такой размер, который подойдет каждому элементу.
+So how do we deal with this?
+
+We need to imagine and find the boundaries of each item. In a group of identical elements, the most important thing is that they are all the same. We need to choose dimensions that make sense for every item.
 
 ![Temporary illustration 5](https://paper-attachments.dropbox.com/s_0DE7E837E7F6AC584AF3939EF51ECE736B0930024CA2CC7B53F43074EA445ECE_1618523013629_.png)
 
-Я умудрился подобрать такие размеры, что между элементами всегда расстояние в 40 пикселей.
+I managed to choose dimensions so that the distance between items is always 40 pixels.
 
-> Вообще-то, это может быть удобнее сделать через `grid` с `gap`'ом, но он по сути некий аналог внешнего отступа, просто очень систематичного.  
-> Давайте на всякий случай представим, что мы это делаем на флексах, потому что у нас в требованиях совместимость с IE.
+> Strictly speaking, this would probably be easier to build with `grid` and `gap`, but `gap` is basically a kind of external spacing too — just a very systematic one.  
+> Still, let’s imagine we are doing it with flexbox because IE support is part of the requirements.
 
-Обратим внимание на несколько моментов:
+Let’s pay attention to a few details:
 
-1. Иконка находится внутри элемента, так как является его частью. Даже если мы будем ставить ее через `position: absolute`, мы все равно разместим ее внутри элемента, а место под нее зарезервируем с помощью какого отступа?  
-    Правильно, внутреннего. Так даже если мы отключим флексы, нам будут не страшны никакие схлопывания отступов и на нашу иконку ничто не посягнет.
-2. Иконка ракеты торчит наружу. Дизайнер сделал это, чтобы визуально компенсировать длину иконки и небольшой “вес” ее хвостов и носа.  
-    Мы могли бы и включить ее полностью, а слева добавить небольшой внутренний отступ. Это не было бы ошибкой, однако левая колонка и направляющая, показывающая границу контента непрозрачно нам намекают на то, что граница элемента идет ровно по началу текста. К тому же, нам пришлось бы смещать все элементы левее, а это все-таки сложнее, чем сдвинуть иконку.
+1. The icon belongs inside the element, because it is part of it. Even if we position it with `position: absolute`, we still place it inside the item. And what kind of spacing do we use to reserve space for it?  
+   Exactly — internal spacing. That way, even if flexbox is disabled, no collapsing margins will hurt us and nothing will invade the icon’s space.
+2. The rocket icon sticks out beyond the edge. The designer did that to visually compensate for the icon’s length and for the small “weight” of its nose and tail.  
+   We could have placed it fully inside and added a bit of internal spacing on the left. That would not be wrong. But the left column and the guide showing the content boundary strongly suggest that the item boundary starts exactly where the text starts. Besides, shifting the icon is still simpler than shifting every item to the left.
 
-### Крупные сеточные блоки
+### Large grid blocks
 
-Вот и добрались мы до крупных блоков. Но вообще-то, когда делаете сетки, стоит с них начинать. Возьмем не очень большой блок с парой элементов. Например, этот с двумя строчками текста:
+And here we are, finally at larger blocks. Though to be fair, when you are building a layout system, this is often where you should start.
+
+Let’s take a relatively small block with a couple of elements in it. For example, this one with two lines of text:
 
 ![Temporary illustration 6](https://paper-attachments.dropbox.com/s_0DE7E837E7F6AC584AF3939EF51ECE736B0930024CA2CC7B53F43074EA445ECE_1618524362878_.png)
 
+Large blocks usually do not make it hard to see their boundaries. In this case, there is a blue block above and a gray one below.
 
-У больших блоков обычно не бывает проблем с тем, чтобы увидеть их границы. Тут вообще сверху синий блок, снизу серый.
+But how do we place the text the way it is shown in the mockup? These are distances, so you might say they are **fields** between the text and the block boundaries…
 
-Но как сделать так, чтобы текст располагался как на макете? Это же расстояния, можно сказать, **поля** между текстом и границами блока…
+Not exactly.
 
-Нет, не совсем поля. Дело в том, что эти расстояния не зависят от того, какие внутри находятся элементы, в каком порядке они там идут, сколько их и прочее. Это — **охранная область** блока, которая не позволяет чему-либо “прилипать” к его границам. И ее не должны создавать элементы внутри, так как они могут меняться. А вот уже между элементами поля:
+The point is that these distances do not depend on what elements are inside, what order they are in, how many of them there are, and so on. This is the block’s **safe area**, which prevents anything from sticking to its edges. And that safe area should not be created by the inner elements, because they may change. The actual fields are the spaces between the elements themselves:
 
 ![Temporary illustration 7](https://paper-attachments.dropbox.com/s_0DE7E837E7F6AC584AF3939EF51ECE736B0930024CA2CC7B53F43074EA445ECE_1618524816779_.png)
 
 ----------
 
-Итого, мы разобрали несколько очень типичных случаев и я очень надеюсь, что у вас в голове появилось какое-то представление о том, как именно ориентироваться в поиске правильного варианта.
+So, we have gone through several very typical cases, and I really hope this gives you at least a clearer sense of how to approach the choice.
 
-Думаю, в большей степени здесь стоит учиться правильно читать макет, а не искать какой-то алгоритм расчета. Иногда, например, ради реализации сложного решения придется имитировать внутренние отступы внешними. Ничего страшного и ужасного в этом нет, но будет здорово, если вы понимаете какое именно поведение имитируете. Это поможет лучше его воспроизвести.
+I think this is mostly about learning how to read a layout properly, not about finding some universal calculation algorithm. Sometimes, for example, to implement a more complex solution you may have to imitate internal spacing with external spacing. There is nothing terrible about that. What matters is understanding which behavior exactly you are imitating. That makes it much easier to reproduce it well.
 
+> There was a time when we imitated gaps with padding. Because `gap` did not exist yet. Because grids did not exist yet either. And we could not use `calc()` to subtract margins from width, because `calc()` did not exist either.  
+> But for old layout engineer stories, come back another time =)
 
-> А было дело, мы гэпы имитировали паддингами. Потому что гэпов еще не было. Потому что еще не было гридов. И калком мы ничего считать не могли, чтобы вычесть марджин из ширины, потому что калков не было тоже.
-> Но за байками старого верстальщика приходите в другой раз =)
+In simple cases, though, it is always better to choose the tool that matches the actual logic built into the mockup.
 
-Ну, а в простых моментах всегда лучше выбирать тот инструмент, который делает именно ту логику, что заложена в макете.  
-Иногда кажется, что разницы никакой нет. Но она часто всплывает, когда нужно делать резину, адаптив или же вносить на сайт изменения, добавлять элементы, менять тексты и так далее.
+Sometimes it may feel like there is no difference. But the difference often shows up later — when you need fluid behavior, responsiveness, content changes, new elements, rewritten copy, and everything else that happens to real interfaces.
 
-Верстайте интерфейс, а не картинку, проще говоря.
+In other words: build the interface, not the picture.

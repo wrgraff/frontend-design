@@ -1,11 +1,11 @@
 ---
 layout: publication.njk
-title: 'Когда в верстке нужна высота?'
-heading: 'Когда в верстке нужна высота?'
+title: 'When Do You Actually Need Height in CSS?'
+heading: 'When Do You Actually Need Height in CSS?'
 order: 2
 kind: article
 external: false
-description: 'Когда и почему можно жестко зафиксировать высоту, а когда этого делать не стоит'
+description: 'When and why it makes sense to fix height, and when it is usually better not to'
 cover: /img/publications/hero.png
 cover_width: 681
 cover_height: 744
@@ -15,23 +15,24 @@ tags:
     - layout
 ---
 
-Очень многие при работе со своими первыми макетами используют для задания размеров элементов высоту.
-Кажется, это один из простейших способов сверстать элемент и попасть в макет.
+A lot of people, when working with their first layouts, use `height` to define element size.
 
-Давайте сверстаем простейший блок, который выглядит вот так (блок и блок с размерами отступов):
+It feels like one of the easiest ways to build a block and match the mockup.
 
-![Блок с текстом и этот же блок с размерами отступов](img/1.png)
+Let’s code a very simple block that looks like this (the block itself and the same block with spacing dimensions):
 
-Это обычный блок, содержащий в себе 2 параграфа текста. И если все сделать так, как учат в академии, то у нас получится вот такой HTML-код:
+![Block with text and the same block with spacing dimensions](img/1.png)
+
+This is a regular block containing two paragraphs of text. If we build it in the most straightforward way, we might end up with HTML like this:
 
 ```html
 <div class="box">
-    <p>CSS — формальный язык описания внешнего вида документа, написанного с использованием языка разметки.</p>
-    <p>Также может применяться к любым XML-документам, например, к SVG или XUL.</p>
+    <p>CSS is a formal language used to describe the presentation of a document written in a markup language.</p>
+    <p>It can also be applied to any XML-based documents, such as SVG or XUL.</p>
 </div>
 ```
 
-И такой вот CSS (я не ставлю подключение шрифта и прочие параметры):
+And CSS like this (I am skipping font setup and other unrelated properties):
 
 ```css
 .box {
@@ -44,21 +45,21 @@ tags:
 }
 ```
 
-И результат будет именно таким, какой нам нужен:
+And the result will look exactly the way we want:
 
-![Плохо сверстанный блок с текстом](img/2.png)
+![Poorly coded text block](img/2.png)
 
-Вот и всё! Или…
+That is it. Or is it?
 
-Ладно, ладно, я действительно слукавил, но честное слово: это нужно было для наглядности. В свое оправдание же могу сказать, что эта ошибка встречается очень часто у начинающих верстальщиков.
+All right, I did cheat a little — but only to make the point clearer. In my defense, this is a very common mistake among beginners.
 
-Конечно, в академии учат тому, что использовать здесь height неправильно, ведь сайт — штука динамичная и контент блока может поменяться. Допустим, кто-то дописал еще один параграф. Вот что будет, если у нас прописана высота:
+Of course, people are usually taught that using `height` here is incorrect, because websites are dynamic and the content inside the block may change. Suppose someone adds one more paragraph. This is what happens when height is fixed:
 
-![Блок текста, не проходящий тест на переполнение контентом](img/3.png)
+![Text block failing the content overflow test](img/3.png)
 
-Это называется “тест на переполнение контентом”. Из-за жестко прописанной высоты текст вывалился из блока, что выглядит не очень.
+This is what you could call a *content overflow test*. Because the height is fixed, the text spills out of the block, which does not look great.
 
-Проблема решится, если заменить height на min-height. То есть, мы укажем минимальную высоту, и текст растянет блок. И это уже будет более валидное решение:
+A better solution is to replace `height` with `min-height`. That way, we set the minimum height, and the text can stretch the block further if needed:
 
 ```css
 .box {
@@ -71,16 +72,16 @@ tags:
 }
 ```
 
-Итак, наша проблема решена.  
-Но насколько качественно? Давайте посмотрим, как теперь будет выглядеть элемент при тестировании на переполнение:
+So the problem is solved.  
+But how well is it solved? Let’s see what the element looks like now during the same overflow test:
 
-![Блок текста, плохо проходящий тест на переполнение контентом](img/4.png)
+![Text block still handling overflow poorly](img/4.png)
 
-Он стал выше и растянулся вместе с контентом, однако текст “прилип” к нижней части. Это выглядит не слишком красиво, да и макет явно создан с отступом снизу.
+The block grows together with the content, which is better. But now the text is stuck to the bottom edge. That does not look especially nice, and the mockup clearly implies bottom spacing.
 
-Мы можем задать этому элементу отступ снизу. Однако, если мы зададим правильный отступ, то зачем нам высота? С изначальным текстом элемент и так будет выглядеть как в макете.
+We could add bottom padding to the element. But if we are going to add the correct bottom padding anyway, then why do we need height at all? With the original text, the element will already look like it does in the mockup.
 
-Поэтому, вместо того, чтобы задавать высоту (так или иначе) можно подогнать размер с помощью отступов и получить гораздо более гибкий элемент:
+So instead of defining height in one form or another, we can shape the element using padding and end up with a much more flexible block:
 
 ```css
 .box {
@@ -93,23 +94,27 @@ tags:
 }
 ```
 
-![Блок текста, хорошо проходящий тест на переполнение контентом](img/5.png)
+![Text block handling overflow well](img/5.png)
 
-## А когда действительно нужна минимальная высота?
+## So when is `min-height` actually useful?
 
-Не так уж часто. Она нужна, когда наш элемент не может быть меньше какой-то высоты, но может быть больше (то есть ровно по прямому назначению).
+Not that often.
 
-Например, у нас есть какой-то фон, который не влияет на размер контента, но мы обязательно должны его показать:
+It is useful when an element cannot be smaller than a certain height, but can be taller if needed — which is exactly what `min-height` is meant for.
 
-![Блоки с текстом и минимальной высотой](img/6.png)
+For example, imagine we have some kind of background that does not affect the content size, but still has to remain visible:
 
-Пример странноват, если найду лучше — заменю =)
+![Text blocks with a minimum height](img/6.png)
 
-## А с шириной не так?
+A slightly odd example, I know. If I find a better one, I will replace it =)
 
-На самом деле, здесь мы только приоткрываем окошко в тему чтения макета.
+## What about width? Is it different?
 
-С шириной все не настолько критично, однако, следует по возможности избегать указания ширины тоже. Например, если у нас в дизайне стоит 3 таких блока в ряд, то можно это сделать с помощью гридов, и ширина каждого из блоков будет определена гридом. Тогда в самих блоках ширину указывать не стоит, чтобы были не просто прямоугольниками конкретного размера, а встраивались в сетку и следовали ее размерам, если она меняется (что очень полезно при адаптиве или просто обновлениях дизайна уже готового сайта):
+This is really where we start touching on the broader skill of reading a layout properly.
+
+Width is usually less critical, but it is still worth avoiding explicit widths when possible. For example, if the design has three such blocks in a row, we can build that with CSS Grid, and each block’s width will be defined by the grid itself.
+
+In that case, the blocks do not need their own fixed width. They stop being rigid rectangles with hardcoded dimensions and instead become elements that fit into the grid and follow its size if it changes — which is especially useful for responsive layouts or later design updates:
 
 ```css
 .boxes {
@@ -126,8 +131,8 @@ tags:
 }
 ```
 
-![Блоки с текстом, вписанные в сетку](img/7.png)
+![Text blocks placed into a grid](img/7.png)
 
-Отказываясь от конкретных размеров, мы создадим более гибкие блоки, управлять размерами которых можно через родительский элемент, настраивая сетку или флекс.
+By avoiding fixed dimensions, we create more flexible blocks whose size can be controlled through the parent element — by adjusting the grid or flex layout.
 
-Это поможет не только создать более устойчивую к переполнению верстку, но и подготовиться к адаптиву (а к нему, поверьте, стоит готовиться).
+This helps not only with building layouts that survive content overflow better, but also with preparing for responsive behavior. And trust me, that is something worth preparing for.

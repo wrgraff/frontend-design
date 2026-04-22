@@ -4,7 +4,7 @@ hero:
   heading: Hi, I’m
   heading_highlight: Artur
   heading_suffix: — Product Designer
-  text: I build data-heavy interfaces, scalable systems, and analytics tools — turning complexity into calm
+  text: I build data-heavy interfaces, scalable systems, and analytics tools, turning complexity into calm
   image: /img/home/hero.png
   image_alt: Artur Trifonov portrait
   cta:
@@ -25,7 +25,7 @@ hero:
 my_design_journey:
   pretitle: Why I am here
   heading: My design journey
-  body: "From an early age, I’ve loved creating things from scratch. A blank canvas still excites me: it’s full of possibilities — whether it becomes a system, a story, or a product"
+  body: "From an early age, I’ve loved creating things from scratch. A blank canvas still excites me: it’s full of possibilities, whether it becomes a system, a story, or a product"
   cta:
     - kind: link
       text: More about my background
@@ -41,7 +41,7 @@ portfolio:
 approach_to_work:
   pretitle: My work
   heading: Approach to work
-  intro: My approach is pragmatic and built for real conditions - limited user access, incomplete data, and non-linear behavior
+  intro: "My approach is pragmatic and built for real conditions: limited user access, incomplete data, and non-linear behavior"
   steps:
     - label: Preparation
       text: I clarify who owns the initiative, makes decisions, and what success looks like

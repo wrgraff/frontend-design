@@ -1,10 +1,7 @@
 title: Contacts
 hero:
   heading: Contacts
-  text: |
-    If you'd like to connect, feel free to text me.
-
-    I'm open to job opportunities, thoughtful questions, and conversations about design, frontend, or tech.
+  text: I'm open to job opportunities, thoughtful questions, and conversations about design, frontend, or tech
   cta:
     - text: LinkedIn
       href: https://www.linkedin.com/in/arturtrifonov/
@@ -24,7 +21,7 @@ hero:
 online:
   pretitle: Online
   heading: Let's connect
-  lead: Feel free to reach out if you want to collaborate, exchange ideas or just keep in touch.
+  lead: Feel free to reach out if you want to collaborate, exchange ideas or just keep in touch
   columns:
     -
       - text: hi@arturtrifonov.com
@@ -57,7 +54,7 @@ online:
 offline:
   pretitle: Offline
   heading: Location
-  lead: I'm happy to meet in person - I'm based in Bratislava, and Vienna is just a short trip away.
+  lead: I’m happy to meet in person ☕️ — I’m based in Bratislava, and Vienna is just a short trip away
   route:
     src: /img/route.svg
     width: 732

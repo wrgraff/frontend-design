@@ -3,7 +3,7 @@
 .case-hero {
 	--case-hero-img-size: 680px;
 	--case-hero-img-shift: 0px;
-	--case-hero-padding-y: 120px;
+	--case-hero-padding-y: 80px;
 	--case-hero-padding-x: var(--space-page-padding-x);
 	--case-hero-gap: var(--space-gap-l);
 	--case-hero-cta-gap: var(--space-gap-xxs);

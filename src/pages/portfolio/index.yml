@@ -1,7 +1,7 @@
 title: Portfolio
 hero:
   heading: Portfolio
-  text: Selected recent work — the projects most relevant to product design roles
+  text: "Selected recent work: the projects most relevant to product design roles"
   cta:
     - text: Download CV
       href: /files/atrifonov-cv-en.pdf
@@ -15,7 +15,7 @@ hero:
 approach_to_work:
   pretitle: My work
   heading: Approach to work
-  intro: My approach is pragmatic and built for real conditions - limited user access, incomplete data, and non-linear behavior
+  intro: "My approach is pragmatic and built for real conditions: limited user access, incomplete data, and non-linear behavior"
   steps:
     - label: Preparation
       text: I clarify who owns the initiative, makes decisions, and what success looks like

@@ -17,9 +17,7 @@ tags:
 
 ## The Problem
 
-At some point, many beginners run into a Git process that feels unnecessarily complicated.
-
-It usually looks something like this:
+At some point, many beginners run into a Git process that feels unnecessarily complicated. It usually looks something like this:
 
 1. clone the project repository;
 2. create a new branch;
@@ -78,7 +76,7 @@ Let’s say the team already has a central GitHub repository for the project.
 
 It is connected to build and deployment, so whenever it is updated, the project can be built and published automatically.
 
-At the center of this setup is the **main** branch. In older projects, this branch may still be called **master**.
+At the center of this setup is the `main` branch. In older projects, this branch may still be called `master`.
 
 This branch contains the stable version of the project — the code that is trusted enough to be merged, built, and potentially deployed.
 
@@ -94,7 +92,7 @@ If the main branch is protected, how do we actually work?
 
 One common answer is simple: we work in our own branches and submit changes through pull requests.
 
-In some setups, especially in open source or external collaboration, this may also involve a **fork** — a personal copy of the repository under your own account.
+In some setups, especially in open source or external collaboration, this may also involve a `fork` — a personal copy of the repository under your own account.
 
 ![Main repository and its fork](img/step-2.png)
 
