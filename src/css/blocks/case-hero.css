@@ -3,7 +3,7 @@
 .case-hero {
 	--case-hero-img-size: 680px;
 	--case-hero-padding-y: 120px;
-	--case-hero-padding-x: 80px;
+	--case-hero-padding-x: var(--space-page-padding-x);
 	--case-hero-gap: var(--space-gap-l);
 	--case-hero-columns: 5;
 	--case-hero-tags-column: 1 / 4;

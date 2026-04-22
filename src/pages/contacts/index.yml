@@ -5,8 +5,6 @@ hero:
     If you'd like to connect, feel free to text me.
 
     I'm open to job opportunities, thoughtful questions, and conversations about design, frontend, or tech.
-  image: /img/contacts/hero.png
-  image_alt: Artur Trifonov near city architecture
   cta:
     - text: LinkedIn
       href: https://www.linkedin.com/in/arturtrifonov/
