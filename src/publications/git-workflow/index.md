@@ -2,7 +2,7 @@
 layout: publication.njk
 title: Basic Principles of Teamwork with Git
 heading: Basic Principles of Teamwork with Git
-order: 1
+order: 2
 kind: article
 external: false
 description: Why collaborative work with Git often seems more complicated than expected, and what practical problems this process actually solves
