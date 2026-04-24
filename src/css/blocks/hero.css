@@ -5,6 +5,7 @@
 	--hero-img-shift: 0px;
 	--hero-padding-y: 140px;
 	--hero-padding-x: var(--space-page-padding-x);
+	--hero-small-padding-y: 140px;
 	--hero-gap: var(--space-gap-l);
 	--hero-cta-gap: var(--space-gap-xxs);
 	--hero-cta-margin-top: var(--space-gap-s);
@@ -79,6 +80,7 @@
 @media (width < 540px) {
 	.hero {
 		--hero-img-size: 180px;
+		--hero-small-padding-y: 100px;
 	}
 }
 
@@ -98,7 +100,8 @@
 }
 
 .hero_size_small {
-	padding: var(--hero-padding-x);
+	padding-top: var(--hero-small-padding-y);
+	padding-bottom: var(--hero-small-padding-y);
 }
 
 /* Hero Image */

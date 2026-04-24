@@ -2,7 +2,7 @@
 
 .legacy-case {
 	--legacy-case-padding-top: 0;
-	--legacy-case-padding-x: 81px;
+	--legacy-case-padding-x: calc(var(--main-grid-padding-x) + 1px);
 	--legacy-case-padding-bottom: 80px;
 	--legacy-case-columns: 5;
 }
