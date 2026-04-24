@@ -144,7 +144,7 @@
 	.section__timeline {
 		order: -1;
 		grid-column: 1 / span 5;
-		margin-bottom: calc(var(--section-gap) * 2);
+		margin-bottom: var(--section-gap);
 	}
 }
 

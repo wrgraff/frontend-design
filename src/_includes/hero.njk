@@ -2,7 +2,7 @@
 
 {% macro heroSection(hero) %}
 {% set hasImage = hero.image | default('', true) | trim %}
-<section class="main__section hero{% if not hasImage %} hero_size_small{% endif %}">
+<section class="main__section main__section_view_hero hero{% if not hasImage %} hero_size_small{% endif %}">
 	{% if hasImage %}
 		<div class="hero__img">
 			<picture class="hero__picture">

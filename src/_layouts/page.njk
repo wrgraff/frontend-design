@@ -32,16 +32,18 @@
 	</head>
 
 		<body class="page__body">
-		<main class="page__main main">
-			{% include "header.njk" %}
-			{{ content | safe }}
+			<main class="page__main main">
+				<div class="main__container">
+					{% include "header.njk" %}
+					{{ content | safe }}
 
-			<div class="main__grid" aria-hidden="true">
-				{% for _ in [1, 2, 3, 4, 5] %}
-					<div class="main__column"></div>
-				{% endfor %}
-			</div>
-		</main>
+					<div class="main__grid" aria-hidden="true">
+						{% for _ in [1, 2, 3, 4, 5] %}
+							<div class="main__column"></div>
+						{% endfor %}
+					</div>
+				</div>
+			</main>
 
 			{% include "aside.njk" %}
 			<script defer src="/js/index.js"></script>

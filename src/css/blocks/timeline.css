@@ -157,8 +157,9 @@
 
 	.timeline__position {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: baseline;
-		gap: var(--space-gap-4xs);
+		column-gap: var(--space-gap-4xs);
 	}
 
 	.timeline__position::after {
