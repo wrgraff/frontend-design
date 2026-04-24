@@ -1,8 +1,18 @@
 {% from 'icon.njk' import icon %}
 {% set menuListClass = menuListClass or 'aside__list' %}
 {% set isCompactMenu = menuListClass == 'header-menu__list' %}
+{% set homeLink = '/' | localePath(page.url) %}
+{% set isHomeCurrent = page.url == homeLink %}
 
 <ul class="{{ menuListClass }} site-list">
+{% if isCompactMenu %}
+	<li class="site-list__item{% if isHomeCurrent %} site-list__item_current{% endif %}">
+		<a href="{{ homeLink }}" class="site-list__link"{% if isHomeCurrent %} aria-current="page"{% endif %}>
+			{{ icon('home/home_page', 'site-list__icon') }}
+			Home
+		</a>
+	</li>
+{% endif %}
 {% for item in menu %}
 		{% set itemLink = item.link | localePath(page.url) %}
 		{% set isExactCurrent = itemLink == page.url %}
