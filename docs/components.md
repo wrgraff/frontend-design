@@ -35,7 +35,7 @@ Constraints:
 ## button
 
 Source: `src/_includes/button.njk`  
-Signature: `button(text='Button', href='', mode='', size='', subtext='', iconLeft='', iconRight='', type='button', extraClass='', download=false)`
+Signature: `button(text='Button', href='', mode='', size='', subtext='', iconLeft='', iconRight='', type='button', extraClass='', dataAttrs='', download=false)`
 
 Inputs:
 - `text` (required, plain string; no markdown/HTML)
@@ -47,6 +47,7 @@ Inputs:
 - `iconRight` (optional, string)
 - `type` (optional, string): used only when rendering `<button>`
 - `extraClass` (optional, string)
+- `dataAttrs` (optional, string): raw attribute string for custom data hooks (for example `data-video-modal-trigger`)
 - `download` (optional, boolean|string): used only for anchor
 
 Constraints:
@@ -66,7 +67,7 @@ Inputs:
   - `size` (optional)
   - `extra_class` (optional)
   - link-specific: `icon_name` (preferred), `icon` (legacy alias), `external`
-  - button-specific: `subtext`, `icon_left`, `icon_right`, `type`, `download`
+  - button-specific: `subtext`, `icon_left`, `icon_right`, `type`, `data_attrs`, `download`
 - `defaultMode` (optional, string): fallback mode for button path
 - `defaultSize` (optional, string): fallback size for button path
 - `defaultType` (optional, string): fallback type for button path

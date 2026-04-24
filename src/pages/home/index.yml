@@ -9,10 +9,12 @@ hero:
   image_alt: Artur Trifonov portrait
   cta:
     - text: Watch intro
+      href: https://youtu.be/f4DExml1tIQ
       mode: primary
       size: xl
       type: button
       icon_left: video/play_circle
+      data_attrs: data-video-modal-trigger
     - text: Download CV
       href: /files/atrifonov-cv-en.pdf
       download: true

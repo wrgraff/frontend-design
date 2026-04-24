@@ -1,44 +1,12 @@
-const extractYoutubeId = ( url ) => {
-	if ( !url ) {
-		return '';
-	}
-
-	let parsedUrl;
-	try {
-		parsedUrl = new URL( url );
-	} catch ( error ) {
-		return '';
-	}
-
-	if ( parsedUrl.hostname.includes( 'youtu.be' ) ) {
-		return parsedUrl.pathname.replace( '/', '' );
-	}
-
-	if ( parsedUrl.pathname.includes( '/embed/' ) ) {
-		return parsedUrl.pathname.split( '/embed/' )[1] || '';
-	}
-
-	return parsedUrl.searchParams.get( 'v' ) || '';
-};
-
-const generateYoutubeUrl = ( id, start ) => {
-	let query = '?rel=0&showinfo=0&autoplay=1';
-	let time = '';
-
-	if ( start !== 'false' && start !== '' ) {
-		time = `&start=${start}`;
-	}
-
-	return `https://www.youtube.com/embed/${id}${query}${time}`;
-};
+import { extractYoutubeId, extractYoutubeStart, generateYoutubeEmbedUrl } from './youtube.js';
 
 const createIframe = ( id, start ) => {
 	let iframe = document.createElement( 'iframe' );
 
 	iframe.setAttribute( 'allowfullscreen', '' );
-	iframe.setAttribute( 'allow', 'autoplay' );
+	iframe.setAttribute( 'allow', 'autoplay; encrypted-media; picture-in-picture' );
 	iframe.setAttribute( 'title', 'YouTube video player' );
-	iframe.setAttribute( 'src', generateYoutubeUrl( id, start ) );
+	iframe.setAttribute( 'src', generateYoutubeEmbedUrl( id, start, true ) );
 	iframe.classList.add( 'video__iframe' );
 
 	return iframe;
@@ -56,7 +24,7 @@ export const initVideos = ( selectors = ['video', 'promo-video'] ) => {
 			const footer = video.querySelector( `.${selector}__footer` );
 			const button = video.querySelector( `.${selector}__button` );
 			const videoUrl = video.dataset.videoUrl || '';
-			const start = video.dataset.start || 'false';
+			const start = video.dataset.start || extractYoutubeStart( videoUrl );
 			const id = extractYoutubeId( videoUrl );
 
 			if ( !media || !button || !footer || !id ) {

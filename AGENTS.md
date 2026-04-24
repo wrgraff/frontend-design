@@ -171,13 +171,19 @@ Use this canonical order in `src/css/blocks/<block>.css` to keep files predictab
 1. `/* Variables */`
 2. `.block { --block-* }` (variables only)
 3. `@media` overrides for `.block` variables only
-4. `/* Block */`
+4. `/* <Block Name> */` (use the real block name, for example `/* Hero */`)
 5. `.block { ... }` (actual styles only)
 6. `@media` overrides for `.block` actual styles
-7. `/* Element */`
+7. `/* <Element Name> */` (use the real element name, for example `/* Hero heading */`)
 8. `.block__element { ... }` (actual styles only)
 9. `@media` overrides for `.block__element` actual styles
 10. Repeat item 7-9 for each next element/modifier as needed
+
+Comment naming rule:
+
+- In real block files, section comments must be specific and human-readable: block name + each element name.
+- Do not leave generic section comments like `/* Block */` or `/* Element */` in implementation files.
+- Generic labels are allowed only in documentation examples as placeholders.
 
 Practical rules for extraction into variables:
 

@@ -1,0 +1,96 @@
+/* Variables */
+
+.video-modal {
+	--video-modal-width: min(1240px, calc(100vw - (var(--space-page-padding-x) * 2)));
+	--video-modal-surface-bg: var(--color-surface-base);
+	--video-modal-surface-border: var(--space-border-light) solid var(--color-border-base);
+	--video-modal-surface-radius: var(--radius-xl);
+	--video-modal-surface-padding: var(--space-gap-3xs);
+	--video-modal-toolbar-gap: var(--space-gap-3xs);
+	--video-modal-toolbar-padding-x: var(--space-gap-4xs);
+	--video-modal-heading-font: var(--font-heading-h6);
+	--video-modal-heading-color: var(--color-common-primary);
+	--video-modal-heading-letterspacing: var(--font-heading-letterspacing);
+	--video-modal-backdrop-bg: rgb(from var(--color-surface-base) r g b / 72%);
+	--video-modal-backdrop-blur: 8px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.video-modal {
+		--video-modal-surface-border: var(--space-border-hair) solid var(--color-border-base);
+	}
+}
+
+@media (width < 540px) {
+	.video-modal {
+		--video-modal-width: min(1240px, calc(100vw - (var(--space-gap-3xs) * 2)));
+	}
+}
+
+/* Video modal */
+
+.video-modal {
+	background: transparent;
+	border: none;
+	padding: 0;
+	width: var(--video-modal-width);
+}
+
+.video-modal::backdrop {
+	background-color: var(--video-modal-backdrop-bg);
+	backdrop-filter: blur(var(--video-modal-backdrop-blur));
+}
+
+/* Surface */
+
+.video-modal__surface {
+	background-color: var(--video-modal-surface-bg);
+	border: var(--video-modal-surface-border);
+	border-radius: var(--video-modal-surface-radius);
+	display: grid;
+	gap: var(--video-modal-toolbar-gap);
+	padding: var(--video-modal-surface-padding);
+}
+
+@supports (corner-shape: superellipse(1)) {
+	.video-modal__surface {
+		corner-shape: var(--superellipse-level-xl);
+	}
+}
+
+/* Toolbar */
+
+.video-modal__toolbar {
+	align-items: center;
+	display: flex;
+	gap: var(--video-modal-toolbar-gap);
+	justify-content: space-between;
+	padding-left: var(--video-modal-toolbar-padding-x);
+}
+
+/* Heading */
+
+.video-modal__heading {
+	font: var(--video-modal-heading-font);
+	letter-spacing: var(--video-modal-heading-letterspacing);
+	margin: 0;
+	color: var(--video-modal-heading-color);
+}
+
+/* Media */
+
+.video-modal__media {
+	aspect-ratio: 16 / 9;
+	background-color: #000;
+	border-radius: calc(var(--video-modal-surface-radius) - var(--video-modal-surface-padding));
+	overflow: hidden;
+}
+
+/* Iframe */
+
+.video-modal__iframe {
+	border: 0;
+	display: block;
+	height: 100%;
+	width: 100%;
+}

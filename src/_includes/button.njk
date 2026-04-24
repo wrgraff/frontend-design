@@ -10,6 +10,7 @@
 	iconRight = '',
 	type = 'button',
 	extraClass = '',
+	dataAttrs = '',
 	download = false
 ) %}
 	{% set hasSubtext = (subtext | striptags | trim | length) %}
@@ -27,7 +28,7 @@
 	{% set iconRightClasses = (iconClasses + ' button__icon_position_right') | trim %}
 
 	{% if href %}
-		<a href="{{ href }}" class="{{ classes }}"{% if download %}{% if download == true %} download{% else %} download="{{ download }}"{% endif %}{% endif %}>
+		<a href="{{ href }}" class="{{ classes }}"{% if dataAttrs %} {{ dataAttrs | safe }}{% endif %}{% if download %}{% if download == true %} download{% else %} download="{{ download }}"{% endif %}{% endif %}>
 			{% if iconLeft %}
 				{{ icon(iconLeft, iconLeftClasses) }}
 			{% endif %}
@@ -43,7 +44,7 @@
 			{% endif %}
 		</a>
 	{% else %}
-		<button type="{{ type }}" class="{{ classes }}">
+		<button type="{{ type }}" class="{{ classes }}"{% if dataAttrs %} {{ dataAttrs | safe }}{% endif %}>
 			{% if iconLeft %}
 				{{ icon(iconLeft, iconLeftClasses) }}
 			{% endif %}
