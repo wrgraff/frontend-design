@@ -6,9 +6,9 @@ order: 3
 kind: article
 external: false
 description: 'How to name a font family correctly, why file order matters, which properties to specify, and how to optimize loading'
-cover: /img/publications/hero.png
-cover_width: 681
-cover_height: 744
+cover: /publications/include-fonts/img/cover.png
+cover_width: 680
+cover_height: 400
 author: artur-trifonov
 tags:
   - fonts

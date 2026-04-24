@@ -6,9 +6,9 @@ order: 4
 kind: article
 external: false
 description: 'They are both spacing, and the result often looks the same. So which one should you use?'
-cover: /img/publications/hero.png
-cover_width: 681
-cover_height: 744
+cover: /publications/margin-vs-padding/img/cover.png
+cover_width: 680
+cover_height: 400
 author: artur-trifonov
 tags:
   - layout

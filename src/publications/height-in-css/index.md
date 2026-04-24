@@ -6,9 +6,9 @@ order: 2
 kind: article
 external: false
 description: 'When and why it makes sense to fix height, and when it is usually better not to'
-cover: /img/publications/hero.png
-cover_width: 681
-cover_height: 744
+cover: /publications/height-in-css/img/cover.png
+cover_width: 680
+cover_height: 400
 author: artur-trifonov
 tags:
     - css

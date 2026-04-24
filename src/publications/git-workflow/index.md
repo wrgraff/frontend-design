@@ -7,7 +7,7 @@ kind: article
 external: false
 description: Why collaborative work with Git often seems more complicated than expected, and what practical problems this process actually solves
 cover: /publications/git-workflow/img/cover.png
-cover_width: 683
+cover_width: 680
 cover_height: 400
 tags:
   - git
