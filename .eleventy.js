@@ -9,6 +9,7 @@ const yaml = require('js-yaml');
 const MarkdownIt = require('markdown-it');
 const highlightjs = require('highlight.js/lib/common');
 const esbuild = require('esbuild');
+const { minify: minifyHtml } = require('html-minifier-terser');
 const Typograf = require('typograf');
 const typograf = new Typograf({
 	locale: ['en-GB']
@@ -404,6 +405,20 @@ module.exports = function (config) {
 			.replace(/([^\s>])(<strong\b[^>]*>)/g, '$1 $2');
 
 		return restore(widontHtml(typographedContent));
+	});
+
+	// HTML
+
+	config.addTransform('htmlmin', async (content, outputPath) => {
+		if (!isProduction || !outputPath || !outputPath.endsWith('.html')) {
+			return content;
+		}
+
+		return minifyHtml(content, {
+			collapseWhitespace: true,
+			collapseBooleanAttributes: true,
+			removeComments: true,
+		});
 	});
 
 	// Passthrough copy

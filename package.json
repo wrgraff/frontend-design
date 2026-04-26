@@ -45,6 +45,7 @@
     "esbuild": "^0.27.3",
     "eslint": "^8.36.0",
     "highlight.js": "^11.11.1",
+    "html-minifier-terser": "^7.2.0",
     "js-yaml": "^4.1.0",
     "markdown-it": "^14.1.1",
     "postcss": "^8.4.17",
