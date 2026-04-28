@@ -3,11 +3,39 @@
 
 {% macro designSolution(data = {}) %}
 	{% set images = data.images or [] %}
+	{% set prototype = data.prototype or {} %}
+	{% set prototypeSrc = prototype.src | default('') | trim %}
+	{% set prototypeQuery = 'scaling=contain&content-scaling=responsive&hide-ui=1&embed-host=arturtrifonov.com' %}
+	{% set prototypeEmbedSrc = '' %}
 	{% set primaryDetails = data.primary or [] %}
 	{% set secondaryDetails = data.secondary or [] %}
 	{% set hasSlider = images and (images | length) > 1 %}
 	{% set singleImage = images[0] if images and (images | length) == 1 else {} %}
 	{% set singleImageDescription = (singleImage.description | default('') | trim) if singleImage else '' %}
+	{% set prototypeSlides = [] %}
+	{% if prototypeSrc %}
+		{% set prototypeEmbedSrc = prototypeSrc
+			| replace('https://www.figma.com/proto/', 'https://embed.figma.com/proto/')
+			| replace('https://figma.com/proto/', 'https://embed.figma.com/proto/')
+			| replace('http://www.figma.com/proto/', 'https://embed.figma.com/proto/')
+			| replace('http://figma.com/proto/', 'https://embed.figma.com/proto/')
+		%}
+		{% set prototypeEmbedSrc = prototypeEmbedSrc
+			.split('&t=')[0]
+			.split('&scaling=')[0]
+			.split('&content-scaling=')[0]
+			.split('&hide-ui=')[0]
+			.split('&embed-host=')[0]
+		%}
+		{% set prototypeEmbedSrc = prototypeEmbedSrc + ('&' if '?' in prototypeEmbedSrc else '?') + prototypeQuery %}
+		{% set prototypeSlides = [{
+			type: 'iframe',
+			src: prototypeEmbedSrc,
+			title: prototype.title,
+			height: prototype.height,
+			description: prototype.description
+		}] %}
+	{% endif %}
 
 	<div class="section__container-item design-solution">
 		{% if images and (images | length) %}
@@ -26,6 +54,14 @@
 					extraClass = 'design-solution__image-item'
 				) }}
 			{% endif %}
+		{% elif prototypeSlides and (prototypeSlides | length) %}
+			{{ slider(
+				images = prototypeSlides,
+				ariaLabel = 'Design solution prototype',
+				previousLabel = 'Previous slide',
+				nextLabel = 'Next slide',
+				extraClass = 'design-solution__slider'
+			) }}
 		{% endif %}
 
 		{% if primaryDetails and (primaryDetails | length) %}

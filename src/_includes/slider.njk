@@ -22,8 +22,10 @@
 			<div class="slider__media">
 				{% for image in images %}
 					{% set slideDescription = image.description | default('') | trim %}
+					{% set isIframeSlide = image.type == 'iframe' %}
 					<figure
 						class="slider__slide{% if loop.first %} slider__slide_active{% endif %}"
+						{% if isIframeSlide %}style="aspect-ratio: auto; height: {{ image.height | default(704) }}px;"{% endif %}
 						data-slider-slide
 						data-slider-slide-description="{{ slideDescription }}"
 						aria-roledescription="slide"
@@ -31,17 +33,28 @@
 						aria-hidden="{{ 'false' if loop.first else 'true' }}"
 						{% if not loop.first %}hidden{% endif %}
 					>
-						<picture class="slider__picture">
-							<img
-								class="slider__image"
+						{% if isIframeSlide %}
+							<iframe
+								class="slider__iframe"
 								src="{{ image.src }}"
-								alt="{{ image.alt | default('') }}"
-								width="{{ image.width }}"
-								height="{{ image.height }}"
+								title="{{ image.title | default('Embedded prototype') }}"
+								height="{{ image.height | default(704) }}"
 								loading="{{ 'eager' if loop.first else 'lazy' }}"
-								decoding="async"
-							>
-						</picture>
+								allowfullscreen
+							></iframe>
+						{% else %}
+							<picture class="slider__picture">
+								<img
+									class="slider__image"
+									src="{{ image.src }}"
+									alt="{{ image.alt | default('') }}"
+									width="{{ image.width }}"
+									height="{{ image.height }}"
+									loading="{{ 'eager' if loop.first else 'lazy' }}"
+									decoding="async"
+								>
+							</picture>
+						{% endif %}
 					</figure>
 				{% endfor %}
 			</div>

@@ -314,7 +314,9 @@ Signature: `slider(images = [], ariaLabel = 'Image slider', previousLabel = 'Pre
 
 Inputs:
 - `images` (required for output, array): slide media list
-  - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string)
+  - shared fields: `type` (optional, string), `src` (required), `description` (optional, plain string)
+  - image fields (`type` omitted or not `iframe`): `alt` (optional), `width` (required), `height` (required)
+  - iframe fields (`type='iframe'`): `title` (optional), `height` (optional)
 - `ariaLabel` (optional, plain string): label for keyboard-focusable slider region
 - `previousLabel` (optional, plain string): aria-label for previous control button
 - `nextLabel` (optional, plain string): aria-label for next control button
@@ -322,6 +324,7 @@ Inputs:
 
 Behavior:
 - Renders standalone `slider` block with slides, controls, counter, and current slide description.
+- Supports image slides and embedded iframe slides (`type='iframe'`) within the same slider API.
 - JS module `design-solution-slider` initializes behavior for `.slider[data-slider]`: updates active slide state, updates counter/description, exposes polite live status text, disables controls on first/last slide, and handles keyboard navigation (`ArrowLeft`, `ArrowRight`, `Home`, `End`).
 - If less than two slides are provided, the control footer is not rendered.
 
@@ -333,6 +336,8 @@ Signature: `designSolution(data = {})`
 Inputs (`data` object):
 - `images` (optional, array): media slides
   - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string)
+- `prototype` (optional, object): embedded prototype media
+  - fields: `src` (required), `title` (optional), `height` (optional), `description` (optional, plain string)
 - `primary` (optional, array): first row of details
   - detail fields: `heading` (optional, plain string), `content` (optional, markdown string)
 - `secondary` (optional, array): second row of details
@@ -342,6 +347,11 @@ Behavior:
 - Renders standalone `design-solution` block intended to be mixed into `section__container`.
 - If `images.length > 1`, composes the standalone `slider` macro/block.
 - If exactly one image is passed, composes the standalone `picture` macro/block (without slider controls).
+- If `images` are not provided and `prototype.src` is set, composes the standalone `slider` macro/block with a single iframe slide (without slider controls).
+- For `prototype`, macro normalizes `figma.com/proto` URLs to `embed.figma.com/proto` and appends fixed params on render:
+  `scaling=contain&content-scaling=responsive&hide-ui=1&embed-host=arturtrifonov.com`.
+- If the source URL already contains Figma share params (`t`, `scaling`, `content-scaling`, `hide-ui`, `embed-host`), macro strips them before appending the fixed params.
+- `page-id` is preserved from the source URL when present; if absent, it is not added automatically.
 
 ## table
 

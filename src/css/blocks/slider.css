@@ -3,6 +3,7 @@
 .slider {
 	--slider-media-bg: var(--color-surface-secondary);
 	--slider-media-aspect-ratio: 986 / 560;
+	--slider-iframe-border: 0;
 	--slider-footer-bg: var(--color-surface-tertiary);
 	--slider-footer-gap: var(--space-gap-s);
 	--slider-footer-padding: var(--space-gap-xxs);
@@ -51,6 +52,12 @@
 	display: block;
 	height: 100%;
 	object-fit: cover;
+	width: 100%;
+}
+
+.slider__iframe {
+	border: var(--slider-iframe-border);
+	display: block;
 	width: 100%;
 }
 
