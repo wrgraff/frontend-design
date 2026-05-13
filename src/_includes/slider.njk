@@ -9,7 +9,8 @@
 ) %}
 	{% set hasSlides = images and (images | length) > 1 %}
 	{% set firstImage = images[0] if images and (images | length) else {} %}
-	{% set firstDescription = (firstImage.description | default('') | trim) if firstImage else '' %}
+	{% set firstDescription = (firstImage.description | default(firstImage.caption | default(firstImage.alt | default(''))) | trim) if firstImage else '' %}
+	{% set firstImageHasAspectRatio = firstImage and firstImage.type != 'iframe' and firstImage.width and firstImage.height %}
 	{% set initialCounter = '1 / ' + (images | length) + ' slides' if hasSlides else '' %}
 	{% set initialStatus = (initialCounter + ('. ' + firstDescription if firstDescription else '')) if hasSlides else '' %}
 	{% set classes = [
@@ -18,10 +19,14 @@
 	] | join(' ') | trim %}
 
 	{% if images and (images | length) %}
-		<div class="{{ classes }}" {% if hasSlides %}data-slider tabindex="0" aria-label="{{ ariaLabel }}"{% endif %}>
+		<div
+			class="{{ classes }}"
+			{% if hasSlides %}data-slider tabindex="0" aria-label="{{ ariaLabel }}"{% endif %}
+			{% if firstImageHasAspectRatio %}style="--slider-media-aspect-ratio: {{ firstImage.width }} / {{ firstImage.height }};"{% endif %}
+		>
 			<div class="slider__media">
 				{% for image in images %}
-					{% set slideDescription = image.description | default('') | trim %}
+					{% set slideDescription = image.description | default(image.caption | default(image.alt | default(''))) | trim %}
 					{% set isIframeSlide = image.type == 'iframe' %}
 					<figure
 						class="slider__slide{% if loop.first %} slider__slide_active{% endif %}"

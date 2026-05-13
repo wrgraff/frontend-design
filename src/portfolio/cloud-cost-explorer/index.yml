@@ -1,29 +1,35 @@
 layout: portfolio-case.njk
-title: Cloud Cost Explorer
-heading: Cloud Cost Explorer
 order: 1
+title: Cloud Cost Explorer
+
+heading: Cloud Cost Explorer
+description: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
 role: '**Product UX Designer**'
 focus: 'UX end-to-end'
 area: 'Work with **Product Owner**, and with **frontend and backend leads** to align UX decisions with real data logic and implementation constraints'
-description: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
 tags:
   - Data-heavy
   - Data visualization
   - NDA
-imgs:
-  - cover
+cover_imgs:
+  - cover.png
+
 hero:
-  image: /portfolio/cloud-cost-explorer/img/hero.png
+  image: hero.svg
+  picture_tone: bg-secondary
   image_alt: Abstract blurred product dashboard screenshot
   lead: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
+theme: cost-explorer
+
 sections:
   - eyebrow: Preparation
     heading: Success criteria
     lead: Before design work, I aligned stakeholders on success criteria for the first release
-    decor_image: /portfolio/cloud-cost-explorer/img/line-chart.svg
-    decor_width: 1320
-    decor_height: 330
-    decor_class: section__decor_type_line-chart
+    decor:
+      - type: content-bottom-fill
+        image: line-chart.svg
+        width: 1320
+        height: 330
     content:
       - type: content-list
         ordered: true
@@ -36,20 +42,31 @@ sections:
 
   - eyebrow: Discovery
     heading: Target audience
-    lead: Enterprise companies (mostly fintech) with a large multi-cloud footprint need visibility into cloud spend and usage across teams, services, and accounts
+    lead: |
+      Enterprise companies (mostly fintech) with a large multi-cloud footprint.
+
+      They need visibility into cloud spend and usage across many teams, services, and accounts
+    content_columns: 2
+    decor:
+      - type: content-bottom-right
+        image: summary.png
+        width: 732
+        height: 510
+      - type: bg-bottom-fill
+        image: area-chart.svg
+        width: 1400
+        height: 380
     content:
-      - type: content-columns
-        heading: Primary users
-        columns: 2
-        items:
-          - |
-            ###### Finance / FinOps stakeholders
-            - Accountable for cloud spend
-            - Need to explain variances and allocate costs across teams/projects
-          - |
-            ###### Engineering leads
-            - Need to understand what drives usage and cost in their area
-            - Need to spot anomalies early and plan budgets with confidence
+      - type: content-text
+        heading: Finance / FinOps stakeholders
+        content: |
+          - accountable for cloud spend
+          - need to explain variances and allocate costs across teams/projects
+      - type: content-text
+        heading: Engineering leads
+        content: |
+          - need to understand what drives usage and cost in their area
+          - need to spot anomalies early and plan budgets with confidence
 
   - eyebrow: Discovery
     heading: Problem context
@@ -105,7 +122,7 @@ sections:
   - eyebrow: Discovery
     heading: Benchmark
     lead: I benchmarked comparable tools and mapped the decision workflow around cloud spend. The analysis shaped information structure and key paths.
-    content_columns: fill
+    content_columns: 5
     content:
       - type: datatable
         size: s
@@ -217,46 +234,22 @@ sections:
 
   - eyebrow: Key decisions
     heading: Top groups and zoom-in
-    content_columns: fill
+    content_columns: 5
     content:
       - type: design-solution
         images:
-          - src: /portfolio/cloud-cost-explorer/img/zoom-1.png
+          - src: zoom-1.png
             alt: Chart view, top groups and "Other" segment
             width: 1600
             height: 860
-          - src: /portfolio/cloud-cost-explorer/img/zoom-2.png
+          - src: zoom-2.png
             alt: Chart view, hover on the "Other" segment with tooltip showing breakdown
             width: 1600
             height: 860
-          - src: /portfolio/cloud-cost-explorer/img/zoom-3.png
+          - src: zoom-3.png
             alt: Chart view, zoomed into "Other" segment for one level
             width: 1600
             height: 860
-        primary:
-          - heading: Problem
-            content: Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise.
-          - heading: Solution
-            content: Show top cost groups in chart, consolidate the rest into "Other", and allow users to open "Other" for deeper breakdown.
-        secondary:
-          - heading: Advantages
-            items:
-              - Clear view of main cost drivers and their share of total spend
-              - Chart stays readable
-          - heading: Risks to avoid
-            items:
-              - Lower discoverability of the drill path
-              - Navigation friction when going deeper
-
-  - eyebrow: Key decisions
-    heading: Top groups and drill-down
-    content_columns: fill
-    content:
-      - type: design-prototype
-        prototype:
-          src: https://www.figma.com/proto/igtBGb4WQzXIo469eeRhAs/Untitled?node-id=33-5909
-          title: Cloud Cost Explorer prototype in Figma
-          height: 724
         primary:
           - heading: Problem
             content: Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise.

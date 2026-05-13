@@ -5,6 +5,8 @@
 	--page-aside-width: 340px;
 	--page-template-columns: 1fr var(--page-aside-width);
 	--page-max-width: calc(var(--page-content-width) + var(--page-aside-width));
+	--page-background-color: var(--color-surface-base);
+	--page-text-color: var(--color-text-base);
 }
 
 @media (width < 1600px) {
@@ -17,12 +19,13 @@
 /* Page */
 
 .page {
-	background-color: var(--color-surface-base);
-
-	color: var(--color-text-base);
-
+	background-color: var(--page-background-color);
+	color: var(--page-text-color);
 	font: var(--font-text-m);
 	min-width: 320px;
+	transition:
+		background-color var(--transition-page-duration) var(--transition-page-function),
+		color var(--transition-page-duration) var(--transition-page-function);
 }
 
 /* Body */

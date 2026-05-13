@@ -29,8 +29,12 @@
 			</a>
 		{% endif %}
 
-		<picture class="portfolio__picture" aria-hidden="true">
-			<img src="{{ case.url }}img/cover.png" alt="">
-		</picture>
+		{% if case.data.cover_imgs and case.data.cover_imgs.length %}
+			{% for coverImg in case.data.cover_imgs %}
+				<picture class="portfolio__picture" aria-hidden="true">
+					<img src="{{ case.url }}img/{{ coverImg }}" alt="" width="1400" height="900">
+				</picture>
+			{% endfor %}
+		{% endif %}
     </li>
 {% endmacro %}

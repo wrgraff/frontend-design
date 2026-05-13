@@ -8,6 +8,8 @@ description: Reusable chart components and patterns for analytics interfaces
 tags:
   - Charts
   - Design system
+cover_imgs:
+  - cover.png
 imgs:
   - 00-hero
   - 01-challenges

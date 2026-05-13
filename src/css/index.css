@@ -1,5 +1,6 @@
 @import url('./colors/palette.css');
 @import url('./colors/dark.css');
+@import url('./colors/themes.css');
 
 @import url('./fonts/index.css');
 @import url('./spaces/index.css');
@@ -34,6 +35,7 @@
 @import url('./blocks/section.css');
 @import url('./blocks/content-list.css');
 @import url('./blocks/content-columns.css');
+@import url('./blocks/content-text.css');
 @import url('./blocks/content-table.css');
 @import url('./blocks/datatable.css');
 @import url('./blocks/description-list.css');

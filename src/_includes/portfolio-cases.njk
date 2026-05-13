@@ -46,16 +46,22 @@
 							</dl>
 						{% endif %}
 
-						<div class="portfolio__media">
-							<picture class="portfolio__image">
-								<img
-									src="{{ item.url }}img/cover.png"
-									alt=""
-									class="portfolio__img"
-									loading="lazy"
-								>
-							</picture>
-						</div>
+						{% if item.data.cover_imgs and item.data.cover_imgs.length %}
+							<div class="portfolio__media">
+								{% for coverImg in item.data.cover_imgs %}
+									<picture class="portfolio__image">
+										<img
+											src="{{ item.url }}img/{{ coverImg }}"
+											alt=""
+											class="portfolio__img"
+											loading="lazy"
+											width="1400"
+											height="900"
+										>
+									</picture>
+								{% endfor %}
+							</div>
+						{% endif %}
 					</li>
 				{% endif %}
 			{% endfor %}

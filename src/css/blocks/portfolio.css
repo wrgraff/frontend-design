@@ -146,6 +146,9 @@
 
 .portfolio__media {
 	grid-area: media;
+	display: grid;
+	gap: var(--space-gap-xs);
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 	min-height: var(--portfolio-media-height);
 	margin-bottom: var(--portfolio-media-margin-bottom);
 	overflow: hidden;

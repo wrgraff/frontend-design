@@ -8,7 +8,7 @@
 		data.extra_class or ''
 	] | join(' ') | trim %}
 
-	<section class="{{ sectionClasses }}"{% if data.id %} id="{{ data.id }}"{% endif %}>
+	<section class="{{ sectionClasses }}"{% if data.id %} id="{{ data.id }}"{% endif %}{% if data.theme %} data-section-theme="{{ data.theme | trim }}"{% endif %}>
 		<header class="section__header">
 			{% if data.pretitle %}
 				<p class="section__eyebrow">
@@ -56,19 +56,24 @@
 			</div>
 		{% endif %}
 
-		{% if data.decor_image and data.decor_width and data.decor_height %}
-			<picture class="section__decor{% if data.decor_class %} {{ data.decor_class }}{% endif %}">
-				<img
-					class="section__decor-image"
-					src="{{ data.decor_image }}"
-					alt=""
-					aria-hidden="true"
-					width="{{ data.decor_width }}"
-					height="{{ data.decor_height }}"
-					loading="lazy"
-					decoding="async"
-				>
-			</picture>
+		{% if data.decor and (data.decor | length) %}
+			{% for decorItem in data.decor %}
+				{% if decorItem.image and decorItem.width and decorItem.height %}
+					{% set decorTypeClass = decorItem.type and ('section__decor_type_' ~ decorItem.type) or '' %}
+					<picture class="section__decor{% if decorTypeClass %} {{ decorTypeClass }}{% endif %}">
+						<img
+							class="section__decor-image"
+							src="{{ decorItem.image }}"
+							alt=""
+							aria-hidden="true"
+							width="{{ decorItem.width }}"
+							height="{{ decorItem.height }}"
+							loading="lazy"
+							decoding="async"
+						>
+					</picture>
+				{% endif %}
+			{% endfor %}
 		{% endif %}
 	</section>
 {% endmacro %}

@@ -6,9 +6,12 @@ layout: page.njk
 {% from 'section.njk' import section %}
 {% from 'content-list.njk' import contentList %}
 {% from 'content-columns.njk' import contentColumns %}
+{% from 'content-text.njk' import contentText %}
 {% from 'content-table.njk' import contentTable %}
 {% from 'datatable.njk' import datatable %}
 {% from 'design-solution.njk' import designSolution %}
+
+{% set themeClass = theme and ('section_theme_' ~ theme) or '' %}
 
 {{ caseHero(
 	hero = hero or {},
@@ -16,49 +19,66 @@ layout: page.njk
 	description = description,
 	role = role or '',
 	area = area or '',
-	tags = tags or []
+	tags = tags or [],
+	baseUrl = page.url
 ) }}
 
 {% if sections and sections.length %}
 	{% for item in sections %}
+		{% set sectionExtraClass = [item.extra_class or '', themeClass] | join(' ') | trim %}
+		{% set sectionDecor = [] %}
+		{% for decorItem in item.decor or [] %}
+			{% set decorImage = decorItem.image or '' %}
+			{% if decorImage and not ('://' in decorImage) and not ((decorImage | first) == '/') %}
+				{% set decorImage = page.url ~ 'img/' ~ decorImage %}
+			{% endif %}
+			{% if decorImage and decorItem.width and decorItem.height %}
+				{% set sectionDecor = sectionDecor.concat([{
+					type: decorItem.type,
+					image: decorImage,
+					width: decorItem.width,
+					height: decorItem.height
+				}]) %}
+			{% endif %}
+		{% endfor %}
 		{% if item.content and item.content.length and item.content[0].type %}
-			{% call section({
-				pretitle: item.eyebrow or item.pretitle,
-				heading: item.heading,
-				lead: item.lead,
-				content: '',
-				content_columns: item.content_columns,
-				tail: item.tail,
-				decor_image: item.decor_image,
-				decor_width: item.decor_width,
-				decor_height: item.decor_height,
-				decor_class: item.decor_class
+				{% call section({
+					pretitle: item.eyebrow or item.pretitle,
+					heading: item.heading,
+					lead: item.lead,
+					content: '',
+					theme: theme,
+					extra_class: sectionExtraClass,
+					content_columns: item.content_columns,
+					tail: item.tail,
+					decor: sectionDecor
 			}) %}
 				{% for contentItem in item.content %}
 					{% if contentItem.type == 'content-list' %}
 						{{ contentList(contentItem) }}
 					{% elif contentItem.type == 'content-columns' %}
 						{{ contentColumns(contentItem) }}
+					{% elif contentItem.type == 'content-text' %}
+						{{ contentText(contentItem) }}
 					{% elif contentItem.type == 'table' or contentItem.type == 'content-table' %}
 						{{ contentTable(contentItem) }}
 					{% elif contentItem.type == 'datatable' or contentItem.type == 'data-table' %}
 						{{ datatable(contentItem) }}
 					{% elif contentItem.type == 'design-solution' or contentItem.type == 'design-prototype' %}
-						{{ designSolution(contentItem) }}
+						{{ designSolution(contentItem, page.url) }}
 					{% endif %}
 				{% endfor %}
 			{% endcall %}
 		{% else %}
-			{{ section({
-				pretitle: item.eyebrow or item.pretitle,
-				heading: item.heading,
-				lead: item.lead,
-				content: item.content,
-				tail: item.tail,
-				decor_image: item.decor_image,
-				decor_width: item.decor_width,
-				decor_height: item.decor_height,
-				decor_class: item.decor_class
+				{{ section({
+					pretitle: item.eyebrow or item.pretitle,
+					heading: item.heading,
+					lead: item.lead,
+					content: item.content,
+					theme: theme,
+					extra_class: sectionExtraClass,
+					tail: item.tail,
+					decor: sectionDecor
 			}) }}
 		{% endif %}
 	{% endfor %}

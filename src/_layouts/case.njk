@@ -12,19 +12,32 @@ layout: page.njk
 		description = description,
 		role = role or '',
 		area = area or focus or '',
-		tags = tags or []
+		tags = tags or [],
+		baseUrl = page.url
 	) }}
 
 	{% for item in sections %}
+		{% set sectionDecor = [] %}
+		{% for decorItem in item.decor or [] %}
+			{% set decorImage = decorItem.image or '' %}
+			{% if decorImage and not ('://' in decorImage) and not ((decorImage | first) == '/') %}
+				{% set decorImage = page.url ~ 'img/' ~ decorImage %}
+			{% endif %}
+			{% if decorImage and decorItem.width and decorItem.height %}
+				{% set sectionDecor = sectionDecor.concat([{
+					type: decorItem.type,
+					image: decorImage,
+					width: decorItem.width,
+					height: decorItem.height
+				}]) %}
+			{% endif %}
+		{% endfor %}
 		{{ section({
 			pretitle: item.eyebrow or item.pretitle,
 			heading: item.heading,
 			lead: item.lead,
 			content: item.content,
-			decor_image: item.decor_image,
-			decor_width: item.decor_width,
-			decor_height: item.decor_height,
-			decor_class: item.decor_class
+			decor: sectionDecor
 		}) }}
 	{% endfor %}
 {% elif imgs and imgs.length %}

@@ -2,7 +2,7 @@
 {% set currentLocaleMeta = i18n.localeMeta[currentLocale] %}
 
 <!DOCTYPE html>
-<html lang="{{ currentLocaleMeta.htmlLang or currentLocale }}" class="page no-js">
+<html lang="{{ currentLocaleMeta.htmlLang or currentLocale }}" class="page no-js"{% if theme %} data-page-theme="{{ theme | trim }}"{% endif %}>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">

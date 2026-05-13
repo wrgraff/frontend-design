@@ -137,10 +137,17 @@ function validatePortfolioEntry(file, data) {
 
 	if (root.nda !== undefined) reqBoolean(file, 'nda', root.nda);
 
-	const imgs = reqArray(file, 'imgs', root.imgs);
-	if (imgs && imgs.length === 0) {
-		fail(file, 'imgs', 'must contain at least one item');
+	const coverImgs = reqArray(file, 'cover_imgs', root.cover_imgs);
+	if (coverImgs && coverImgs.length === 0) {
+		fail(file, 'cover_imgs', 'must contain at least one item');
 	}
+	if (coverImgs) {
+		coverImgs.forEach((item, index) => {
+			reqString(file, `cover_imgs[${index}]`, item);
+		});
+	}
+
+	const imgs = root.imgs === undefined ? null : reqArray(file, 'imgs', root.imgs);
 	if (imgs) {
 		imgs.forEach((item, index) => {
 			const base = `imgs[${index}]`;

@@ -3,7 +3,7 @@
 	description = '',
 	extraClass = ''
 ) %}
-	{% set pictureDescription = description | default(image.description | default('')) | trim %}
+	{% set pictureDescription = description | default(image.description | default(image.caption | default(image.alt | default('')))) | trim %}
 	{% set classes = [
 		extraClass,
 		'picture'

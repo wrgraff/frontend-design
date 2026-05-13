@@ -8,6 +8,8 @@ description: System foundation for consistent and scalable product UI
 tags:
   - UI
   - Design system
+cover_imgs:
+  - cover.png
 imgs:
   - 00-hero
   - 01-challenges

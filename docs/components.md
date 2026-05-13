@@ -175,7 +175,7 @@ Behavior:
 ## caseHero
 
 Source: `src/_includes/case-hero.njk`  
-Signature: `caseHero(hero = {}, heading = '', description = '', role = '', area = '', tags = [])`
+Signature: `caseHero(hero = {}, heading = '', description = '', role = '', area = '', tags = [], baseUrl = '')`
 
 Inputs:
 - `hero` (optional, object): visual hero data
@@ -184,12 +184,14 @@ Inputs:
 - `role` (optional, markdown string)
 - `area` (optional, markdown string)
 - `tags` (optional, array of strings)
+- `baseUrl` (optional, string): page URL used to resolve short image filenames
 
 Inputs (`hero` object):
 - `heading` (optional, plain string)
 - `lead` (optional, markdown string)
-- `image` (optional, string URL/path)
+- `image` (optional, string URL/path): short filenames are resolved as `img/<filename>` relative to the case page
 - `image_alt` (optional, string)
+- `picture_tone` (optional, string): `primary`, `alt`, `bg-secondary`; if missing, gradient background is used
 
 Behavior:
 - Renders root-level tag labels, a case heading, lead text, detail rows, and an optional media block.
@@ -206,24 +208,26 @@ Inputs (`data` object):
 - `heading` (optional, plain string)
 - `lead` (optional, markdown string)
 - `content` (optional, markdown string): plain section markdown body
+- `content_columns` (optional, number): container width in grid columns (`2`, `3`, `4`, `5`), maps to `section__container_width_*`
 - `tail` (optional, markdown string): preferred section tail field
 - `conclusion` (optional, markdown string): legacy alias for `tail`
 - `cta` (optional, array of CTA items): rendered via `ctaItem`
-- `decor_image` (optional, string URL/path): decorative image rendered at the end of the section
-- `decor_width` (optional, number|string): required together with `decor_height` to render decorative image
-- `decor_height` (optional, number|string): required together with `decor_width` to render decorative image
-- `decor_class` (optional, string): extra class for decorative image element
+- `decor` (optional, array): decorative media list rendered at the end of the section
+  - item fields: `type` (optional, string), `image` (required, string URL/path), `width` (required, number|string), `height` (required, number|string)
 
 Behavior:
 - If used with `{% call %}`, caller HTML is rendered inside `.section__container`.
 - `data.content` and caller content can be used together.
 - `tail`/`conclusion`, if present, is rendered after content container(s) in `.section__tail`.
 - `cta`, if present, is rendered in `.section__cta` via shared `ctaItem`.
-- Decorative image is rendered as `<picture class="section__decor ...">` with nested `<img class="section__decor-image">` after content/tail when `decor_image`, `decor_width`, and `decor_height` are all provided.
-- Decorative image `<img>` is rendered with `aria-hidden="true"` and fixed `alt=""`.
+- Each decor item is rendered as `<picture class="section__decor ...">` with nested `<img class="section__decor-image">` after content/tail.
+- If `decor[i].type` is provided, `section` adds modifier class `section__decor_type_<type>` automatically.
+- Decor visibility is type-driven; items without dedicated `section__decor_type_*` styles remain hidden by default.
+- Decor `<img>` is rendered with `aria-hidden="true"` and fixed `alt=""`.
 
 Constraints:
 - Use either markdown content (`data.content`) or caller HTML for structured blocks; avoid mixing when not needed.
+- If `content_columns` is omitted, container width defaults to `4` columns.
 
 ## contentList
 
@@ -252,6 +256,19 @@ Inputs (`data` object):
 
 Behavior:
 - Renders standalone `content-columns` block intended to be mixed into `section__container`.
+
+## contentText
+
+Source: `src/_includes/content-text.njk`  
+Signature: `contentText(data = {})`
+
+Inputs (`data` object):
+- `heading` (optional, plain string): text block heading
+- `content` (optional, markdown string): plain text/rich text body
+
+Behavior:
+- Renders standalone `content-text` block intended to be mixed into `section__container`.
+- Width is controlled on `section__container` level, not inside `content-text`.
 
 ## contentTable
 
@@ -299,8 +316,8 @@ Signature: `picture(image = {}, description = '', extraClass = '')`
 
 Inputs:
 - `image` (required for output, object): image descriptor
-  - fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string)
-- `description` (optional, plain string): explicit caption override; falls back to `image.description`
+  - fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string), `caption` (optional, plain string)
+- `description` (optional, plain string): explicit caption override; falls back to `image.description`, then `image.caption`, then `image.alt`
 - `extraClass` (optional, string): additional class for block mix usage
 
 Behavior:
@@ -314,7 +331,7 @@ Signature: `slider(images = [], ariaLabel = 'Image slider', previousLabel = 'Pre
 
 Inputs:
 - `images` (required for output, array): slide media list
-  - shared fields: `type` (optional, string), `src` (required), `description` (optional, plain string)
+  - shared fields: `type` (optional, string), `src` (required), `description` (optional, plain string), `caption` (optional, plain string)
   - image fields (`type` omitted or not `iframe`): `alt` (optional), `width` (required), `height` (required)
   - iframe fields (`type='iframe'`): `title` (optional), `height` (optional)
 - `ariaLabel` (optional, plain string): label for keyboard-focusable slider region
@@ -324,6 +341,8 @@ Inputs:
 
 Behavior:
 - Renders standalone `slider` block with slides, controls, counter, and current slide description.
+- For image slides, the media container aspect ratio is derived from the first slide `width/height`.
+- Slide description text falls back from `description` to `caption`, then `alt`.
 - Supports image slides and embedded iframe slides (`type='iframe'`) within the same slider API.
 - JS module `design-solution-slider` initializes behavior for `.slider[data-slider]`: updates active slide state, updates counter/description, exposes polite live status text, disables controls on first/last slide, and handles keyboard navigation (`ArrowLeft`, `ArrowRight`, `Home`, `End`).
 - If less than two slides are provided, the control footer is not rendered.
@@ -331,17 +350,18 @@ Behavior:
 ## designSolution
 
 Source: `src/_includes/design-solution.njk`  
-Signature: `designSolution(data = {})`
+Signature: `designSolution(data = {}, baseUrl = '')`
 
 Inputs (`data` object):
 - `images` (optional, array): media slides
-  - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string)
+  - image fields: `src` (required), `alt` (optional), `width` (required), `height` (required), `description` (optional, plain string), `caption` (optional, plain string)
 - `prototype` (optional, object): embedded prototype media
   - fields: `src` (required), `title` (optional), `height` (optional), `description` (optional, plain string)
 - `primary` (optional, array): first row of details
   - detail fields: `heading` (optional, plain string), `content` (optional, markdown string)
 - `secondary` (optional, array): second row of details
   - detail fields: `heading` (optional, plain string), `items` (optional, array of markdown strings), `content` (optional, markdown string)
+- `baseUrl` (optional, string): page URL used to resolve short image filenames in `images[].src`
 
 Behavior:
 - Renders standalone `design-solution` block intended to be mixed into `section__container`.

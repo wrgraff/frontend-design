@@ -8,6 +8,8 @@ description: Structured CRM product catalog with filters, states, and efficient 
 tags:
   - Data table
   - Workflows
+cover_imgs:
+  - cover.png
 imgs:
   - 00-hero
   - 01-task

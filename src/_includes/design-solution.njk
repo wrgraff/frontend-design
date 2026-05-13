@@ -1,18 +1,34 @@
 {% from 'slider.njk' import slider %}
 {% from 'picture.njk' import picture %}
 
-{% macro designSolution(data = {}) %}
-	{% set images = data.images or [] %}
+{% macro designSolution(data = {}, baseUrl = '') %}
+	{% set sourceImages = data.images or [] %}
+	{% set images = [] %}
 	{% set prototype = data.prototype or {} %}
 	{% set prototypeSrc = prototype.src | default('') | trim %}
 	{% set prototypeQuery = 'scaling=contain&content-scaling=responsive&hide-ui=1&embed-host=arturtrifonov.com' %}
 	{% set prototypeEmbedSrc = '' %}
 	{% set primaryDetails = data.primary or [] %}
 	{% set secondaryDetails = data.secondary or [] %}
+	{% set prototypeSlides = [] %}
+	{% for image in sourceImages %}
+		{% set imageSrc = image.src or '' %}
+		{% if baseUrl and imageSrc and not ('://' in imageSrc) and not ((imageSrc | first) == '/') %}
+			{% set imageSrc = baseUrl ~ 'img/' ~ imageSrc %}
+		{% endif %}
+		{% set images = (images.push({
+			type: image.type,
+			src: imageSrc,
+			alt: image.alt,
+			width: image.width,
+			height: image.height,
+			description: image.description,
+			caption: image.caption
+		}), images) %}
+	{% endfor %}
 	{% set hasSlider = images and (images | length) > 1 %}
 	{% set singleImage = images[0] if images and (images | length) == 1 else {} %}
-	{% set singleImageDescription = (singleImage.description | default('') | trim) if singleImage else '' %}
-	{% set prototypeSlides = [] %}
+	{% set singleImageDescription = (singleImage.description | default(singleImage.caption | default(singleImage.alt | default(''))) | trim) if singleImage else '' %}
 	{% if prototypeSrc %}
 		{% set prototypeEmbedSrc = prototypeSrc
 			| replace('https://www.figma.com/proto/', 'https://embed.figma.com/proto/')

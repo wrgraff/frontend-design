@@ -12,6 +12,8 @@ tags:
   - Data-heavy
   - Data visualization
   - NDA
+cover_imgs:
+  - cover.png
 tasks:
   - Use UI Kit
   - Integration to exist project

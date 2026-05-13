@@ -1,16 +1,22 @@
 {% from 'label.njk' import label %}
 
-{% macro caseHero(hero = {}, heading = '', description = '', role = '', area = '', tags = []) %}
+{% macro caseHero(hero = {}, heading = '', description = '', role = '', area = '', tags = [], baseUrl = '') %}
 	{% set heroImage = hero.image or '' %}
+	{% set heroImagePath = heroImage %}
+	{% if heroImage and not ('://' in heroImage) and not ((heroImage | first) == '/') %}
+		{% set heroImagePath = baseUrl ~ 'img/' ~ heroImage %}
+	{% endif %}
 	{% set heroHeading = hero.heading or heading %}
 	{% set heroLead = hero.lead or description %}
 	{% set heroTags = tags or [] %}
+	{% set heroPictureTone = hero.picture_tone or '' %}
+	{% set heroPictureClass = heroPictureTone and ('case-hero__picture_tone_' + heroPictureTone) or '' %}
 
-	<section class="main__section case-hero">
+	<section class="main__section case-hero" data-case-hero>
 		{% if heroImage %}
 			<div class="case-hero__img">
-				<picture class="case-hero__picture">
-					<img src="{{ heroImage }}" alt="{{ hero.image_alt or '' }}">
+				<picture class="case-hero__picture{% if heroPictureClass %} {{ heroPictureClass }}{% endif %}">
+					<img src="{{ heroImagePath }}" alt="{{ hero.image_alt or '' }}">
 				</picture>
 			</div>
 		{% endif %}

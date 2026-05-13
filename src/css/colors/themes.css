@@ -1,0 +1,50 @@
+/* Cost Explorer Page Theme */
+
+.page[data-page-theme='cost-explorer'][data-page-theme-active='true'] {
+	--page-background-color: var(--palette-neutral-975);
+}
+
+/* Cost Explorer Section Theme */
+
+.section_theme_cost-explorer[data-section-theme-active='true'] {
+	--color-common-primary: #E15F2C;
+	--color-common-primary-hover: #E97C52;
+	--color-common-primary-active: #F0A879;
+	--color-common-base: var(--palette-neutral-950);
+	--color-common-base-hover: var(--palette-neutral-900);
+	--color-common-base-active: var(--palette-neutral-800);
+	--color-common-secondary: var(--palette-neutral-900);
+	--color-common-secondary-hover: var(--palette-neutral-800);
+	--color-common-secondary-active: var(--palette-neutral-700);
+	--color-common-alt: #2ABB5A;
+	--color-common-alt-hover: #52C673;
+	--color-common-alt-active: #75D08D;
+
+	--color-text-primary: #F0A879;
+	--color-text-primary-hover: #F8CAAF;
+	--color-text-primary-active: #F8E6D5;
+	--color-text-base: var(--palette-neutral-100);
+	--color-text-base-hover: var(--palette-neutral-50);
+	--color-text-base-active: var(--palette-neutral-25);
+	--color-text-secondary: var(--palette-neutral-400);
+	--color-text-tertiary: var(--palette-neutral-600);
+	--color-text-bg: var(--palette-neutral-900);
+	--color-text-inverse: var(--palette-neutral-900);
+	--color-text-alt: #9EDDAE;
+	--color-text-primary-inverse: var(--palette-orange-800);
+	--color-text-alt-inverse: #008839;
+
+	--color-surface-base: var(--palette-neutral-975);
+	--color-surface-secondary: var(--palette-neutral-950);
+	--color-surface-tertiary: var(--palette-neutral-900);
+
+	--color-border-base: var(--palette-neutral-800);
+	--color-border-light: var(--palette-neutral-50);
+	--color-shadow-base: #02101E1A;
+
+	--color-gradient: linear-gradient(
+		0deg,
+		var(--color-common-alt) 0%,
+		var(--color-common-primary) 100%
+	);
+}

@@ -2,7 +2,7 @@
 
 .hero {
 	--hero-img-size: 680px;
-	--hero-img-shift: 0px;
+	--hero-img-shift: 62px;
 	--hero-padding-y: 140px;
 	--hero-padding-x: var(--space-page-padding-x);
 	--hero-small-padding-y: 140px;
