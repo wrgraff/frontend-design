@@ -1,5 +1,6 @@
 {% from 'slider.njk' import slider %}
 {% from 'picture.njk' import picture %}
+{% from 'icon.njk' import icon %}
 
 {% macro designSolution(data = {}, baseUrl = '') %}
 	{% set sourceImages = data.images or [] %}
@@ -81,16 +82,25 @@
 		{% endif %}
 
 		{% if primaryDetails and (primaryDetails | length) %}
-			<dl class="design-solution__details design-solution__details_role_primary description-list">
+			<dl class="design-solution-list design-solution-list_role_primary">
 				{% for detail in primaryDetails %}
-					<div class="description-list__item">
+					{% set detailIcon = 'alert/diamond_alert' if loop.index == 1 else ('ui-basics/checkmark' if loop.index == 2 else '') %}
+					<div class="design-solution-list__item design-solution-list__item_role_primary">
+						{% if detailIcon %}
+							{{ icon(detailIcon, 'design-solution-list__icon') }}
+							{% if loop.first %}
+								<svg class="design-solution-list__arrow" width="9" height="16" viewBox="0 0 9 16">
+									<path d="M1.8366 0.318027C1.41636 -0.105902 0.735122 -0.106116 0.315006 0.318027C-0.105109 0.74217 -0.104896 1.42993 0.315006 1.85421L5.3264 6.91364V9.08636L0.315006 14.1458C-0.104896 14.5701 -0.105109 15.2578 0.315006 15.682C0.735122 16.1061 1.41636 16.1059 1.8366 15.682L8.68484 8.76809C9.10505 8.34384 9.10505 7.65616 8.68484 7.23191L1.8366 0.318027Z" fill="currentColor"/>
+								</svg>
+							{% endif %}
+						{% endif %}
 						{% if detail.heading %}
-							<dt class="description-list__term">
+							<dt class="design-solution-list__term">
 								{{ detail.heading | trim }}
 							</dt>
 						{% endif %}
 						{% if detail.content %}
-							<dd class="description-list__description">
+							<dd class="design-solution-list__description">
 								{{ detail.content | markdown | safe }}
 							</dd>
 						{% endif %}
@@ -100,24 +110,24 @@
 		{% endif %}
 
 		{% if secondaryDetails and (secondaryDetails | length) %}
-			<dl class="design-solution__details design-solution__details_role_secondary description-list">
+			<dl class="design-solution-list design-solution-list_role_secondary">
 				{% for detail in secondaryDetails %}
-					<div class="description-list__item">
+					<div class="design-solution-list__item design-solution-list__item_role_secondary">
 						{% if detail.heading %}
-							<dt class="description-list__term">
+							<dt class="design-solution-list__term">
 								{{ detail.heading | trim }}
 							</dt>
 						{% endif %}
 						{% if detail.items and (detail.items | length) %}
-							<dd class="description-list__description">
-								<ul class="design-solution__list list">
+							<dd class="design-solution-list__description">
+								<ul class="design-solution-list__points">
 									{% for item in detail.items %}
-										<li class="list__item">{{ item | markdown | safe }}</li>
+										<li class="design-solution-list__point">{{ item | markdown | safe }}</li>
 									{% endfor %}
 								</ul>
 							</dd>
 						{% elif detail.content %}
-							<dd class="description-list__description">
+							<dd class="design-solution-list__description">
 								{{ detail.content | markdown | safe }}
 							</dd>
 						{% endif %}

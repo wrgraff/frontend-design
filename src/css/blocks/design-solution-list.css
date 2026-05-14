@@ -1,0 +1,139 @@
+/* Variables */
+
+.design-solution-list {
+	--design-solution-list-columns: 2;
+	--design-solution-list-gap: var(--space-gap-s);
+	--design-solution-list-columns-gap: var(--space-gap-l);
+	--design-solution-list-item-gap: var(--space-gap-3xs);
+	--design-solution-list-term-color: var(--color-text-alt);
+	--design-solution-list-term-font: var(--font-label-m);
+	--design-solution-list-icon-size: var(--space-size-s);
+	--design-solution-list-arrow-color: var(--design-solution-list-secondary-border-color);
+	--design-solution-list-description-font: var(--font-text-s);
+	--design-solution-list-secondary-padding-top: var(--space-gap-xxs);
+	--design-solution-list-secondary-border-width: var(--space-border-light);
+	--design-solution-list-secondary-border-color: var(--color-border-base);
+	--design-solution-list-points-gap: var(--space-gap-5xs);
+	--design-solution-list-point-gap: var(--space-gap-xxs);
+	--design-solution-list-point-marker-width: var(--space-size-xs);
+	--design-solution-list-point-marker-height: var(--space-border-medium);
+	--design-solution-list-point-marker-color: var(--color-text-alt);
+	--design-solution-list-point-marker-offset: .8em;
+}
+
+.design-solution-list_role_primary {
+	--design-solution-list-term-font: var(--font-label-l);
+	--design-solution-list-description-font: var(--font-text-m);
+}
+
+/* Design solution list */
+
+.design-solution-list {
+	column-gap: var(--design-solution-list-columns-gap);
+	display: grid;
+	gap: var(--design-solution-list-gap);
+	grid-template-columns: repeat(var(--design-solution-list-columns), minmax(0, 1fr));
+	margin: 0;
+}
+
+/* Design solution list item */
+
+.design-solution-list__item {
+	position: relative;
+	align-content: start;
+	display: grid;
+	gap: var(--design-solution-list-item-gap);
+	padding-top: calc(var(--design-solution-list-icon-size) + var(--design-solution-list-item-gap));
+}
+
+.design-solution-list__item_role_secondary {
+	border-top: var(--design-solution-list-secondary-border-width) solid var(--design-solution-list-secondary-border-color);
+	padding-top: var(--design-solution-list-secondary-padding-top);
+}
+
+/* Design solution list term */
+
+.design-solution-list__term {
+	color: var(--design-solution-list-term-color);
+	font: var(--design-solution-list-term-font);
+	font-weight: 400;
+	letter-spacing: var(--font-label-letterspacing);
+	margin: 0;
+	text-transform: var(--font-label-transform);
+}
+
+/* Design solution list icon */
+
+.design-solution-list__icon {
+	position: absolute;
+	top: 0;
+	color: var(--color-text-primary);
+	flex-shrink: 0;
+	height: var(--design-solution-list-icon-size);
+	width: var(--design-solution-list-icon-size);
+}
+
+/* Design solution list arrow */
+
+.design-solution-list__arrow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: var(--design-solution-list-arrow-color);
+	display: block;
+	flex-shrink: 0;
+	height: var(--design-solution-list-icon-size);
+}
+
+.design-solution-list__item_role_primary:first-child:before {
+	content: '';
+	position: absolute;
+	top: calc(var(--design-solution-list-icon-size) / 2 - var(--space-border-light));
+	right: 3px;
+	left: calc(var(--design-solution-list-icon-size) + var(--design-solution-list-item-gap));
+	height: var(--space-border-medium);
+	background-color: var(--design-solution-list-arrow-color);
+}
+
+/* Design solution list description */
+
+.design-solution-list__description {
+	font: var(--design-solution-list-description-font);
+	margin: 0;
+}
+
+/* Design solution list points */
+
+.design-solution-list__points {
+	display: grid;
+	gap: var(--design-solution-list-points-gap);
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 var(--space-gap-3xs);
+}
+
+/* Design solution list point */
+
+.design-solution-list__point {
+	align-items: start;
+	color: var(--color-text-base);
+	column-gap: var(--design-solution-list-point-gap);
+	display: grid;
+	font: var(--design-solution-list-description-font);
+	grid-template-columns: var(--design-solution-list-point-marker-width) minmax(0, 1fr);
+	margin: 0;
+}
+
+.design-solution-list__point::before {
+	background-color: var(--design-solution-list-point-marker-color);
+	content: '';
+	height: var(--design-solution-list-point-marker-height);
+	margin-top: var(--design-solution-list-point-marker-offset);
+	width: var(--design-solution-list-point-marker-width);
+}
+
+@media (width < 1100px) {
+	.design-solution-list {
+		--design-solution-list-columns: 1;
+	}
+}

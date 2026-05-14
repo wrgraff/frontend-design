@@ -368,6 +368,7 @@ Behavior:
 - If `images.length > 1`, composes the standalone `slider` macro/block.
 - If exactly one image is passed, composes the standalone `picture` macro/block (without slider controls).
 - If `images` are not provided and `prototype.src` is set, composes the standalone `slider` macro/block with a single iframe slide (without slider controls).
+- Primary and secondary details render through the standalone `design-solution-list` block; the first two primary items render shared icons before their headings.
 - For `prototype`, macro normalizes `figma.com/proto` URLs to `embed.figma.com/proto` and appends fixed params on render:
   `scaling=contain&content-scaling=responsive&hide-ui=1&embed-host=arturtrifonov.com`.
 - If the source URL already contains Figma share params (`t`, `scaling`, `content-scaling`, `hide-ui`, `embed-host`), macro strips them before appending the fixed params.
