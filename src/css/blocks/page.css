@@ -40,6 +40,11 @@
 	z-index: 0;
 }
 
+.page__body_view_plain {
+	display: block;
+	max-width: none;
+}
+
 /* Main */
 
 .page__main {

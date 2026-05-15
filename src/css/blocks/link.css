@@ -10,7 +10,7 @@ a:not([class]) {
 	--link-underline-color: var(--color-text-alt);
 	--link-underline-offset: .25rem;
 	--link-underline-thickness: var(--space-border-light);
-	--link-icon-size: var(--space-size-s);
+	--link-icon-size: 1em;
 	--link-icon-color: currentColor;
 	--link-external-size: var(--space-size-3xs);
 }
@@ -65,49 +65,42 @@ a:not([class]):active {
 
 .link_size_text-xs {
 	--link-font: var(--font-text-xs);
-	--link-icon-size: var(--space-size-xxs);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 }
 
 .link_size_text-s {
 	--link-font: var(--font-text-s);
-	--link-icon-size: var(--space-size-xs);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 }
 
 .link_size_text-m {
 	--link-font: var(--font-text-m);
-	--link-icon-size: var(--space-size-s);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 }
 
 .link_size_text-l {
 	--link-font: var(--font-text-l);
-	--link-icon-size: var(--space-size-m);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 }
 
 .link_size_text-xl {
 	--link-font: var(--font-text-xl);
-	--link-icon-size: var(--space-size-l);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 }
 
 .link_size_text-2xl {
 	--link-font: var(--font-text-2xl);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 }
 
 .link_size_text-3xl {
 	--link-font: var(--font-text-3xl);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-text-letterspacing);
 	--link-text-transform: var(--font-text-transform);
 }
@@ -116,49 +109,42 @@ a:not([class]):active {
 
 .link_size_label-xs {
 	--link-font: var(--font-label-xs);
-	--link-icon-size: var(--space-size-xxs);
 	--link-letterspacing: var(--font-label-letterspacing);
 	--link-text-transform: var(--font-label-transform);
 }
 
 .link_size_label-s {
 	--link-font: var(--font-label-s);
-	--link-icon-size: var(--space-size-xs);
 	--link-letterspacing: var(--font-label-letterspacing);
 	--link-text-transform: var(--font-label-transform);
 }
 
 .link_size_label-m {
 	--link-font: var(--font-label-m);
-	--link-icon-size: var(--space-size-s);
 	--link-letterspacing: var(--font-label-letterspacing);
 	--link-text-transform: var(--font-label-transform);
 }
 
 .link_size_label-l {
 	--link-font: var(--font-label-l);
-	--link-icon-size: var(--space-size-m);
 	--link-letterspacing: var(--font-label-letterspacing);
 	--link-text-transform: var(--font-label-transform);
 }
 
 .link_size_label-xl {
 	--link-font: var(--font-label-xl);
-	--link-icon-size: var(--space-size-l);
 	--link-letterspacing: var(--font-label-letterspacing);
 	--link-text-transform: var(--font-label-transform);
 }
 
 .link_size_label-2xl {
 	--link-font: var(--font-label-2xl);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-label-letterspacing);
 	--link-text-transform: var(--font-label-transform);
 }
 
 .link_size_label-3xl {
 	--link-font: var(--font-label-3xl);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-label-letterspacing);
 	--link-text-transform: var(--font-label-transform);
 }
@@ -167,49 +153,42 @@ a:not([class]):active {
 
 .link_size_caption-xs {
 	--link-font: var(--font-caption-xs);
-	--link-icon-size: var(--space-size-xxs);
 	--link-letterspacing: var(--font-caption-letterspacing);
 	--link-text-transform: var(--font-caption-transform);
 }
 
 .link_size_caption-s {
 	--link-font: var(--font-caption-s);
-	--link-icon-size: var(--space-size-xs);
 	--link-letterspacing: var(--font-caption-letterspacing);
 	--link-text-transform: var(--font-caption-transform);
 }
 
 .link_size_caption-m {
 	--link-font: var(--font-caption-m);
-	--link-icon-size: var(--space-size-s);
 	--link-letterspacing: var(--font-caption-letterspacing);
 	--link-text-transform: var(--font-caption-transform);
 }
 
 .link_size_caption-l {
 	--link-font: var(--font-caption-l);
-	--link-icon-size: var(--space-size-m);
 	--link-letterspacing: var(--font-caption-letterspacing);
 	--link-text-transform: var(--font-caption-transform);
 }
 
 .link_size_caption-xl {
 	--link-font: var(--font-caption-xl);
-	--link-icon-size: var(--space-size-l);
 	--link-letterspacing: var(--font-caption-letterspacing);
 	--link-text-transform: var(--font-caption-transform);
 }
 
 .link_size_caption-2xl {
 	--link-font: var(--font-caption-2xl);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-caption-letterspacing);
 	--link-text-transform: var(--font-caption-transform);
 }
 
 .link_size_caption-3xl {
 	--link-font: var(--font-caption-3xl);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-caption-letterspacing);
 	--link-text-transform: var(--font-caption-transform);
 }
@@ -218,7 +197,6 @@ a:not([class]):active {
 
 .link_size_heading-hl1 {
 	--link-font: var(--font-heading-hl1);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -227,7 +205,6 @@ a:not([class]):active {
 
 .link_size_heading-hl2 {
 	--link-font: var(--font-heading-hl2);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -236,7 +213,6 @@ a:not([class]):active {
 
 .link_size_heading-hl3 {
 	--link-font: var(--font-heading-hl3);
-	--link-icon-size: var(--space-size-xl);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -245,7 +221,6 @@ a:not([class]):active {
 
 .link_size_heading-h1 {
 	--link-font: var(--font-heading-h1);
-	--link-icon-size: var(--space-size-l);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -254,7 +229,6 @@ a:not([class]):active {
 
 .link_size_heading-h2 {
 	--link-font: var(--font-heading-h2);
-	--link-icon-size: var(--space-size-l);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -263,7 +237,6 @@ a:not([class]):active {
 
 .link_size_heading-h3 {
 	--link-font: var(--font-heading-h3);
-	--link-icon-size: var(--space-size-m);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -272,7 +245,6 @@ a:not([class]):active {
 
 .link_size_heading-h4 {
 	--link-font: var(--font-heading-h4);
-	--link-icon-size: var(--space-size-m);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -281,7 +253,6 @@ a:not([class]):active {
 
 .link_size_heading-h5 {
 	--link-font: var(--font-heading-h5);
-	--link-icon-size: var(--space-size-s);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);
@@ -290,7 +261,6 @@ a:not([class]):active {
 
 .link_size_heading-h6 {
 	--link-font: var(--font-heading-h6);
-	--link-icon-size: var(--space-size-s);
 	--link-letterspacing: var(--font-heading-letterspacing);
 	--link-text-transform: var(--font-heading-transform);
 	--link-underline-thickness: var(--space-border-medium);

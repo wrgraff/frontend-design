@@ -1,0 +1,56 @@
+/* Variables */
+
+.business-card {
+	--business-card-padding-y: calc(var(--space-page-padding-x) * 2);
+	--business-card-padding-x: var(--space-page-padding-x);
+	--business-card-gap: var(--space-gap-xl);
+	--business-card-content-gap: var(--space-gap-xl);
+	--business-card-group-gap: var(--space-gap-xs);
+	--business-card-logo-width: 243px;
+}
+
+/* Business card */
+
+.business-card {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: var(--business-card-gap);
+	min-height: 100svh;
+	padding: var(--business-card-padding-y) var(--business-card-padding-x);
+}
+
+/* Business card logo */
+
+.business-card__logo-link {
+	aspect-ratio: 243 / 64;
+	display: block;
+	width: min(var(--business-card-logo-width), 100%);
+}
+
+/* Business card content */
+
+.business-card__content {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	gap: var(--business-card-content-gap);
+	justify-content: center;
+	width: 100%;
+}
+
+/* Business card group */
+
+.business-card__group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--business-card-group-gap);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.business-card__item {
+	margin: 0;
+}
