@@ -58,19 +58,6 @@ function loadI18nConfig() {
 
 const i18nConfig = loadI18nConfig();
 
-function collectCaseImageDirs(baseDir) {
-	const absoluteBaseDir = path.join(__dirname, baseDir);
-
-	if (!fs.existsSync(absoluteBaseDir)) {
-		return [];
-	}
-
-	return fs.readdirSync(absoluteBaseDir, { withFileTypes: true })
-		.filter((entry) => entry.isDirectory())
-		.map((entry) => `${baseDir}/${entry.name}/img`)
-		.filter((imgDir) => fs.existsSync(path.join(__dirname, imgDir)));
-}
-
 function isSkippableLink(href) {
 	if (typeof href !== 'string' || href.trim() === '') {
 		return true;
@@ -423,14 +410,11 @@ module.exports = function (config) {
 
 	// Passthrough copy
 
-	const portfolioImageDirs = collectCaseImageDirs('src/portfolio');
-	const publicationsImageDirs = collectCaseImageDirs('src/publications');
-
 	[
 		'src/fonts',
 		'src/img',
-		...portfolioImageDirs,
-		...publicationsImageDirs,
+		'src/portfolio/*/img/**/*',
+		'src/publications/*/img/**/*',
 		'src/files'
 	].forEach(
 		path => config.addPassthroughCopy(path)

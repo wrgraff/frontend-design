@@ -1,12 +1,6 @@
-/* Variables */
-
-.content-table {
-	--content-table-gap: var(--space-gap-s);
-}
 
 /* Content table */
 
 .content-table {
 	display: grid;
-	gap: var(--content-table-gap);
 }

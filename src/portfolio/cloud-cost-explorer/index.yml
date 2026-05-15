@@ -264,3 +264,142 @@ sections:
             items:
               - Lower discoverability of the drill path
               - Navigation friction when going deeper
+
+  - eyebrow: Key decisions
+    heading: "Chart modes: cumulative trend + periodic granularity"
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: view-1.png
+            alt: Cumulative chart mode showing a cloud spend trend and forecast
+            width: 1600
+            height: 860
+          - src: view-2.png
+            alt: Periodic chart mode showing daily cloud spend bars
+            width: 1600
+            height: 860
+        primary:
+          - heading: Problem
+            content: To cover a strong visual sense of **trend** as well as a clear view of **per-step changes**
+          - heading: Solution
+            content: A toggle between **cumulative** and **periodic** views
+        secondary:
+          - heading: Advantages
+            items:
+              - trend becomes visually obvious;
+              - “we’re heading to the limit” understanding
+              - spikes and repeating patterns are easy to detect
+          - heading: Risks to avoid
+            items:
+              - The primary view could hide the other one
+
+  - eyebrow: Key decisions
+    heading: Сhart as summary linked with table as details
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: linking-1.png
+            alt: Cloud spend chart connected with a detailed data table below
+            width: 1600
+            height: 1098
+        primary:
+          - heading: Problem
+            content: "Investigation needs both views: quick scanning and trustworthy detail. We can't just hide some details, only prioritize"
+          - heading: Solution
+            content: Legend from chart connected to the table as well, but table contains much more details and entities
+        secondary:
+          - heading: Advantages
+            items:
+              - Fast understanding of “what matters” via chart
+              - Full accountability via table (no missing items)
+          - heading: Risks to avoid
+            items:
+              - Chart/table mismatch caused by aggregation rules or sorting differences
+              - Users losing orientation between summary and detail (weak linking / weak highlighting)
+
+  - eyebrow: Key decisions
+    heading: "Filtering UX: initial drawer approach → iteration to visible applied"
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: filters-1.png
+            alt: Cloud Cost Explorer with applied filters visible above the chart
+            width: 1600
+            height: 1018
+          - src: filters-2.png
+            alt: Cloud Cost Explorer with applied filters visible above the chart
+            width: 1600
+            height: 1018
+          - src: filters-3.png
+            alt: Filter menu open while applied filters remain visible above the chart
+            width: 1600
+            height: 1018
+        primary:
+          - heading: Problem
+            content: Cost investigation depends on filtering by tags, accounts, projects, and regions. Users must keep a strong sense of what is applied right now, otherwise the chart becomes untrustworthy.
+          - heading: Solution
+            content: Initial solution put filters into a drawer to handle many dimensions and filter types. After feedback, the flow changed so applied filters remain visible while reading the chart, and the interaction model stays consistent.
+        secondary:
+          - heading: Advantages
+            items:
+              - Scales for large filter dictionaries and lazy values
+              - Applied filter state stays visible
+              - Presets become a natural next step
+          - heading: Risks to avoid
+            items:
+              - Inconsistent apply model
+
+  - eyebrow: Key decisions
+    heading: Overlay comparison
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: compare.png
+            alt: Forecast card with an overlay comparison between current and previous periods
+            width: 1600
+            height: 1018
+        primary:
+          - heading: Problem
+            content: Stakeholders need a reliable answer to whether current spend is trending above the previous period. Comparisons must stay interpretable across different time periods.
+          - heading: Solution
+            content: Overlay current period and previous period data using consistent period rules.
+        secondary:
+          - heading: Advantages
+            items:
+              - Visual comparison that is easy to explain
+              - Understanding of the global trend
+          - heading: Risks to avoid
+            items:
+              - Inconsistent day counts for some periods
+              - Impossible comparison with an unfinished period
+
+  - eyebrow: Outcome
+    heading: Launch the product
+    lead: The MVP launched successfully and is now used in production with real data. The next steps are to iterate based on feedback and expand usage across more teams.
+    content:
+      - type: content-list
+        ordered: true
+        columns: 2
+        items:
+          - text: "MVP integrated into a fintech environment and used with real data"
+          - text: "Started an iteration loop based on initial feedback"
+          - text: "Received follow-up requests to expand usage (additional departments)"
+
+  - eyebrow: Experience
+    heading: What I learned
+    lead: It was a big project with a complex domain and many constraints. I learned how to navigate such complexity, make informed design decisions, and align stakeholders around them.
+    content:
+      - type: content-list
+        ordered: true
+        columns: 2
+        items:
+          - text: "**Readability at scale**: how to deal with data overload (how to prioritize data to generate insights)"
+          - text: "How filters stop being “controls” and become the product’s navigation system"
+          - text: |
+              **How “data logic” decisions are UX decisions**
+              Data here not just a backend logic, it's connected to user needs. Period rules, grouping logic, and aggregation: these types of details in this environment are the essence, not just implementation.
+          - text: "Limited access to users: use every option to learn (like demos)"
