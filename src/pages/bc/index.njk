@@ -1,4 +1,5 @@
 {% from 'link.njk' import link %}
+{% from 'logo.njk' import logo %}
 
 {% set contactItems = global.contacts.items %}
 {% set socialContacts = ['linkedin', 'behance', 'dribbble'] %}
@@ -10,13 +11,7 @@
 	</h1>
 
 	<a href="{{ '/' | localePath(page.url) }}" class="business-card__logo-link">
-		<img
-			class="logo"
-			src="/img/logo.svg"
-			alt="{{ global.name }}"
-			width="243"
-			height="64"
-		>
+		{{ logo(ariaLabel = global.name) }}
 	</a>
 
 	<div class="business-card__content">
