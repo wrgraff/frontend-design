@@ -3,8 +3,9 @@
 
 {% macro table(data = {}) %}
 	{% set tableSize = data.size or 'm' %}
+	{% set tableLayout = data.layout or '' %}
 
-	<table class="table{% if tableSize %} table_size_{{ tableSize }}{% endif %}">
+	<table class="table{% if tableSize %} table_size_{{ tableSize }}{% endif %}{% if tableLayout %} table_layout_{{ tableLayout }}{% endif %}">
 		{% if data.columns and data.columns.length %}
 			<colgroup class="table__columns">
 				{% for column in data.columns %}

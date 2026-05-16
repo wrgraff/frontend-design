@@ -1,7 +1,5 @@
-{% from 'link.njk' import link %}
+{% from 'contacts-links.njk' import contactsLinks %}
 {% set contactsData = global.contacts %}
-{% set sectionSocials = ['linkedin', 'behance', 'dribbble'] %}
-{% set sectionMessaging = ['email', 'whatsapp', 'telegram'] %}
 
 <section class="main__section contacts" id="contacts">
 	<header class="contacts__header">
@@ -23,41 +21,10 @@
 			{{ contactsData.body | markdown | safe }}
 		</div>
 
-		<ul class="contacts__links contacts__links_type_social">
-			{% for itemKey in sectionSocials %}
-				{% set item = contactsData.items[itemKey] %}
-				{% if item %}
-					<li class="contacts__item">
-						{{ link(
-							text = item.heading,
-							href = item.url,
-							size = 'text-xs',
-							iconName = item.icon,
-							external = item.external or false,
-							extraClass = 'contacts__link'
-						) }}
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-
-		<ul class="contacts__links contacts__links_type_direct">
-			{% for itemKey in sectionMessaging %}
-				{% set item = contactsData.items[itemKey] %}
-				{% if item %}
-					<li class="contacts__item">
-						{{ link(
-							text = item.heading,
-							href = item.url,
-							size = 'text-xs',
-							iconName = item.icon,
-							external = item.external or false,
-							extraClass = 'contacts__link'
-						) }}
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
+		{{ contactsLinks(
+			contactsData = contactsData,
+			extraClass = 'contacts__links'
+		) }}
 	</div>
 
 	<img src="/img/route.svg" alt="" class="contacts__map" aria-hidden="true">

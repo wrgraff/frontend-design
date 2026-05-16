@@ -6,7 +6,8 @@
 
 /* Cost Explorer Section Theme */
 
-.section_theme_cost-explorer[data-section-theme-active='true'] {
+.section_theme_cost-explorer[data-section-theme-active='true'],
+.case-contacts_theme_cost-explorer[data-section-theme-active='true'] {
 	--color-common-primary: #E15F2C;
 	--color-common-primary-hover: #E97C52;
 	--color-common-primary-active: #F0A879;

@@ -1,0 +1,44 @@
+/* Variables */
+
+.contacts-links {
+	--contacts-links-column-gap: var(--space-gap-l);
+	--contacts-links-row-gap: var(--space-gap-3xs);
+	--contacts-links-font: var(--font-text-s);
+}
+
+/* Contacts links */
+
+.contacts-links {
+	display: grid;
+	column-gap: var(--contacts-links-column-gap);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	font: var(--contacts-links-font);
+}
+
+/* Contacts links social */
+
+.contacts-links__social {
+	display: grid;
+	grid-column: 1;
+	row-gap: var(--contacts-links-row-gap);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Contacts links direct */
+
+.contacts-links__direct {
+	display: grid;
+	grid-column: 2 / span 2;
+	row-gap: var(--contacts-links-row-gap);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Contacts links item */
+
+.contacts-links__item {
+	margin: 0;
+}

@@ -94,8 +94,15 @@
 	--list-columns: 3;
 }
 
+@media (width < 1000px) {
+	.list_columns_3 {
+		--list-columns: 2;
+	}
+}
+
 @media (width < 800px) {
-	.list_columns_2 {
+	.list_columns_2,
+	.list_columns_3 {
 		--list-columns: 1;
 	}
 }

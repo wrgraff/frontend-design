@@ -323,6 +323,11 @@ module.exports = function (config) {
 		return yaml.load(contents);
 	});
 
+	config.setChokidarConfig({
+		usePolling: true,
+		interval: 100,
+	});
+
 	// Internationalization
 
 	config.addFilter('localeFromUrl', (url) => detectLocaleFromUrl(url));
@@ -421,6 +426,7 @@ module.exports = function (config) {
 	);
 
 	config.addWatchTarget('src/publications/**/*.md');
+	config.addWatchTarget('src/_data/i18n.yml', { resetConfig: true });
 	config.addWatchTarget('src/**/*.yml');
 	config.addWatchTarget('src/**/*.yaml');
 

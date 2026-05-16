@@ -3,6 +3,7 @@ layout: page.njk
 ---
 
 {% from 'case-hero.njk' import caseHero %}
+{% from 'case-contacts.njk' import caseContacts %}
 {% from 'section.njk' import section %}
 {% from 'content-list.njk' import contentList %}
 {% from 'content-columns.njk' import contentColumns %}
@@ -82,4 +83,13 @@ layout: page.njk
 			}) }}
 		{% endif %}
 	{% endfor %}
+{% endif %}
+
+{% if contact_section %}
+	{{ caseContacts(
+		data = contact_section,
+		contactsData = global.contacts,
+		baseUrl = page.url,
+		theme = theme or ''
+	) }}
 {% endif %}

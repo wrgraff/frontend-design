@@ -83,6 +83,7 @@ sections:
 
       - type: table
         heading: Representative tasks
+        layout: blocks
         columns:
           - key: question
             heading: Question
@@ -380,6 +381,11 @@ sections:
   - eyebrow: Outcome
     heading: Launch the product
     lead: The MVP launched successfully and is now used in production with real data. The next steps are to iterate based on feedback and expand usage across more teams.
+    decor:
+      - type: content-bottom-fill
+        image: area-prediction-chart.svg
+        width: 1320
+        height: 330
     content:
       - type: content-list
         ordered: true
@@ -403,3 +409,12 @@ sections:
               **How “data logic” decisions are UX decisions**
               Data here not just a backend logic, it's connected to user needs. Period rules, grouping logic, and aggregation: these types of details in this environment are the essence, not just implementation.
           - text: "Limited access to users: use every option to learn (like demos)"
+
+contact_section:
+  heading: Thx for reading!
+  lead: Feel free to reach out if you’d like to discuss this case, design decisions, or complex product interfaces
+  image:
+    src: bar-chart.svg
+    alt: ''
+    width: 1440
+    height: 608

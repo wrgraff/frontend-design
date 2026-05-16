@@ -120,6 +120,12 @@
 	--section-container-column: 1 / -1;
 }
 
+@media (width < 1200px) {
+	.section__container_width_2 {
+		--section-container-column: 1 / -1;
+	}
+}
+
 .section__tail {
 	font: var(--section-tail-font);
 	grid-column: var(--section-tail-column);
@@ -202,4 +208,10 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+@media (width < 1200px) {
+	.section__decor_type_content-bottom-right {
+		display: none;
+	}
 }

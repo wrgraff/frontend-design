@@ -196,6 +196,42 @@ Inputs (`hero` object):
 Behavior:
 - Renders root-level tag labels, a case heading, lead text, detail rows, and an optional media block.
 
+## caseContacts
+
+Source: `src/_includes/case-contacts.njk`  
+Signature: `caseContacts(data = {}, contactsData = {}, baseUrl = '', theme = '')`
+
+Fields:
+
+- `data.heading` (optional, string): final section heading.
+- `data.lead` (optional, markdown string): final section lead text.
+- `data.image` (optional, object): decorative image with `src`, `alt`, `width`, and `height`; short filenames resolve as `img/<filename>` relative to the case page.
+- `contactsData.items` (object): shared contact item source, usually `global.contacts.items`.
+
+Behavior:
+
+- Renders a standalone final case contact section, outside the regular `sections` content flow.
+- Contact labels, URLs, icons, order, and external state come from shared contact data and the shared links block; case YAML owns only section-specific copy.
+- Contact groups are rendered through the shared `contactsLinks` macro.
+
+## contactsLinks
+
+Source: `src/_includes/contacts-links.njk`  
+Signature: `contactsLinks(contactsData = {}, extraClass = '')`
+
+Fields:
+
+- `contactsData.items` (object): shared contact item source, usually `global.contacts.items`.
+- `extraClass` (optional, string): additional class for block mix usage.
+
+Behavior:
+
+- Renders a standalone `contacts-links` block.
+- Keeps the same internal columns, link size, and icon treatment wherever it is mixed.
+- Uses the original contacts-section grouping: `linkedin`, `behance`, `dribbble` in the first column; `email`, `whatsapp`, `telegram` in the second group spanning the second and third columns.
+- Contact labels, URLs, icons, and external state come from shared contact data.
+- Each contact link is rendered through the shared `link` macro.
+
 ## section
 
 Source: `src/_includes/section.njk`  
@@ -381,6 +417,7 @@ Signature: `table(data = {})`
 
 Inputs (`data` object):
 - `size` (optional, string): `m` (default) or `s`
+- `layout` (optional, string): `blocks` stacks cells inside each row on narrow screens
 - `columns` (optional, array): table columns definition
   - column fields: `key` (required), `heading` (optional)
   - optional colgroup fields: `width`, `min_width`, `max_width` (CSS values), `extra_class` (optional string class for `<col>`)

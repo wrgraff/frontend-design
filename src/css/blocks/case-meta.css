@@ -31,3 +31,9 @@
 	font: var(--case-meta-value-font);
 	margin: 0;
 }
+
+@media (width < 540px) {
+	.case-meta__value {
+		grid-column: 1 / -1;
+	}
+}

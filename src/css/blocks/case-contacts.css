@@ -1,0 +1,109 @@
+/* Variables */
+
+.case-contacts {
+	--case-contacts-padding-y: 80px;
+	--case-contacts-padding-x: var(--space-page-padding-x);
+	--case-contacts-columns: 5;
+	--case-contacts-gap: var(--space-gap-l);
+	--case-contacts-header-border: var(--space-border-light) solid var(--color-border-base);
+	--case-contacts-header-padding-bottom: var(--space-gap-xxs);
+	--case-contacts-heading-font: var(--font-heading-h1);
+	--case-contacts-heading-letterspacing: var(--font-heading-letterspacing);
+	--case-contacts-lead-font: var(--font-text-m);
+	--case-contacts-lead-column: 1 / span 3;
+	--case-contacts-links-row: 3;
+	--case-contacts-links-column: 1 / span 3;
+	--case-contacts-decor-height: 240px;
+}
+
+@media (width < 1000px) {
+	.case-contacts {
+		--case-contacts-padding-y: 64px;
+		--case-contacts-lead-column: 1 / span 4;
+		--case-contacts-decor-height: 300px;
+		--case-contacts-decor-image-y: -170px;
+	}
+}
+
+@media (width < 800px) {
+	.case-contacts {
+		--case-contacts-padding-y: 48px;
+		--case-contacts-lead-column: 1 / -1;
+		--case-contacts-decor-height: 260px;
+		--case-contacts-decor-image-x: -80px;
+		--case-contacts-decor-image-y: -130px;
+	}
+}
+
+@media (width < 540px) {
+	.case-contacts {
+		--case-contacts-padding-y: 32px;
+		--case-contacts-links-row: auto;
+		--case-contacts-links-column: 1 / -1;
+		--case-contacts-decor-height: 220px;
+		--case-contacts-decor-image-x: -60px;
+		--case-contacts-decor-image-y: -90px;
+	}
+}
+
+/* Case contacts */
+
+.case-contacts {
+	display: grid;
+	gap: var(--case-contacts-gap);
+	grid-template-columns: repeat(var(--case-contacts-columns), minmax(0, 1fr));
+	padding: var(--case-contacts-padding-y) var(--case-contacts-padding-x);
+	overflow: hidden;
+}
+
+:where(.case-contacts) {
+	position: relative;
+	z-index: 0;
+}
+
+/* Case contacts header */
+
+.case-contacts__header {
+	border-bottom: var(--case-contacts-header-border);
+	grid-column: 1 / -1;
+	padding-bottom: var(--case-contacts-header-padding-bottom);
+}
+
+/* Case contacts heading */
+
+.case-contacts__heading {
+	font: var(--case-contacts-heading-font);
+	letter-spacing: var(--case-contacts-heading-letterspacing);
+	margin: 0;
+}
+
+/* Case contacts lead */
+
+.case-contacts__lead {
+	font: var(--case-contacts-lead-font);
+	grid-column: var(--case-contacts-lead-column);
+}
+
+/* Case contacts links */
+
+.case-contacts__links {
+	grid-column: var(--case-contacts-links-column);
+	grid-row: var(--case-contacts-links-row);
+}
+
+/* Case contacts decor */
+
+.case-contacts__decor {
+	display: grid;
+	place-content: center;
+	grid-column: 1 / -1;
+	height: var(--case-contacts-decor-height);
+	z-index: -1;
+}
+
+.case-contacts__decor-image {
+	display: block;
+	max-width: none;
+	width: calc(100% + var(--space-page-padding-x) * 2);
+	margin-left: calc(var(--space-page-padding-x) * -1);
+}

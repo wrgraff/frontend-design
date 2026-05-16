@@ -8,6 +8,7 @@
 		<div class="datatable__scroll">
 			{{ table({
 				size: data.size or 'm',
+				layout: data.layout or '',
 				columns: data.columns or [],
 				rows: data.rows or []
 			}) }}

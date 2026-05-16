@@ -77,3 +77,29 @@
 	--table-cell-padding-top: var(--space-gap-3xs);
 	--table-cell-padding-bottom: var(--space-gap-3xs);
 }
+
+@media (width < 800px) {
+	.table_layout_blocks .table__columns,
+	.table_layout_blocks .table__head {
+		display: none;
+	}
+
+	.table_layout_blocks,
+	.table_layout_blocks .table__body,
+	.table_layout_blocks .table__row,
+	.table_layout_blocks .table__cell {
+		display: block;
+	}
+
+	.table_layout_blocks .table__row {
+		padding: var(--table-cell-padding-top) 0 var(--table-cell-padding-bottom);
+	}
+
+	.table_layout_blocks .table__cell {
+		padding: 0;
+	}
+
+	.table_layout_blocks .table__cell + .table__cell {
+		padding-top: var(--table-cell-padding-top);
+	}
+}
