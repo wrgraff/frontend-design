@@ -23,13 +23,13 @@ sections:
   - id: current-position
     pretitle: Now
     heading: Current position
-    lead: "My work focuses on data-heavy products that help people understand costs, monitor utilization, and plan infrastructure and budgets with confidence:"
+    lead: "I designed tools for cloud infrastructure analytics and planning, helping large fintech companies manage complex ecosystems of services, products, and environments:"
     details:
-      - "[**Cloud Cost Explorer**](/portfolio/cloud-cost-explorer/) — Helps understand cloud spend: trends, forecast, optimize"
-      - "**Utilization Monitor** — Helps understand cloud spend: trends, forecast, optimize"
-      - "**Infrastructure Planner** — Helps understand cloud spend: trends, forecast, optimize"
-      - "**Dashboard Builder** — Helps understand cloud spend: trends, forecast, optimize"
-    conclusion: "I built and own our design system, which became a foundation for the company’s products. [**Mars Design System**](/portfolio/mars-design-system/) — consistency and scalability across components, patterns, and states."
+      - "[**Cloud Cost Explorer**](/portfolio/cloud-cost-explorer/) — helps understand cloud spend, track trends, forecast usage, and identify optimization options;"
+      - "**Utilization Monitor** — helps detect underused resources across projects, products, environments, etc;"
+      - "**Infrastructure Planner** — supports infrastructure and budget longterm planning;"
+      - "**Dashboard Builder** — gives a flexible way to create custom reports and explore operational data."
+    conclusion: "I also built and maintain [**Mars Design System**](/portfolio/mars-design-system/), which became the foundation for the company’s products and improved consistency, scalability, and quality"
     timeline:
       date: August 2021 – Present
       company: CloudTech
@@ -41,10 +41,10 @@ sections:
     heading: Mentorship
     lead: "The mentor experience strengthened a few skills I now use in product work:"
     details:
-      - "**Adapt communication** by working with ~50 students at different starting levels, adjusting clarity, pace, and depth"
-      - "**People-first collaboration**, reflected in consistent top-10 mentor feedback rankings"
-      - "**Share knowledge** through Academy blog and course-book writing, plus lectures"
-    conclusion: 'Co-authored a [course on design fundamentals](https://htmlacademy.ru/levelup/design) — a full program with structure, content, tasks, and examples.'
+      - "**Adapt communication** by working with ~50 students at different starting levels, adjusting clarity, pace, and depth;"
+      - "**People-first collaboration**, reflected in consistent top-10 mentor feedback rankings;"
+      - "**Share knowledge** through Academy blog and course-book writing, plus lectures."
+    conclusion: "Co-authored a [course on design fundamentals](https://htmlacademy.ru/levelup/design) — a full program with structure, content, tasks, and examples"
     timeline:
       date: October 2019 – July 2023
       company: HTML Academy
@@ -54,11 +54,11 @@ sections:
   - id: frontend
     pretitle: Engineering
     heading: Frontend
-    lead: "My frontend background keeps my design work grounded in how UI is actually built: so designs are easier to implement, review, and evolve"
+    lead: "My frontend background keeps my design work grounded in how UI is actually built: so designs are easier to implement, review, and evolve."
     details:
-      - "Explicit **handoff** with interaction states, constraints, and failure cases"
-      - "More **predictable implementation** with fewer late surprises and less rework"
-      - "**Stronger QA** by catching visual inconsistencies and interaction bugs"
+      - "Explicit **handoff** with interaction states, constraints, and failure cases;"
+      - "More **predictable implementation** with fewer late surprises and less rework;"
+      - "**Stronger QA** by catching visual inconsistencies and interaction bugs;"
       - "Better **design systems** through variants and behavior that translate cleanly into code"
     timeline:
       date: June 2019 – August 2021
@@ -72,7 +72,7 @@ sections:
     lead: |
       Before moving into product design, I worked in a small web studio as an interface developer.
 
-      I built complex business websites for industrial and e-commerce clients — projects where clarity, structure, and implementation quality mattered
+      I built business websites for e-commerce and industrial clients — projects where clarity, structure, and implementation quality mattered
     timeline:
       date: October 2019 – July 2023
       company: United Design Studio
