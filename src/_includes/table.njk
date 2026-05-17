@@ -1,83 +1,113 @@
 {% from 'label.njk' import label %}
 {% from 'icon.njk' import icon %}
+{% from 'button.njk' import button %}
 
 {% macro table(data = {}) %}
 	{% set tableSize = data.size or 'm' %}
 	{% set tableLayout = data.layout or '' %}
+	{% set previewRows = data.preview_rows or 0 %}
+	{% set totalRows = data.rows and data.rows.length or 0 %}
+	{% set isExpandable = previewRows > 0 and totalRows > previewRows %}
+	{% set tableClasses = [
+		'table',
+		tableSize and 'table_size_' + tableSize or '',
+		tableLayout and 'table_layout_' + tableLayout or ''
+	] | join(' ') | trim %}
 
-	<table class="table{% if tableSize %} table_size_{{ tableSize }}{% endif %}{% if tableLayout %} table_layout_{{ tableLayout }}{% endif %}">
-		{% if data.columns and data.columns.length %}
-			<colgroup class="table__columns">
-				{% for column in data.columns %}
-					{% set columnWidth = column.width | default('') %}
-					{% set widthValue = columnWidth %}
-					{% set minWidthValue = column.min_width | default('') %}
-					{% set maxWidthValue = column.max_width | default('') %}
-					{% if columnWidth is number %}
-						{% set widthValue = columnWidth + 'px' %}
-					{% endif %}
-					{% if minWidthValue is number %}
-						{% set minWidthValue = minWidthValue + 'px' %}
-					{% endif %}
-					{% if maxWidthValue is number %}
-						{% set maxWidthValue = maxWidthValue + 'px' %}
-					{% endif %}
-					<col
-						class="table__column{% if column.extra_class %} {{ column.extra_class }}{% endif %}"
-						{% if widthValue or minWidthValue or maxWidthValue %}
-							style="{% if widthValue %}width: {{ widthValue | string | trim }};{% endif %}{% if minWidthValue %} min-width: {{ minWidthValue | string | trim }};{% endif %}{% if maxWidthValue %} max-width: {{ maxWidthValue | string | trim }};{% endif %}"
-						{% endif %}
-					>
-				{% endfor %}
-			</colgroup>
+	<div
+		class="{{ tableClasses }}"
+		{% if isExpandable %}
+			data-table-expandable
+			data-table-preview-rows="{{ previewRows }}"
 		{% endif %}
-
-		{% if data.columns and data.columns.length %}
-			<thead class="table__head">
-				<tr class="table__row table__row_role_head">
+	>
+		<table class="table__grid">
+			{% if data.columns and data.columns.length %}
+				<colgroup class="table__columns">
 					{% for column in data.columns %}
-						<th class="table__cell table__cell_role_head">
-							{{ column.heading | default('') | trim }}
-						</th>
+						{% set columnWidth = column.width | default('') %}
+						{% set widthValue = columnWidth %}
+						{% set minWidthValue = column.min_width | default('') %}
+						{% set maxWidthValue = column.max_width | default('') %}
+						{% if columnWidth is number %}
+							{% set widthValue = columnWidth + 'px' %}
+						{% endif %}
+						{% if minWidthValue is number %}
+							{% set minWidthValue = minWidthValue + 'px' %}
+						{% endif %}
+						{% if maxWidthValue is number %}
+							{% set maxWidthValue = maxWidthValue + 'px' %}
+						{% endif %}
+						<col
+							class="table__column{% if column.extra_class %} {{ column.extra_class }}{% endif %}"
+							{% if widthValue or minWidthValue or maxWidthValue %}
+								style="{% if widthValue %}width: {{ widthValue | string | trim }};{% endif %}{% if minWidthValue %} min-width: {{ minWidthValue | string | trim }};{% endif %}{% if maxWidthValue %} max-width: {{ maxWidthValue | string | trim }};{% endif %}"
+							{% endif %}
+						>
 					{% endfor %}
-				</tr>
-			</thead>
-		{% endif %}
+				</colgroup>
+			{% endif %}
 
-		{% if data.rows and data.rows.length %}
-			<tbody class="table__body">
-				{% for row in data.rows %}
-					<tr class="table__row">
-						{% for column in data.columns or [] %}
-							{% set cell = row[column.key] %}
-							<td class="table__cell">
-								{% if cell and cell.text and cell.tone and tableSize != 's' %}
-									{{ label(
-										text = cell.text | trim,
-										mode = 'special',
-										tone = cell.tone,
-										size = 'm',
-										extraClass = 'table__label'
-									) }}
-								{% elif cell and cell.text %}
-									{% set valueIcon = '' %}
-									{% if cell.icon %}
-										{% set valueIcon = cell.icon | trim %}
-									{% endif %}
-									<span class="table__value{% if cell.tone %} table__value_tone_{{ cell.tone }}{% endif %}">
-										{% if valueIcon %}
-											{{ icon(valueIcon, 'table__value-icon', 24) }}
-										{% endif %}
-										{{ cell.text | trim }}
-									</span>
-								{% elif cell %}
-									{{ cell | markdown | safe }}
-								{% endif %}
-							</td>
+			{% if data.columns and data.columns.length %}
+				<thead class="table__head">
+					<tr class="table__row table__row_role_head">
+						{% for column in data.columns %}
+							<th class="table__cell table__cell_role_head">
+								{{ column.heading | default('') | trim }}
+							</th>
 						{% endfor %}
 					</tr>
-				{% endfor %}
-			</tbody>
+				</thead>
+			{% endif %}
+
+			{% if data.rows and data.rows.length %}
+				<tbody class="table__body">
+					{% for row in data.rows %}
+						<tr class="table__row"{% if isExpandable %} data-table-expandable-row{% if loop.index > previewRows %} hidden{% endif %}{% endif %}>
+							{% for column in data.columns or [] %}
+								{% set cell = row[column.key] %}
+								<td class="table__cell">
+									{% if cell and cell.text and cell.tone and tableSize != 's' %}
+										{{ label(
+											text = cell.text | trim,
+											mode = 'special',
+											tone = cell.tone,
+											size = 'm',
+											extraClass = 'table__label'
+										) }}
+									{% elif cell and cell.text %}
+										{% set valueIcon = '' %}
+										{% if cell.icon %}
+											{% set valueIcon = cell.icon | trim %}
+										{% endif %}
+										<span class="table__value{% if cell.tone %} table__value_tone_{{ cell.tone }}{% endif %}">
+											{% if valueIcon %}
+												{{ icon(valueIcon, 'table__value-icon', 24) }}
+											{% endif %}
+											{{ cell.text | trim }}
+										</span>
+									{% elif cell %}
+										{{ cell | markdown | safe }}
+									{% endif %}
+								</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			{% endif %}
+		</table>
+
+		{% if isExpandable %}
+			<div class="table__footer">
+				<span class="table__count" data-table-expandable-count>{{ previewRows }} of {{ totalRows }} rows</span>
+				{{ button(
+					text = 'View all',
+					mode = 'secondary',
+					iconLeft = 'simple-arrows/angle_down',
+					extraClass = 'table__toggle',
+					dataAttrs = 'data-table-expandable-toggle data-table-view-all-label="View all" data-table-view-less-label="View less" aria-expanded="false"'
+				) }}
+			</div>
 		{% endif %}
-	</table>
+	</div>
 {% endmacro %}

@@ -36,7 +36,7 @@ sections:
         columns: 2
         items:
           - text: "Stakeholders can reliably answer core questions: where money goes, what changed, and why it looks suspicious"
-          - text: "MVP is connected to real cloud data in a fintech environment and works end-to-end"
+          - text: "The solution handles real fintech cloud data with its actual scale, gaps, and aggregation rules"
           - text: "Finance considers numbers consistent enough for reporting and budget conversations"
           - text: "Readability holds when group counts and filters grow"
 
@@ -70,7 +70,8 @@ sections:
 
   - eyebrow: Discovery
     heading: Problem context
-    lead: "To keep the work grounded, I framed design around representative tasks: real questions users need to answer."
+    lead: "The main problem was fragmented multicloud visibility: cost and usage data existed across different platforms and internal tools, but stakeholders lacked a reliable way to read it as one picture."
+    content_columns: 4
     content:
       - type: content-list
         heading: Pain points
@@ -84,32 +85,69 @@ sections:
       - type: table
         heading: Representative tasks
         layout: blocks
+        preview_rows: 5
         columns:
           - key: question
             heading: Question
           - key: cluster
             heading: Cluster
         rows:
-          - question: Cloud spend keeps growing and is close to our budget limit - what is driving it?
+          - question: Cloud spend keeps growing and is close to our budget limit — what’s driving it?
             cluster:
               text: Understand
               tone: amber
-          - question: Spend jumped unexpectedly - what changed and what caused it?
+          - question: Spend jumped unexpectedly — what changed and what caused it?
             cluster:
               text: Investigate
               tone: emerald
-          - question: Where can we cut cloud costs with minimal risk and what is the expected impact?
+          - question: Where can we cut cloud costs with minimal risk, and what’s the expected impact?
             cluster:
               text: Optimise
               tone: sky
-          - question: I see recurring spikes over a few days - what correlates with them?
+          - question: I see recurring spikes over a few days — what correlates with them?
             cluster:
               text: Understand
               tone: amber
-          - question: If the trend continues, when do we exceed budget and what is the end-of-period forecast?
+          - question: If the trend continues, when do we exceed budget, and what’s the end-of-period forecast?
             cluster:
               text: Predict
+              tone: violet
+          - question: What changed this period vs the previous one, and what explains the delta?
+            cluster:
+              text: Investigate
               tone: emerald
+          - question: What are the top cost drivers, and how big is the long tail (“Other”)?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: How much spend is unallocated/untagged, and who owns the “unknown” bucket?
+            cluster:
+              text: Govern
+              tone: teal
+          - question: Can we break down spend by department/product/environment for chargeback/showback?
+            cluster:
+              text: Govern
+              tone: teal
+          - question: A new cost center appeared among top spenders — what is it and who owns it?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: We plan a rollout/migration — how might it affect spend and what guardrails should we set?
+            cluster:
+              text: Predict
+              tone: violet
+          - question: Is this spike real or noise, and which dimension best explains it for fast routing?
+            cluster:
+              text: Investigate
+              tone: emerald
+          - question: After an optimisation, did spend actually drop, and did it rebound later?
+            cluster:
+              text: Optimise
+              tone: sky
+          - question: Are we breaching internal cost policies/limits, and who should be notified?
+            cluster:
+              text: Govern
+              tone: teal
 
       - type: content-list
         heading: Constraints
@@ -232,6 +270,10 @@ sections:
             apptio: { text: No, tone: error, icon: choice-and-validation/cross }
             cloudhealth: { text: No, tone: error, icon: choice-and-validation/cross }
             spot: { text: No, tone: error, icon: choice-and-validation/cross }
+    conclusion: |
+      Specialized FinOps tools, especially Harness, were the closest reference for multicloud cost visibility.
+
+      Native cloud tools had useful patterns, but mostly worked within their own ecosystems or required a custom BI layer for advanced analysis
 
   - eyebrow: Key decisions
     heading: Top groups and zoom-in
@@ -253,9 +295,9 @@ sections:
             height: 860
         primary:
           - heading: Problem
-            content: Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise.
+            content: Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise
           - heading: Solution
-            content: Show top cost groups in chart, consolidate the rest into "Other", and allow users to open "Other" for deeper breakdown.
+            content: Show top cost groups, group the long tail as "Other", and let users zoom into it for more detail
         secondary:
           - heading: Advantages
             items:
@@ -263,11 +305,11 @@ sections:
               - Chart stays readable
           - heading: Risks to avoid
             items:
-              - Lower discoverability of the drill path
-              - Navigation friction when going deeper
+              - Lower discoverability of the zoom-in interaction
+              - Navigation friction between summary and detail
 
   - eyebrow: Key decisions
-    heading: "Chart modes: cumulative trend + periodic granularity"
+    heading: "Cumulative vs Periodic"
     content_columns: 5
     content:
       - type: design-solution
@@ -296,7 +338,7 @@ sections:
               - The primary view could hide the other one
 
   - eyebrow: Key decisions
-    heading: Сhart as summary linked with table as details
+    heading: Сhart linked with table
     content_columns: 5
     content:
       - type: design-solution
@@ -321,7 +363,7 @@ sections:
               - Users losing orientation between summary and detail (weak linking / weak highlighting)
 
   - eyebrow: Key decisions
-    heading: "Filtering UX: initial drawer approach → iteration to visible applied"
+    heading: "Filtering UX"
     content_columns: 5
     content:
       - type: design-solution
@@ -405,9 +447,7 @@ sections:
         items:
           - text: "**Readability at scale**: how to deal with data overload (how to prioritize data to generate insights)"
           - text: "How filters stop being “controls” and become the product’s navigation system"
-          - text: |
-              **How “data logic” decisions are UX decisions**
-              Data here not just a backend logic, it's connected to user needs. Period rules, grouping logic, and aggregation: these types of details in this environment are the essence, not just implementation.
+          - text: "**Data logic is UX logic**: period rules, grouping, and aggregation directly shape what users can understand and trust"
           - text: "Limited access to users: use every option to learn (like demos)"
 
 contact_section:

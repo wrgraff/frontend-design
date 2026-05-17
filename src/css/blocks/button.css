@@ -95,6 +95,10 @@
 	--button-bg: var(--color-common-primary-active);
 }
 
+.button[aria-expanded='true'] .button__icon {
+	transform: rotate(180deg);
+}
+
 /* Sizes */
 
 .button_size_l {

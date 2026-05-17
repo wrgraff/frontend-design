@@ -314,6 +314,7 @@ Signature: `contentTable(data = {})`
 Inputs (`data` object):
 - `heading` (optional, plain string): heading for the block
 - `size` (optional, string): `m` or `s` (forwarded to `table`)
+- `preview_rows` (optional, number): initial visible row count for expandable tables (forwarded to `table`)
 - `columns` (optional, array): table columns definition
   - column fields: `key` (required), `heading` (optional)
 - `rows` (optional, array of objects): each row object maps values by column `key`
@@ -323,7 +324,6 @@ Inputs (`data` object):
 Behavior:
 - Renders standalone `content-table` wrapper block intended to be mixed into `section__container`.
 - Internally delegates table markup to `table`.
-- Footer/summary actions are intentionally out of scope for this macro.
 - Does not add horizontal scroll wrapper.
 
 ## datatable
@@ -334,6 +334,7 @@ Signature: `datatable(data = {})`
 Inputs (`data` object):
 - `heading` (optional, plain string): heading for the block
 - `size` (optional, string): `m` or `s` (forwarded to `table`)
+- `preview_rows` (optional, number): initial visible row count for expandable tables (forwarded to `table`)
 - `columns` (optional, array): table columns definition
   - column fields: `key` (required), `heading` (optional)
 - `rows` (optional, array of objects): each row object maps values by column `key`
@@ -418,6 +419,7 @@ Signature: `table(data = {})`
 Inputs (`data` object):
 - `size` (optional, string): `m` (default) or `s`
 - `layout` (optional, string): `blocks` stacks cells inside each row on narrow screens
+- `preview_rows` (optional, number): initial visible row count; when lower than `rows.length`, renders an expandable table footer
 - `columns` (optional, array): table columns definition
   - column fields: `key` (required), `heading` (optional)
   - optional colgroup fields: `width`, `min_width`, `max_width` (CSS values), `extra_class` (optional string class for `<col>`)
@@ -428,6 +430,7 @@ Inputs (`data` object):
 Behavior:
 - Renders a reusable base table component (`table`) used by content blocks.
 - Renders optional `<colgroup>` when columns are passed, forwarding column layout parameters to `<col>`.
+- When `preview_rows` is active, initially hides extra body rows and renders a generated row count plus toggle button (`View all` / `View less`).
 
 ## timelineSection
 

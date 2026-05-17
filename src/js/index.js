@@ -5,6 +5,7 @@ import { initHeaderStickyState } from './modules/header-sticky-state.js';
 import { initVideos } from './modules/videos.js';
 import { initVideoModal } from './modules/video-modal.js';
 import { initSectionThemeScroll } from './modules/section-theme-scroll.js';
+import { initExpandableTable } from './modules/expandable-table.js';
 
 initNoJs();
 initDesignSolutionSlider();
@@ -13,3 +14,4 @@ initHeaderStickyState();
 initVideos();
 initVideoModal();
 initSectionThemeScroll();
+initExpandableTable();
