@@ -1,0 +1,110 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+::selection {
+	background-color: var(--color-common-primary);
+	color: var(--color-text-inverse);
+}
+
+/* Focus */
+
+:focus-visible {
+	outline: var(--space-border-medium) solid var(--color-common-primary);
+	outline-offset: var(--space-gap-5xs);
+}
+
+strong {
+	color: var(--color-text-primary);
+	font-weight: inherit;
+}
+
+:where(:not(pre) > code) {
+	background-color: var(--color-surface-secondary);
+	border-radius: var(--radius-xs);
+	color: var(--color-text-base);
+	font-family: var(--font-family-monospace);
+	font-size: .9em;
+	hyphens: none;
+	margin: 0;
+	overflow-wrap: anywhere;
+	padding: .1em .3em .1em;
+}
+
+/* Typography baseline */
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, pre, figure) {
+	margin: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+	letter-spacing: var(--font-heading-letterspacing);
+	margin: 1em 0 0.4em;
+	text-wrap: balance;
+	text-transform: var(--font-heading-transform);
+}
+
+:where(p, ul, ol, dl, blockquote, pre, figure, li) {
+	margin: 0.36em 0;
+}
+
+:where(ul, ol, dl, blockquote) {
+	margin-top: var(--space-gap-s);
+	margin-bottom: var(--space-gap-m);
+}
+
+:where(h1) {
+	font: var(--font-heading-h1);
+}
+
+:where(h2) {
+	font: var(--font-heading-h2);
+}
+
+:where(h3) {
+	font: var(--font-heading-h3);
+}
+
+:where(h4) {
+	font: var(--font-heading-h4);
+}
+
+:where(h5) {
+	font: var(--font-heading-h5);
+}
+
+:where(h6) {
+	font: var(--font-heading-h6);
+}
+
+:where(dt) {
+	font-weight: 500;
+}
+
+:where(dd) {
+	margin: 0.35em 0 0.7em 1.25em;
+}
+
+:where(blockquote) {
+	border-left: 1px solid var(--color-border-base);
+	padding-left: 1em;
+}
+
+:where(pre) {
+	overflow-x: auto;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, pre, figure):first-child {
+	margin-top: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, pre, figure):last-child {
+	margin-bottom: 0;
+}

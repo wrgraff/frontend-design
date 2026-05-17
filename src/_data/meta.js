@@ -1,6 +1,6 @@
 module.exports = {
-	url: process.env.URL || 'http://localhost:8080',
+	url: 'https://arturtrifonov.com/',
 	siteName: 'Artur Trifonov\'s personal website',
-	siteDescription: 'UI designer CV and portfolio',
+	siteDescription: 'I build data-heavy interfaces, scalable systems, and analytics tools — turning complexity into calm',
 	cv: 'files/atrifonov-cv-en.pdf',
 };

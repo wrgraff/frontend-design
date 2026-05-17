@@ -1,0 +1,40 @@
+/* Variables */
+
+.description-list {
+	--description-list-gap: var(--space-gap-s);
+	--description-list-item-gap: var(--space-gap-xxs);
+	--description-list-term-font: var(--font-caption-xs);
+	--description-list-term-color: var(--color-text-alt);
+	--description-list-term-border-width: var(--space-border-light);
+	--description-list-term-border-color: var(--color-border-base);
+	--description-list-term-padding-bottom: var(--space-gap-3xs);
+	--description-list-description-font: var(--font-text-s);
+}
+
+/* Description list */
+
+.description-list {
+	display: grid;
+	gap: var(--description-list-gap);
+}
+
+.description-list__item {
+	display: grid;
+	gap: var(--description-list-item-gap);
+	align-content: start;
+}
+
+.description-list__term {
+	border-bottom: var(--description-list-term-border-width) solid var(--description-list-term-border-color);
+	color: var(--description-list-term-color);
+	font: var(--description-list-term-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	margin: 0;
+	padding-bottom: var(--description-list-term-padding-bottom);
+	text-transform: var(--font-caption-transform);
+}
+
+.description-list__description {
+	font: var(--description-list-description-font);
+	margin: 0;
+}

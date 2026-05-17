@@ -1,0 +1,299 @@
+# Agent Rules
+
+This file is the source of truth for implementation rules that AI agents must follow in this repository.
+
+## Technology Stack
+
+- `Eleventy (11ty)` as SSG.
+- `Nunjucks` for templates and UI macros.
+- `YAML` for content and data.
+- `PostCSS` (`postcss-import`, `postcss-media-minmax`, `autoprefixer`, `postcss-csso` in production).
+- `esbuild` for JS bundling.
+- No Tailwind, no CSS-in-JS.
+
+## Architecture and Sources of Truth
+
+- Source of truth for content: `src/_data/*.yml` and page-level `*.yml`.
+- Source of truth for i18n strategy/locales: `src/_data/i18n.yml`.
+- Source of truth for UI components: `src/_includes/*.njk` (`button`, `link`, `icon`, etc.).
+- Source of truth for macro API contracts: `docs/components.md`.
+- Source of truth for styles: `src/css/blocks/*.css` (one block = one file).
+- Do not duplicate logic or SVG markup in local templates if a shared macro/component already exists.
+
+## JavaScript Architecture (Mandatory)
+
+- Entry point for runtime initialization is `src/js/index.js`.
+- JS modules must export explicit `init*` functions (example: `initVideos`, `initNoJs`) instead of relying on side-effect imports.
+- Do not use IIFE modules for new code.
+- Do not write to global scope (`window.*`) unless explicitly requested by the user.
+- Prefer function-based modules over classes for simple behavior.
+- A module should use `early return` if target DOM nodes are missing.
+- A module should return a cleanup function (`destroy`) even if currently unused.
+- Keep one module focused on one UI behavior.
+- Prefer `data-*` hooks for JS behavior targeting; reuse existing selectors where markup is already stable.
+
+## JavaScript Quality Gates
+
+- Run `npm run lint:js` when JS files are changed.
+- `lint:js` currently excludes `src/js/modules/gallery.js` and `src/js/modules/loader.js` as temporary legacy modules that are not active in `src/js/index.js`.
+- If any excluded module is re-enabled or edited as part of a task, remove its exclusion and fix its lint errors in the same task.
+
+## Implementation Priority (Mandatory)
+
+- Consistency and code reuse have the highest priority.
+- Prefer existing blocks/macros (`section`, `hero`, `link`, `button`, `icon`, etc.) over creating page-specific structures.
+- Pixel-perfect matching is secondary to architecture consistency.
+- Small visual differences (for example a few pixels in spacing/alignment) are acceptable if they preserve reuse and system integrity.
+- Do not introduce new wrappers/elements/modifiers solely to match minor Figma offsets when an existing pattern already solves the UI.
+
+## Legacy Policy (Mandatory)
+
+- Default behavior: break legacy compatibility and update all usages in the same task.
+- Do not add fallback branches, compatibility shims, or dual parameter support unless explicitly requested by the user.
+- This project is small: when an API/contract changes, migrate all call sites immediately instead of preserving old behavior.
+
+## Language Policy
+
+- Primary site language is `EN`.
+- Planned additional locales are `DE` and `SK`.
+- Do not introduce `RU` content/UI copy unless explicitly requested for a specific task.
+- The language of user prompts does not change site content language requirements.
+
+## Content Safety (Mandatory)
+
+- Never change user-authored content/copy in data files (`src/_data/*.yml`, page-level `*.yml`) unless the user explicitly asks to change that exact content.
+- "Content/copy" includes wording, punctuation, casing, sentence order, labels, headings, and list item text.
+- Data structure changes are allowed without extra approval (for example: moving text between fields, splitting one field into arrays/objects, adding/removing structural keys), as long as all original text is preserved exactly.
+- If a task is structural/styling-only, modify templates/macros/CSS only and preserve content text exactly as-is.
+- If content changes seem necessary to complete a task, stop and ask the user before editing any copy.
+
+## BEM Naming (Mandatory)
+
+- Block: `.block`
+- Element: `.block__element`
+- Modifier format: `key_value`  
+  `.block_key_value`, `.block__element_key_value`
+- Class order in markup: `block__element block` (element first, then block)
+
+Examples:
+
+- `button_mode_primary`
+- `button_size_l`
+- `link_size_xs`
+- `site-list__item_current`
+- `section__header section-header`
+
+Forbidden:
+
+- Legacy modifier format without key: `button_l`, `button_primary`, `link_s`
+- Modifiers that duplicate default behavior
+
+## Modifier Rules
+
+- Add a modifier only when it is explicitly passed in macro/markup.
+- If parameter is not passed, do not add modifier class.
+- Base state must work without `*_mode_base` and `*_size_m`.
+
+## Block vs Modifier (Recommendation)
+
+- Avoid growing generic blocks (especially `section`) with multiple feature-specific elements like `section__foo-*`, `section__bar-*`, `section__baz-*`.
+- If a section variation needs more than 1-2 unique elements, create a standalone block and place it inside `section` content.
+- Nested specificity patterns like `block__element-specific-morespecific` are a signal to extract a new block.
+- Keep `section` as a base layout shell. Strongly unique entities (for example hero-like or contacts-map-like compositions) should be separate blocks.
+- If there is doubt between extending an existing block with a modifier vs creating a new block, stop and ask the user directly before implementation.
+
+## Markup Rules
+
+- Do not add extra wrappers just for styling.
+- Do not add extra classes “just in case”.
+- If existing block/element already solves it, reuse it.
+- Keep list markup as flat and semantic as possible.
+- Internal links in templates/macros must go through locale-aware routing (`localePath` filter). Do not hardcode locale prefixes.
+- Prefer simple and clean naming over over-specific/double naming. If both are valid, choose the simpler name.
+- Prefer composition via mixed BEM blocks over deep element trees. Avoid structures like `block__meta-item`, `block__meta-term`, `block__meta-value`; split these into small mixed blocks when possible.
+- Prefer `heading` naming over `title` naming for markup/data fields in page sections and case cards.
+- Raster images must be wrapped in `<picture>` (required baseline for future responsive/image optimization pipeline).
+- All images must have explicit dimensions in markup (`width` and `height`), including `img` and `svg`.
+- Inline styles are allowed only for explicit, data-driven exceptions where class-only styling is impractical (for example table `colgroup` width/min/max values). Do not use inline styles as a default styling method.
+
+## Markdown Output Integrity (Mandatory)
+
+- Data files (`*.yml`) must store content only, not HTML or template markup.
+- Storing markup in data is strictly forbidden (examples: `<div>`, `<ol>`, `<li>`, `<picture>`, inline SVG, embedded component snippets).
+- Required markup structure must be generated in templates/macros from structured data fields (arrays/objects), not copied as raw HTML strings.
+- Markup generated from data via `markdown` filter is immutable output and must not be modified by string replacements or regex transforms in templates/macros.
+- Forbidden post-processing examples: `replace('<p>', '')`, `replace('</p>', '')`, any tag stripping/rewrite, or any mutation of markdown-rendered HTML fragments.
+- If inline/plain text is required, provide plain text in data or use a dedicated non-markdown field; do not alter rendered markdown HTML.
+- Field-level policy for section-like content:
+  - `pretitle` / `eyebrow` fields are plain strings (no `markdown` filter).
+  - `heading` fields are plain strings (no `markdown` filter).
+  - `button` / `link` text fields are plain strings (including `text`, `subtext`).
+  - `lead`, `content`, `conclusion`, and rich descriptive fields may use `markdown`.
+
+## Component Usage Rules
+
+- Render repeated UI via macros (`link`, `button`, `icon`) instead of hand-written markup per template.
+- Render icons through `icon.njk`.
+- Do not encode content-derived state in classes (example: icon type should come from `icon` argument, not `link_icon_*` classes).
+
+## CSS Approach (Mandatory)
+
+- Foundation: CSS custom properties (tokens + block-level variables).
+- Pattern must match `button` / `link` blocks:
+  - define block variables at block root (`--button-*`, `--link-*`);
+  - in states (`:hover`, `:active`), override variables instead of duplicating full property sets;
+  - modifiers should change variables, not rewrite full block styling.
+- Border widths must follow the design spec (`light`, `medium`, `bold`, etc.). Do not use `hair` unless the design explicitly calls for a hairline.
+- If design explicitly calls for `hair`: keep default non-retina width at `light`, and switch to `--space-border-hair` only inside a retina/HiDPI media query such as `(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)`.
+
+Principles:
+
+- Token layer first (`--color-*`, `--space-*`, `--font-*`, `--shadow-*`), block variables second.
+- Prefer variable overrides for states (`*_bg`, `*_color`, `*_shadow`) over separate state-specific property trees.
+- Use shared transition tokens for consistent interaction behavior.
+- Keep CSS specificity as low as possible.
+- Avoid selector chains and combinators (`.block .block__el`, `.block > .block__el`) when a plain BEM selector is enough (`.block__el`).
+- Do not increase specificity “for safety”; solve collisions via block structure, source order, and variables.
+- Do not use shorthand `flex: ...` declarations in block CSS. Always write `flex-grow`, `flex-shrink`, and `flex-basis` as separate properties for readability.
+
+Soft convention (non-strict, do not lint):
+
+- In block CSS files, split block root into two separate sections.
+- First declaration of `.block` should contain variables only.
+- Second declaration of `.block` should contain style declarations only.
+- For spacing axes, prefer `x/y` naming (`--block-padding-x`, `--block-padding-y`) over `inline/block`.
+- Prefer writing final spacing properties directly (`padding: ...`, `margin: ...`) instead of creating a combined intermediary variable like `--block-padding`.
+
+### CSS File Pattern For Agents (Recommended)
+
+Use this canonical order in `src/css/blocks/<block>.css` to keep files predictable for both humans and AI agents:
+
+1. `/* Variables */`
+2. `.block { --block-* }` (variables only)
+3. `@media` overrides for `.block` variables only
+4. `/* <Block Name> */` (use the real block name, for example `/* Hero */`)
+5. `.block { ... }` (actual styles only)
+6. `@media` overrides for `.block` actual styles
+7. `/* <Element Name> */` (use the real element name, for example `/* Hero heading */`)
+8. `.block__element { ... }` (actual styles only)
+9. `@media` overrides for `.block__element` actual styles
+10. Repeat item 7-9 for each next element/modifier as needed
+
+Comment naming rule:
+
+- In real block files, section comments must be specific and human-readable: block name + each element name.
+- Do not leave generic section comments like `/* Block */` or `/* Element */` in implementation files.
+- Generic labels are allowed only in documentation examples as placeholders.
+
+Practical rules for extraction into variables:
+
+- Move to `--block-*` any value that is reused, changes across breakpoints, or may vary by modifier/state.
+- Keep direct literals only for truly local one-off values that are not reused and do not change by media/state.
+- Prefer variable overrides inside `@media` for responsive behavior; keep property trees stable when possible.
+- Keep media query order consistent across the file (example: `1000`, `800`, `540`).
+
+Example template:
+
+```css
+/* Variables */
+
+.block {
+	--block-gap: var(--space-gap-l);
+	--block-padding-y: 80px;
+	--block-padding-x: var(--space-page-padding-x);
+	--block-columns: 5;
+	--block-title-font: var(--font-heading-hl3);
+	--block-item-column: 1 / span 3;
+}
+
+@media (width < 1000px) {
+	.block {
+		--block-padding-y: 64px;
+		--block-item-column: 1 / -1;
+	}
+}
+
+@media (width < 800px) {
+	.block {
+		--block-padding-y: 48px;
+	}
+}
+
+@media (width < 540px) {
+	.block {
+		--block-padding-y: 32px;
+	}
+}
+
+/* Block */
+
+.block {
+	display: grid;
+	gap: var(--block-gap);
+	grid-template-columns: repeat(var(--block-columns), minmax(0, 1fr));
+	padding: var(--block-padding-y) var(--block-padding-x);
+}
+
+@media (width < 1000px) {
+	.block {
+		/* Use only when block styles themselves (not variables) must change */
+	}
+}
+
+/* Element */
+
+.block__title {
+	font: var(--block-title-font);
+	margin: 0;
+}
+
+@media (width < 1000px) {
+	.block__title {
+		/* Element-specific responsive style overrides */
+	}
+}
+
+.block__item {
+	grid-column: var(--block-item-column);
+}
+
+@media (width < 1000px) {
+	.block__item {
+		/* Keep near the element for local readability */
+	}
+}
+```
+
+## BEM Layout Boundaries (Mandatory)
+
+- In `src/css/blocks/<block>.css`, selectors must target only that block: `.block`, `.block__element`, `.block_modifier_value`, `.block__element_modifier_value`.
+- Cross-block and contextual selectors are forbidden in block files (examples: `.section .block`, `.other-block__el`, tag styling through parent blocks).
+- Cross-block modifier overrides are forbidden: a modifier of one block/element must not change variables or visual styles of another block (forbidden example: `.content-table__label_tone_emerald { --label-bg: ... }`).
+- BEM block selector (`.block`) must not set `margin`.
+- BEM block selector (`.block`) may set only `z-index: 0` (for local stacking scope). Any other `z-index` value on block root is forbidden.
+- BEM block selector (`.block`) must not set `position: absolute`.
+- Block root may define its own internal layout (`display`, `grid-template-*`, `flex-*` for internal children).
+- Block root must not position itself in parent layout: forbid parent-placement properties on `.block` (`grid-column`, `grid-row`, `grid-area`, `align-self`, `justify-self`, `place-self`, `order`).
+- If `z-index` is used inside a block, that block (or a parent element within the same block scope) must define a local stacking context with `z-index: 0`.
+- For mixed usage (`class="a__b b"`), prefer placing stacking scope on the host element (`.a__b { z-index: 0; }`) instead of forcing it on `.b` to avoid specificity conflicts.
+- Low-specificity scope declaration is allowed for this purpose: `:where(.block) { z-index: 0; }`.
+- `position: absolute` is allowed only on elements (`.block__element`), and must be anchored by `position: relative|sticky|fixed` on the block root or another parent element inside the same block.
+- If an element is used as both an element and a standalone block (`class="a__b b"`), do not set `padding` on the element selector (`.a__b`); set it on `.b`.
+
+## What Is Not Allowed
+
+- No ad-hoc classes for one-off cases when a block already exists.
+- No inline-SVG duplication in local templates when icon belongs in `icon` macro.
+- No dead modifiers (unused or behavior-neutral).
+- No DOM complexity where one element is enough.
+
+## Pre-merge Checklist
+
+- BEM naming follows `key_value` modifiers.
+- No extra classes/wrappers.
+- No duplicated icon or template logic.
+- `docs/components.md` is updated when macro input/output contract changes.
+- `button` and `link` macros do not auto-attach default modifiers.
+- JS modules follow `init*` contract from this file.
+- If JS changed, `npm run lint:js` passes.
+- Strict lint suite passes: `npm run lint:all:strict`.

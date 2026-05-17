@@ -1,0 +1,79 @@
+{% from 'cta-item.njk' import ctaItem %}
+
+{% macro section(data = {}) %}
+	{% set sectionTail = data.tail or data.conclusion %}
+	{% set sectionClasses = [
+		'main__section',
+		'section',
+		data.extra_class or ''
+	] | join(' ') | trim %}
+
+	<section class="{{ sectionClasses }}"{% if data.id %} id="{{ data.id }}"{% endif %}{% if data.theme %} data-section-theme="{{ data.theme | trim }}"{% endif %}>
+		<header class="section__header">
+			{% if data.pretitle %}
+				<p class="section__eyebrow">
+					{{ data.pretitle | trim }}
+				</p>
+			{% endif %}
+
+			{% if data.heading %}
+				<h2 class="section__heading">
+					{{ data.heading | trim }}
+				</h2>
+			{% endif %}
+		</header>
+
+		{% if data.lead %}
+			<div class="section__lead">
+				{{ data.lead | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if data.content %}
+			<div class="section__content">
+				{{ data.content | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if caller %}
+			{% set contentColumns = data.content_columns or '' %}
+			<div class="section__container{% if contentColumns %} section__container_width_{{ contentColumns }}{% endif %}">
+				{{ caller() }}
+			</div>
+		{% endif %}
+
+		{% if sectionTail %}
+			<div class="section__tail">
+				{{ sectionTail | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{% if data.cta and (data.cta | length) %}
+			<div class="section__cta">
+				{% for item in data.cta %}
+					{{ ctaItem(item, 'secondary', 'l', 'button') }}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if data.decor and (data.decor | length) %}
+			{% for decorItem in data.decor %}
+				{% if decorItem.image and decorItem.width and decorItem.height %}
+					{% set decorTypeClass = decorItem.type and ('section__decor_type_' ~ decorItem.type) or '' %}
+					<picture class="section__decor{% if decorTypeClass %} {{ decorTypeClass }}{% endif %}">
+						<img
+							class="section__decor-image"
+							src="{{ decorItem.image }}"
+							alt=""
+							aria-hidden="true"
+							width="{{ decorItem.width }}"
+							height="{{ decorItem.height }}"
+							loading="lazy"
+							decoding="async"
+						>
+					</picture>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	</section>
+{% endmacro %}

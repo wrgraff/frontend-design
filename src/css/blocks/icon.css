@@ -1,0 +1,25 @@
+/* Variables */
+
+.icon {
+	--icon-color-alt: var(--color-text-alt);
+}
+
+/* Icon */
+
+.icon {
+	color: currentColor;
+
+	display: block;
+}
+
+.icon_inverse {
+	--icon-color-alt: var(--color-text-alt-inverse);
+}
+
+.icon__part {
+	fill: currentColor;
+}
+
+.icon__part_alt {
+	fill: var(--icon-color-alt);
+}

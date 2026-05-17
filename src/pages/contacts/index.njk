@@ -1,0 +1,66 @@
+{% from 'hero.njk' import heroSection %}
+{% from 'section.njk' import section %}
+{% from 'link.njk' import link %}
+
+{{ heroSection(hero) }}
+
+{% call section({
+	id: 'contacts',
+	pretitle: online.pretitle,
+	heading: online.heading,
+	lead: online.lead
+}) %}
+	<div class="all-contacts">
+		{% for column in online.columns %}
+			<ul class="all-contacts__list">
+				{% for item in column %}
+					<li class="all-contacts__item">
+						{{ link(
+							text = item.text,
+							href = item.href,
+							size = 'text-s',
+							iconName = item.icon,
+							external = item.external or false,
+							extraClass = 'all-contacts__link'
+						) }}
+					</li>
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</div>
+{% endcall %}
+
+<section class="main__section contacts">
+	<header class="contacts__header">
+		{% if offline.pretitle %}
+			<p class="contacts__eyebrow">
+				{{ offline.pretitle | trim }}
+			</p>
+		{% endif %}
+
+		{% if offline.heading %}
+			<h2 class="contacts__heading">
+				{{ offline.heading | trim }}
+			</h2>
+		{% endif %}
+	</header>
+
+	<div class="contacts__content">
+		{% if offline.lead %}
+			<div class="contacts__lead">
+				{{ offline.lead | markdown | safe }}
+			</div>
+		{% endif %}
+	</div>
+
+	<picture class="contacts__map" aria-hidden="true">
+		<img
+			src="{{ offline.route.src }}"
+			alt=""
+			width="{{ offline.route.width }}"
+			height="{{ offline.route.height }}"
+			loading="lazy"
+			decoding="async"
+		>
+	</picture>
+</section>

@@ -1,93 +1,59 @@
-layout: main.njk
+layout: page.njk
 permalink: index.html
-promo:
-  heading: Product UI designer
-  lead: I'm passionate about design systems and love accuracy and persistence. Also, I code, mentoring, and write articles
-design:
-  heading: Design
-  lead: I create complicated interfaces
-  text: |
-    Since autumn 2021 I have worked in a product created for managing and analyzing cloud systems.
+hero:
+  heading: Hi, I’m
+  heading_highlight: Artur
+  heading_suffix: — Product Designer
+  text: I build data-heavy interfaces, scalable systems, and analytics tools, turning complexity into calm
+  image: /img/home/hero.png
+  image_alt: Artur Trifonov portrait
+  cta:
+    - text: Watch intro
+      href: https://youtu.be/f4DExml1tIQ
+      mode: primary
+      size: xl
+      type: button
+      icon_left: video/play_circle
+      data_attrs: data-video-modal-trigger
+    - text: Download CV
+      href: /files/atrifonov-cv-en.pdf
+      download: true
+      mode: base
+      size: xl
+      subtext: PDF, 248KB
+      icon_left: files/file_profile
+      type: link
 
-    I create and sustain design systems for UI and charts, make designs with detailed descriptions and flowcharts.
-  portfolio:
-    heading: Portfolio
-  skills:
-    heading: Skills
-    list:
-      - Design systems, UI kit
-      - Prototypes
-      - Mapping (blueprint, swimlane)
-      - Technical specification writing
-      - Design documentation
-      - Market and audience analysis
-      - Project management
-      - Client communication
-      - Training and mentoring
-      - Article writing and lecturing
-  instruments:
-    heading: Instruments
-    list:
-      - Figma, Sketch
-      - FigJam
-      - HTML, CSS, JavaScript
-      - Git, GitHub, Bitbucket
-      - ChatGPT
-      - DALL-E, Midjourney
-performance:
-  heading: Performance
-  lead: I help people to start career in frontend
-  text: |
-    I have worked in [.html academy](https://htmlacademy.ru/) since 2019 as a mentor. I also work with materials, blog and additional courses as author and reviewer.
+my_design_journey:
+  pretitle: Why I am here
+  heading: My design journey
+  body: "From an early age, I’ve loved creating things from scratch. A blank canvas still excites me: it’s full of possibilities, whether it becomes a system, a story, or a product"
+  cta:
+    - kind: link
+      text: More about my background
+      href: /background/
+      icon: maps-navigation/start_journey
 
-    I like to work with students: share my experience and look how they growing up. And it’s very nice to have a good feedback from them.
-  videos:
-    heading: Speaking
-    comment: '* All materials are in russian language'
-  articles:
-    heading: Articles
-    comment: '* All materials are in russian language'
-    list:
-      - heading: Common design mistakes and how to fix them
-        description: Somewhere in a parallel universe, there are ideal processes and ideal tools that allow you to create design layouts without a single flaw or omission. And what about us?
-        url: https://htmlacademy.ru/blog/articles/bad-design
-        cleanUrl: htmlacademy.ru/blog/articles/bad-design
-        img:
-      - heading: Why should a developer know design?
-        description: Article about what things in design can be really useful for frontend developers and how to better the connection with designers
-        url: https://htmlacademy.ru/blog/middle/frontend-in-design
-        cleanUrl: htmlacademy.ru/blog/middle/frontend-in-design
-        img:
-      - heading: Git Workflow, Why Are You So Weird?
-        description: Explanations on why the process of working with Git is so complex in the second year, why it's done this way, and why it's important
-        url: https://mentorium.frontend-design.ru/articles/git-workflow/
-        cleanUrl: mentorium.frontend-design.ru/articles/git-workflow
-        img:
-      - heading: When Is Fixed Height Needed in Layout?
-        description: When and why you can set a fixed height, and when you shouldn't do it
-        url: https://mentorium.frontend-design.ru/articles/height-in-css/
-        cleanUrl: mentorium.frontend-design.ru/articles/height-in-css
-        img:
-      - heading: How to Load Fonts
-        description: How to name fonts, why the order of files is important, which properties to specify, and how to optimize loading
-        url: https://mentorium.frontend-design.ru/articles/include-fonts/
-        cleanUrl: mentorium.frontend-design.ru/articles/include-fonts
-        img:
-      - heading: How to Distinguish Margin from Padding
-        description: Both are used for spacing, and the result looks the same. So which one should you use?
-        url: https://mentorium.frontend-design.ru/articles/margin-vs-padding/
-        cleanUrl: mentorium.frontend-design.ru/articles/margin-vs-padding
-        img:
-contacts:
-  heading: Contacts
-  lead: Contact me if you interested in working together
-  comment: Or just to talk =)
-  list:
-    - title: hi@arturtrifonov.com
-      url: mailto:hi@arturtrifonov.com
-    - title: Telegram
-      url: https://t.me/wrgraff
-    - title: LinkedIn
-      url: https://www.linkedin.com/in/arturtrifonov/
-    - title: GitHub
-      url: https://github.com/wrgraff/
+portfolio:
+  pretitle: My work
+  heading: Latest works
+  empty_message: Portfolio entries are not added yet.
+  items: []
+
+approach_to_work:
+  pretitle: My work
+  heading: Approach to work
+  intro: "My approach is pragmatic and built for real conditions: limited user access, incomplete data, and non-linear behavior"
+  steps:
+    - label: Preparation
+      text: I clarify who owns the initiative, makes decisions, and what success looks like
+    - label: Step 01
+      text: Map representative tasks, walk through them, and validate with users to **understand the problem**
+    - label: Step 02
+      text: Capture **how people reach the goal** in different ways, marking pain points and success moments
+    - label: Step 03
+      text: Use rough wireframes and prototypes to **validate assumptions** early, before polish
+    - label: Step 04
+      text: Define key states, roles/permissions, edge cases, and feasibility, with **handoff specs** engineers can trust
+    - label: Step 05
+      text: Review implementation for visual and behavioral correctness, then **iterate based on feedback**

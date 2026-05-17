@@ -1,0 +1,51 @@
+{% from 'icon.njk' import icon %}
+{% set menuListClass = menuListClass or 'aside__list' %}
+{% set isCompactMenu = menuListClass == 'header-menu__list' %}
+{% set homeLink = '/' | localePath(page.url) %}
+{% set isHomeCurrent = page.url == homeLink %}
+
+<ul class="{{ menuListClass }} site-list">
+{% if isCompactMenu %}
+	<li class="site-list__item{% if isHomeCurrent %} site-list__item_current{% endif %}">
+		<a href="{{ homeLink }}" class="site-list__link"{% if isHomeCurrent %} aria-current="page"{% endif %}>
+			{{ icon('home/home_page', 'site-list__icon') }}
+			Home
+		</a>
+	</li>
+{% endif %}
+{% for item in menu %}
+		{% set itemLink = item.link | localePath(page.url) %}
+		{% set isExactCurrent = itemLink == page.url %}
+		{% set isInSection = isExactCurrent or (itemLink != '/' and page.url.indexOf(itemLink) == 0) %}
+		{% set hasSubmenu = item.link == '/portfolio/' or item.link == '/publications/' %}
+		{% set isSectionSubpage = hasSubmenu and isInSection and itemLink != page.url %}
+		{% set currentSubpageHeading = heading or title or page.fileSlug %}
+		{% if isInSection %}
+			<li class="site-list__item{% if isExactCurrent %} site-list__item_current{% endif %}">
+				<a href="{{ itemLink }}" class="site-list__link"{% if isExactCurrent %} aria-current="page"{% endif %}>
+					{% if item.icon %}
+						{{ icon(item.icon, 'site-list__icon') }}
+					{% endif %}
+					{{- item.heading -}}
+				</a>
+				{% if isSectionSubpage and not isCompactMenu %}
+					<ul class="site-list__sublist">
+						<li class="site-list__subitem">
+							{{ icon('simple-arrows/navigate_down_right', 'site-list__subicon') }}
+							<span class="site-list__subheading">{{ currentSubpageHeading }}</span>
+						</li>
+					</ul>
+				{% endif %}
+			</li>
+		{% else %}
+			<li class="site-list__item">
+				<a href="{{ itemLink }}" class="site-list__link">
+					{% if item.icon %}
+						{{ icon(item.icon, 'site-list__icon') }}
+					{% endif %}
+					{{- item.heading -}}
+				</a>
+			</li>
+		{% endif %}
+	{% endfor %}
+</ul>

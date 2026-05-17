@@ -1,0 +1,72 @@
+{% from 'label.njk' import label %}
+{% from 'link.njk' import link %}
+
+{% macro portfolioCases(
+	collection = [],
+	limit = 0,
+	emptyMessage = 'Portfolio entries are not added yet.'
+) %}
+	{% if collection.length %}
+		<ul class="section__portfolio portfolio">
+			{% for item in collection %}
+				{% if not limit or loop.index <= limit %}
+					<li class="portfolio__item">
+						<h3 class="portfolio__heading">
+							<a class="portfolio__link link link_size_heading-h2" href="{{item.url}}">
+								{{ item.data.heading }}
+							</a>
+						</h3>
+
+						{% if item.data.tags and item.data.tags.length %}
+							<ul class="portfolio__tags">
+								{% for tag in item.data.tags %}
+									<li class="portfolio__tag">
+										{{ label(text = tag, size = 'm') }}
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+
+						{% if item.data.description %}
+							<p class="portfolio__description">
+								{{ item.data.description }}
+							</p>
+						{% endif %}
+
+						{% if item.data.role or item.data.focus %}
+							<dl class="portfolio__meta meta meta_columns_2">
+								{% if item.data.role %}
+									<dt class="meta__term">Role:</dt>
+									<dd class="meta__value">{{ (item.data.role | markdown | trim) | safe }}</dd>
+								{% endif %}
+								{% if item.data.focus %}
+									<dt class="meta__term">Focus:</dt>
+									<dd class="meta__value">{{ (item.data.focus | markdown | trim) | safe }}</dd>
+								{% endif %}
+							</dl>
+						{% endif %}
+
+						{% if item.data.cover_imgs and item.data.cover_imgs.length %}
+							<div class="portfolio__media">
+								{% for coverImg in item.data.cover_imgs %}
+									<picture class="portfolio__image">
+										<img
+											src="{{ item.url }}img/{{ coverImg }}"
+											alt=""
+											class="portfolio__img"
+											loading="lazy"
+											width="1400"
+											height="900"
+										>
+									</picture>
+								{% endfor %}
+							</div>
+						{% endif %}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>{{ emptyMessage }}</p>
+	{% endif %}
+{% endmacro %}

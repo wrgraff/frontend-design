@@ -1,0 +1,23 @@
+/* Variables */
+
+.design-solution {
+	--design-solution-gap: var(--space-gap-l);
+}
+
+/* Design solution */
+
+.design-solution {
+	display: grid;
+	gap: var(--design-solution-gap);
+}
+
+/* Design solution image item */
+
+.design-solution__image-item {
+	--picture-bg: var(--color-surface-secondary);
+	--picture-description-bg: var(--color-surface-tertiary);
+	--picture-description-color: var(--color-text-secondary);
+	--picture-description-font: var(--font-text-xs);
+	display: grid;
+	margin: 0;
+}

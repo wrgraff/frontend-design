@@ -1,0 +1,17 @@
+/* Variables */
+
+.content-list {
+	--content-list-list-style: none;
+	--content-list-list-margin: 0;
+}
+
+/* Content list */
+
+.content-list {
+	display: grid;
+}
+
+.content-list__list {
+	list-style: var(--content-list-list-style);
+	margin: var(--content-list-list-margin);
+}

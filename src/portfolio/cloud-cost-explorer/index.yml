@@ -1,0 +1,460 @@
+layout: portfolio-case.njk
+order: 1
+title: Cloud Cost Explorer
+
+heading: Cloud Cost Explorer
+description: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
+role: '**Product UX Designer**'
+focus: 'UX end-to-end'
+area: 'Work with **Product Owner**, and with **frontend and backend leads** to align UX decisions with real data logic and implementation constraints'
+tags:
+  - Data-heavy
+  - Data visualization
+  - NDA
+cover_imgs:
+  - cover.png
+
+hero:
+  image: hero.svg
+  picture_tone: bg-secondary
+  image_alt: Abstract blurred product dashboard screenshot
+  lead: 'Helps to understand spending on cloud tools: observe trends, make predictions, and optimize cost'
+theme: cost-explorer
+
+sections:
+  - eyebrow: Preparation
+    heading: Success criteria
+    lead: Before design work, I aligned stakeholders on success criteria for the first release
+    decor:
+      - type: content-bottom-fill
+        image: line-chart.svg
+        width: 1320
+        height: 330
+    content:
+      - type: content-list
+        ordered: true
+        columns: 2
+        items:
+          - text: "Stakeholders can reliably answer core questions: where money goes, what changed, and why it looks suspicious"
+          - text: "The solution handles real fintech cloud data with its actual scale, gaps, and aggregation rules"
+          - text: "Finance considers numbers consistent enough for reporting and budget conversations"
+          - text: "Readability holds when group counts and filters grow"
+
+  - eyebrow: Discovery
+    heading: Target audience
+    lead: |
+      Enterprise companies (mostly fintech) with a large multi-cloud footprint.
+
+      They need visibility into cloud spend and usage across many teams, services, and accounts
+    content_columns: 2
+    decor:
+      - type: content-bottom-right
+        image: summary.png
+        width: 732
+        height: 510
+      - type: bg-bottom-fill
+        image: area-chart.svg
+        width: 1400
+        height: 380
+    content:
+      - type: content-text
+        heading: Finance / FinOps stakeholders
+        content: |
+          - accountable for cloud spend
+          - need to explain variances and allocate costs across teams/projects
+      - type: content-text
+        heading: Engineering leads
+        content: |
+          - need to understand what drives usage and cost in their area
+          - need to spot anomalies early and plan budgets with confidence
+
+  - eyebrow: Discovery
+    heading: Problem context
+    lead: "The main problem was fragmented multicloud visibility: cost and usage data existed across different platforms and internal tools, but stakeholders lacked a reliable way to read it as one picture."
+    content_columns: 4
+    content:
+      - type: content-list
+        heading: Pain points
+        ordered: true
+        columns: 3
+        items:
+          - No single source of truth for cloud cost and usage
+          - Existing internal tools are limited and hard to use
+          - Too much data gets buried without strong organization
+
+      - type: table
+        heading: Representative tasks
+        layout: blocks
+        preview_rows: 5
+        columns:
+          - key: question
+            heading: Question
+          - key: cluster
+            heading: Cluster
+        rows:
+          - question: Cloud spend keeps growing and is close to our budget limit — what’s driving it?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: Spend jumped unexpectedly — what changed and what caused it?
+            cluster:
+              text: Investigate
+              tone: emerald
+          - question: Where can we cut cloud costs with minimal risk, and what’s the expected impact?
+            cluster:
+              text: Optimise
+              tone: sky
+          - question: I see recurring spikes over a few days — what correlates with them?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: If the trend continues, when do we exceed budget, and what’s the end-of-period forecast?
+            cluster:
+              text: Predict
+              tone: violet
+          - question: What changed this period vs the previous one, and what explains the delta?
+            cluster:
+              text: Investigate
+              tone: emerald
+          - question: What are the top cost drivers, and how big is the long tail (“Other”)?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: How much spend is unallocated/untagged, and who owns the “unknown” bucket?
+            cluster:
+              text: Govern
+              tone: teal
+          - question: Can we break down spend by department/product/environment for chargeback/showback?
+            cluster:
+              text: Govern
+              tone: teal
+          - question: A new cost center appeared among top spenders — what is it and who owns it?
+            cluster:
+              text: Understand
+              tone: amber
+          - question: We plan a rollout/migration — how might it affect spend and what guardrails should we set?
+            cluster:
+              text: Predict
+              tone: violet
+          - question: Is this spike real or noise, and which dimension best explains it for fast routing?
+            cluster:
+              text: Investigate
+              tone: emerald
+          - question: After an optimisation, did spend actually drop, and did it rebound later?
+            cluster:
+              text: Optimise
+              tone: sky
+          - question: Are we breaching internal cost policies/limits, and who should be notified?
+            cluster:
+              text: Govern
+              tone: teal
+
+      - type: content-list
+        heading: Constraints
+        ordered: true
+        columns: 3
+        items:
+          - Very limited access to users and competitor products
+          - Data-heavy UI with dense tables and many dimensions
+          - "Complex domain: FinOps, chargeback, forecasting, governance"
+
+  - eyebrow: Discovery
+    heading: Benchmark
+    lead: I benchmarked comparable tools and mapped the decision workflow around cloud spend. The analysis shaped information structure and key paths.
+    content_columns: 5
+    content:
+      - type: datatable
+        size: s
+        columns:
+          - key: capability
+            heading: " "
+          - key: aws
+            heading: AWS
+            min_width: 190
+          - key: gcp
+            heading: Google Cloud
+            min_width: 190
+          - key: azure
+            heading: Azure
+            min_width: 190
+          - key: harness
+            heading: Harness
+            min_width: 190
+          - key: apptio
+            heading: Apptio
+            min_width: 190
+          - key: cloudhealth
+            heading: CloudHealth
+            min_width: 190
+          - key: spot
+            heading: Spot
+            min_width: 190
+        rows:
+          - capability: Multicloud
+            aws: { text: No, tone: error, icon: choice-and-validation/cross }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: Azure & AWS, tone: warning, icon: info-signs/minus }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Simultaneously multicloud
+            aws: { text: No, tone: error, icon: choice-and-validation/cross }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: Azure & AWS, tone: warning, icon: info-signs/minus }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: With service, tone: warning, icon: info-signs/minus }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Tags
+            aws: Hour
+            gcp: Hour
+            azure: Hour
+            harness: Hour
+            apptio: Day
+            cloudhealth: Day
+            spot: Hour
+          - capability: Work without tags
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Regions grouping
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: No, tone: error, icon: choice-and-validation/cross }
+            cloudhealth: { text: No, tone: error, icon: choice-and-validation/cross }
+            spot: { text: No, tone: error, icon: choice-and-validation/cross }
+          - capability: Recommendations
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Budgets
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Documentation
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: Yes, tone: success, icon: choice-and-validation/check }
+            azure: { text: Yes, tone: success, icon: choice-and-validation/check }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Anomalies detect
+            aws: { text: Yes, tone: success, icon: choice-and-validation/check }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: No, tone: error, icon: choice-and-validation/cross }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: Yes, tone: success, icon: choice-and-validation/check }
+            cloudhealth: { text: Yes, tone: success, icon: choice-and-validation/check }
+            spot: { text: Yes, tone: success, icon: choice-and-validation/check }
+          - capability: Event correlation
+            aws: { text: No, tone: error, icon: choice-and-validation/cross }
+            gcp: { text: No, tone: error, icon: choice-and-validation/cross }
+            azure: { text: No, tone: error, icon: choice-and-validation/cross }
+            harness: { text: Yes, tone: success, icon: choice-and-validation/check }
+            apptio: { text: No, tone: error, icon: choice-and-validation/cross }
+            cloudhealth: { text: No, tone: error, icon: choice-and-validation/cross }
+            spot: { text: No, tone: error, icon: choice-and-validation/cross }
+    conclusion: |
+      Specialized FinOps tools, especially Harness, were the closest reference for multicloud cost visibility.
+
+      Native cloud tools had useful patterns, but mostly worked within their own ecosystems or required a custom BI layer for advanced analysis
+
+  - eyebrow: Key decisions
+    heading: Top groups and zoom-in
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: zoom-1.png
+            alt: Chart view, top groups and "Other" segment
+            width: 1600
+            height: 860
+          - src: zoom-2.png
+            alt: Chart view, hover on the "Other" segment with tooltip showing breakdown
+            width: 1600
+            height: 860
+          - src: zoom-3.png
+            alt: Chart view, zoomed into "Other" segment for one level
+            width: 1600
+            height: 860
+        primary:
+          - heading: Problem
+            content: Groups explode into hundreds of items and tiny segments. The chart becomes unreadable and insights disappear in noise
+          - heading: Solution
+            content: Show top cost groups, group the long tail as "Other", and let users zoom into it for more detail
+        secondary:
+          - heading: Advantages
+            items:
+              - Clear view of main cost drivers and their share of total spend
+              - Chart stays readable
+          - heading: Risks to avoid
+            items:
+              - Lower discoverability of the zoom-in interaction
+              - Navigation friction between summary and detail
+
+  - eyebrow: Key decisions
+    heading: "Cumulative vs Periodic"
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: view-1.png
+            alt: Cumulative chart mode showing a cloud spend trend and forecast
+            width: 1600
+            height: 860
+          - src: view-2.png
+            alt: Periodic chart mode showing daily cloud spend bars
+            width: 1600
+            height: 860
+        primary:
+          - heading: Problem
+            content: To cover a strong visual sense of **trend** as well as a clear view of **per-step changes**
+          - heading: Solution
+            content: A toggle between **cumulative** and **periodic** views
+        secondary:
+          - heading: Advantages
+            items:
+              - trend becomes visually obvious;
+              - “we’re heading to the limit” understanding
+              - spikes and repeating patterns are easy to detect
+          - heading: Risks to avoid
+            items:
+              - The primary view could hide the other one
+
+  - eyebrow: Key decisions
+    heading: Сhart linked with table
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: linking-1.png
+            alt: Cloud spend chart connected with a detailed data table below
+            width: 1600
+            height: 1098
+        primary:
+          - heading: Problem
+            content: "Investigation needs both views: quick scanning and trustworthy detail. We can't just hide some details, only prioritize"
+          - heading: Solution
+            content: Legend from chart connected to the table as well, but table contains much more details and entities
+        secondary:
+          - heading: Advantages
+            items:
+              - Fast understanding of “what matters” via chart
+              - Full accountability via table (no missing items)
+          - heading: Risks to avoid
+            items:
+              - Chart/table mismatch caused by aggregation rules or sorting differences
+              - Users losing orientation between summary and detail (weak linking / weak highlighting)
+
+  - eyebrow: Key decisions
+    heading: "Filtering UX"
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: filters-1.png
+            alt: Cloud Cost Explorer with applied filters visible above the chart
+            width: 1600
+            height: 1018
+          - src: filters-2.png
+            alt: Cloud Cost Explorer with applied filters visible above the chart
+            width: 1600
+            height: 1018
+          - src: filters-3.png
+            alt: Filter menu open while applied filters remain visible above the chart
+            width: 1600
+            height: 1018
+        primary:
+          - heading: Problem
+            content: Cost investigation depends on filtering by tags, accounts, projects, and regions. Users must keep a strong sense of what is applied right now, otherwise the chart becomes untrustworthy.
+          - heading: Solution
+            content: Initial solution put filters into a drawer to handle many dimensions and filter types. After feedback, the flow changed so applied filters remain visible while reading the chart, and the interaction model stays consistent.
+        secondary:
+          - heading: Advantages
+            items:
+              - Scales for large filter dictionaries and lazy values
+              - Applied filter state stays visible
+              - Presets become a natural next step
+          - heading: Risks to avoid
+            items:
+              - Inconsistent apply model
+
+  - eyebrow: Key decisions
+    heading: Overlay comparison
+    content_columns: 5
+    content:
+      - type: design-solution
+        images:
+          - src: compare.png
+            alt: Forecast card with an overlay comparison between current and previous periods
+            width: 1600
+            height: 1018
+        primary:
+          - heading: Problem
+            content: Stakeholders need a reliable answer to whether current spend is trending above the previous period. Comparisons must stay interpretable across different time periods.
+          - heading: Solution
+            content: Overlay current period and previous period data using consistent period rules.
+        secondary:
+          - heading: Advantages
+            items:
+              - Visual comparison that is easy to explain
+              - Understanding of the global trend
+          - heading: Risks to avoid
+            items:
+              - Inconsistent day counts for some periods
+              - Impossible comparison with an unfinished period
+
+  - eyebrow: Outcome
+    heading: Launch the product
+    lead: The MVP launched successfully and is now used in production with real data. The next steps are to iterate based on feedback and expand usage across more teams.
+    decor:
+      - type: content-bottom-fill
+        image: area-prediction-chart.svg
+        width: 1320
+        height: 330
+    content:
+      - type: content-list
+        ordered: true
+        columns: 2
+        items:
+          - text: "MVP integrated into a fintech environment and used with real data"
+          - text: "Started an iteration loop based on initial feedback"
+          - text: "Received follow-up requests to expand usage (additional departments)"
+
+  - eyebrow: Experience
+    heading: What I learned
+    lead: It was a big project with a complex domain and many constraints. I learned how to navigate such complexity, make informed design decisions, and align stakeholders around them.
+    content:
+      - type: content-list
+        ordered: true
+        columns: 2
+        items:
+          - text: "**Readability at scale**: how to deal with data overload (how to prioritize data to generate insights)"
+          - text: "How filters stop being “controls” and become the product’s navigation system"
+          - text: "**Data logic is UX logic**: period rules, grouping, and aggregation directly shape what users can understand and trust"
+          - text: "Limited access to users: use every option to learn (like demos)"
+
+contact_section:
+  heading: Thx for reading!
+  lead: Feel free to reach out if you’d like to discuss this case, design decisions, or complex product interfaces
+  image:
+    src: bar-chart.svg
+    alt: ''
+    width: 1440
+    height: 608

@@ -1,0 +1,22 @@
+layout: case.njk
+title: Mars Design System
+heading: Mars Design System
+order: 2
+role: Design System Designer
+focus: UI, Library
+description: System foundation for consistent and scalable product UI
+tags:
+  - UI
+  - Design system
+cover_imgs:
+  - cover.png
+imgs:
+  - 00-hero
+  - 01-challenges
+  - 02-styles-font
+  - 02-styles-colors
+  - 03-components
+  - 03-components-guides
+  - 03-components-color-modes
+  - 04-challenges
+  - 05-impact

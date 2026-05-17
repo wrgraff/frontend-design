@@ -1,0 +1,19 @@
+---
+layout: page.njk
+---
+
+{% from 'article-header.njk' import articleHeader %}
+
+{% set publicationHeading = heading or title %}
+{% set publicationLead = description %}
+{% set publicationTags = tags or [] %}
+
+{{ articleHeader(
+	heading = publicationHeading,
+	description = publicationLead,
+	tags = publicationTags
+) }}
+
+<section class="main__section article-section">
+	{{ content | safe }}
+</section>

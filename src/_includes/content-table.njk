@@ -1,0 +1,16 @@
+{% from 'table.njk' import table %}
+
+{% macro contentTable(data = {}) %}
+	<div class="section__container-item content-table">
+		{% if data.heading %}
+			<h3 class="content-table__heading">{{ data.heading }}</h3>
+		{% endif %}
+		{{ table({
+			size: data.size or 'm',
+			layout: data.layout or '',
+			preview_rows: data.preview_rows or 0,
+			columns: data.columns or [],
+			rows: data.rows or []
+		}) }}
+	</div>
+{% endmacro %}

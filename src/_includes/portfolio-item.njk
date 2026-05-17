@@ -5,7 +5,7 @@
 		{% if case.data.external %}
 			<a href="https://{{ case.data.external }}/" class="portfolio__link" target="_blank">
 				<h4 class="portfolio__heading">
-					{{ case.data.title }}
+					{{ case.data.heading }}
 				</h4>
 				<p class="portfolio__url">
 					<svg width="36" height="10" class="portfolio__chain">
@@ -21,7 +21,7 @@
 		{% else %}
 			<a href="{{ case.url }}" class="portfolio__link">
 				<h4 class="portfolio__heading">
-					{{ case.data.title }}
+					{{ case.data.heading }}
 				</h4>
 				{% if case.data.nda %}
 					<span class="portfolio__label label">NDA project</span>
@@ -29,8 +29,12 @@
 			</a>
 		{% endif %}
 
-		<picture class="portfolio__picture" aria-hidden="true">
-			<img src="{{ case.url }}imgs/cover.png" alt="">
-		</picture>
+		{% if case.data.cover_imgs and case.data.cover_imgs.length %}
+			{% for coverImg in case.data.cover_imgs %}
+				<picture class="portfolio__picture" aria-hidden="true">
+					<img src="{{ case.url }}img/{{ coverImg }}" alt="" width="1400" height="900">
+				</picture>
+			{% endfor %}
+		{% endif %}
     </li>
 {% endmacro %}

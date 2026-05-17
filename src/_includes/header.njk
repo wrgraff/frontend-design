@@ -1,15 +1,93 @@
-{% macro header(
-    mainBlock = 'main'
-) %}
-	<header class="{{ mainBlock }}__header header">
-		<a href="/" class="header__logo logo">
-			<span class="logo__word logo__word_name">
-				A<span class="logo__hidden">rtur</span>
-			</span>
-			<span class="logo__word logo__word_surname">
-				T<span class="logo__hidden">rifonov</span>
-			</span>
-			<span class="visually-hidden">site</span>
+{% from 'button.njk' import button %}
+{% from 'logo.njk' import logo %}
+{% from 'icon.njk' import icon %}
+{% from 'icon-link.njk' import iconLink %}
+{% from 'link.njk' import link %}
+{% set currentPageHeading = heading or title or page.fileSlug %}
+
+<header class="main__header header" data-header-sticky>
+	<div class="header__container">
+		<a href="{{ '/' | localePath(page.url) }}" class="header__logo">
+			{{ logo('header__logo-svg', global.name) }}
 		</a>
-	</header>
-{% endmacro %}
+
+		{% set trailContent %}
+			{% for item in menu %}
+				{% set itemLink = item.link | localePath(page.url) %}
+				{% set homeLink = '/' | localePath(page.url) %}
+				{% set isExactCurrent = itemLink == page.url %}
+				{% set isInSection = isExactCurrent or (itemLink != '/' and page.url.indexOf(itemLink) == 0) %}
+				{% set isHomeOnlyMatch = page.url == homeLink and itemLink == homeLink %}
+				{% if isInSection and not isHomeOnlyMatch %}
+					{{ iconLink(
+						iconName = 'home/home_page',
+						href = homeLink,
+						size = 's',
+						extraClass = 'trail__home'
+					) }}
+					{{ icon('simple-arrows/angle_right', 'trail__separator', 32) }}
+					{% if isExactCurrent %}
+						<p class="trail__current">
+							{% if item.icon %}
+								{{ icon(item.icon, 'trail__current-icon', 24) }}
+							{% endif %}
+							{{ item.heading }}
+						</p>
+					{% else %}
+						{{ link(
+							text = item.heading,
+							href = item.link,
+							size = 'label-s',
+							iconName = item.icon or '',
+							extraClass = 'trail__link'
+						) }}
+						{{ icon('simple-arrows/angle_right', 'trail__separator', 32) }}
+						<p class="trail__current">{{ currentPageHeading }}</p>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endset %}
+		{% if trailContent | trim %}
+			<div class="header__trail trail" data-header-trail>
+				{{ trailContent | safe }}
+			</div>
+		{% endif %}
+
+		<div class="header__menu header-menu" data-header-menu-root>
+			<ul class="header-menu__contacts">
+				{% for itemKey in ['linkedin', 'behance', 'email', 'whatsapp'] %}
+					{% set item = global.contacts.items[itemKey] %}
+					{% if item %}
+						{% set itemClass = [
+							'header-menu__contacts-item',
+							itemKey == 'behance' and 'header-menu__contacts-item_visibility_mobile' or ''
+						] | join(' ') | trim %}
+						<li class="{{ itemClass }}">
+							{{ iconLink(
+								iconName = item.icon,
+								href = item.url,
+								size = 'm',
+								ariaLabel = item.heading,
+								external = item.external
+							) }}
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+
+			{{ button(
+				text = 'Menu',
+				mode = 'base',
+				size = 'xl',
+				iconLeft = 'menu/menu',
+				type = 'button',
+				extraClass = 'header-menu__button'
+			) }}
+
+			<div class="header-menu__panel" data-header-menu-panel hidden>
+				{% set menuListClass = 'header-menu__list' %}
+				{% include 'menu.njk' %}
+			</div>
+		</div>
+	</div>
+</header>

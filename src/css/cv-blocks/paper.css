@@ -1,19 +1,19 @@
 .paper {
-	display: grid;
-	grid-template-columns: 1fr 54mm;
-	width: 210mm;
-	height: 297mm;
 
 	background-color: white;
 	border-radius: 8px;
 	box-shadow: 0 2mm 12mm rgba(0, 0, 0, .2);
+	display: grid;
+	grid-template-columns: 1fr 54mm;
+	height: 297mm;
 	overflow: hidden;
+	width: 210mm;
 }
 
 @media print {
 	.paper {
-		box-shadow: none;
 		border-radius: 0;
+		box-shadow: none;
 	}
 }
 
@@ -22,12 +22,20 @@
 }
 
 .paper__aside {
-	padding: 7mm;
 
 	background-color: var(--palette-gray-100);
 	overflow: hidden;
+	padding: 5mm 7mm;
+}
+
+.paper__aside .paper__section:first-child {
+	height: 27mm;
+}
+
+.paper__aside .paper__section:nth-child(2) {
+	height: 22mm;
 }
 
 .paper__header {
-	height: 45mm;
+	height: 46mm;
 }

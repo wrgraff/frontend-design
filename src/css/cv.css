@@ -2,10 +2,12 @@
 @import url('./colors/light.css');
 
 @import url('./fonts/index.css');
+@import url('./spaces/index.css');
+@import url('./radius/index.css');
 
-@import url('./global.css');
+@import url('./global/index.css');
 
-@import url('./blocks/visually-hidden.css');
+@import url('./utilities/visually-hidden.css');
 
 @import url('./cv-blocks/page.css');
 @import url('./cv-blocks/paper.css');

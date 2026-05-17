@@ -1,7 +1,7 @@
 .experience {
-	padding: 0;
 
 	list-style: none;
+	padding: 0;
 }
 
 .experience__item {
@@ -14,12 +14,12 @@
 }
 
 .experience__header {
-	display: flex;
 	align-items: baseline;
-	justify-content: space-between;
+	display: flex;
 	gap: 2mm;
 
 	grid-column: 1 / -1;
+	justify-content: space-between;
 }
 
 .experience__heading {
@@ -27,16 +27,20 @@
 }
 
 .experience__dates {
-	margin: 0;
 
 	color: var(--palette-gray-500);
+	margin: 0;
 }
 
 .experience__company {
-	margin: 0;
-	grid-column: 1 / -1;
 
 	color: var(--palette-gray-500);
+	grid-column: 1 / -1;
+	margin: 0;
+}
+
+.experience__company p {
+	margin: 0;
 }
 
 .experience__projects {
@@ -44,11 +48,11 @@
 }
 
 .experience__projects-heading {
-	margin: 1mm 0 .5mm;
 
 	color: var(--palette-gray-400);
 
 	font-size: 1.2rem;
 	font-weight: 500;
 	letter-spacing: 2%;
+	margin: 1mm 0 .5mm;
 }

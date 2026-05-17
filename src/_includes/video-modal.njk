@@ -1,0 +1,21 @@
+{% from 'icon-button.njk' import iconButton %}
+
+<dialog class="video-modal" data-video-modal aria-labelledby="video-modal-heading">
+	<div class="video-modal__surface">
+		<div class="video-modal__toolbar">
+			<h2 id="video-modal-heading" class="video-modal__heading">Intro video</h2>
+
+			{{ iconButton(
+				iconName = 'arrows/cross',
+				mode = 'base',
+				size = 'l',
+				type = 'button',
+				extraClass = 'video-modal__close',
+				ariaLabel = 'Close video',
+				dataAttrs = 'data-video-modal-close'
+			) }}
+		</div>
+
+		<div class="video-modal__media" data-video-modal-media></div>
+	</div>
+</dialog>

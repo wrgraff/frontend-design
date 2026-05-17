@@ -1,0 +1,73 @@
+/* Variables */
+
+.code-snippet {
+	--code-snippet-bg: var(--color-surface-secondary);
+	--code-snippet-padding-y: var(--space-gap-s);
+	--code-snippet-padding-x: var(--space-gap-m);
+	--code-snippet-font: 500 var(--font-size-xs) / 1.55 var(--font-family-monospace);
+	--code-snippet-color: var(--color-text-base);
+	--code-snippet-color-comment: var(--color-text-tertiary);
+	--code-snippet-color-keyword: var(--color-text-alt);
+	--code-snippet-color-title: var(--color-text-primary);
+	--code-snippet-color-string: var(--color-text-special-success);
+	--code-snippet-color-number: var(--color-text-special-warning);
+	--code-snippet-color-meta: var(--color-text-special-sky);
+}
+
+/* Block */
+
+.code-snippet {
+	background-color: var(--code-snippet-bg);
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+	padding: var(--code-snippet-padding-y) var(--code-snippet-padding-x);
+}
+
+/* Element */
+
+.code-snippet__code {
+	color: var(--code-snippet-color);
+	display: block;
+	font: var(--code-snippet-font);
+	min-width: max-content;
+	white-space: pre;
+}
+
+.code-snippet__code .hljs-comment,
+.code-snippet__code .hljs-quote {
+	color: var(--code-snippet-color-comment);
+}
+
+.code-snippet__code .hljs-keyword,
+.code-snippet__code .hljs-selector-tag,
+.code-snippet__code .hljs-literal,
+.code-snippet__code .hljs-doctag {
+	color: var(--code-snippet-color-keyword);
+}
+
+.code-snippet__code .hljs-title,
+.code-snippet__code .hljs-section,
+.code-snippet__code .hljs-built_in,
+.code-snippet__code .hljs-type {
+	color: var(--code-snippet-color-title);
+}
+
+.code-snippet__code .hljs-string,
+.code-snippet__code .hljs-attr,
+.code-snippet__code .hljs-template-tag,
+.code-snippet__code .hljs-template-variable {
+	color: var(--code-snippet-color-string);
+}
+
+.code-snippet__code .hljs-number,
+.code-snippet__code .hljs-symbol,
+.code-snippet__code .hljs-bullet,
+.code-snippet__code .hljs-variable {
+	color: var(--code-snippet-color-number);
+}
+
+.code-snippet__code .hljs-meta,
+.code-snippet__code .hljs-meta .hljs-keyword {
+	color: var(--code-snippet-color-meta);
+}

@@ -4,8 +4,23 @@
   "description": "Extremely minimal Eleventy starter to kickstart a simple multi-page site / a nearly opinionless foundation to continue building on",
   "main": "index.html",
   "scripts": {
-    "start": "eleventy --serve --quiet",
-    "build": "rm -rf dist && eleventy"
+    "start": "ELEVENTY_ENV=development eleventy --serve --quiet",
+    "build": "rm -rf dist && ELEVENTY_ENV=production eleventy",
+    "lint:js": "eslint \"src/js/**/*.js\" --ignore-pattern \"src/js/modules/gallery.js\" --ignore-pattern \"src/js/modules/loader.js\"",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "lint:css:contracts:strict": "node scripts/lint-css-contracts.mjs --strict",
+    "lint:data": "node scripts/validate-content.mjs",
+    "lint:html": "npm run build && html-validate \"dist/**/*.html\"",
+    "lint:all:strict": "npm run lint:js && npm run lint:css && npm run lint:data && npm run lint:css:contracts:strict && npm run lint:html",
+    "fix:css": "stylelint \"src/**/*.css\" --fix",
+    "lint:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json",
+    "fix:css:sort": "stylelint \"src/**/*.css\" --config .stylelintrc.sort.json --fix",
+    "update:browserslist": "npx update-browserslist-db@latest",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
   },
   "repository": {
     "type": "git",
@@ -25,21 +40,29 @@
     "url": "https://github.com/5t3ph/smol-11ty-starter/issues"
   },
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.16",
+    "@11ty/eleventy": "^3.1.2",
     "autoprefixer": "^10.4.12",
-    "esbuild": "^0.17.5",
+    "esbuild": "^0.27.3",
     "eslint": "^8.36.0",
+    "highlight.js": "^11.11.1",
+    "html-minifier-terser": "^7.2.0",
     "js-yaml": "^4.1.0",
-    "markdown-it": "^13.0.1",
-    "micromodal": "^0.4.10",
+    "markdown-it": "^14.1.1",
     "postcss": "^8.4.17",
     "postcss-csso": "^6.0.1",
     "postcss-import": "^15.0.0",
     "postcss-media-minmax": "^5.0.0",
-    "stylelint-order": "^6.0.2"
+    "typograf": "^7.6.0"
   },
   "devDependencies": {
-    "axios": "^0.27.2",
-    "stylelint": "^15.2.0"
+    "axios": "^1.13.6",
+    "html-validate": "^10.11.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "stylelint": "^15.2.0",
+    "stylelint-order": "^6.0.2"
+  },
+  "lint-staged": {
+    "src/**/*.css": "stylelint --fix"
   }
 }

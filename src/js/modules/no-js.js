@@ -1,1 +1,5 @@
-document.body.parentElement.classList.remove('no-js');
+export const initNoJs = () => {
+	document.documentElement.classList.remove( 'no-js' );
+
+	return () => {};
+};

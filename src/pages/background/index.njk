@@ -1,0 +1,19 @@
+{% from 'hero.njk' import heroSection %}
+{% from 'timeline-section.njk' import timelineSection %}
+
+{{ heroSection(hero) }}
+
+{% for sectionItem in sections %}
+	{{ timelineSection({
+		id: sectionItem.id,
+		pretitle: sectionItem.pretitle,
+		heading: sectionItem.heading,
+		lead: sectionItem.lead,
+		details: sectionItem.details,
+		content: sectionItem.content,
+		conclusion: sectionItem.conclusion,
+		timeline: sectionItem.timeline
+	}) }}
+{% endfor %}
+
+{% include 'contacts.njk' %}

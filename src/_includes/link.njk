@@ -1,0 +1,34 @@
+{% from 'icon.njk' import icon %}
+
+{% macro link(
+	text = 'Link',
+	href = '',
+	mode = '',
+	size = '',
+	iconName = 'info-signs/link',
+	external = false,
+	extraClass = ''
+) %}
+	{% set classes = [
+		'link',
+		mode and 'link_mode_' + mode or '',
+		size and 'link_size_' + size or '',
+		extraClass
+	] | join(' ') | trim %}
+
+	<a
+		href="{{ href | localePath(page.url) }}"
+		class="{{ classes }}"
+		{% if external %}target="_blank" rel="noopener noreferrer"{% endif %}
+	>
+		{% if iconName %}
+			{{ icon(iconName, 'link__icon') }}
+		{% endif %}
+
+		<span class="link__text">{{ text }}</span>
+
+		{% if external %}
+			{{ icon('simple-arrows/fullscreen_expand', 'link__external') }}
+		{% endif %}
+	</a>
+{% endmacro %}

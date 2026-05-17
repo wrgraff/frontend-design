@@ -1,80 +1,136 @@
+/* Variables */
+
 .label {
-	display: inline-block;
-	padding: 5px 10px;
-
-	color: var(--color-text-inverse);
-	background-color: var(--color-common-primary);
-	border-radius: 2px;
-
-	font-size: var(--text-size-l);
-	font-weight: 500;
-	line-height: 1;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
+	--label-text-color: var(--color-text-base);
+	--label-bg: var(--color-common-secondary);
+	--label-border-color: var(--color-border-base);
+	--label-height: var(--space-size-m);
+	--label-padding-x: var(--space-gap-xxs);
+	--label-font: var(--font-caption-s);
+	--label-letterspacing: var(--font-caption-letterspacing);
+	--label-transform: var(--font-caption-transform);
+	--label-radius: var(--radius-xs);
+	--label-superellipse-radius: var(--superellipse-radius-xs);
+	--label-superellipse-level: var(--superellipse-level-xs);
+	--label-border-light-width: var(--space-border-light);
+	--label-border-hair-width: var(--space-border-light);
 }
 
-.label_s {
-	padding: 4px 8px;
-	font-size: var(--text-size-m);
-}
-
-.label_m {
-	padding: 5px 10px;
-	font-size: var(--text-size-l);
-}
-
-.label_l {
-	padding: 6px 10px;
-	font-size: var(--text-size-xl);
-}
-
-@media (width < 880px) {
-	.label_small_s {
-		padding: 4px 8px;
-		font-size: var(--text-size-m);
-	}
-
-	.label_small_m {
-		padding: 5px 10px;
-		font-size: var(--text-size-l);
-	}
-
-	.label_small_l {
-		padding: 6px 10px;
-		font-size: var(--text-size-xl);
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.label {
+		--label-border-hair-width: var(--space-border-hair);
 	}
 }
 
-@media (880px <= width < 1500px) {
-	.label_medium_s {
-		padding: 4px 8px;
-		font-size: var(--text-size-m);
-	}
+/* Label */
 
-	.label_small_m {
-		padding: 5px 10px;
-		font-size: var(--text-size-l);
-	}
+.label {
+	align-items: center;
+	background-color: var(--label-bg);
+	border-bottom: var(--label-border-hair-width) solid var(--label-border-color);
+	border-left: var(--label-border-light-width) solid var(--label-border-color);
+	border-radius: var(--label-radius);
+	border-right: var(--label-border-light-width) solid var(--label-border-color);
+	border-top: var(--label-border-hair-width) solid var(--label-border-color);
+	color: var(--label-text-color);
+	display: inline-flex;
+	font: var(--label-font);
+	height: var(--label-height);
+	justify-content: center;
+	letter-spacing: var(--label-letterspacing);
+	padding: 0 var(--label-padding-x);
+	text-transform: var(--label-transform);
+	white-space: nowrap;
+}
 
-	.label_medium_l {
-		padding: 6px 10px;
-		font-size: var(--text-size-xl);
+@supports (corner-shape: superellipse(1)) {
+	.label {
+		border-radius: var(--label-superellipse-radius);
+		corner-shape: var(--label-superellipse-level);
 	}
 }
 
-@media (width >= 1500px) {
-	.label_large_s {
-		padding: 4px 8px;
-		font-size: var(--text-size-m);
-	}
+/* Modes */
 
-	.label_small_m {
-		padding: 5px 10px;
-		font-size: var(--text-size-l);
-	}
+.label_mode_primary {
+	--label-text-color: var(--color-text-inverse);
+	--label-bg: var(--color-common-primary);
+}
 
-	.label_large_l {
-		padding: 6px 10px;
-		font-size: var(--text-size-xl);
-	}
+.label_mode_special {
+	--label-text-color: var(--color-text-base);
+	--label-bg: var(--color-surface-special-amber);
+}
+
+/* Tones */
+
+.label_tone_success {
+	--label-bg: var(--color-surface-special-success);
+}
+
+.label_tone_warning {
+	--label-bg: var(--color-surface-special-warning);
+}
+
+.label_tone_error {
+	--label-bg: var(--color-surface-special-error);
+}
+
+.label_tone_orange {
+	--label-bg: var(--color-surface-special-orange);
+}
+
+.label_tone_amber {
+	--label-bg: var(--color-surface-special-amber);
+}
+
+.label_tone_emerald {
+	--label-bg: var(--color-surface-special-emerald);
+}
+
+.label_tone_teal {
+	--label-bg: var(--color-surface-special-teal);
+}
+
+.label_tone_cyan {
+	--label-bg: var(--color-surface-special-cyan);
+}
+
+.label_tone_sky {
+	--label-bg: var(--color-surface-special-sky);
+}
+
+.label_tone_blue {
+	--label-bg: var(--color-surface-special-blue);
+}
+
+.label_tone_violet {
+	--label-bg: var(--color-surface-special-violet);
+}
+
+.label_tone_purple {
+	--label-bg: var(--color-surface-special-purple);
+}
+
+.label_tone_fuchsia {
+	--label-bg: var(--color-surface-special-fuchsia);
+}
+
+.label_tone_pink {
+	--label-bg: var(--color-surface-special-pink);
+}
+
+.label_tone_rose {
+	--label-bg: var(--color-surface-special-rose);
+}
+
+/* Sizes */
+
+.label_size_m {
+	--label-height: var(--space-size-s);
+	--label-padding-x: var(--space-gap-3xs);
+	--label-font: var(--font-caption-xs);
+	--label-radius: var(--radius-m);
+	--label-superellipse-radius: var(--superellipse-radius-m);
+	--label-superellipse-level: var(--superellipse-level-m);
 }

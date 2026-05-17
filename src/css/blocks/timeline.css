@@ -1,0 +1,187 @@
+/* Variables */
+
+.timeline {
+	--timeline-padding-left: var(--space-gap-l);
+	--timeline-padding-top: var(--space-gap-xs);
+	--timeline-rail-color: var(--color-border-base);
+	--timeline-icon-size: var(--space-size-s);
+	--timeline-offset-top: var(--space-gap-m);
+	--timeline-icon-color: var(--color-text-primary);
+	--timeline-gap: var(--space-gap-m);
+	--timeline-date-font: var(--font-caption-xs);
+	--timeline-date-color: var(--color-text-alt);
+	--timeline-company-font: var(--font-text-m);
+	--timeline-company-color: var(--color-text-base);
+	--timeline-role-font: var(--font-text-xs);
+	--timeline-role-color: var(--color-text-base);
+	--timeline-description-font: var(--font-text-xs);
+	--timeline-description-color: var(--color-text-secondary);
+	--timeline-icon-margin: var(--space-gap-5xs);
+	--timeline-icon-offset: var(--space-gap-3xs);
+}
+
+@media (width < 1200px) {
+	.timeline {
+		--timeline-padding-left: var(--space-gap-5xs);
+		--timeline-padding-top: 0;
+		--timeline-gap: var(--space-gap-xs);
+		--timeline-icon-offset: 0px;
+	}
+}
+
+/* Timeline */
+
+.timeline {
+	padding: var(--timeline-padding-top) 0 0 var(--timeline-padding-left);
+}
+
+@media (width < 1200px) {
+	.timeline {
+		position: relative;
+	}
+}
+
+.timeline:not(.timeline_order_last)::before {
+	content: '';
+	position: absolute;
+	border-radius: 2px;
+	background-color: var(--timeline-rail-color);
+}
+
+@media (width >= 1200px) {
+	.timeline:not(.timeline_order_last)::before {
+		left: -1px;
+		top: calc(var(--timeline-icon-size) + var(--timeline-icon-offset) + var(--timeline-icon-margin));
+		bottom: calc(-160px - var(--timeline-icon-margin));
+		width: 2px;
+	}
+}
+
+@media (width < 1200px) {
+	.timeline::before,
+	.timeline::after {
+		content: '';
+		position: absolute;
+		top: calc(var(--timeline-icon-size) - var(--space-gap-5xs));
+		height: 2px;
+		border-radius: 2px;
+		background-color: var(--timeline-rail-color);
+	}
+
+	.timeline::before {
+		left: calc( var(--timeline-icon-size) / -2 + var(--timeline-icon-margin));
+		right: calc(var(--space-page-padding-x) * -1);
+	}
+
+	.timeline::after {
+		left: calc(var(--space-page-padding-x) * -1);
+		right: calc(100% + (var(--timeline-icon-size) / 2) + var(--timeline-icon-margin));
+	}
+}
+
+.timeline__icon {
+	color: var(--timeline-icon-color);
+	width: var(--timeline-icon-size);
+	height: var(--timeline-icon-size);
+	position: absolute;
+	top: var(--timeline-icon-offset);
+	left: calc( var(--timeline-icon-size) / -2);
+	transform: rotate(90deg);
+}
+
+@media (width >= 1200px) {
+	.timeline_order_last .timeline__icon  {
+		transform: rotate(-90deg);
+	}
+}
+
+@media (width < 1200px) {
+	.timeline__icon {
+		left: calc( var(--timeline-icon-size) / -1);
+	}
+}
+
+.timeline__container {
+	position: sticky;
+	top: var(--timeline-offset-top);
+}
+
+.timeline_order_last .timeline__container {
+	position: static;
+}
+
+.timeline__date {
+	color: var(--timeline-date-color);
+	font: var(--timeline-date-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	margin: 0 0 var(--timeline-gap);
+	text-transform: var(--font-caption-transform);
+}
+
+@media (width < 1200px) {
+	.timeline__date {
+		margin: 0 0 calc(var(--timeline-gap) * 2);
+	}
+}
+
+.timeline__company {
+	color: var(--timeline-company-color);
+	font: var(--timeline-company-font);
+	margin: 0;
+}
+
+.timeline__role {
+	color: var(--timeline-role-color);
+	font: var(--timeline-role-font);
+	margin: 0;
+}
+
+.timeline__description {
+	color: var(--timeline-description-color);
+	font: var(--timeline-description-font);
+	margin: var(--timeline-gap) 0 0;
+}
+
+@media (width < 1200px) {
+	.timeline__container {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		column-gap: var(--space-gap-m);
+	}
+
+	.timeline__date,
+	.timeline__position,
+	.timeline__description {
+		grid-column: 1 / span 3;
+	}
+
+	.timeline__position {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		column-gap: var(--space-gap-4xs);
+	}
+
+	.timeline__position::after {
+		order: -1;
+		content: '/';
+		font: var(--timeline-description-font);
+		color: var(--timeline-description-color);
+	}
+
+	.timeline__company {
+		order: -2;
+	}
+
+	.timeline__description {
+		margin: 0;
+	}
+}
+
+@media (width < 800px) {
+	.timeline__date,
+	.timeline__position,
+	.timeline__description {
+		grid-column: 1 / -1;
+	}
+}

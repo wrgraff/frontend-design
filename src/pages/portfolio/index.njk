@@ -1,0 +1,36 @@
+{% from 'hero.njk' import heroSection %}
+{% from 'portfolio-cases.njk' import portfolioCases %}
+{% from 'section.njk' import section %}
+
+{{ heroSection(hero) }}
+
+{% set portfolioSection = portfolio or {} %}
+{% set portfolioCollection = collections.portfolio or [] %}
+
+{% call section({
+	pretitle: portfolioSection.pretitle or 'My work',
+	heading: portfolioSection.heading or 'Latest works',
+	lead: portfolioSection.lead or '',
+	extra_class: 'section_view_portfolio'
+}) %}
+	{{ portfolioCases(
+		collection = portfolioCollection,
+		emptyMessage = portfolioSection.empty_message or 'Portfolio entries are not added yet.'
+	) }}
+{% endcall %}
+
+{% call section({
+	pretitle: approach_to_work.pretitle,
+	heading: approach_to_work.heading,
+	lead: approach_to_work.intro
+}) %}
+	<ol class="section__list list list_type_ordered list_columns_2">
+		{% for step in approach_to_work.steps %}
+			<li class="list__item"{% if step.label %} data-list-label="{{ step.label }}"{% endif %}>
+				{{ step.text | markdown | safe }}
+			</li>
+		{% endfor %}
+	</ol>
+{% endcall %}
+
+{% include 'contacts.njk' %}

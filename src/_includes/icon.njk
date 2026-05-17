@@ -1,0 +1,15 @@
+{% macro icon(name, className = '', size = 32) %}
+	{% set iconTemplate = 'icons/' ~ name ~ '.svg' %}
+	{% set iconClass = ((className and className ~ ' ' or '') ~ 'icon') | trim %}
+
+	{% set iconMarkup %}
+		{% include iconTemplate ignore missing %}
+	{% endset %}
+
+	{% if iconMarkup | trim %}
+		{{ iconMarkup
+			| iconSvg(iconClass, size)
+			| safe
+		}}
+	{% endif %}
+{% endmacro %}

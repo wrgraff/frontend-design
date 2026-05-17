@@ -1,0 +1,69 @@
+title: Contacts
+hero:
+  heading: Contacts
+  text: I'm open to job opportunities, thoughtful questions, and conversations about design, frontend, or tech
+  cta:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/arturtrifonov/
+      icon: social-networks/linkedin
+      external: true
+      kind: link
+      size: text-m
+      extra_class: hero__link
+    - text: hi@arturtrifonov.com
+      href: mailto:hi@arturtrifonov.com
+      icon: email/email
+      external: false
+      kind: link
+      size: text-m
+      extra_class: hero__link
+
+online:
+  pretitle: Online
+  heading: Let's connect
+  lead: Feel free to reach out if you want to collaborate, exchange ideas or just keep in touch
+  columns:
+    -
+      - text: hi@arturtrifonov.com
+        href: mailto:hi@arturtrifonov.com
+        icon: email/email
+        external: false
+      - text: WhatsApp
+        href: https://wa.me/qr/D5O7F7DDAEUHK1
+        icon: social-networks/whatsapp
+        external: true
+      - text: Telegram
+        href: https://t.me/wrgraff
+        icon: social-networks/telegram
+        external: true
+    -
+      - text: LinkedIn
+        href: https://www.linkedin.com/in/arturtrifonov/
+        icon: social-networks/linkedin
+        external: true
+      - text: Behance
+        href: https://www.behance.net/arturtrifonov
+        icon: social-networks/Behance
+        external: true
+      - text: Dribbble
+        href: https://dribbble.com/arturtrifonov
+        icon: social-networks/dribble
+        external: true
+    -
+      - text: Facebook
+        href: https://www.facebook.com/arturtrifonov
+        icon: social-networks/facebook
+        external: true
+      - text: Instagram
+        href: https://www.instagram.com/arturtrifonov/
+        icon: social-networks/instagram
+        external: true
+
+offline:
+  pretitle: Offline
+  heading: Location
+  lead: I’m happy to meet in person ☕️ — I’m based in Bratislava, and Vienna is just a short trip away
+  route:
+    src: /img/route.svg
+    width: 732
+    height: 255

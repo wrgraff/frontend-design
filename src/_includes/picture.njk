@@ -1,0 +1,31 @@
+{% macro picture(
+	image = {},
+	description = '',
+	extraClass = ''
+) %}
+	{% set pictureDescription = description | default(image.description | default(image.caption | default(image.alt | default('')))) | trim %}
+	{% set classes = [
+		extraClass,
+		'picture'
+	] | join(' ') | trim %}
+
+	{% if image and image.src and image.width and image.height %}
+		<figure class="{{ classes }}">
+			<picture class="picture__media">
+				<img
+					class="picture__image"
+					src="{{ image.src }}"
+					alt="{{ image.alt | default('') }}"
+					width="{{ image.width }}"
+					height="{{ image.height }}"
+					loading="eager"
+					decoding="async"
+				>
+			</picture>
+
+			{% if pictureDescription %}
+				<figcaption class="picture__description">{{ pictureDescription }}</figcaption>
+			{% endif %}
+		</figure>
+	{% endif %}
+{% endmacro %}

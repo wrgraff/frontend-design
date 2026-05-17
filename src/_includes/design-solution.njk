@@ -1,0 +1,139 @@
+{% from 'slider.njk' import slider %}
+{% from 'picture.njk' import picture %}
+{% from 'icon.njk' import icon %}
+
+{% macro designSolution(data = {}, baseUrl = '') %}
+	{% set sourceImages = data.images or [] %}
+	{% set images = [] %}
+	{% set prototype = data.prototype or {} %}
+	{% set prototypeSrc = prototype.src | default('') | trim %}
+	{% set prototypeQuery = 'scaling=contain&content-scaling=responsive&hide-ui=1&embed-host=arturtrifonov.com' %}
+	{% set prototypeEmbedSrc = '' %}
+	{% set primaryDetails = data.primary or [] %}
+	{% set secondaryDetails = data.secondary or [] %}
+	{% set prototypeSlides = [] %}
+	{% for image in sourceImages %}
+		{% set imageSrc = image.src or '' %}
+		{% if baseUrl and imageSrc and not ('://' in imageSrc) and not ((imageSrc | first) == '/') %}
+			{% set imageSrc = baseUrl ~ 'img/' ~ imageSrc %}
+		{% endif %}
+		{% set images = (images.push({
+			type: image.type,
+			src: imageSrc,
+			alt: image.alt,
+			width: image.width,
+			height: image.height,
+			description: image.description,
+			caption: image.caption
+		}), images) %}
+	{% endfor %}
+	{% set hasSlider = images and (images | length) > 1 %}
+	{% set singleImage = images[0] if images and (images | length) == 1 else {} %}
+	{% set singleImageDescription = (singleImage.description | default(singleImage.caption | default(singleImage.alt | default(''))) | trim) if singleImage else '' %}
+	{% if prototypeSrc %}
+		{% set prototypeEmbedSrc = prototypeSrc
+			| replace('https://www.figma.com/proto/', 'https://embed.figma.com/proto/')
+			| replace('https://figma.com/proto/', 'https://embed.figma.com/proto/')
+			| replace('http://www.figma.com/proto/', 'https://embed.figma.com/proto/')
+			| replace('http://figma.com/proto/', 'https://embed.figma.com/proto/')
+		%}
+		{% set prototypeEmbedSrc = prototypeEmbedSrc
+			.split('&t=')[0]
+			.split('&scaling=')[0]
+			.split('&content-scaling=')[0]
+			.split('&hide-ui=')[0]
+			.split('&embed-host=')[0]
+		%}
+		{% set prototypeEmbedSrc = prototypeEmbedSrc + ('&' if '?' in prototypeEmbedSrc else '?') + prototypeQuery %}
+		{% set prototypeSlides = [{
+			type: 'iframe',
+			src: prototypeEmbedSrc,
+			title: prototype.title,
+			height: prototype.height,
+			description: prototype.description
+		}] %}
+	{% endif %}
+
+	<div class="section__container-item design-solution">
+		{% if images and (images | length) %}
+			{% if hasSlider %}
+				{{ slider(
+					images = images,
+					ariaLabel = 'Design solution slides',
+					previousLabel = 'Previous slide',
+					nextLabel = 'Next slide',
+					extraClass = 'design-solution__slider'
+				) }}
+			{% elif singleImage %}
+				{{ picture(
+					image = singleImage,
+					description = singleImageDescription,
+					extraClass = 'design-solution__image-item'
+				) }}
+			{% endif %}
+		{% elif prototypeSlides and (prototypeSlides | length) %}
+			{{ slider(
+				images = prototypeSlides,
+				ariaLabel = 'Design solution prototype',
+				previousLabel = 'Previous slide',
+				nextLabel = 'Next slide',
+				extraClass = 'design-solution__slider'
+			) }}
+		{% endif %}
+
+		{% if primaryDetails and (primaryDetails | length) %}
+			<dl class="design-solution-list design-solution-list_role_primary">
+				{% for detail in primaryDetails %}
+					{% set detailIcon = 'alert/diamond_alert' if loop.index == 1 else ('ui-basics/checkmark' if loop.index == 2 else '') %}
+					<div class="design-solution-list__item design-solution-list__item_role_primary">
+						{% if detailIcon %}
+							{{ icon(detailIcon, 'design-solution-list__icon') }}
+							{% if loop.first %}
+								<svg class="design-solution-list__arrow" width="9" height="16" viewBox="0 0 9 16">
+									<path d="M1.8366 0.318027C1.41636 -0.105902 0.735122 -0.106116 0.315006 0.318027C-0.105109 0.74217 -0.104896 1.42993 0.315006 1.85421L5.3264 6.91364V9.08636L0.315006 14.1458C-0.104896 14.5701 -0.105109 15.2578 0.315006 15.682C0.735122 16.1061 1.41636 16.1059 1.8366 15.682L8.68484 8.76809C9.10505 8.34384 9.10505 7.65616 8.68484 7.23191L1.8366 0.318027Z" fill="currentColor"/>
+								</svg>
+							{% endif %}
+						{% endif %}
+						{% if detail.heading %}
+							<dt class="design-solution-list__term">
+								{{ detail.heading | trim }}
+							</dt>
+						{% endif %}
+						{% if detail.content %}
+							<dd class="design-solution-list__description">
+								{{ detail.content | markdown | safe }}
+							</dd>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</dl>
+		{% endif %}
+
+		{% if secondaryDetails and (secondaryDetails | length) %}
+			<dl class="design-solution-list design-solution-list_role_secondary">
+				{% for detail in secondaryDetails %}
+					<div class="design-solution-list__item design-solution-list__item_role_secondary">
+						{% if detail.heading %}
+							<dt class="design-solution-list__term">
+								{{ detail.heading | trim }}
+							</dt>
+						{% endif %}
+						{% if detail.items and (detail.items | length) %}
+							<dd class="design-solution-list__description">
+								<ul class="design-solution-list__points">
+									{% for item in detail.items %}
+										<li class="design-solution-list__point">{{ item | markdown | safe }}</li>
+									{% endfor %}
+								</ul>
+							</dd>
+						{% elif detail.content %}
+							<dd class="design-solution-list__description">
+								{{ detail.content | markdown | safe }}
+							</dd>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</dl>
+		{% endif %}
+	</div>
+{% endmacro %}

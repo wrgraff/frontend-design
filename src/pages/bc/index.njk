@@ -1,0 +1,54 @@
+{% from 'link.njk' import link %}
+{% from 'logo.njk' import logo %}
+
+{% set contactItems = global.contacts.items %}
+{% set socialContacts = ['linkedin', 'behance', 'dribbble'] %}
+{% set directContacts = ['email', 'whatsapp', 'telegram'] %}
+
+<section class="business-card" aria-labelledby="business-card-heading">
+	<h1 class="visually-hidden" id="business-card-heading">
+		{{ global.name }}
+	</h1>
+
+	<a href="{{ '/' | localePath(page.url) }}" class="business-card__logo-link">
+		{{ logo(ariaLabel = global.name) }}
+	</a>
+
+	<div class="business-card__content">
+		<ul class="business-card__group">
+			{% for itemKey in socialContacts %}
+				{% set item = contactItems[itemKey] %}
+				{% if item %}
+					<li class="business-card__item">
+						{{ link(
+							text = item.heading,
+							href = item.url,
+							size = 'text-xl',
+							iconName = item.icon,
+							external = item.external or false,
+							extraClass = 'business-card__link'
+						) }}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+		<ul class="business-card__group">
+			{% for itemKey in directContacts %}
+				{% set item = contactItems[itemKey] %}
+				{% if item %}
+					<li class="business-card__item">
+						{{ link(
+							text = item.heading,
+							href = item.url,
+							size = 'text-xl',
+							iconName = item.icon,
+							external = item.external or false,
+							extraClass = 'business-card__link'
+						) }}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</section>

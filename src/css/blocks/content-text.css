@@ -1,0 +1,30 @@
+/* Variables */
+
+.content-text {
+	--content-text-font: var(--font-text-s);
+	--content-text-gap: var(--space-gap-xs);
+	--content-text-heading-color: var(--color-text-primary);
+	--content-text-heading-font: var(--font-label-l);
+}
+
+/* Content text */
+
+.content-text {
+	display: grid;
+	font: var(--content-text-font);
+	gap: var(--content-text-gap);
+}
+
+.content-text__heading {
+	color: var(--content-text-heading-color);
+	font: var(--content-text-heading-font);
+	margin: 0;
+}
+
+.content-text__content > :first-child {
+	margin-top: 0;
+}
+
+.content-text__content > :last-child {
+	margin-bottom: 0;
+}

@@ -1,0 +1,52 @@
+{% from 'link.njk' import link %}
+
+{% macro contactsLinks(
+	contactsData = {},
+	extraClass = ''
+) %}
+	{% set socialKeys = ['linkedin', 'behance', 'dribbble'] %}
+	{% set directKeys = ['email', 'whatsapp', 'telegram'] %}
+	{% set contactItems = contactsData.items or {} %}
+	{% set classes = [
+		extraClass,
+		'contacts-links'
+	] | join(' ') | trim %}
+
+	<div class="{{ classes }}">
+		<ul class="contacts-links__social">
+			{% for itemKey in socialKeys %}
+				{% set item = contactItems[itemKey] %}
+				{% if item %}
+					<li class="contacts-links__item">
+						{{ link(
+							text = item.heading,
+							href = item.url,
+							size = 'text-xs',
+							iconName = item.icon,
+							external = item.external or false,
+							extraClass = 'contacts-links__link'
+						) }}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+		<ul class="contacts-links__direct">
+			{% for itemKey in directKeys %}
+				{% set item = contactItems[itemKey] %}
+				{% if item %}
+					<li class="contacts-links__item">
+						{{ link(
+							text = item.heading,
+							href = item.url,
+							size = 'text-xs',
+							iconName = item.icon,
+							external = item.external or false,
+							extraClass = 'contacts-links__link'
+						) }}
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+{% endmacro %}

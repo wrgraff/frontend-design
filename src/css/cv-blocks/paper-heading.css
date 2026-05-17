@@ -1,24 +1,24 @@
 .paper-heading {
-	display: flex;
 	align-items: baseline;
-	gap: .3em;
 
 	color: var(--palette-gray-800);
+	display: flex;
+	font-weight: 700;
+	gap: .3em;
 
 	letter-spacing: 2%;
-	font-weight: 700;
 	line-height: 1;
 }
 
 .paper-heading::after {
+
+	background-color: var(--palette-gray-300);
 	content: '';
+	height: .15em;
 	position: relative;
 	top: .15em;
 
 	width: .65em;
-	height: .15em;
-
-	background-color: var(--palette-gray-300);
 }
 
 .paper-heading__small {

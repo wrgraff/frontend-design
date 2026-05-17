@@ -1,0 +1,41 @@
+/* Variables */
+
+.picture {
+	--picture-bg: var(--color-surface-secondary);
+	--picture-description-bg: var(--color-surface-tertiary);
+	--picture-description-color: var(--color-text-secondary);
+	--picture-description-font: var(--font-text-xs);
+	--picture-description-min-height: calc(var(--space-size-m) + (var(--space-gap-xxs) * 2));
+	--picture-description-padding: var(--space-gap-4xs) var(--space-gap-3xs) var(--space-gap-4xs) var(--space-gap-s);
+}
+
+/* Picture */
+
+.picture {
+	display: grid;
+}
+
+.picture__media {
+	background-color: var(--picture-bg);
+	display: block;
+	overflow: hidden;
+	width: 100%;
+}
+
+.picture__image {
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+.picture__description {
+	align-items: center;
+	background-color: var(--picture-description-bg);
+	box-sizing: border-box;
+	color: var(--picture-description-color);
+	display: flex;
+	font: var(--picture-description-font);
+	margin: 0;
+	min-height: var(--picture-description-min-height);
+	padding: var(--picture-description-padding);
+}

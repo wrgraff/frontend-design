@@ -1,0 +1,42 @@
+/* Variables */
+
+.all-contacts {
+	--all-contacts-columns: 4;
+	--all-contacts-gap: var(--space-gap-l);
+}
+
+@media (width < 540px) {
+	.all-contacts {
+		--all-contacts-columns: 2;
+	}
+}
+
+/* All Contacts */
+
+.all-contacts {
+	display: grid;
+	column-gap: var(--all-contacts-gap);
+	grid-template-columns: repeat(var(--all-contacts-columns), minmax(0, 1fr));
+}
+
+@media (width < 540px) {
+	.all-contacts {
+		gap: var(--all-contacts-gap);
+	}
+}
+
+.all-contacts__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+@media (width >= 540px) {
+	.all-contacts__list:first-child {
+		grid-column: span 2;
+	}
+}
+
+.all-contacts__item {
+	margin: 0;
+}

@@ -1,0 +1,31 @@
+{% from 'contacts-links.njk' import contactsLinks %}
+{% set contactsData = global.contacts %}
+
+<section class="main__section contacts" id="contacts">
+	<header class="contacts__header">
+		{% if contactsData.pretitle %}
+			<p class="contacts__eyebrow">
+				{{ contactsData.pretitle }}
+			</p>
+		{% endif %}
+
+		{% if contactsData.heading %}
+			<h2 class="contacts__heading">
+				{{ contactsData.heading }}
+			</h2>
+		{% endif %}
+	</header>
+
+	<div class="contacts__content">
+		<div class="contacts__lead">
+			{{ contactsData.body | markdown | safe }}
+		</div>
+
+		{{ contactsLinks(
+			contactsData = contactsData,
+			extraClass = 'contacts__links'
+		) }}
+	</div>
+
+	<img src="/img/route.svg" alt="" class="contacts__map" aria-hidden="true">
+</section>

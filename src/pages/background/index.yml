@@ -1,0 +1,93 @@
+title: My Background
+hero:
+  heading: My design journey
+  text: "Over time, I moved from web design to complex product UI: data-heavy interfaces, design systems, and implementation-ready specs"
+  image: /img/background/hero.png
+  image_alt: Background page hero illustration
+  cta:
+    - text: Check portfolio
+      href: /portfolio/
+      mode: primary
+      size: xl
+      icon_left: romance-and-wedding/baggage_heart
+      type: button
+    - text: Download CV
+      href: /files/atrifonov-cv-en.pdf
+      download: true
+      mode: base
+      size: xl
+      subtext: PDF, 248KB
+      icon_left: files/file_profile
+      type: link
+sections:
+  - id: current-position
+    pretitle: Now
+    heading: Current position
+    lead: "I designed tools for cloud infrastructure analytics and planning, helping large fintech companies manage complex ecosystems of services, products, and environments:"
+    details:
+      - "[**Cloud Cost Explorer**](/portfolio/cloud-cost-explorer/) — helps understand cloud spend, track trends, forecast usage, and identify optimization options;"
+      - "**Utilization Monitor** — helps detect underused resources across projects, products, environments, etc;"
+      - "**Infrastructure Planner** — supports infrastructure and budget longterm planning;"
+      - "**Dashboard Builder** — gives a flexible way to create custom reports and explore operational data."
+    conclusion: "I also built and maintain [**Mars Design System**](/portfolio/mars-design-system/), which became the foundation for the company’s products and improved consistency, scalability, and quality"
+    timeline:
+      date: August 2021 – Present
+      company: CloudTech
+      role: Senior Product Designer
+      description: Creating tools for BI, cloud management, and cost planning — for fintech products in multicloud environments
+
+  - id: mentorship
+    pretitle: Knowledge sharing
+    heading: Mentorship
+    lead: "The mentor experience strengthened a few skills I now use in product work:"
+    details:
+      - "**Adapt communication** by working with ~50 students at different starting levels, adjusting clarity, pace, and depth;"
+      - "**People-first collaboration**, reflected in consistent top-10 mentor feedback rankings;"
+      - "**Share knowledge** through Academy blog and course-book writing, plus lectures."
+    conclusion: "Co-authored a [course on design fundamentals](https://htmlacademy.ru/levelup/design) — a full program with structure, content, tasks, and examples"
+    timeline:
+      date: October 2019 – July 2023
+      company: HTML Academy
+      role: Author, Mentor
+      description: An IT school with a deep specialization in courses for developers, focused on teaching students from scratch
+
+  - id: frontend
+    pretitle: Engineering
+    heading: Frontend
+    lead: "My frontend background keeps my design work grounded in how UI is actually built: so designs are easier to implement, review, and evolve."
+    details:
+      - "Explicit **handoff** with interaction states, constraints, and failure cases;"
+      - "More **predictable implementation** with fewer late surprises and less rework;"
+      - "**Stronger QA** by catching visual inconsistencies and interaction bugs;"
+      - "Better **design systems** through variants and behavior that translate cleanly into code"
+    timeline:
+      date: June 2019 – August 2021
+      company: Freelance
+      role: Designer, Frontend Developer
+      description: Developed websites for clients in industrial equipment, automation, security, consulting, and e-commerce
+
+  - id: web-studio
+    pretitle: Web design
+    heading: Web studio
+    lead: |
+      Before moving into product design, I worked in a small web studio as an interface developer.
+
+      I built business websites for e-commerce and industrial clients — projects where clarity, structure, and implementation quality mattered
+    timeline:
+      date: October 2019 – July 2023
+      company: United Design Studio
+      role: Interface Developer, Co-founder
+      description: Small design studio focused on web development and branding, engaging with the local design community
+
+  - id: education
+    pretitle: Education
+    heading: Classical basis
+    lead: |
+      I studied for Design in University, with a strong focus on visual craft: composition, typography, and form.
+
+      Beyond technique, it gave me a broader design lens: how visuals live in culture, shift over time, and borrow meaning from context, not just from requirements
+    timeline:
+      date: September 2005 – July 2011
+      company: Environmental Design
+      role: Pushkin Leningrad State
+      order: last

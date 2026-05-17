@@ -1,0 +1,12 @@
+/* Variables */
+
+.article-section {
+	--article-section-padding-y: 80px;
+	--article-section-padding-x: var(--space-page-padding-x);
+}
+
+/* Article section */
+
+.article-section {
+	padding: var(--article-section-padding-y) var(--article-section-padding-x);
+}

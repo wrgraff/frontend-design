@@ -1,0 +1,53 @@
+{% from 'contacts-links.njk' import contactsLinks %}
+
+{% macro caseContacts(data = {}, contactsData = {}, baseUrl = '', theme = '') %}
+	{% set sectionHeadingId = data.id and (data.id ~ '-heading') or 'case-contacts-heading' %}
+	{% set image = data.image or {} %}
+	{% set imageSrc = image.src or '' %}
+	{% if imageSrc and not ('://' in imageSrc) and not ((imageSrc | first) == '/') %}
+		{% set imageSrc = baseUrl ~ 'img/' ~ imageSrc %}
+	{% endif %}
+	{% set classes = [
+		'main__section',
+		'case-contacts',
+		theme and ('case-contacts_theme_' ~ theme) or ''
+	] | join(' ') | trim %}
+
+	<section
+		class="{{ classes }}"
+		{% if data.id %}id="{{ data.id }}"{% endif %}
+		{% if data.heading %}aria-labelledby="{{ sectionHeadingId }}"{% endif %}
+		{% if theme %}data-section-theme="{{ theme | trim }}"{% endif %}
+	>
+		{% if data.heading %}
+			<header class="case-contacts__header">
+				<h2 class="case-contacts__heading" id="{{ sectionHeadingId }}">
+					{{ data.heading }}
+				</h2>
+			</header>
+		{% endif %}
+
+		{% if data.lead %}
+			<div class="case-contacts__lead">
+				{{ data.lead | markdown | safe }}
+			</div>
+		{% endif %}
+
+		{{ contactsLinks(
+			contactsData = contactsData,
+			extraClass = 'case-contacts__links'
+		) }}
+
+		{% if imageSrc and image.width and image.height %}
+			<div class="case-contacts__decor" aria-hidden="true">
+				<img
+					class="case-contacts__decor-image"
+					src="{{ imageSrc }}"
+					alt="{{ image.alt or '' }}"
+					width="{{ image.width }}"
+					height="{{ image.height }}"
+				>
+			</div>
+		{% endif %}
+	</section>
+{% endmacro %}

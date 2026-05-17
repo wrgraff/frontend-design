@@ -1,5 +1,9 @@
+{% set currentLocale = page.url | localeFromUrl %}
+{% set currentLocaleMeta = i18n.localeMeta[currentLocale] %}
+{% set isPlainPage = page_view == 'plain' %}
+
 <!DOCTYPE html>
-<html lang="en" class="page no-js">
+<html lang="{{ currentLocaleMeta.htmlLang or currentLocale }}" class="page no-js"{% if theme %} data-page-theme="{{ theme | trim }}"{% endif %}>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +23,37 @@
 		<meta property="og:title" content="{{ title if (page.url != '/') }}{{ ' | ' if (page.url != '/') }}{{ meta.siteName }}" />
 		<meta property="og:image" content="/img/favicons/og.png" />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Artur Trifonov's website" />
+		<meta property="og:site_name" content="{{ meta.siteName }}" />
 		{% if page.url != '/' %}
-			<meta property="og:url" content="https://arturtrifonov.com/" />
+			<meta property="og:url" content="{{ meta.url }}{{ page.url.slice(1) }}" />
 		{% else %}
-			<meta property="og:url" content="https://arturtrifonov.com/{{ activePage }}/" />
+			<meta property="og:url" content="{{ meta.url }}{{ activePage }}/" />
 		{% endif %}
-		<meta property="og:locale" content="en_EN" />
+		<meta property="og:locale" content="{{ currentLocaleMeta.ogLocale or 'en_GB' }}" />
 	</head>
 
-	{{ content | safe }}
-</html>
+		<body class="page__body{% if isPlainPage %} page__body_view_plain{% endif %}">
+			<main class="page__main{% if not isPlainPage %} main{% endif %}">
+				{% if isPlainPage %}
+					{{ content | safe }}
+				{% else %}
+					<div class="main__container">
+						{% include "header.njk" %}
+						{{ content | safe }}
+
+						<div class="main__grid" aria-hidden="true">
+							{% for _ in [1, 2, 3, 4, 5] %}
+								<div class="main__column"></div>
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
+			</main>
+
+			{% if not isPlainPage %}
+				{% include "aside.njk" %}
+				{% include "video-modal.njk" %}
+				<script defer src="/js/index.js"></script>
+			{% endif %}
+		</body>
+	</html>

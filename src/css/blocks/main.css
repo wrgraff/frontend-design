@@ -1,70 +1,89 @@
+/* Variables */
+
+.main {
+	--main-header-margin-top: var(--space-gap-xl);
+	--main-header-margin-bottom: var(--space-gap-l);
+	--main-section-hero-margin: -60px;
+	--main-grid-columns: 5;
+	--main-grid-padding-x: var(--space-page-padding-x);
+	--main-grid-gap: var(--space-gap-l);
+	--main-grid-border-width: var(--space-border-light);
+	--main-grid-border-color: var(--color-border-base);
+	--main-grid-opacity: 0.4;
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+	.main {
+		--main-grid-border-width: var(--space-border-hair);
+	}
+}
+
+@media (width < 500px) {
+	.main {
+		--main-grid-columns: 3;
+	}
+}
+
+/* Main */
+
 .main {
 	position: relative;
+}
 
+@media (width < 540px) {
+	.main {
+		padding-bottom: 64px;
+	}
+}
+
+:where(.main) {
+	z-index: 0;
+}
+
+/* Header */
+
+.main__header {
+	margin: var(--main-header-margin-top) 0 var(--main-header-margin-bottom);
+}
+
+@media (540px <= width < 1600px) {
+	.main__header {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+	}
+}
+
+/* Section */
+
+.main__section_view_hero {
+	margin: var(--main-section-hero-margin) 0;
+}
+
+/* Grid */
+
+.main__grid {
 	display: grid;
-}
+	gap: var(--main-grid-gap);
+	grid-template-columns: repeat(var(--main-grid-columns), minmax(0, 1fr));
 
-@media (width < 880px) {
-	.main {
-		row-gap: 40px;
-	}
-
-	.main_cv {
-		row-gap: 20px;
-	}
-}
-
-@media (880px <= width < 1500px) {
-	.main {
-		row-gap: 80px;
-	}
-
-	.main_cv {
-		row-gap: 40px;
-	}
-}
-
-@media (width >= 1500px) {
-	.main {
-		row-gap: 114px;
-	}
-
-	.main_cv {
-		row-gap: 64px;
-	}
-}
-
-.main::before {
-	content: '';
+	inset: 0 var(--main-grid-padding-x);
+	pointer-events: none;
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
 	z-index: -1;
-
-	background-size: 206px 100%;
-	background-repeat: space repeat;
-	background-image: linear-gradient(to right, var(--color-border-base) 1px, transparent 1px, transparent 205px, var(--color-border-base) 205px);
-	opacity: 0.4;
 }
 
-@media (880px <= width < 1500px) {
-	.main::before {
-		right: calc(25% + 8px);
-
-		background-size: calc(33% - 18px) 100%;
-		background-image: linear-gradient(
-			to right,
-			var(--color-border-base) 1px,
-			transparent 1px,
-			transparent calc(100% - 1px),
-			var(--color-border-base) calc(100% - 1px)
-		);
-	}
+.main__column {
+	border-right: var(--main-grid-border-width) solid var(--main-grid-border-color);
+	border-left: var(--main-grid-border-width) solid var(--main-grid-border-color);
+	opacity: var(--main-grid-opacity);
 }
 
-@media (width >= 1500px) {
-	.main::before {
-		right: 238px;
+@media (width < 500px) {
+	.main__column:nth-child(4),
+	.main__column:nth-child(5) {
+		display: none;
 	}
 }

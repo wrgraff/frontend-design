@@ -1,58 +1,55 @@
-class Videos {
-	constructor() {
-		this._video = document.querySelector( '.video' );
-		this._link = this._video.querySelector( '.video__main-link' );
-		this._media = this._video.querySelector( '.video__media' );
-		this._img = this._video.querySelector( '.video__img' );
-		this._button = this._video.querySelector( '.video__button' );
+import { extractYoutubeId, extractYoutubeStart, generateYoutubeEmbedUrl } from './youtube.js';
 
-		this._videoElementClickHandler = this._videoElementClickHandler.bind( this );
-	}
+const createIframe = ( id, start ) => {
+	let iframe = document.createElement( 'iframe' );
 
-	init() {
-		this._id = this._link.dataset.id;
-		this._start = this._link.dataset.start;
+	iframe.setAttribute( 'allowfullscreen', '' );
+	iframe.setAttribute( 'allow', 'autoplay; encrypted-media; picture-in-picture' );
+	iframe.setAttribute( 'title', 'YouTube video player' );
+	iframe.setAttribute( 'src', generateYoutubeEmbedUrl( id, start, true ) );
+	iframe.classList.add( 'video__iframe' );
 
-		this._link.removeAttribute( 'href' );
-		this._video.classList.add( 'video_enabled' );
+	return iframe;
+};
 
-		this._button.addEventListener( 'click', this._videoElementClickHandler );
-	}
+export const initVideos = ( selectors = ['video', 'promo-video'] ) => {
+	const listeners = [];
 
-	_videoElementClickHandler( evt ) {
-		evt.preventDefault();
+	selectors.forEach( ( selector ) => {
+		const videos = document.querySelectorAll( `.${selector}` );
 
-		this._link.remove();
-		this._img.remove();
-		this._button.remove();
-		let iframe = this._createIframe( this._id );
-		this._media.appendChild( iframe );
-	}
+		videos.forEach( ( video ) => {
+			const media = video.querySelector( `.${selector}__media` );
+			const image = video.querySelector( `.${selector}__img` );
+			const footer = video.querySelector( `.${selector}__footer` );
+			const button = video.querySelector( `.${selector}__button` );
+			const videoUrl = video.dataset.videoUrl || '';
+			const start = video.dataset.start || extractYoutubeStart( videoUrl );
+			const id = extractYoutubeId( videoUrl );
 
-	_createIframe( id ) {
-		let iframe = document.createElement( 'iframe' );
+			if ( !media || !button || !footer || !id ) {
+				return;
+			}
 
-		iframe.setAttribute( 'allowfullscreen', '' );
-		iframe.setAttribute( 'allow', 'autoplay' );
-		iframe.setAttribute( 'src', this._generateURL( id ) );
-		iframe.classList.add( 'video__iframe' );
+			video.classList.add( `${selector}_enabled` );
 
-		return iframe;
-	}
+			const videoElementClickHandler = ( evt ) => {
+				evt.preventDefault();
 
-	_generateURL( id ) {
-		let query = '?rel=0&showinfo=0&autoplay=1';
-		let time = '';
-		if ( this._start !== 'false' ) {
-			time = '&start=' + this._start;
-		}
+				if ( image ) {
+					image.remove();
+				}
+				footer.remove();
+				button.removeEventListener( 'click', videoElementClickHandler );
+				media.appendChild( createIframe( id, start ) );
+			};
 
-		return 'https://www.youtube.com/embed/' + id + query + time;
-	}
+			button.addEventListener( 'click', videoElementClickHandler );
+			listeners.push( () => button.removeEventListener( 'click', videoElementClickHandler ) );
+		} );
+	} );
 
-	static create() {
-		return new Videos().init();
-	}
-}
-
-Videos.create();
+	return () => {
+		listeners.forEach( ( removeListener ) => removeListener() );
+	};
+};

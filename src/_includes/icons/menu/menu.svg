@@ -1,0 +1,5 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+<path d="M17 6C17.5523 6 18 6.44772 18 7C18 7.55228 17.5523 8 17 8H5C4.44772 8 4 7.55228 4 7C4 6.44772 4.44772 6 5 6H17Z" class="icon__part icon__part_premium"/>
+<path d="M27 15C27.5523 15 28 15.4477 28 16C28 16.5523 27.5523 17 27 17H5C4.44772 17 4 16.5523 4 16C4 15.4477 4.44772 15 5 15H27Z" class="icon__part icon__part_premium"/>
+<path d="M22 24C22.5523 24 23 24.4477 23 25C23 25.5523 22.5523 26 22 26H5C4.44772 26 4 25.5523 4 25C4 24.4477 4.44772 24 5 24H22Z" class="icon__part icon__part_alt"/>
+</svg>

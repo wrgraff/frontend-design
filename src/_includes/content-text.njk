@@ -1,0 +1,17 @@
+{% macro contentText(data = {}) %}
+	{% set heading = data.heading | default('') | trim %}
+	{% set content = data.content | default('') | trim %}
+
+	{% if heading or content %}
+		<div class="section__container-item content-text">
+			{% if heading %}
+				<h3 class="content-text__heading">{{ heading }}</h3>
+			{% endif %}
+			{% if content %}
+				<div class="content-text__content">
+					{{ content | markdown | safe }}
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+{% endmacro %}

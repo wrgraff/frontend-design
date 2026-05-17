@@ -1,136 +1,41 @@
-{% from 'header.njk' import header with context %}
-{% from 'portfolio-list.njk' import portfolioList with context %}
-{% from 'videos-list.njk' import videosList with context %}
+{% from 'hero.njk' import heroSection %}
+{% from 'portfolio-cases.njk' import portfolioCases %}
+{% from 'section.njk' import section %}
 
-<main class="page__main main">
-	{{ header( mainBlock = 'page' ) }}
+{{ heroSection(hero) }}
 
-	<section class="main__section promo" id="about">
-		<h1 class="promo__heading">{{ promo.heading }}</h1>
-		<p class="promo__text">{{ promo.lead | safe }}</p>
-		<div class="promo__buttons">
-			<a href="{{ meta.cv }}" class="button button_secondary button_small_l button_medium_l button_large_xl button_ico_download">CV</a>
-			<a href="/#portfolio" class="button button_small_l button_medium_l button_large_xl">Portfolio</a>
-		</div>
-	</section>
+{{ section({
+	pretitle: my_design_journey.pretitle,
+	heading: my_design_journey.heading,
+	lead: my_design_journey.body,
+	cta: my_design_journey.cta
+}) }}
 
-	<section class="main__category category" id="design">
-		<header class="category__header category-header">
-			<h2 class="category-header__heading">{{ design.heading }}</h2>
-			<p class="category-header__lead">{{ design.lead | safe }}</p>
-			{% if design.comment %}
-				<p class="category-header__comment">{{ design.comment }}</p>
-			{% endif %}
-			<div class="category-header__description">
-				{{ design.text | markdown | safe }}
-			</div>
-		</header>
+{% call section({
+	pretitle: portfolio.pretitle,
+	heading: portfolio.heading,
+	lead: portfolio.lead,
+	extra_class: 'section_view_portfolio'
+}) %}
+	{{ portfolioCases(
+		collection = collections.portfolio or [],
+		limit = 4,
+		emptyMessage = portfolio.empty_message
+	) }}
+{% endcall %}
 
-		<section class="category__section section" id="portfolio">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.portfolio.heading }}</h3>
-				{% if design.portfolio.comment %}
-					<p class="section__comment">{{ design.portfolio.comment }}</p>
-				{% endif %}
-			</div>
+{% call section({
+	pretitle: approach_to_work.pretitle,
+	heading: approach_to_work.heading,
+	lead: approach_to_work.intro
+}) %}
+	<ol class="section__list list list_type_ordered list_columns_2">
+		{% for step in approach_to_work.steps %}
+			<li class="list__item"{% if step.label %} data-list-label="{{ step.label }}"{% endif %}>
+				{{ step.text | markdown | safe }}
+			</li>
+		{% endfor %}
+	</ol>
+{% endcall %}
 
-			{{ portfolioList(
-				collection = collections.portfolioTop
-			) }}
-		</section>
-
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.skills.heading }}</h3>
-				{% if design.skills.comment %}
-					<p class="section__comment">{{ design.skills.comment }}</p>
-				{% endif %}
-			</div>
-
-			<ul class="section__skills skills">
-				{% for item in design.skills.list %}
-					<li class="skills__item">{{ item }}</li>
-				{% endfor %}
-			</ul>
-		</section>
-
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ design.heading }}">{{ design.instruments.heading }}</h3>
-				{% if design.instruments.comment %}
-					<p class="section__comment">{{ design.instruments.comment }}</p>
-				{% endif %}
-			</div>
-
-			<ul class="section__skills skills">
-				{% for item in design.instruments.list %}
-					<li class="skills__item">{{ item }}</li>
-				{% endfor %}
-			</ul>
-		</section>
-	</section>
-
-	<section class="main__category category" id="performance">
-		<header class="category__header category-header">
-			<h2 class="category-header__heading">{{ performance.heading }}</h2>
-			<p class="category-header__lead">{{ performance.lead | safe }}</p>
-			{% if performance.comment %}
-				<p class="category-header__comment">{{ performance.comment }}</p>
-			{% endif %}
-			<div class="category-header__description">
-				{{ performance.text | markdown | safe }}
-			</div>
-		</header>
-
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ performance.heading }}">{{ performance.videos.heading }}</h3>
-				{% if performance.videos.comment %}
-					<p class="section__comment">{{ performance.videos.comment }}</p>
-				{% endif %}
-			</div>
-
-			{{ videosList(
-				collection = collections.videos,
-				parentSection = 'section'
-			) }}
-		</section>
-
-		<section class="category__section section">
-			<div class="section__header">
-				<h3 class="section__heading" data-category="{{ performance.heading }}">{{ performance.articles.heading }}</h3>
-				{% if performance.articles.comment %}
-					<p class="section__comment">{{ performance.articles.comment }}</p>
-				{% endif %}
-			</div>
-
-			<ul class="section__links articles">
-				{% for item in performance.articles.list %}
-					<li class="articles__item">
-						<h3 class="articles__heading">{{ item.heading }}</h3>
-						<p class="articles__text">{{ item.description }}</p>
-						<a href="{{ item.url }}" class="articles__link link link_link" target="_blank">{{ item.cleanUrl }}</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</section>
-	</section>
-
-	<section class="main__category category" id="contacts">
-		<header class="category__header category-header">
-			<h2 class="category-header__heading">{{ contacts.heading }}</h2>
-			<p class="category-header__lead">{{ contacts.lead | safe }}</p>
-			{% if contacts.comment %}
-				<p class="category-header__comment">{{ contacts.comment }}</p>
-			{% endif %}
-
-			<ul class="category-header__links contact-links">
-				{% for item in contacts.list %}
-					<li class="contact-links__item">
-						<a href="{{ item.url }}" class="contact-links__link">{{ item.title }}</a>
-					</li>
-				{% endfor %}
-			</ul>
-		</header>
-	</section>
-</main>
+{% include 'contacts.njk' %}

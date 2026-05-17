@@ -1,0 +1,143 @@
+{% from 'hero.njk' import heroSection %}
+{% from 'section.njk' import section %}
+{% from 'link.njk' import link %}
+{% from 'label.njk' import label %}
+
+{{ heroSection(hero) }}
+
+{% set publicationsCollection = collections.publications or [] %}
+{% set articleItems = [] %}
+{% set videoItems = [] %}
+
+{% for publication in publicationsCollection %}
+	{% if publication.data.kind == 'video' %}
+		{% set videoItems = (videoItems.push(publication), videoItems) %}
+	{% else %}
+		{% set articleItems = (articleItems.push(publication), articleItems) %}
+	{% endif %}
+{% endfor %}
+
+{% call section({
+	pretitle: articles_section.pretitle,
+	heading: articles_section.heading,
+	lead: articles_section.lead
+}) %}
+	{% if articleItems.length %}
+		<ul class="publications">
+			{% for publication in articleItems %}
+				{% set articleHref = publication.data.external and publication.data.external_url or publication.url %}
+				{% set articleHeading = publication.data.heading or publication.data.title %}
+				{% set cardImage = publication.data.cover or '/img/publications/hero.png' %}
+				{% set cardImageWidth = publication.data.cover_width or 681 %}
+				{% set cardImageHeight = publication.data.cover_height or 744 %}
+				<li class="publications__item">
+					<picture class="publications__media">
+						<img
+							class="publications__image"
+							src="{{ cardImage }}"
+							alt=""
+							aria-hidden="true"
+							width="{{ cardImageWidth }}"
+							height="{{ cardImageHeight }}"
+							loading="lazy"
+							decoding="async"
+						>
+					</picture>
+					<div class="publications__content">
+						<h3 class="publications__heading">
+							{{ link(
+								text = articleHeading,
+								href = articleHref,
+								size = 'heading-h6',
+								iconName = '',
+								extraClass = 'publications__link',
+								external = publication.data.external
+							) }}
+						</h3>
+						{% if publication.data.description %}
+							<p class="publications__description">{{ publication.data.description }}</p>
+						{% endif %}
+					</div>
+					{% if (publication.data.tags and publication.data.tags.length) or (publication.data.external and publication.data.source_label) %}
+						<div class="publications__tags">
+							{% for item in publication.data.tags or [] %}
+								{{ label(
+									text = item,
+									size = 'm'
+								) }}
+							{% endfor %}
+
+							{% if publication.data.external and publication.data.source_label %}
+								{{ label(
+									text = publication.data.source_label,
+									size = 'm'
+								) }}
+							{% endif %}
+						</div>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>{{ articles_section.empty_message }}</p>
+	{% endif %}
+{% endcall %}
+
+{% call section({
+	pretitle: videos_section.pretitle,
+	heading: videos_section.heading,
+	lead: videos_section.lead
+}) %}
+	{% if videoItems.length %}
+		<ul class="publications">
+			{% for publication in videoItems %}
+				{% set videoHref = publication.url %}
+				{% set cardImage = publication.data.cover or '/img/publications/hero.png' %}
+				{% set cardImageWidth = publication.data.cover_width or 681 %}
+				{% set cardImageHeight = publication.data.cover_height or 744 %}
+				<li class="publications__item">
+					<picture class="publications__media">
+						<img
+							class="publications__image"
+							src="{{ cardImage }}"
+							alt=""
+							aria-hidden="true"
+							width="{{ cardImageWidth }}"
+							height="{{ cardImageHeight }}"
+							loading="lazy"
+							decoding="async"
+						>
+					</picture>
+					<div class="publications__content">
+						<h3 class="publications__heading">
+							{{ link(
+								text = publication.data.heading,
+								href = videoHref,
+								size = 'heading-h6',
+								iconName = '',
+								extraClass = 'publications__link'
+							) }}
+						</h3>
+						{% if publication.data.description %}
+							<p class="publications__description">{{ publication.data.description }}</p>
+						{% endif %}
+					</div>
+					{% if publication.data.tags and publication.data.tags.length %}
+						<div class="publications__tags">
+							{% for item in publication.data.tags %}
+								{{ label(
+									text = item,
+									size = 'm'
+								) }}
+							{% endfor %}
+						</div>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>{{ videos_section.empty_message }}</p>
+	{% endif %}
+{% endcall %}
+
+{% include 'contacts.njk' %}

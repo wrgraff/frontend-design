@@ -1,0 +1,34 @@
+{% from 'cta-item.njk' import ctaItem %}
+
+{% macro heroSection(hero) %}
+{% set hasImage = hero.image | default('', true) | trim %}
+<section class="main__section main__section_view_hero hero{% if not hasImage %} hero_size_small{% endif %}">
+	{% if hasImage %}
+		<div class="hero__img">
+			<picture class="hero__picture">
+				<img src="{{ hasImage }}" alt="{{ hero.image_alt or '' }}">
+			</picture>
+		</div>
+	{% endif %}
+
+	<h1 class="hero__heading">
+		{{ hero.heading | trim }}
+		{% if hero.heading_highlight %} <strong>{{ hero.heading_highlight | trim }}</strong>{% endif %}
+		{% if hero.heading_suffix %} {{ hero.heading_suffix | trim }}{% endif %}
+	</h1>
+
+	{% if hero.text %}
+		<div class="hero__text">
+			{{ hero.text | markdown | safe }}
+		</div>
+	{% endif %}
+
+	{% if hero.cta and (hero.cta | length) %}
+		<div class="hero__cta">
+			{% for item in hero.cta %}
+				{{ ctaItem(item, 'secondary', 'xl', 'button') }}
+			{% endfor %}
+		</div>
+	{% endif %}
+</section>
+{% endmacro %}

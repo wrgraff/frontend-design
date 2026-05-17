@@ -1,0 +1,120 @@
+/* Variables */
+
+.slider {
+	--slider-media-bg: var(--color-surface-secondary);
+	--slider-media-aspect-ratio: 986 / 560;
+	--slider-iframe-border: 0;
+	--slider-footer-bg: var(--color-surface-tertiary);
+	--slider-footer-gap: var(--space-gap-s);
+	--slider-footer-padding: var(--space-gap-xxs);
+	--slider-counter-font: var(--font-caption-xs);
+	--slider-counter-color: var(--color-text-tertiary);
+	--slider-counter-width: 180px;
+	--slider-counter-padding-x: var(--space-gap-3xs);
+	--slider-description-font: var(--font-text-xs);
+	--slider-description-color: var(--color-text-secondary);
+	--slider-description-padding-y: var(--space-gap-4xs);
+	--slider-controls-width: 180px;
+	--slider-controls-gap: var(--space-gap-4xs);
+}
+
+/* Slider */
+
+.slider {
+	display: grid;
+}
+
+.slider:focus-visible {
+	outline: var(--space-border-medium) solid var(--color-common-primary);
+	outline-offset: var(--space-gap-5xs);
+}
+
+.slider__media {
+	background-color: var(--slider-media-bg);
+	display: grid;
+}
+
+.slider__slide {
+	aspect-ratio: var(--slider-media-aspect-ratio);
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	width: 100%;
+}
+
+.slider__picture {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.slider__image {
+	display: block;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.slider__iframe {
+	border: var(--slider-iframe-border);
+	display: block;
+	width: 100%;
+}
+
+.slider__footer {
+	align-items: center;
+	background-color: var(--slider-footer-bg);
+	display: flex;
+	gap: var(--slider-footer-gap);
+	padding: var(--slider-footer-padding);
+}
+
+.slider__counter {
+	color: var(--slider-counter-color);
+	flex-shrink: 0;
+	font: var(--slider-counter-font);
+	letter-spacing: var(--font-caption-letterspacing);
+	margin: 0;
+	padding: 0 var(--slider-counter-padding-x);
+	text-transform: var(--font-caption-transform);
+	width: var(--slider-counter-width);
+}
+
+.slider__description {
+	color: var(--slider-description-color);
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: 0;
+	font: var(--slider-description-font);
+	margin: 0;
+	min-width: 0;
+	padding: var(--slider-description-padding-y) 0;
+	text-align: center;
+}
+
+.slider__controls {
+	display: flex;
+	gap: var(--slider-controls-gap);
+	justify-content: end;
+	width: var(--slider-controls-width);
+}
+
+@media (width < 1100px) {
+	.slider__footer {
+		flex-wrap: wrap;
+	}
+
+	.slider__counter {
+		padding: 0;
+		width: auto;
+	}
+
+	.slider__controls {
+		width: auto;
+	}
+
+	.slider__description {
+		flex-basis: 100%;
+		text-align: left;
+	}
+}

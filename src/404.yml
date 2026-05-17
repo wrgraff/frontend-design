@@ -1,0 +1,19 @@
+layout: page.njk
+permalink: 404.html
+title: Page Not Found
+hero:
+  heading: Error 404
+  text: The page you requested does not exist or has been moved.
+  cta:
+    - text: Go to home
+      href: /
+      mode: primary
+      size: xl
+      icon_left: home/home
+      type: link
+    - text: Open portfolio
+      href: /portfolio/
+      mode: base
+      size: xl
+      icon_left: folders/portfolio
+      type: link

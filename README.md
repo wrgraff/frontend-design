@@ -1,30 +1,42 @@
-# Smol Eleventy Starter
+# ArturTrifonov.com
 
-> Extremely minimal Eleventy starter to kickstart a simple multi-page site / a nearly opinionless foundation to continue building on.
+Eleventy-based personal site with Nunjucks templates, YAML content, and token-driven CSS blocks.
 
-### Quick Start
+## Rules
 
-1. [Generate a repo from this template](https://github.com/5t3ph/smol-11ty-starter/generate) which will copy this project into your own new repo. _Note: You must be signed in to GitHub for this link to work_, else [visit the repo directly](https://github.com/5t3ph/smol-11ty-starter/).
+Implementation and styling rules are split out to:
 
-1. Once cloned, run `npm install` to install 11ty. Then run `npm start` to run 11ty in `serve` mode which will create a local server including hot-reload via BrowserSync.
+- [`AGENTS.md`](/home/arturtrifonov/srv/frontend-design/AGENTS.md)
 
-   - Use `npm run build` to run a production version.
+`AGENTS.md` is the source of truth for agent-facing and engineering constraints (BEM, CSS variable layer, layout boundaries, etc.).
 
-1. Open `src/_data/meta.js` and adjust the values to your details.
+Macro contracts are documented in:
 
-1. Edit `index.md` to change the home page, and then create content within `src/pages` using any templating format you prefer to add content.
+- [`docs/components.md`](/home/arturtrifonov/srv/frontend-design/docs/components.md)
 
-> Review the resources available at [11ty Rocks](https://11ty.rocks) to learn how to apply more customizations, including adding custom data sources and reviewing what template languages are available.
+## Stack
 
-## Learn More About Eleventy
+- `Eleventy (11ty)`
+- `Nunjucks`
+- `YAML`
+- `PostCSS`
+- `esbuild`
 
-- Get the highlights in my [14 minute feature overview](https://youtu.be/p81J7G1qFAM)
-- Enjoy written tutorials? Start with my post on [creating your first Eleventy website](https://11ty.rocks/posts/create-your-first-basic-11ty-website/)
-- Enjoy video tutorials? Learn to [build an Eleventy site including Sass](https://5t3ph.dev/learn-11ty) in my 20 minute egghead course
+## Scripts
 
-## Where to go from here?
+- `npm run start` — local dev server
+- `npm run build` — production build
+- `npm run lint:css` — stylelint check
+- `npm run lint:data` — YAML content contracts validation
+- `npm run lint:all:strict` — mandatory full lint suite (`css` + `data` + strict contracts)
+- `npm run fix:css` — stylelint autofix
 
-- You may want to swap to [use Sass instead of CSS](https://github.com/5t3ph/11ty-sass-skeleton) and include minifying/autoprefixing (you can copy the relevant bits from the config and the package scripts/dependencies)
-- Review [additional common config customizations](https://11ty.rocks/eleventyjs/)
-- Check out some [quick tips](https://11ty.rocks/tips/) to learn more about using Eleventy's features
-- Add automatically generated [social images with my plugin](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images)
+## Project Structure
+
+- `src/pages` — pages
+- `src/_includes` — reusable template macros/components
+- `src/_layouts` — base layouts
+- `src/_data` — shared data
+- `src/_data/i18n.yml` — locale list + URL strategy
+- `src/css` — tokens, utilities, and block styles
+- `docs/components.md` — macro API contracts

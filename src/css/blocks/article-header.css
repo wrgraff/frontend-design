@@ -1,0 +1,41 @@
+/* Variables */
+
+.article-header {
+	--article-header-gap: var(--space-gap-l);
+	--article-header-padding-y: 80px;
+	--article-header-padding-x: var(--space-page-padding-x);
+	--article-header-columns: 5;
+	--article-header-tags-gap: var(--space-gap-xs);
+	--article-header-heading-font: var(--font-heading-hl3);
+	--article-header-heading-letterspacing: var(--font-caption-letterspacing);
+	--article-header-description-font: var(--font-text-m);
+}
+
+/* Article header */
+
+.article-header {
+	display: grid;
+	gap: var(--article-header-gap);
+	grid-template-columns: repeat(var(--article-header-columns), minmax(0, 1fr));
+	padding: var(--article-header-padding-y) var(--article-header-padding-x);
+}
+
+.article-header__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--article-header-tags-gap);
+	grid-column: 1 / -1;
+}
+
+.article-header__heading {
+	font: var(--article-header-heading-font);
+	grid-column: 1 / -1;
+	letter-spacing: var(--article-header-heading-letterspacing);
+	margin: 0;
+}
+
+.article-header__description {
+	font: var(--article-header-description-font);
+	grid-column: 1 / span 4;
+	margin: 0;
+}
