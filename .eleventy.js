@@ -427,6 +427,9 @@ module.exports = function (config) {
 
 	config.addWatchTarget('src/publications/**/*.md');
 	config.addWatchTarget('src/_data/i18n.yml', { resetConfig: true });
+	config.addWatchTarget('src/*.yml');
+	config.addWatchTarget('src/pages/**/index.yml');
+	config.addWatchTarget('src/portfolio/**/index.yml');
 	config.addWatchTarget('src/**/*.yml');
 	config.addWatchTarget('src/**/*.yaml');
 
