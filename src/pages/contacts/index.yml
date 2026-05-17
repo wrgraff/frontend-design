@@ -27,29 +27,37 @@ online:
       - text: hi@arturtrifonov.com
         href: mailto:hi@arturtrifonov.com
         icon: email/email
+        external: false
       - text: WhatsApp
         href: https://wa.me/qr/D5O7F7DDAEUHK1
         icon: social-networks/whatsapp
+        external: true
       - text: Telegram
         href: https://t.me/wrgraff
         icon: social-networks/telegram
+        external: true
     -
       - text: LinkedIn
         href: https://www.linkedin.com/in/arturtrifonov/
         icon: social-networks/linkedin
+        external: true
       - text: Behance
         href: https://www.behance.net/arturtrifonov
         icon: social-networks/Behance
+        external: true
       - text: Dribbble
         href: https://dribbble.com/arturtrifonov
         icon: social-networks/dribble
+        external: true
     -
       - text: Facebook
         href: https://www.facebook.com/arturtrifonov
         icon: social-networks/facebook
+        external: true
       - text: Instagram
         href: https://www.instagram.com/arturtrifonov/
         icon: social-networks/instagram
+        external: true
 
 offline:
   pretitle: Offline
