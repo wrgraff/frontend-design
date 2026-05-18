@@ -23,6 +23,9 @@
 	color: var(--page-text-color);
 	font: var(--font-text-m);
 	min-width: 320px;
+}
+
+.page_transition_theme {
 	transition:
 		background-color var(--transition-page-duration) var(--transition-page-function),
 		color var(--transition-page-duration) var(--transition-page-function);
