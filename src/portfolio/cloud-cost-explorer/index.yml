@@ -338,13 +338,17 @@ sections:
               - The primary view could hide the other one
 
   - eyebrow: Key decisions
-    heading: Сhart linked with table
+    heading: Chart linked with table
     content_columns: 5
     content:
       - type: design-solution
         images:
           - src: linking-1.png
             alt: Cloud spend chart connected with a detailed data table below
+            width: 1600
+            height: 1098
+          - src: linking-2.png
+            alt: Cloud spend data table
             width: 1600
             height: 1098
         primary:
@@ -371,15 +375,15 @@ sections:
           - src: filters-1.png
             alt: Cloud Cost Explorer with applied filters visible above the chart
             width: 1600
-            height: 1018
+            height: 1090
           - src: filters-2.png
             alt: Cloud Cost Explorer with applied filters visible above the chart
             width: 1600
-            height: 1018
+            height: 1090
           - src: filters-3.png
             alt: Filter menu open while applied filters remain visible above the chart
             width: 1600
-            height: 1018
+            height: 1090
         primary:
           - heading: Problem
             content: Cost investigation depends on filtering by tags, accounts, projects, and regions. Users must keep a strong sense of what is applied right now, otherwise the chart becomes untrustworthy.
@@ -404,7 +408,7 @@ sections:
           - src: compare.png
             alt: Forecast card with an overlay comparison between current and previous periods
             width: 1600
-            height: 1018
+            height: 1090
         primary:
           - heading: Problem
             content: Stakeholders need a reliable answer to whether current spend is trending above the previous period. Comparisons must stay interpretable across different time periods.
@@ -427,7 +431,7 @@ sections:
       - type: content-bottom-fill
         image: area-prediction-chart.svg
         width: 1320
-        height: 330
+        height: 302
     content:
       - type: content-list
         ordered: true
@@ -456,5 +460,5 @@ contact_section:
   image:
     src: bar-chart.svg
     alt: ''
-    width: 1440
-    height: 608
+    width: 1410
+    height: 535
