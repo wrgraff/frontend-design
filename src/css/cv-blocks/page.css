@@ -1,17 +1,18 @@
 .page {
-	background-color: var(--palette-white);
-	color: var(--palette-gray-800);
+	--page-bg: var(--color-surface-base);
+	--page-body-bg: var(--color-surface-tertiary);
+	--page-color: var(--color-text-base);
 
+	background-color: var(--page-bg);
+	color: var(--page-color);
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 7pt;
 	line-height: 1.6;
 }
 
 .page__body {
-
-	background-color: var(--palette-gray-300);
-
 	display: grid;
+	background-color: var(--page-body-bg);
 	margin: 0;
 	min-height: 100vh;
 	padding: 0;

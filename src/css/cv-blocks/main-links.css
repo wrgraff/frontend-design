@@ -1,33 +1,29 @@
 .main-links {
-	display: flex;
+	--main-links-color: var(--color-text-base);
 
+	display: flex;
 	font-size: 14px;
 	gap: 8px;
 	justify-content: space-between;
-
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
 .main-links__link {
-	--link-color: var(--palette-gray-800);
+	--link-color: var(--main-links-color);
 
 	color: var(--link-color);
-
 	display: flex;
 	gap: 6px;
 }
 
 .main-links__link::before {
-
-	background-color: var(--link-color);
 	content: '';
+	background-color: var(--link-color);
 	height: 20px;
 	margin-top: 2px;
-
 	transition: background-color 200ms;
-
 	width: 20px;
 }
 

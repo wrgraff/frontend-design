@@ -1,4 +1,7 @@
 .experience {
+	--experience-company-color: var(--color-text-tertiary);
+	--experience-dates-color: var(--color-text-tertiary);
+	--experience-projects-heading-color: var(--color-text-tertiary);
 
 	list-style: none;
 	padding: 0;
@@ -27,16 +30,14 @@
 }
 
 .experience__dates {
-
-	color: var(--palette-gray-500);
 	margin: 0;
+	color: var(--experience-dates-color);
 }
 
 .experience__company {
-
-	color: var(--palette-gray-500);
 	grid-column: 1 / -1;
 	margin: 0;
+	color: var(--experience-company-color);
 }
 
 .experience__company p {
@@ -48,11 +49,9 @@
 }
 
 .experience__projects-heading {
-
-	color: var(--palette-gray-400);
-
 	font-size: 1.2rem;
 	font-weight: 500;
 	letter-spacing: 2%;
 	margin: 1mm 0 .5mm;
+	color: var(--experience-projects-heading-color);
 }

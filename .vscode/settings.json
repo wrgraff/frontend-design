@@ -1,5 +1,17 @@
 {
   "css.lint.unknownProperties": "ignore",
   "scss.lint.unknownProperties": "ignore",
-  "less.lint.unknownProperties": "ignore"
+  "less.lint.unknownProperties": "ignore",
+  "cSpell.words": [
+    "apptio",
+    "chargeback",
+    "cloudhealth",
+    "datatable",
+    "fintech",
+    "imgs",
+    "multicloud",
+    "optimisation",
+    "Optimise",
+    "showback"
+  ]
 }

@@ -1,26 +1,24 @@
 .paper-links {
-	display: flex;
+	--paper-links-color: var(--color-text-base);
 
+	display: flex;
 	font-size: 1.1rem;
 	gap: 4mm;
 	justify-content: space-between;
-
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
 .paper-links__link {
-	--link-color: var(--palette-gray-800);
+	--link-color: var(--paper-links-color);
 
 	color: var(--link-color);
-
 	display: flex;
 	gap: 1mm;
 }
 
 .paper-links__icon {
-
 	color: var(--link-color);
 	height: 4mm;
 	width: 4mm;

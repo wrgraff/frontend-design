@@ -30,7 +30,7 @@
 					<ul class="paper-header__paper-links paper-links">
 						{% for item in paperHeader.mainLinks %}
 							<li class="paper-links__item">
-								<a href="item.link" class="paper-links__link" target="_blank">
+								<a href="{{ item.link }}" class="paper-links__link" target="_blank">
 									<svg class="paper-links__icon">
 										<use href="/img/icons.svg#{{ item.type if item.type else 'dash' }}" />
 									</svg>

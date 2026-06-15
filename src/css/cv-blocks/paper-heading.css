@@ -1,23 +1,23 @@
 .paper-heading {
-	align-items: baseline;
+	--paper-heading-color: var(--color-text-base);
+	--paper-heading-line-bg: var(--color-border-base);
+	--paper-heading-small-color: var(--color-text-secondary);
 
-	color: var(--palette-gray-800);
+	align-items: baseline;
 	display: flex;
+	color: var(--paper-heading-color);
 	font-weight: 700;
 	gap: .3em;
-
 	letter-spacing: 2%;
 	line-height: 1;
 }
 
 .paper-heading::after {
-
-	background-color: var(--palette-gray-300);
 	content: '';
+	background-color: var(--paper-heading-line-bg);
 	height: .15em;
 	position: relative;
 	top: .15em;
-
 	width: .65em;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .paper-heading_type_main .paper-heading__small {
-	color: var(--palette-gray-600);
+	color: var(--paper-heading-small-color);
 	font-size: 1.7rem;
 }
 

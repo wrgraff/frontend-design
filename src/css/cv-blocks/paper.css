@@ -1,8 +1,11 @@
 .paper {
+	--paper-bg: var(--color-surface-base);
+	--paper-aside-bg: var(--color-surface-secondary);
+	--paper-shadow: 0 2mm 12mm var(--color-shadow-base);
 
-	background-color: white;
+	background-color: var(--paper-bg);
 	border-radius: 8px;
-	box-shadow: 0 2mm 12mm rgba(0, 0, 0, .2);
+	box-shadow: var(--paper-shadow);
 	display: grid;
 	grid-template-columns: 1fr 54mm;
 	height: 297mm;
@@ -22,9 +25,8 @@
 }
 
 .paper__aside {
-
-	background-color: var(--palette-gray-100);
 	overflow: hidden;
+	background-color: var(--paper-aside-bg);
 	padding: 5mm 7mm;
 }
 
