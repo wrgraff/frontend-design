@@ -1,15 +1,16 @@
 .paper-heading {
 	--paper-heading-color: var(--color-text-base);
+	--paper-heading-font: var(--cv-font-heading-experience);
 	--paper-heading-line-bg: var(--color-border-base);
+	--paper-heading-small-font: var(--cv-font-heading-experience-role);
 	--paper-heading-small-color: var(--color-text-secondary);
 
 	align-items: baseline;
 	display: flex;
 	color: var(--paper-heading-color);
-	font-weight: 700;
+	font: var(--paper-heading-font);
 	gap: .3em;
-	letter-spacing: 2%;
-	line-height: 1;
+	letter-spacing: var(--cv-font-heading-letterspacing);
 }
 
 .paper-heading::after {
@@ -22,25 +23,22 @@
 }
 
 .paper-heading__small {
+	font: var(--paper-heading-small-font);
 	order: 1;
 }
 
 /* Types */
 
 .paper-heading_type_main {
-	font-size: 2.6rem;
+	--paper-heading-font: var(--cv-font-heading-name);
+	--paper-heading-small-font: var(--cv-font-heading-role);
 }
 
 .paper-heading_type_main .paper-heading__small {
 	color: var(--paper-heading-small-color);
-	font-size: 1.7rem;
 }
 
 .paper-heading_type_experience {
-	font-size: 1.3rem;
-	font-weight: 500;
-}
-
-.paper-heading_type_experience .paper-heading__small {
-	font-size: 1.3rem;
+	--paper-heading-font: var(--cv-font-heading-experience);
+	--paper-heading-small-font: var(--cv-font-heading-experience-role);
 }

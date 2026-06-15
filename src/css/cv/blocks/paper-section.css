@@ -23,11 +23,9 @@
 }
 
 .paper-section__heading {
-	font-size: 1.3rem;
-	font-weight: 500;
-	line-height: 1;
 	margin: 1mm 0 3mm;
 	color: var(--paper-section-heading-color);
+	font: var(--cv-font-heading-section);
 }
 
 .paper-section__content {

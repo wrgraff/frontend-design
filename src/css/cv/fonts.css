@@ -1,0 +1,23 @@
+/* Variables */
+
+:root {
+	/* Families */
+	--cv-font-family-text: 'Ubuntu', sans-serif;
+	--cv-font-family-heading: 'Lexend', sans-serif;
+
+	/* Body */
+	--cv-font-text: 400 7pt / 1.55 var(--cv-font-family-text);
+
+	/* Links */
+	--cv-font-link-main: 400 1.2rem / 1.5 var(--cv-font-family-text);
+	--cv-font-link-site: 400 .75rem / 1.5 var(--cv-font-family-text);
+
+	/* Headings */
+	--cv-font-heading-name: 700 2.6rem / 1 var(--cv-font-family-heading);
+	--cv-font-heading-role: 700 1.7rem / 1 var(--cv-font-family-heading);
+	--cv-font-heading-section: 500 1.3rem / 1 var(--cv-font-family-heading);
+	--cv-font-heading-experience: 500 1.3rem / 1 var(--cv-font-family-heading);
+	--cv-font-heading-experience-role: 500 1.3rem / 1 var(--cv-font-family-heading);
+	--cv-font-heading-projects: 500 1.2rem / 1 var(--cv-font-family-heading);
+	--cv-font-heading-letterspacing: .02em;
+}

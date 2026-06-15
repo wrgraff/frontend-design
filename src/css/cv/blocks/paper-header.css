@@ -1,6 +1,4 @@
 .paper-header {
-	--paper-header-about-color: var(--color-text-secondary);
-
 	display: grid;
 	gap: 4mm;
 	padding-bottom: 4mm;
@@ -12,9 +10,8 @@
 
 .paper-header__about {
 	display: grid;
-	color: var(--paper-header-about-color);
 	gap: 5mm;
-	grid-template-columns: 1fr 54mm;
+	grid-template-columns: 1fr 56mm;
 }
 
 .paper-header__about p {

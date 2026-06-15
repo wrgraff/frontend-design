@@ -34,8 +34,8 @@
 	--color-text-base: var(--palette-slate-900);
 	--color-text-base-hover: var(--palette-slate-950);
 	--color-text-base-active: var(--palette-slate-975);
-	--color-text-secondary: var(--palette-slate-600);
-	--color-text-tertiary: var(--palette-slate-400);
+	--color-text-secondary: var(--palette-slate-700);
+	--color-text-tertiary: var(--palette-slate-600);
 	--color-text-bg: var(--palette-slate-100);
 	--color-text-inverse: var(--palette-slate-100);
 	--color-text-alt: var(--palette-indigo-800);

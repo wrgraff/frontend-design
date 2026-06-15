@@ -24,9 +24,9 @@ contacts:
   heading: Contacts
   list:
     - heading: Bratislava, Slovakia
-      type: maps-navigation/place
+      type: info-signs/pointer_map
     - heading: +421 944 616 289
-      type: phone-calls/phone_contact
+      type: ui-basics/phone_call
       link: tel:+421944616289
     - heading: hi@arturtrifonov.com
       type: email/email

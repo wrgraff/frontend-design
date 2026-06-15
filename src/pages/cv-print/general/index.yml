@@ -2,7 +2,7 @@ paperHeader:
   name: Artur Trifonov
   position: Product UI Designer
   about: |
-    14 years of experience in UI, including 4 in fintech, cloud platforms, and B2B tools. Built a design system used across hundreds of screens. Accelerated development by ~25% in story points and improved consistency through component reuse and rigorous documentation. Brought structure into complex workflows and made collaboration with engineers more predictable.
+    14 years of experience in UI, including 4 in fintech, cloud platforms, and B2B tools. Built a design system used across hundreds of screens. Accelerated development by ~25% in story points and improved consistency through component reuse and documentation. Brought structure into complex workflows and made collaboration with engineers more predictable.
 
     Focused on structure, empathy, and clarity. Acts as the user’s advocate in product discussions.
     Mentored 50+ students, co-authored the "Design for Devs" course, and delivered lectures. Ready to bring foundational rigor and a systematic approach to design.
@@ -23,9 +23,9 @@ contacts:
   heading: Contacts
   list:
     - heading: Bratislava, Slovakia
-      type: maps-navigation/place
+      type: info-signs/pointer_map
     - heading: +421 944 616 289
-      type: phone-calls/phone_contact
+      type: ui-basics/phone_call
       link: tel:+421944616289
     - heading: hi@arturtrifonov.com
       type: email/email

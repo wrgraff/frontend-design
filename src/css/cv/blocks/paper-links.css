@@ -2,7 +2,7 @@
 	--paper-links-color: var(--color-text-base);
 
 	display: flex;
-	font-size: 1.1rem;
+	font: var(--cv-font-link-main);
 	gap: 4mm;
 	justify-content: space-between;
 	list-style: none;
@@ -16,12 +16,16 @@
 	color: var(--link-color);
 	display: flex;
 	gap: 1mm;
+	text-underline-offset: .2em;
+	text-decoration-color: var(--color-text-secondary);
+	text-decoration-thickness: 1px;
 }
 
 .paper-links__icon {
 	color: var(--link-color);
-	height: 4mm;
-	width: 4mm;
+	height: 1.2em;
+	width: 1.2em;
+	margin-top: 0.1em;
 }
 
 .paper-links__icon_type_dash {

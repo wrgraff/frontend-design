@@ -1,5 +1,5 @@
 .experience {
-	--experience-company-color: var(--color-text-tertiary);
+	--experience-company-color: var(--color-text-secondary);
 	--experience-dates-color: var(--color-text-tertiary);
 	--experience-projects-heading-color: var(--color-text-tertiary);
 
@@ -49,9 +49,8 @@
 }
 
 .experience__projects-heading {
-	font-size: 1.2rem;
-	font-weight: 500;
-	letter-spacing: 2%;
 	margin: 1mm 0 .5mm;
 	color: var(--experience-projects-heading-color);
+	font: var(--cv-font-heading-projects);
+	letter-spacing: var(--cv-font-heading-letterspacing);
 }

@@ -1,7 +1,7 @@
 /* Variables */
 
 .icon {
-	--icon-color-alt: var(--color-text-alt);
+	--icon-color-alt: var(--color-text-secondary);
 }
 
 /* Icon */

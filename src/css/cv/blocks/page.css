@@ -5,9 +5,7 @@
 
 	background-color: var(--page-bg);
 	color: var(--page-color);
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 7pt;
-	line-height: 1.6;
+	font: var(--cv-font-text);
 }
 
 .page__body {
