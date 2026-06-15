@@ -3,6 +3,7 @@
 	--paper-list-details-color: var(--color-text-tertiary);
 	--paper-list-details-separator-color: var(--color-border-base);
 	--paper-list-icon-color: var(--color-text-base);
+	--paper-list-link-color: var(--color-text-base);
 	--paper-list-site-color: var(--color-text-tertiary);
 
 	padding: 0;
@@ -34,6 +35,20 @@
 	width: 4mm;
 }
 
+.paper-list__icon_type_dash {
+	position: relative;
+}
+
+.paper-list__icon_type_dash::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 1mm;
+	width: 2mm;
+	height: .3mm;
+	background-color: currentColor;
+}
+
 .paper-list:not(.paper-list_inline):not(.paper-list_performances) .paper-list__item + .paper-list__item {
 	margin-top: 1.5mm;
 }
@@ -41,7 +56,7 @@
 .paper-list__link {
 	align-content: start;
 	display: grid;
-
+	color: var(--paper-list-link-color);
 	text-decoration: none;
 }
 

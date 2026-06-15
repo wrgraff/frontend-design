@@ -9,13 +9,13 @@ paperHeader:
     Ready to bring foundational rigor, attention to detail, strong design principles, and a systematic approach.
   mainLinks:
     - heading: linkedin.com/in/arturtrifonov
-      type: linkedin
+      type: social-networks/linkedin
       link: https://www.linkedin.com/in/arturtrifonov
     - heading: behance.net/arturtrifonov
-      type: behance
+      type: social-networks/Behance
       link: https://www.behance.net/arturtrifonov
     - heading: dribbble.com/arturtrifonov
-      type: dribbble
+      type: social-networks/dribble
       link: https://dribbble.com/arturtrifonov
 photo:
   img: me_cv_mono.jpg
@@ -24,15 +24,15 @@ contacts:
   heading: Contacts
   list:
     - heading: Bratislava, Slovakia
-      type: place
+      type: maps-navigation/place
     - heading: +421 944 616 289
-      type: phone
+      type: phone-calls/phone_contact
       link: tel:+421944616289
     - heading: hi@arturtrifonov.com
-      type: email
+      type: email/email
       link: mailto:hi@arturtrifonov.com
     - heading: arturtrifonov.com
-      type: link
+      type: info-signs/link
       link: https://arturtrifonov.com/
 languages:
   heading: Languages
@@ -131,34 +131,34 @@ performances:
   heading: My Articles and Presentations
   list:
     - heading: Basics of Figma for Frontend Devs
-      type: video
+      type: video/video_player
       site: arturtrifonov.com/​videos/​figma
       link: https://arturtrifonov.com/videos/figma/
     - heading: Modern IT Technologies   
-      type: video
+      type: video/video_player
       site: arturtrifonov.com/​videos/​it
       link: https://arturtrifonov.com/videos/it/
     - heading: Modern Layout Techniques
-      type: video
+      type: video/video_player
       site: arturtrifonov.com/​videos/​layout
       link: https://arturtrifonov.com/videos/layout/
     - heading: Content Management Systems
-      type: video
+      type: video/video_player
       site: arturtrifonov.com/​videos/​cms
       link: https://arturtrifonov.com/videos/cms/
     - heading: How to fix common design mistakes
-      type: article
+      type: files/file_text
       site: htmlacademy.ru/blog/​articles/​bad-design
       link: https://htmlacademy.ru/blog/html/bad-design
     - heading: Why should a dev know design?
-      type: article
+      type: files/file_text
       site: htmlacademy.ru/blog/m​iddle/​frontend-in-design
       link: https://htmlacademy.ru/blog/middle/frontend-in-design/
     - heading: Git Workflow, Why Are You So Weird?
-      type: article
+      type: files/file_text
       site: articles.arturtrifonov.com/​articles/​git-workflow
       link: https://articles.arturtrifonov.com/articles/git-workflow
     - heading: When Is Fixed Height Needed in Layout?
-      type: article
+      type: files/file_text
       site: articles.arturtrifonov.com/​articles/​height-in-css
       link: https://articles.arturtrifonov.com/articles/height-in-css

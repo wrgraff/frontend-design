@@ -9,6 +9,7 @@
 
 @import url('./utilities/visually-hidden.css');
 
+@import url('./cv-blocks/icon.css');
 @import url('./cv-blocks/page.css');
 @import url('./cv-blocks/paper.css');
 @import url('./cv-blocks/paper-header.css');
@@ -16,7 +17,6 @@
 @import url('./cv-blocks/paper-section.css');
 @import url('./cv-blocks/paper-list.css');
 @import url('./cv-blocks/paper-links.css');
-/* @import url('./cv-blocks/main-links.css'); */
 @import url('./cv-blocks/experience.css');
 @import url('./cv-blocks/experience-list.css');
 /* @import url('./cv-blocks/experience-projects.css'); */

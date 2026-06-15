@@ -1,4 +1,5 @@
 {% from 'paper-items.njk' import paperItems with context %}
+{% from 'icon.njk' import icon %}
 
 <!DOCTYPE html>
 <html lang="en" class="page no-js">
@@ -31,9 +32,11 @@
 						{% for item in paperHeader.mainLinks %}
 							<li class="paper-links__item">
 								<a href="{{ item.link }}" class="paper-links__link" target="_blank">
-									<svg class="paper-links__icon">
-										<use href="/img/icons.svg#{{ item.type if item.type else 'dash' }}" />
-									</svg>
+									{% if item.type %}
+										{{ icon(item.type, 'paper-links__icon', 16) }}
+									{% else %}
+										<span class="paper-links__icon paper-links__icon_type_dash" aria-hidden="true"></span>
+									{% endif %}
 									{{ item.heading }}
 								</a>
 							</li>
