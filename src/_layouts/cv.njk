@@ -1,4 +1,5 @@
 {% from 'paper-items.njk' import paperItems with context %}
+{% from 'icon.njk' import icon %}
 
 <!DOCTYPE html>
 <html lang="en" class="page no-js">
@@ -6,6 +7,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ paperHeader.name }} {{ paperHeader.position }} CV</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="{{ '/css/cv.css' | url }}">
 
 		<link rel="icon" href="/img/favicons/favicon.ico" sizes="any">
@@ -30,10 +34,12 @@
 					<ul class="paper-header__paper-links paper-links">
 						{% for item in paperHeader.mainLinks %}
 							<li class="paper-links__item">
-								<a href="item.link" class="paper-links__link" target="_blank">
-									<svg class="paper-links__icon">
-										<use href="/img/icons.svg#{{ item.type if item.type else 'dash' }}" />
-									</svg>
+								<a href="{{ item.link }}" class="paper-links__link" target="_blank">
+									{% if item.type %}
+										{{ icon(item.type, 'paper-links__icon', 16) }}
+									{% else %}
+										<span class="paper-links__icon paper-links__icon_type_dash" aria-hidden="true"></span>
+									{% endif %}
 									{{ item.heading }}
 								</a>
 							</li>

@@ -1,0 +1,44 @@
+.paper-heading {
+	--paper-heading-color: var(--color-text-base);
+	--paper-heading-font: var(--cv-font-heading-experience);
+	--paper-heading-line-bg: var(--color-border-base);
+	--paper-heading-small-font: var(--cv-font-heading-experience-role);
+	--paper-heading-small-color: var(--color-text-secondary);
+
+	align-items: baseline;
+	display: flex;
+	color: var(--paper-heading-color);
+	font: var(--paper-heading-font);
+	gap: .3em;
+	letter-spacing: var(--cv-font-heading-letterspacing);
+}
+
+.paper-heading::after {
+	content: '';
+	background-color: var(--paper-heading-line-bg);
+	height: .15em;
+	position: relative;
+	top: .15em;
+	width: .65em;
+}
+
+.paper-heading__small {
+	font: var(--paper-heading-small-font);
+	order: 1;
+}
+
+/* Types */
+
+.paper-heading_type_main {
+	--paper-heading-font: var(--cv-font-heading-name);
+	--paper-heading-small-font: var(--cv-font-heading-role);
+}
+
+.paper-heading_type_main .paper-heading__small {
+	color: var(--paper-heading-small-color);
+}
+
+.paper-heading_type_experience {
+	--paper-heading-font: var(--cv-font-heading-experience);
+	--paper-heading-small-font: var(--cv-font-heading-experience-role);
+}

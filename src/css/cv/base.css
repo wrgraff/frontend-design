@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+::selection {
+	background-color: var(--color-common-primary);
+	color: var(--color-text-inverse);
+}
+
+:focus-visible {
+	outline: var(--space-border-medium) solid var(--color-common-primary);
+	outline-offset: var(--space-gap-5xs);
+}
+
+strong {
+	color: var(--color-text-primary);
+	font-weight: inherit;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, pre, figure) {
+	margin: 0;
+}
+
+:where(p, ul, ol, dl, blockquote, pre, figure, li) {
+	margin: .2em 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, pre, figure):first-child {
+	margin-top: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, pre, figure):last-child {
+	margin-bottom: 0;
+}

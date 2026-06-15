@@ -1,22 +1,22 @@
 @import url('./colors/palette.css');
 @import url('./colors/light.css');
 
-@import url('./fonts/index.css');
+@import url('./fonts/family.css');
+@import url('./cv/fonts.css');
 @import url('./spaces/index.css');
 @import url('./radius/index.css');
 
-@import url('./global/index.css');
+@import url('./cv/base.css');
 
 @import url('./utilities/visually-hidden.css');
 
-@import url('./cv-blocks/page.css');
-@import url('./cv-blocks/paper.css');
-@import url('./cv-blocks/paper-header.css');
-@import url('./cv-blocks/paper-heading.css');
-@import url('./cv-blocks/paper-section.css');
-@import url('./cv-blocks/paper-list.css');
-@import url('./cv-blocks/paper-links.css');
-/* @import url('./cv-blocks/main-links.css'); */
-@import url('./cv-blocks/experience.css');
-@import url('./cv-blocks/experience-list.css');
-/* @import url('./cv-blocks/experience-projects.css'); */
+@import url('./cv/blocks/icon.css');
+@import url('./cv/blocks/page.css');
+@import url('./cv/blocks/paper.css');
+@import url('./cv/blocks/paper-header.css');
+@import url('./cv/blocks/paper-heading.css');
+@import url('./cv/blocks/paper-section.css');
+@import url('./cv/blocks/paper-list.css');
+@import url('./cv/blocks/paper-links.css');
+@import url('./cv/blocks/experience.css');
+@import url('./cv/blocks/experience-list.css');
